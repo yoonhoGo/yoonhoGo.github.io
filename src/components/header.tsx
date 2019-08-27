@@ -1,23 +1,36 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import styled from "styled-components"
 
 const Header = ({ siteTitle }: { siteTitle: string }) => (
-  <HeaderMargin>
-    <Padding>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+  <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <div className="navbar-brand">
+      <Link className="navbar-item" to="/">
+        {siteTitle}
+      </Link>
+
+      <a
+        role="button"
+        className="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div className="navbar-menu">
+      <div className="navbar-end">
+        <Link className="navbar-item" to="#about">
+          About
         </Link>
-      </h1>
-    </Padding>
-  </HeaderMargin>
+        <Link className="navbar-item" to="#projects">
+          Projects
+        </Link>
+      </div>
+    </div>
+  </nav>
 )
 
 Header.propTypes = {
@@ -29,13 +42,3 @@ Header.defaultProps = {
 }
 
 export default Header
-
-const HeaderMargin = styled.header`
-  margin-bottom: 1.45rem;
-`
-
-const Padding = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 1.45rem 1.0875rem;
-`

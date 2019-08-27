@@ -1,8 +1,8 @@
 import React from "react"
 
-export default function About(props: {id: string}) {
+export default function About(props: {id?: string}) {
   return (
-    <article className="media">
+    <article className="media section">
       <figure className="media-left">
         <p className="image is-128x128">
           <img src="https://avatars0.githubusercontent.com/u/6959851?s=460&v=4" />

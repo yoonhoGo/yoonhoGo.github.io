@@ -6,14 +6,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import About from "./index/about"
+import Projects from "./index/projects"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <section className="section">
-      <About id="about" />
-      {/* <Projects /> */}
-    </section>
+    <About id="about"/>
+    <Projects />
   </Layout>
 )
 

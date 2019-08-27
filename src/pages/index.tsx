@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
 
+import "../static/mystyles.scss"
+
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -17,6 +19,7 @@ const IndexPage = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <Author>yoonhoGo</Author>
+    <button className='button'>hi</button>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>

@@ -38,8 +38,9 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.9",
     "@types/styled-components": "^4.1.18",
-    "prettier": "^1.18.2",
-    "eslint-plugin-graphql": "^3.0.3"
+    "dotenv-cli": "^2.0.1",
+    "eslint-plugin-graphql": "^3.0.3",
+    "prettier": "^1.18.2"
   },
   "keywords": [
     "gatsby"
@@ -49,7 +50,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "dotenv -e .env.development npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
     "generate": "graphql-codegen"

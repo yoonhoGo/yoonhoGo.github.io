@@ -1,6 +1,17 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby";
 
 export default function About(props: {id?: string}) {
+  const data = useStaticQuery(graphql`
+    query SiteAuthorQuery {
+      site {
+        siteMetadata {
+          author
+        }
+      }
+    }
+  `)
+  const author = data.site.siteMetadata.author
   return (
     <article className="media section">
       <figure className="media-left">
@@ -11,7 +22,7 @@ export default function About(props: {id?: string}) {
       <div className="media-content">
         <div className="content">
           <p>
-            <strong>Yoonho Ko</strong> <small>@yoonhoGo</small>
+            <strong>Yoonho Ko</strong> <small>{author}</small>
             <br />
             정보보안을 기초로하여 인프라 및 운용 시스템 보안을 개발하고 싶다는 비전을 가지고 있습니다. 특히, 지난 세대의 서버 운용에서 벗어나 현대의 트렌드에 발맞춘 모던 서버 개발에 관심이 많습니다. 빠른 개발, 안정적인 운영, 지속적이고 유연한 유지관리를 개발 철학으로 생각하고 있습니다.
             <br />

@@ -1,7 +1,7 @@
 import React, { Profiler } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { SmallIconLabel } from "./components/SmallIconLabel"
+import SmallIconLabel from "./components/SmallIconLabel"
 
 export default function About(props: { id?: string }) {
   const data = useStaticQuery(graphql`

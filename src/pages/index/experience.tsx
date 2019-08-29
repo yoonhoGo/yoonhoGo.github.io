@@ -1,5 +1,5 @@
 import React from "react"
-import { SmallIconLabel } from "./components/SmallIconLabel"
+import SmallIconLabel from "./components/SmallIconLabel"
 
 export default function Experiences(props: { id?: string }) {
   return (

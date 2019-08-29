@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react"
 
 export interface ISmallIconLabel {
   iconName: string
   children: string
 }
 
-export function SmallIconLabel({ iconName, children }: ISmallIconLabel) {
+export default function SmallIconLabel({ iconName, children }: ISmallIconLabel) {
   return (
     <>
       <span className="icon">

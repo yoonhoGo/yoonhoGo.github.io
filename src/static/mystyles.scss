@@ -3,4 +3,12 @@
 // If need, change your variables before importing Bulma
 $title-color: #ff0000;
 
+.is-max-960 {
+  max-width: 960px;
+}
+
+.is-margin-center {
+  margin: 0 auto;
+}
+
 @import "~bulma/bulma.sass";

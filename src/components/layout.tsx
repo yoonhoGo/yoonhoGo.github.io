@@ -10,10 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import styled from "styled-components"
 import Helmet from "react-helmet"
 
-const Layout = ({ children }: { children: any }) => {
+const Layout = ({ children }: { children: JSX.Element[] }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

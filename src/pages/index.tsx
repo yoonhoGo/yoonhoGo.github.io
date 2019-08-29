@@ -7,12 +7,14 @@ import SEO from "../components/seo"
 
 import About from "./index/about"
 import Projects from "./index/projects"
+import Experience from "./index/experience"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <About id="about"/>
-    <Projects id="projects"/>
+    <About />
+    <Projects />
+    <Experience />
   </Layout>
 )
 

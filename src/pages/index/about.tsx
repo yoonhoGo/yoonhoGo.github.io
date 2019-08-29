@@ -14,7 +14,7 @@ export default function About(props: { id?: string }) {
   `)
   const author = data.site.siteMetadata.author
   return (
-    <article className="section">
+    <article id="about" className="section is-max-960 is-margin-center">
       <div className="container">
         <div className="columns">
           <div className="column  is-narrow">

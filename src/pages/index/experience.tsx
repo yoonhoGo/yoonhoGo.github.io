@@ -1,4 +1,5 @@
 import React from "react"
+import { SmallIconLabel } from "./components/SmallIconLabel"
 
 export default function Experiences(props: { id?: string }) {
   return (
@@ -98,21 +99,5 @@ function Experience({ imageSrc, children }: IExperienceBox) {
         </div>
       </article>
     </div>
-  )
-}
-
-interface ISmallIconLabel {
-  iconName: string
-  children: string
-}
-
-function SmallIconLabel({ iconName, children }: ISmallIconLabel) {
-  return (
-    <>
-      <span className="icon">
-        <i className={iconName + " fa-sm"}></i>
-      </span>
-      <small>{children}</small>
-    </>
   )
 }

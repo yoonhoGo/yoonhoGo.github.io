@@ -1,6 +1,7 @@
-import React from "react"
+import React, { Profiler } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import { SmallIconLabel } from "./components/SmallIconLabel"
 
 export default function About(props: { id?: string }) {
   const data = useStaticQuery(graphql`
@@ -17,10 +18,24 @@ export default function About(props: { id?: string }) {
     <article id="about" className="section is-max-960 is-margin-center">
       <div className="container">
         <div className="columns">
-          <div className="column  is-narrow">
-            <figure className="image is-128x128">
-              <ProfilePhotho src="https://avatars0.githubusercontent.com/u/6959851?s=460&v=4" />
-            </figure>
+          <div className="column is-narrow">
+            <Profile
+              profilePhotoSrc="https://avatars0.githubusercontent.com/u/6959851?s=460&v=4"
+              smallIconLabels={[
+                {
+                  iconName: "fab fa-github",
+                  label: "@yoonhoGo",
+                },
+                {
+                  iconName: "fab fa-instagram",
+                  label: "@ynh_g",
+                },
+                {
+                  iconName: "fas fa-at",
+                  label: "rhdbsgh0629@naver.com",
+                },
+              ]}
+            />
           </div>
           <div className="column">
             <div className="content">
@@ -54,5 +69,34 @@ export default function About(props: { id?: string }) {
 const ProfilePhotho = styled.img`
   margin: 0.5em;
   border-radius: 0.75rem;
-  border: 0.3em solid;
 `
+
+interface IProfile {
+  profilePhotoSrc: string
+  smallIconLabels?: Array<{
+    iconName: string
+    label: string
+  }>
+}
+
+function Profile({ profilePhotoSrc, smallIconLabels }: IProfile) {
+  return (
+    <>
+      <div>
+        <figure className="image is-128x128 is-margin-center">
+          <ProfilePhotho src={profilePhotoSrc} />
+        </figure>
+      </div>
+      {smallIconLabels && (
+        <span className="is-margin-center">
+          {smallIconLabels.map(({ iconName, label }) => (
+            <>
+              <SmallIconLabel iconName={iconName}>{label}</SmallIconLabel>
+              <br />
+            </>
+          ))}
+        </span>
+      )}
+    </>
+  )
+}

@@ -49,6 +49,9 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
           <Link className="navbar-item" to="#experience">
             WorkExperience
           </Link>
+          <Link className="navbar-item" to="#contact">
+            Contact
+          </Link>
         </div>
       </div>
     </nav>

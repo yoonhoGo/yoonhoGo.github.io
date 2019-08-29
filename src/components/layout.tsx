@@ -34,7 +34,7 @@ const Layout = ({ children }: { children: any }) => {
       </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
-      <footer className="footer">
+      <footer className="footer has-text-centered">
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">

@@ -6,7 +6,7 @@ export default function Contact() {
       <div className="container">
         <div className="box is-max-960 is-margin-center">
           <h1 className="title">Contact</h1>
-          <form name="contact" method="POST" data-netlify="true">
+          <form name="contact" method="POST" data-netlify="true" netlify>
             <p className="field">
               <label className="label">Your Name:</label>
               <div className="control">

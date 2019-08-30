@@ -40,7 +40,7 @@ export default function Contact() {
               <label className="label">Your Role:</label>
               <div className="control">
                 <div className="select">
-                  <select>
+                  <select name="role">
                     <option value="leader">Leader</option>
                     <option value="follower">Follower</option>
                   </select>
@@ -51,6 +51,7 @@ export default function Contact() {
               <label className="label">Message</label>
               <div className="control">
                 <textarea
+                  name="message"
                   className="textarea"
                   placeholder="Textarea"
                 ></textarea>

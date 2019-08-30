@@ -1,17 +1,36 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useRef, forwardRef } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import { Site, SiteSiteMetadata } from "../graphqlTypes"
 
-const Header = ({ siteTitle }: { siteTitle: string }) => {
+function getSiteTitle() {
+  const defaultTitle = `Gatsby Site`
+  const { site }: { site: Site } = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  const siteMetadata = site.siteMetadata
+  const isTitle = Boolean(siteMetadata && siteMetadata.title)
+  const title = isTitle ? (siteMetadata as SiteSiteMetadata).title : defaultTitle
+  return title
+}
+
+const Header = () => {
   const navMenuRef = useRef<HTMLDivElement>(null)
   function toggle(event: React.MouseEvent) {
-    event.currentTarget.classList.toggle('is-active')
-    
+    event.currentTarget.classList.toggle("is-active")
+
     const navMenu = navMenuRef.current
     if (navMenu) {
-      navMenu.classList.toggle('is-active')
+      navMenu.classList.toggle("is-active")
     } else {
-      console.error('navMenuRef is null')
+      console.error("navMenuRef is null")
     }
   }
   return (
@@ -22,7 +41,7 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
     >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
-          {siteTitle}
+          {getSiteTitle()}
         </Link>
 
         <a

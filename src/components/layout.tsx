@@ -5,24 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { ReactChildren, ReactChild } from "react"
+import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Helmet from "react-helmet"
 
 const Layout = ({ children }: { children: JSX.Element[] }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <Helmet>
@@ -31,7 +20,7 @@ const Layout = ({ children }: { children: JSX.Element[] }) => {
           src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
         ></script>
       </Helmet>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header />
       <main>{children}</main>
       <footer className="footer has-text-centered">
         © {new Date().getFullYear()}, Built with

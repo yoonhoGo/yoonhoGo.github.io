@@ -1,5 +1,5 @@
 import React from "react"
-import Max960 from "../../components/styled/Max960";
+import Max960 from "../../components/styled/Max960"
 
 export default function Contact() {
   return (
@@ -7,7 +7,20 @@ export default function Contact() {
       <Max960 className="container">
         <div className="box is-max-960 is-margin-center">
           <h1 className="title has-text-info">Contact</h1>
-          <form name="contact" method="POST" data-netlify="true">
+          {/* <!-- A little help for the Netlify bots if you're not using a SSG --> */}
+          <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+            <input type="text" name="name" />
+            <input type="email" name="email" />
+            <textarea name="message"></textarea>
+          </form>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <div data-netlify-recaptcha="true"></div>
             <p className="field">
               <label className="label">Your Name:</label>
               <div className="control">
@@ -43,7 +56,6 @@ export default function Contact() {
                 ></textarea>
               </div>
             </div>
-            <div data-netlify-recaptcha="true"></div>
             <p>
               <button type="submit" className="button is-primary">
                 Send

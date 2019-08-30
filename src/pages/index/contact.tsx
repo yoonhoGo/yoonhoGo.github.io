@@ -23,8 +23,11 @@ export default function Contact() {
             <div data-netlify-recaptcha="true"></div>
             <div className="field">
               <label className="label">Your Name:</label>
-              <div className="control">
+              <div className="control has-icons-left">
                 <input className="input" type="text" name="name" />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-user"></i>
+                </span>
               </div>
             </div>
             <div className="field">
@@ -53,7 +56,6 @@ export default function Contact() {
                 <textarea
                   name="message"
                   className="textarea"
-                  placeholder="Textarea"
                 ></textarea>
               </div>
             </div>

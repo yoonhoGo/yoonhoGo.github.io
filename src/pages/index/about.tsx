@@ -93,11 +93,11 @@ function Profile({ profilePhotoSrc, smallIconLabels }: IProfile) {
       </div>
       {smallIconLabels && (
         <span>
-          {smallIconLabels.map(({ iconName, label }) => (
-            <>
+          {smallIconLabels.map(({ iconName, label }, index) => (
+            <React.Fragment key={index}>
               <SmallIconLabel iconName={iconName}>{label}</SmallIconLabel>
               <br />
-            </>
+            </React.Fragment>
           ))}
         </span>
       )}

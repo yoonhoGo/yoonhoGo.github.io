@@ -36,14 +36,14 @@ export default function Projects(props: { id?: string }) {
               <div className="level-item has-text-centered">
                 <div>
                   <p>
-                    <Link to="https://github.com/yoonhoGo">
+                    <a href="https://github.com/yoonhoGo">
                       <span className="icon has-text-white-ter">
                         <i className="fab fa-github fa-lg"></i>
                       </span>
                       <span className="is-size-3 has-text-white-ter">
                         GitHub
                       </span>
-                    </Link>
+                    </a>
                   </p>
                   <p>
                     <GitHubButton
@@ -58,42 +58,42 @@ export default function Projects(props: { id?: string }) {
               </div>
               <div className="level-item has-text-centered">
                 <div>
-                  <Link to="https://github.com/yoonhoGo?tab=repositories">
+                  <a href="https://github.com/yoonhoGo?tab=repositories">
                     <p className="heading has-text-white-ter">Repositories</p>
                     <p className="title">
                       {data.github.viewer.repositories.totalCount}
                     </p>
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="level-item has-text-centered">
                 <div>
-                  <Link to="https://github.com/yoonhoGo?tab=following">
+                  <a href="https://github.com/yoonhoGo?tab=following">
                     <p className="heading has-text-white-ter">Following</p>
                     <p className="title">
                       {data.github.viewer.following.totalCount}
                     </p>
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="level-item has-text-centered">
                 <div>
-                  <Link to="https://github.com/yoonhoGo?tab=followers">
+                  <a href="https://github.com/yoonhoGo?tab=followers">
                     <p className="heading has-text-white-ter">Followers</p>
                     <p className="title">
                       {data.github.viewer.followers.totalCount}
                     </p>
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="level-item has-text-centered">
                 <div>
-                  <Link to="https://github.com/yoonhoGo?tab=stars">
+                  <a href="https://github.com/yoonhoGo?tab=stars">
                     <p className="heading has-text-white-ter">Stars</p>
                     <p className="title">
                       {data.github.viewer.starredRepositories.totalCount}
                     </p>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </nav>

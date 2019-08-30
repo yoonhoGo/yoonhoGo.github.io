@@ -40,18 +40,18 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
       </div>
       <div className="navbar-menu" id="navMenu" ref={navMenuRef}>
         <div className="navbar-end">
-          <Link className="navbar-item" to="#about">
+          <a className="navbar-item" href="#about">
             About
-          </Link>
-          <Link className="navbar-item" to="#projects">
+          </a>
+          <a className="navbar-item" href="#projects">
             Projects
-          </Link>
-          <Link className="navbar-item" to="#experience">
+          </a>
+          <a className="navbar-item" href="#experience">
             WorkExperience
-          </Link>
-          <Link className="navbar-item" to="#contact">
+          </a>
+          <a className="navbar-item" href="#contact">
             Contact
-          </Link>
+          </a>
         </div>
       </div>
     </nav>

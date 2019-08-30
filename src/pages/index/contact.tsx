@@ -8,7 +8,7 @@ export default function Contact() {
         <div className="box is-max-960 is-margin-center">
           <h1 className="title has-text-info">Contact</h1>
           {/* <!-- A little help for the Netlify bots if you're not using a SSG --> */}
-          <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
             <input type="text" name="name" />
             <input type="email" name="email" />
             <textarea name="message"></textarea>
@@ -21,13 +21,13 @@ export default function Contact() {
           >
             <input type="hidden" name="form-name" value="contact" />
             <div data-netlify-recaptcha="true"></div>
-            <p className="field">
+            <div className="field">
               <label className="label">Your Name:</label>
               <div className="control">
                 <input className="input" type="text" name="name" />
               </div>
-            </p>
-            <p className="field">
+            </div>
+            <div className="field">
               <label className="label">Your Email:</label>
               <div className="control has-icons-left">
                 <input className="input" type="email" name="email" />
@@ -35,8 +35,8 @@ export default function Contact() {
                   <i className="fas fa-envelope"></i>
                 </span>
               </div>
-            </p>
-            <p className="field">
+            </div>
+            <div className="field">
               <label className="label">Your Role:</label>
               <div className="control">
                 <div className="select">
@@ -46,7 +46,7 @@ export default function Contact() {
                   </select>
                 </div>
               </div>
-            </p>
+            </div>
             <div className="field">
               <label className="label">Message</label>
               <div className="control">

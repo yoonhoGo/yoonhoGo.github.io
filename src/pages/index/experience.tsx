@@ -1,10 +1,11 @@
 import React from "react"
 import SmallIconLabel from "./components/SmallIconLabel"
+import Max960 from "../../components/styled/Max960"
 
 export default function Experiences(props: { id?: string }) {
   return (
-    <article id="experience" className="section is-max-960 is-margin-center">
-      <div className="container">
+    <article id="experience" className="section">
+      <Max960 className="container is-margin-center">
         <h1 className="title has-text-primary">Work Experience</h1>
         <Experience imageSrc="https://avatars3.githubusercontent.com/u/39777767?s=200&v=4">
           <p>
@@ -75,7 +76,7 @@ export default function Experiences(props: { id?: string }) {
             <span className="tag">API Gateway</span>
           </div>
         </Experience>
-      </div>
+      </Max960>
     </article>
   )
 }

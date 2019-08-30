@@ -1,12 +1,13 @@
 import React from "react"
+import Max960 from "../../components/styled/Max960";
 
 export default function Contact() {
   return (
     <article id="contact" className="section has-background-light">
-      <div className="container">
+      <Max960 className="container">
         <div className="box is-max-960 is-margin-center">
-          <h1 className="title">Contact</h1>
-          <form name="contact" method="POST" data-netlify="true" netlify>
+          <h1 className="title has-text-info">Contact</h1>
+          <form name="contact" method="POST" data-netlify="true">
             <p className="field">
               <label className="label">Your Name:</label>
               <div className="control">
@@ -15,8 +16,11 @@ export default function Contact() {
             </p>
             <p className="field">
               <label className="label">Your Email:</label>
-              <div className="control">
+              <div className="control has-icons-left">
                 <input className="input" type="email" name="email" />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
               </div>
             </p>
             <p className="field">
@@ -39,12 +43,15 @@ export default function Contact() {
                 ></textarea>
               </div>
             </div>
+            <div data-netlify-recaptcha="true"></div>
             <p>
-              <button type="submit">Send</button>
+              <button type="submit" className="button is-primary">
+                Send
+              </button>
             </p>
           </form>
         </div>
-      </div>
+      </Max960>
     </article>
   )
 }

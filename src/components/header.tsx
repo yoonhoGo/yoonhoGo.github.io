@@ -1,8 +1,9 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useRef, forwardRef } from "react"
+import React, { useRef, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Site, SiteSiteMetadata } from "../graphqlTypes"
+import BodyClassName from 'react-body-classname'
 
 function getSiteTitle() {
   const defaultTitle = `Gatsby Site`
@@ -17,11 +18,14 @@ function getSiteTitle() {
   `)
   const siteMetadata = site.siteMetadata
   const isTitle = Boolean(siteMetadata && siteMetadata.title)
-  const title = isTitle ? (siteMetadata as SiteSiteMetadata).title : defaultTitle
+  const title = isTitle
+    ? (siteMetadata as SiteSiteMetadata).title
+    : defaultTitle
   return title
 }
 
 const Header = () => {
+  const navbar = useRef<HTMLElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
   function toggle(event: React.MouseEvent) {
     event.currentTarget.classList.toggle("is-active")
@@ -33,12 +37,36 @@ const Header = () => {
       console.error("navMenuRef is null")
     }
   }
+
+  useEffect(() => {
+    window.onscroll = function() {
+      const scrollLimit = 24
+      if (!navbar || !navbar.current) return
+      if (
+        document.body.scrollTop > scrollLimit ||
+        document.documentElement.scrollTop > scrollLimit
+      ) {
+        navbar.current.classList.contains("is-spaced") &&
+          navbar.current.classList.remove("is-spaced")
+      } else {
+        !navbar.current.classList.contains("is-spaced") &&
+          navbar.current.classList.add("is-spaced")
+      }
+    }
+    return () => {}
+  }, [])
+
   return (
     <nav
-      className="navbar is-fixed-top is-transparent"
+      ref={navbar}
+      className="navbar is-fixed-top is-spaced"
       role="navigation"
       aria-label="main navigation"
+      style={{
+        transition: "0.4s",
+      }}
     >
+      <BodyClassName className="has-navbar-fixed-top" />
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
           {getSiteTitle()}

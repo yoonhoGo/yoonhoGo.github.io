@@ -19,7 +19,7 @@ export default function About(props: { id?: string }) {
   return (
     <article id="about" className="hero is-medium">
       <div className="hero-body">
-        <Max960 className="container is-margin-center">
+        <Max960 className="container is-margin-center animated slideInUp">
           <div className="columns">
             <div className="column is-narrow">
               <Profile

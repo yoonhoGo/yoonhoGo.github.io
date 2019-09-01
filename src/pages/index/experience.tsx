@@ -88,7 +88,7 @@ interface IExperienceBox {
 
 function Experience({ imageSrc, children }: IExperienceBox) {
   return (
-    <div className="box">
+    <div className="box animated zoomIn slow delay-2s">
       <article className="media">
         <div className="media-left">
           <figure className="image is-64x64">

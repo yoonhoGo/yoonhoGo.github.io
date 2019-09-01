@@ -29,7 +29,7 @@ export default function Projects(props: { id?: string }) {
   return (
     <article id="projects" className="hero is-dark">
       <div className="hero-body">
-        <Max960 className="container">
+        <Max960 className="container animated slideInRight slow">
           <h1 className="title">Projects</h1>
           <div className="box has-background-grey-dark">
             <nav className="level">

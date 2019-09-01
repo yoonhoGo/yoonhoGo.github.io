@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React, { useRef, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Site, SiteSiteMetadata } from "../graphqlTypes"
-import BodyClassName from 'react-body-classname'
+import BodyClassName from "react-body-classname"
 
 function getSiteTitle() {
   const defaultTitle = `Gatsby Site`
@@ -103,6 +103,7 @@ const Header = () => {
       </div>
     </nav>
   )
+
 }
 
 Header.propTypes = {

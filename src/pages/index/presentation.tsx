@@ -3,17 +3,54 @@ import styled from "styled-components"
 
 import Max960 from "../../components/styled/Max960"
 import presentationImage from "./images/IMG_0133.jpg"
+import ImagesViewer from "./components/ImagesViewer"
+import { useStaticQuery, graphql } from "gatsby"
+import { FileConnection, ImageSharp } from "../../graphqlTypes"
+import { FluidObject } from "gatsby-image"
 
 export default function Presentation(props: { id?: string }) {
+  const images: {
+    amathonSessionImages: FileConnection,
+    univExpoImages: FileConnection,
+  } = useStaticQuery(graphql`
+    query {
+      amathonSessionImages: allFile(
+        filter: {
+          extension: { regex: "/(jpg)|(png)|(jpeg)/" }
+          relativeDirectory: { eq: "amathon-session" }
+        }
+      ) {
+        nodes {
+          base
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      univExpoImages: allFile(
+        filter: {
+          extension: { regex: "/(jpg)|(png)|(jpeg)/" }
+          relativeDirectory: { eq: "Univ Expo" }
+        }
+      ) {
+        nodes {
+          base
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <StyledArticle id="presentations" className="section">
       <Max960 className="container is-margin-center">
-        <div
-          className="box"
-          style={{
-            opacity: 0.9,
-          }}
-        >
+        <Transparent90WhiteBox className="box">
           <h1 className="title has-text-primary">Presentations</h1>
           <div className="timeline">
             <header className="timeline-header">
@@ -43,7 +80,19 @@ export default function Presentation(props: { id?: string }) {
                     컨테이너를 배포합니다.
                   </p>
                 </div>
-                photos, links
+                <ImagesViewer
+                  images={images.amathonSessionImages.nodes.map(
+                    (node, index) => {
+                      const fluid = (node.childImageSharp as ImageSharp)
+                        .fluid as FluidObject
+                      return {
+                        type: "fluid",
+                        fluid,
+                        alt: "아마톤 세션 사진" + index,
+                      }
+                    }
+                  )}
+                />
               </div>
             </div>
             <div className="timeline-item">
@@ -71,6 +120,19 @@ export default function Presentation(props: { id?: string }) {
                     예정입니다...
                   </p>
                 </div>
+                <ImagesViewer
+                  images={images.univExpoImages.nodes.map(
+                    (node, index) => {
+                      const fluid = (node.childImageSharp as ImageSharp)
+                        .fluid as FluidObject
+                      return {
+                        type: "fluid",
+                        fluid,
+                        alt: "Univ. Expo 사진" + index,
+                      }
+                    }
+                  )}
+                />
               </div>
             </div>
             <header className="timeline-header">
@@ -136,11 +198,8 @@ export default function Presentation(props: { id?: string }) {
                 </p>
               </div>
             </div>
-            <div className="timeline-header">
-              <span className="tag is-medium is-primary">Start</span>
-            </div>
           </div>
-        </div>
+        </Transparent90WhiteBox>
       </Max960>
     </StyledArticle>
   )
@@ -150,6 +209,12 @@ const StyledArticle = styled.article`
   background-image: url("${presentationImage}");
   background-size: cover;
   background-attachment: fixed;
+`
+
+const Transparent90WhiteBox = styled.div.attrs(() => ({
+  className: "box",
+}))`
+  background-color: hsl(0, 0%, 100%, 0.9);
 `
 
 function TimeLineHead({ when, where }: { when: string; where?: string }) {

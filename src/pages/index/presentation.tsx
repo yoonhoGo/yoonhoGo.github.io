@@ -21,7 +21,7 @@ export default function Presentation(props: { id?: string }) {
             </header>
             <div className="timeline-item">
               {/* <div className="timeline-marker"></div> */}
-              <div className="timeline-marker is-image is-32x32">
+              <div className="timeline-marker is-primary is-image is-32x32">
                 <img src="https://avatars3.githubusercontent.com/u/40321838?s=200&v=4" />
               </div>
               <div className="timeline-content">
@@ -47,27 +47,28 @@ export default function Presentation(props: { id?: string }) {
               </div>
             </div>
             <div className="timeline-item">
-              <div className="timeline-marker is-image is-32x32">
+              <div className="timeline-marker is-primary is-image is-32x32">
                 <img src="https://avatars3.githubusercontent.com/u/40321838?s=200&v=4" />
               </div>
               <div className="timeline-content">
                 <TimeLineHead
-                  when={"19, September 2018"}
+                  when={"10, May 2019"}
                   where={"AUSG Hand-on 부스, AWS Univ. Expo"}
                 />
                 <div className="content">
                   <h3>
-                    <a href="https://github.com/yoonhoGo/serverless-spa-portfolio/blob/master/README.md">
-                      Node.js 서버리스 프레임웍을 사용하여 싱글페이지 포트폴리오
-                      제작하기
+                    <a href="https://github.com/AUSG/aws-univ-expo">
+                      S3를 이용하여 워드프레스의 이메일 문의 기능 만들어보기
                     </a>
                   </h3>
                   <p>
-                    Serverless Framework를 이용하여 AWS Lambda와 API Gateway에
-                    SPA(Single Page Portfolio) 포트폴리오를 배포해봅니다.
+                    핸즈온에서는 EC2를 사용하여 워드프레스를 실행시키고, RDS를
+                    연동하여 직접 데이터를 저장하는 과정과 마지막으로 S3를
+                    사용하여 정적 파일을 업로드하는 과정을 실습합니다.
                     <br />
-                    Express.js를 이용하여 HTML 파일을 서빙하고 API를 구성하여
-                    DynamoDB에 연결합니다.
+                    실습에 이용되는 서비스는 프리티어 내에서 진행되며, 마지막 S3
+                    부스에서 생성한 모든 서비스를 삭제하는 실습이 진행될
+                    예정입니다...
                   </p>
                 </div>
               </div>
@@ -76,13 +77,13 @@ export default function Presentation(props: { id?: string }) {
               <span className="tag is-primary">2018</span>
             </header>
             <div className="timeline-item">
-              <div className="timeline-marker is-image is-32x32">
+              <div className="timeline-marker is-primary is-image is-32x32">
                 <img src="https://avatars3.githubusercontent.com/u/40321838?s=200&v=4" />
               </div>
               <div className="timeline-content">
                 <TimeLineHead
                   when={"19, September 2018"}
-                  where={"AUSG, 2018 F/W 초보자를 위한 AWS 뿌시기 1회차"}
+                  where={"AUSG, 2018 F/W 초보자를 위한 AWS 뿌시기"}
                 />
                 <div className="content">
                   <h3>
@@ -102,7 +103,7 @@ export default function Presentation(props: { id?: string }) {
               </div>
             </div>
             <div className="timeline-item">
-              <div className="timeline-marker"></div>
+              <div className="timeline-marker is-primary"></div>
               <div className="timeline-content">
                 <TimeLineHead
                   when={"12, July 2018"}
@@ -121,11 +122,13 @@ export default function Presentation(props: { id?: string }) {
                   오래걸리더라구요. 한 페이지에 대략 10~15초 정도가 걸렸기
                   때문에 100 페이지 이상 이루어지는 교재의 경우 권당 15분 이상씩
                   걸리는 경우가 허다했습니다.
-                  <pre>
-                    (10+@)초 + N페이지 = 파일당 변환
-                    <br />
-                    시간 파일당 변환시간 + 변환 요청 파일 수
-                  </pre>
+                </p>
+                <pre>
+                  (10+@)초 + N페이지 = 파일당 변환
+                  <br />
+                  시간 파일당 변환시간 + 변환 요청 파일 수
+                </pre>
+                <p>
                   특히 나중에 도입될 변환 서비스에서 너무 과한 시간이 걸릴
                   것으로 판단해서 병렬처리를 도입하려고 하였습니다. 그런데
                   PC에서 병렬처리는 한계가 있기 때문에 AWS Lambda를 이용하기로
@@ -151,20 +154,25 @@ const StyledArticle = styled.article`
 
 function TimeLineHead({ when, where }: { when: string; where?: string }) {
   return (
-    <p className="heading">
-      <span className="icon">
-        <i className="fas fa-calendar"></i>
-      </span>
-      {when}
-      {where ? (
-        <>
-          {" / "}
-          <span className="icon">
-            <i className="fas fa-building"></i>
-          </span>
-          {where}
-        </>
-      ) : null}
-    </p>
+    <div className="heading">
+      <nav className="breadcrumb is-small" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <span className="icon is-small">
+              <i className="fas fa-calendar" aria-hidden="true"></i>
+            </span>
+            <span>{when}</span>
+          </li>
+          {where && (
+            <li>
+              <span className="icon is-small">
+                <i className="fas fa-building" aria-hidden="true"></i>
+              </span>
+              <span>{where}</span>
+            </li>
+          )}
+        </ul>
+      </nav>
+    </div>
   )
 }

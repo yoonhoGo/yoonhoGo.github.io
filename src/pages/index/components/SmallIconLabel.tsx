@@ -20,6 +20,7 @@ export default function SmallIconLabel({
       <span className="icon">
         <i className={iconName + " fa-sm"}></i>
       </span>
+      
       <small>{children}</small>
     </CenteredLine>
   )
@@ -33,7 +34,7 @@ export default function SmallIconLabel({
   }
 }
 
-const CenteredLine = styled.span`
+export const CenteredLine = styled.span`
   display: inline-flex;
   justify-items: center;
 `

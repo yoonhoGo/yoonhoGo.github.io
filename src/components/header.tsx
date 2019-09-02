@@ -93,6 +93,9 @@ const Header = () => {
           <a className="navbar-item" href="#projects">
             Projects
           </a>
+          <a className="navbar-item" href="#presentations">
+            Presentations
+          </a>
           <a className="navbar-item" href="#experience">
             WorkExperience
           </a>

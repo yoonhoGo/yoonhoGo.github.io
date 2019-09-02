@@ -6,7 +6,7 @@ export default function Experiences(props: { id?: string }) {
   return (
     <article id="experience" className="section">
       <Max960 className="container is-margin-center">
-        <h1 className="title has-text-primary">Work Experience</h1>
+        <h1 className="title has-text-dark">Work Experience</h1>
         <Experience imageSrc="https://avatars3.githubusercontent.com/u/39777767?s=200&v=4">
           <p>
             <strong>Erion Co., Ltd. (Seoul)</strong>

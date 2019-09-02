@@ -44,7 +44,11 @@ const IndexPage = () => {
       >
         <div className="hero-body">
           <div className="container has-text-centered has-text-white">
-            <div className="is-size-1 animated bounce faster">Welcome.</div>
+            <strong className="is-size-1 has-text-white animated bounce">
+              Welcome.
+              <br />
+              I'm 윤호
+            </strong>
           </div>
         </div>
       </div>

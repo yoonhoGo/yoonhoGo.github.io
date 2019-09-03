@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import Max960 from "../../components/styled/Max960"
+import Max960 from "../styled/Max960"
 import presentationImage from "./images/IMG_0133.jpg"
 import ImagesViewer from "./components/ImagesViewer"
 import { useStaticQuery, graphql } from "gatsby"

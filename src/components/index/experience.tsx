@@ -1,6 +1,6 @@
 import React from "react"
 import SmallIconLabel from "./components/SmallIconLabel"
-import Max960 from "../../components/styled/Max960"
+import Max960 from "../styled/Max960"
 
 export default function Experiences(props: { id?: string }) {
   return (

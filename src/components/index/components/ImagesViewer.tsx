@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import BodyClassname from "react-body-classname"
 import Image, { FluidObject } from "gatsby-image"
 
 interface IImagesViewer {

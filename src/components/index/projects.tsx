@@ -2,7 +2,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import GitHubButton from "react-github-btn"
 import { GitHub } from "../../graphqlTypes"
-import Max960 from "../../components/styled/Max960"
+import Max960 from "../styled/Max960"
 
 export default function Projects(props: { id?: string }) {
   const data: { github: GitHub } = useStaticQuery(graphql`

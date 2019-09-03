@@ -1,5 +1,5 @@
 import React from "react"
-import Max960 from "../../components/styled/Max960"
+import Max960 from "../styled/Max960"
 
 export default function AwardsAndCertificate(props: { id?: string }) {
   return (

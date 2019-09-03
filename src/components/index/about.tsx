@@ -2,8 +2,8 @@ import React, { Profiler } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SmallIconLabel from "./components/SmallIconLabel"
-import InnerItemsCenter from "../../components/styled/InnerItemsCenter"
-import Max960 from "../../components/styled/Max960"
+import InnerItemsCenter from "../styled/InnerItemsCenter"
+import Max960 from "../styled/Max960"
 
 export default function About(props: { id?: string }) {
   const data = useStaticQuery(graphql`

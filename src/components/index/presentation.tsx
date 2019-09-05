@@ -32,7 +32,7 @@ export default function Presentation(props: { id?: string }) {
       univExpoImages: allFile(
         filter: {
           extension: { regex: "/(jpg)|(png)|(jpeg)/" }
-          relativeDirectory: { eq: "Univ Expo" }
+          relativeDirectory: { eq: "univ-expo" }
         }
       ) {
         nodes {

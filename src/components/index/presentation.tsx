@@ -10,8 +10,8 @@ import { FluidObject } from "gatsby-image"
 
 export default function Presentation(props: { id?: string }) {
   const images: {
-    amathonSessionImages: FileConnection,
-    univExpoImages: FileConnection,
+    amathonSessionImages: FileConnection
+    univExpoImages: FileConnection
   } = useStaticQuery(graphql`
     query {
       amathonSessionImages: allFile(
@@ -121,17 +121,15 @@ export default function Presentation(props: { id?: string }) {
                   </p>
                 </div>
                 <ImagesViewer
-                  images={images.univExpoImages.nodes.map(
-                    (node, index) => {
-                      const fluid = (node.childImageSharp as ImageSharp)
-                        .fluid as FluidObject
-                      return {
-                        type: "fluid",
-                        fluid,
-                        alt: "Univ. Expo 사진" + index,
-                      }
+                  images={images.univExpoImages.nodes.map((node, index) => {
+                    const fluid = (node.childImageSharp as ImageSharp)
+                      .fluid as FluidObject
+                    return {
+                      type: "fluid",
+                      fluid,
+                      alt: "Univ. Expo 사진" + index,
                     }
-                  )}
+                  })}
                 />
               </div>
             </div>
@@ -220,24 +218,19 @@ const Transparent90WhiteBox = styled.div.attrs(() => ({
 function TimeLineHead({ when, where }: { when: string; where?: string }) {
   return (
     <div className="heading">
-      <nav className="breadcrumb is-small" aria-label="breadcrumbs">
-        <ul>
-          <li>
-            <span className="icon is-small">
-              <i className="fas fa-calendar" aria-hidden="true"></i>
-            </span>
-            <span>{when}</span>
-          </li>
-          {where && (
-            <li>
-              <span className="icon is-small">
-                <i className="fas fa-building" aria-hidden="true"></i>
-              </span>
-              <span>{where}</span>
-            </li>
-          )}
-        </ul>
-      </nav>
+      <span className="icon is-small">
+        <i className="fas fa-calendar" aria-hidden="true"></i>
+      </span>
+      <span>{when}</span>
+      {where && (
+        <>
+          <span>{" / "}</span>
+          <span className="icon is-small">
+            <i className="fas fa-building" aria-hidden="true"></i>
+          </span>
+          <span>{where}</span>
+        </>
+      )}
     </div>
   )
 }

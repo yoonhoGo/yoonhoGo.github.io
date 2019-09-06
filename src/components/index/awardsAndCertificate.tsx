@@ -117,7 +117,9 @@ function TypeDescription() {
         </span>
         <span className="has-text-weight-bold">A certificate of courses</span>
       </span>
-      <span className="button has-text-grey-light has-text-weight-bold">Trying or Not yet</span>
+      <span className="button has-text-grey-light has-text-weight-bold">
+        Trying or Not yet
+      </span>
     </div>
   )
 }

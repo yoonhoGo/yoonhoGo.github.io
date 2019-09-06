@@ -1,6 +1,6 @@
 import React from "react"
 import Max960 from "../styled/Max960"
-import SmallIconLabel from "./components/SmallIconLabel"
+import IconLabel from "./components/IconLabel"
 
 export default function AwardsAndCertificate(props: { id?: string }) {
   return (
@@ -160,13 +160,13 @@ function One({ title, issuer, date, type, children }: IOne) {
           {title}
         </CardHeader>
         <div className="card-content">
-          <SmallIconLabel iconName="fas fa-university" isFull>
+          <IconLabel iconName="fas fa-university" isFull>
             {issuer}
-          </SmallIconLabel>
+          </IconLabel>
           {date && (
-            <SmallIconLabel iconName="fas fa-calendar" isFull>
+            <IconLabel iconName="fas fa-calendar" isFull>
               {date.toDateString()}
-            </SmallIconLabel>
+            </IconLabel>
           )}
           {children}
         </div>

@@ -2,27 +2,34 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-export interface ISmallIconLabel {
+type Size = "is-small"
+
+export interface IIconLabel {
   children: string | JSX.Element | JSX.Element[]
   iconName: string
   href?: string
   link?: string
   isFull?: boolean
+  size?: Size
 }
 
-export default function SmallIconLabel({
+export default function IconLabel({
   iconName,
   children,
   link,
   href,
   isFull,
-}: ISmallIconLabel) {
+  size,
+}: IIconLabel) {
+  size = size || "is-small"
+  const iconClass = "icon" + (size === "is-small" ? " is-small" : "")
+
   const innerHTML = (
     <CenteredLine isFull={isFull}>
-      <span className="icon">
+      <span className={iconClass} style={{ margin: "0 0.2em"}}>
         <i className={iconName + " fa-sm"}></i>
       </span>
-      <small>{children}</small>
+      <Label size={size}>{children}</Label>
     </CenteredLine>
   )
 
@@ -38,5 +45,9 @@ export default function SmallIconLabel({
 export const CenteredLine = styled.span`
   display: ${({ isFull }: { isFull?: boolean }) =>
     isFull ? "flex" : "inline-flex"};
-  justify-items: center;
+`
+
+export const Label = styled.span`
+  font-size: ${({ size }: { size?: Size }) =>
+    size === "is-small" ? "smaller" : ""};
 `

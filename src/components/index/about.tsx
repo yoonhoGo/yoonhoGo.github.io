@@ -1,7 +1,7 @@
 import React, { Profiler } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import SmallIconLabel from "./components/SmallIconLabel"
+import IconLabel from "./components/IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
 import Max960 from "../styled/Max960"
 
@@ -95,7 +95,7 @@ function Profile({ profilePhotoSrc, smallIconLabels }: IProfile) {
         <span>
           {smallIconLabels.map(({ iconName, label }, index) => (
             <React.Fragment key={index}>
-              <SmallIconLabel iconName={iconName}>{label}</SmallIconLabel>
+              <IconLabel iconName={iconName}>{label}</IconLabel>
               <br />
             </React.Fragment>
           ))}

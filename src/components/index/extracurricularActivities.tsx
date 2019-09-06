@@ -3,6 +3,7 @@ import Max960 from "../styled/Max960"
 import MediaBox from "./components/mediaBox"
 import IconLabel from "./components/IconLabel"
 import SimpleTags from "./components/simpleTags"
+import HUBLogo from "../../images/hub logo.jpg"
 
 export default function ExtracurricularActivities() {
   return (
@@ -34,6 +35,44 @@ export default function ExtracurricularActivities() {
           </p>
           <SimpleTags
             tags={["AWS", "EC2", "ECS", "Route53", "Lambda", "API Gateway"]}
+          />
+        </MediaBox>
+        <MediaBox imageSrc={HUBLogo}>
+          <h4>HUB</h4>
+          <IconLabel iconName="far fa-calendar-alt" isFull>
+            2012.03 ~ 2017
+          </IconLabel>
+          <p>
+            HUB는 KUCIS에 속한 백석대학교 정보보호 동아리입니다.
+            KUCIS(대학정보보호동아리연합회)는 KISA 소속의 전국 대학 정보보호
+            동아리의 연합회입니다. HUB는 백석대에서 유일한 정보보호 동아리며
+            활발한 활동으로 KUCIS에서 여러번 우수 동아리로 선정 되었습니다.
+            <br />
+            저는 2012년 신입생때부터 활동하여 다양한 스터디를 진행하였고, 여러번
+            해킹대회에 참여했습니다. 또한 동아리 활동을 기반으로 공군에
+            정보보호병으로 지정특기를 받아 입대하였습니다.
+          </p>
+          <SimpleTags
+            tags={["Security", "Programming", "KUCIS", "KISA", "Hacking"]}
+          />
+        </MediaBox>
+        <MediaBox>
+          <h4>M++</h4>
+          <IconLabel iconName="far fa-calendar-alt" isFull>
+            2015.08 ~ 2016.06.22
+          </IconLabel>
+          <IconLabel iconName="far fas fa-user-tie" isFull>
+            부회장(창립 멤버)
+          </IconLabel>
+          <p>
+            M++은 대한민국 공군 00부대에서 창립한 프로그래밍 동아리입니다.
+            프로그래밍에 관심 있는 병사들을 모아 만들었으며 전역하기까지 약 10개월의 기간동안
+            다양한 스터디 그룹과 프로젝트를 개설하여 진행하였습니다.
+            <br />
+            대표 프로젝트: "Python 기초 프로그래밍" / "버끝업(버튼 하나로 끝나는 업무)" / "키위 위키(위키백과)" / "알파오(오목 AI)"...
+          </p>
+          <SimpleTags
+            tags={["Programming", "Python", "Excel", "Visual Basic", "C/C++", "macro"]}
           />
         </MediaBox>
       </Max960>

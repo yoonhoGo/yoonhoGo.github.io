@@ -42,6 +42,23 @@ export default function Experiences(props: { id?: string }) {
             ]}
           />
         </MediaBox>
+        <MediaBox>
+          <h4>대한민국 공군</h4>
+          <IconLabel iconName="far fa-calendar-alt" isFull>
+            2014.06.23 ~ 2016.06.22(만기 전역)
+          </IconLabel>
+          <IconLabel iconName="far fas fa-user-tie" isFull>
+            정보보호병
+          </IconLabel>
+          <p>
+            대한민국 공군에 정보보호병 지정 특기를 받아 복무를 마쳤습니다.
+            부대에서 다양한 정보보호시스템과 서버실과 서버 운영 등을
+            담당했습니다. 2년동안 공군에서 개최하는 정보보호대회에 참여하였으며,
+            정보보호 프로그래밍 공모전에서 패스워드 관리 프로그램을 제작하여
+            수상하였습니다.
+          </p>
+          <SimpleTags tags={["Information Security", "Security", "Server"]} />
+        </MediaBox>
       </Max960>
     </article>
   )

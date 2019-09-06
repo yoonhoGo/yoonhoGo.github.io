@@ -2,6 +2,7 @@ import React from "react"
 import Max960 from "../styled/Max960"
 import MediaBox from "./components/mediaBox"
 import IconLabel from "./components/IconLabel"
+import SimpleTags from "./components/simpleTags"
 
 export default function ExtracurricularActivities() {
   return (
@@ -10,7 +11,9 @@ export default function ExtracurricularActivities() {
         <h1 className="title has-text-dark">Extracurricular Activities</h1>
         <MediaBox imageSrc="https://avatars3.githubusercontent.com/u/40321838?s=200&v=4">
           <h4>AUSG</h4>
-          <IconLabel iconName="far fa-calendar-alt" isFull>2018.09 ~</IconLabel>
+          <IconLabel iconName="far fa-calendar-alt" isFull>
+            2018.09 ~
+          </IconLabel>
           <IconLabel iconName="far fas fa-user-tie" isFull>
             The 2nd batch of Members
           </IconLabel>
@@ -29,14 +32,9 @@ export default function ExtracurricularActivities() {
             기여를 인정받아 오는 12월에 미국 라스베가스에서 열리는 re:Invent
             행사에 참석하게 되었습니다.
           </p>
-          <div className="tags">
-            <span className="tag">AWS</span>
-            <span className="tag">EC2</span>
-            <span className="tag">ECS</span>
-            <span className="tag">Route53</span>
-            <span className="tag">Lambda</span>
-            <span className="tag">API Gateway</span>
-          </div>
+          <SimpleTags
+            tags={["AWS", "EC2", "ECS", "Route53", "Lambda", "API Gateway"]}
+          />
         </MediaBox>
       </Max960>
     </article>

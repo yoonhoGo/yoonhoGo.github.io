@@ -2,6 +2,7 @@ import React from "react"
 import IconLabel from "./components/IconLabel"
 import MediaBox from "./components/mediaBox"
 import Max960 from "../styled/Max960"
+import SimpleTags from "./components/simpleTags"
 
 export default function Experiences(props: { id?: string }) {
   return (
@@ -28,16 +29,18 @@ export default function Experiences(props: { id?: string }) {
             서버를 운용하였고, 그 외에도 사내 소규모 프로젝트에서도 최신
             트렌드에 발맞춰 개발 효율을 중점으로 작업했습니다.
           </p>
-          <div className="tags">
-            <span className="tag">AWS</span>
-            <span className="tag">Typescript</span>
-            <span className="tag">Serverless</span>
-            <span className="tag">GraphQL</span>
-            <span className="tag">OAuth 2.0</span>
-            <span className="tag">Apollo</span>
-            <span className="tag">Node.js</span>
-            <span className="tag">Prisma</span>
-          </div>
+          <SimpleTags
+            tags={[
+              "AWS",
+              "Typescript",
+              "Serverless",
+              "GraphQL",
+              "OAuth 2.0",
+              "Apollo",
+              "Node.js",
+              "Prisma",
+            ]}
+          />
         </MediaBox>
       </Max960>
     </article>

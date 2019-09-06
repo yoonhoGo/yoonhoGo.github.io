@@ -101,23 +101,23 @@ function TypeDescription() {
     <div className="buttons">
       <span className="button is-warning">
         <span className="icon">
-          <i className="fas fa-certificate"></i>
+          <i className="fas fa-trophy"></i>
         </span>
-        <span>Awards</span>
+        <span className="has-text-weight-bold">Awards</span>
       </span>
       <span className="button is-success">
         <span className="icon">
           <i className="fas fa-id-card"></i>
         </span>
-        <span>Certificate</span>
+        <span className="has-text-weight-bold">Certificate</span>
       </span>
       <span className="button is-info">
         <span className="icon">
           <i className="fas fa-certificate"></i>
         </span>
-        <span>A certificate of courses</span>
+        <span className="has-text-weight-bold">A certificate of courses</span>
       </span>
-      <span className="button is-light">Trying or Not yet</span>
+      <span className="button has-text-grey-light has-text-weight-bold">Trying or Not yet</span>
     </div>
   )
 }
@@ -194,7 +194,7 @@ function CardHeader({
     : ""
   const icon =
     type === "award"
-      ? "fas fa-certificate"
+      ? "fas fa-trophy"
       : type === "certificateOfACourse"
       ? "fas fa-certificate"
       : type === "certificate"

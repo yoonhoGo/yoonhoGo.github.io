@@ -26,7 +26,7 @@ export default function IconLabel({
 
   const innerHTML = (
     <CenteredLine isFull={isFull}>
-      <span className={iconClass} style={{ margin: "0 0.2em"}}>
+      <span className={iconClass} style={{ marginRight: "0.2em"}}>
         <i className={iconName + " fa-sm"}></i>
       </span>
       <Label size={size}>{children}</Label>

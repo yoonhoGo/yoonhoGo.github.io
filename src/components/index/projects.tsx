@@ -37,7 +37,7 @@ export default function Projects(props: { id?: string }) {
                 <div>
                   <p>
                     <a href="https://github.com/yoonhoGo">
-                      <span className="icon has-text-white-ter">
+                      <span className="icon has-text-white-ter is-large">
                         <i className="fab fa-github fa-lg"></i>
                       </span>
                       <span className="is-size-3 has-text-white-ter">

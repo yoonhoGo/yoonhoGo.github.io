@@ -13,6 +13,7 @@ import Contact from "../components/index/contact"
 import AwardsAndCertificate from "../components/index/awardsAndCertificate"
 import Presentation from "../components/index/presentation"
 import backgroundImage from "../images/cool-background.png"
+import ExtracurricularActivities from "../components/index/extracurricularActivities";
 
 const IndexPage = () => {
   return (
@@ -39,6 +40,7 @@ const IndexPage = () => {
       <Projects />
       <Presentation />
       <Experience />
+      <ExtracurricularActivities />
       <AwardsAndCertificate />
       <Contact />
     </Layout>

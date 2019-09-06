@@ -9,17 +9,14 @@ export default function Experiences(props: { id?: string }) {
       <Max960 className="container is-margin-center">
         <h1 className="title has-text-dark">Work Experience</h1>
         <MediaBox imageSrc="https://avatars3.githubusercontent.com/u/39777767?s=200&v=4">
+          <h4>Erion Co., Ltd. (Seoul)</h4>
+          <IconLabel iconName="far fa-calendar-alt" isFull>
+            2017.11.01 ~ 2018.07.31
+          </IconLabel>
+          <IconLabel iconName="far fas fa-user-tie" isFull>
+            CISO & Lead Backend Engineer
+          </IconLabel>
           <p>
-            <strong>Erion Co., Ltd. (Seoul)</strong>
-            <br />
-            <IconLabel iconName="far fa-calendar-alt">
-              2017.11.01 ~ 2018.07.31
-            </IconLabel>
-            <br />
-            <IconLabel iconName="far fas fa-user-tie">
-              CISO & Lead Backend Engineer
-            </IconLabel>
-            <br />
             스타트업 이리온컴퍼니에서 CISO 및 Lead Backend Engineer로 약 1년
             10개월 근무했습니다.
             <br />

@@ -99,6 +99,9 @@ const Header = () => {
           <a className="navbar-item" href="#experience">
             WorkExperience
           </a>
+          <a className="navbar-item" href="#extracurricularActivities">
+            ExtracurricularActivities
+          </a>
           <a className="navbar-item" href="#awardsAndCertificate">
             AwardsAndCertificate
           </a>
@@ -109,7 +112,6 @@ const Header = () => {
       </div>
     </nav>
   )
-
 }
 
 Header.propTypes = {

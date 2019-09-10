@@ -4,14 +4,15 @@ import styled from "styled-components"
 import IconLabel from "./components/IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
 import Max960 from "../styled/Max960"
-import { GitHub, Site, SiteSiteMetadata } from "../../graphqlTypes"
+import {
+  SiteSiteMetadata,
+  GetInfoForAboutQuery,
+  Site,
+} from "../../graphqlTypes"
 
 export default function About(props: { id?: string }) {
-  const data: {
-    site: Site
-    github: GitHub
-  } = useStaticQuery(graphql`
-    query {
+  const data: GetInfoForAboutQuery = useStaticQuery(graphql`
+    query GetInfoForAbout {
       site {
         siteMetadata {
           author
@@ -24,7 +25,7 @@ export default function About(props: { id?: string }) {
       }
     }
   `)
-  const { author } = data.site.siteMetadata as SiteSiteMetadata
+  const { author } = (data.site as Site).siteMetadata as SiteSiteMetadata
   return (
     <article id="about" className="hero is-medium">
       <div className="hero-body">

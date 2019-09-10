@@ -2,12 +2,12 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useRef, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Site, SiteSiteMetadata } from "../graphqlTypes"
+import { Site, SiteSiteMetadata, SiteTitleQueryQuery } from "../graphqlTypes"
 import BodyClassName from "react-body-classname"
 
 function getSiteTitle() {
   const defaultTitle = `Gatsby Site`
-  const { site }: { site: Site } = useStaticQuery(graphql`
+  const { site }: SiteTitleQueryQuery = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -16,7 +16,7 @@ function getSiteTitle() {
       }
     }
   `)
-  const siteMetadata = site.siteMetadata
+  const { siteMetadata } = site as Site
   const isTitle = Boolean(siteMetadata && siteMetadata.title)
   const title = isTitle
     ? (siteMetadata as SiteSiteMetadata).title

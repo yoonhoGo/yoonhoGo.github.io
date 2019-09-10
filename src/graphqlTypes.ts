@@ -16722,26 +16722,10 @@ export type SiteTitleQueryQuery = (
   )> }
 );
 
-export type Unnamed_1_QueryVariables = {};
+export type GetInfoForAboutQueryVariables = {};
 
 
-export type Unnamed_1_Query = (
-  { __typename?: 'Query' }
-  & { placeholderImage: Maybe<(
-    { __typename?: 'File' }
-    & { childImageSharp: Maybe<(
-      { __typename?: 'ImageSharp' }
-      & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
-        & GatsbyImageSharpFluidFragment
-      > }
-    )> }
-  )> }
-);
-
-export type Unnamed_2_QueryVariables = {};
-
-
-export type Unnamed_2_Query = (
+export type GetInfoForAboutQuery = (
   { __typename?: 'Query' }
   & { site: Maybe<(
     { __typename?: 'Site' }
@@ -16775,7 +16759,10 @@ export type GetPresentationImagesQuery = (
         { __typename?: 'ImageSharp' }
         & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
           & GatsbyImageSharpFluidFragment
-        > }
+        >, resize: Maybe<(
+          { __typename?: 'ImageSharpResize' }
+          & Pick<ImageSharpResize, 'src'>
+        )> }
       )> }
     )> }
   ), univExpoImages: (
@@ -16822,10 +16809,10 @@ export type GetGithubInfoQuery = (
   ) }
 );
 
-export type Unnamed_3_QueryVariables = {};
+export type SiteMetadataForSeoQueryVariables = {};
 
 
-export type Unnamed_3_Query = (
+export type SiteMetadataForSeoQuery = (
   { __typename?: 'Query' }
   & { site: Maybe<(
     { __typename?: 'Site' }

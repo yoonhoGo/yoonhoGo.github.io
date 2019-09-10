@@ -13,7 +13,7 @@ interface IImagesViewer {
         type: "fluid"
         alt?: string
         fluid: FluidObject
-        thumbnail?: FluidObject
+        thumbnail?: FluidObject | string | null
       }
   >
 }
@@ -27,9 +27,12 @@ export default function ImagesViewer(props: IImagesViewer) {
     switch (image.type) {
       case "fluid": {
         Img = <Image alt={image.alt} fluid={image.fluid} />
-        ThumbnailImg = (
-          <Image alt={image.alt} fluid={image.thumbnail || image.fluid} />
-        )
+        ThumbnailImg =
+          typeof image.thumbnail === "string" ? (
+            <img alt={image.alt} src={image.thumbnail} />
+          ) : (
+            <Image alt={image.alt} fluid={image.thumbnail || image.fluid} />
+          )
         break
       }
       case "src": {
@@ -43,15 +46,15 @@ export default function ImagesViewer(props: IImagesViewer) {
 
     return (
       <React.Fragment key={index}>
-        <div className={"modal" + (isActive ? " is-active" : "")} onClick={onClose}>
+        <div
+          className={"modal" + (isActive ? " is-active" : "")}
+          onClick={onClose}
+        >
           <div className="modal-background"></div>
           <div className="modal-content">
             <p className="image">{Img}</p>
           </div>
-          <button
-            className="modal-close is-large"
-            aria-label="close"
-          ></button>
+          <button className="modal-close is-large" aria-label="close"></button>
         </div>
 
         <div className="column">

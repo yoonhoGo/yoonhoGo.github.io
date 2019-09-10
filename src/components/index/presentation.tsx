@@ -5,15 +5,17 @@ import Max960 from "../styled/Max960"
 import presentationImage from "./images/IMG_0133.jpg"
 import ImagesViewer from "./components/ImagesViewer"
 import { useStaticQuery, graphql } from "gatsby"
-import { FileConnection, ImageSharp } from "../../graphqlTypes"
+import {
+  FileConnection,
+  ImageSharp,
+  GetPresentationImagesQuery,
+  ImageSharpResize,
+} from "../../graphqlTypes"
 import { FluidObject } from "gatsby-image"
 
 export default function Presentation(props: { id?: string }) {
-  const images: {
-    amathonSessionImages: FileConnection
-    univExpoImages: FileConnection
-  } = useStaticQuery(graphql`
-    query {
+  const images: GetPresentationImagesQuery = useStaticQuery(graphql`
+    query GetPresentationImages {
       amathonSessionImages: allFile(
         filter: {
           extension: { regex: "/(jpg)|(png)|(jpeg)/" }
@@ -25,6 +27,9 @@ export default function Presentation(props: { id?: string }) {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
+            }
+            resize(height: 128, width: 128) {
+              src
             }
           }
         }
@@ -40,6 +45,9 @@ export default function Presentation(props: { id?: string }) {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
+            }
+            resize(height: 128, width: 128) {
+              src
             }
           }
         }
@@ -85,10 +93,17 @@ export default function Presentation(props: { id?: string }) {
                     (node, index) => {
                       const fluid = (node.childImageSharp as ImageSharp)
                         .fluid as FluidObject
+                      const { resize: resizedImage } = images
+                        .amathonSessionImages.nodes[index]
+                        .childImageSharp as ImageSharp
+                      const {
+                        src: thumbnail,
+                      } = resizedImage as ImageSharpResize
                       return {
                         type: "fluid",
                         fluid,
                         alt: "아마톤 세션 사진" + index,
+                        thumbnail,
                       }
                     }
                   )}
@@ -124,10 +139,14 @@ export default function Presentation(props: { id?: string }) {
                   images={images.univExpoImages.nodes.map((node, index) => {
                     const fluid = (node.childImageSharp as ImageSharp)
                       .fluid as FluidObject
+                    const { resize: resizedImage } = images.univExpoImages
+                      .nodes[index].childImageSharp as ImageSharp
+                    const { src: thumbnail } = resizedImage as ImageSharpResize
                     return {
-                      type: "fluid",
-                      fluid,
                       alt: "Univ. Expo 사진" + index,
+                      fluid,
+                      thumbnail,
+                      type: "fluid",
                     }
                   })}
                 />

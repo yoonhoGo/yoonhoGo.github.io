@@ -16708,6 +16708,20 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
+export type SiteTitleQueryQueryVariables = {};
+
+
+export type SiteTitleQueryQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'title'>
+    )> }
+  )> }
+);
+
 export type Unnamed_1_QueryVariables = {};
 
 
@@ -16724,20 +16738,6 @@ export type Unnamed_1_Query = (
   )> }
 );
 
-export type SiteTitleQueryQueryVariables = {};
-
-
-export type SiteTitleQueryQuery = (
-  { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title'>
-    )> }
-  )> }
-);
-
 export type Unnamed_2_QueryVariables = {};
 
 
@@ -16747,21 +16747,91 @@ export type Unnamed_2_Query = (
     { __typename?: 'Site' }
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>
+      & Pick<SiteSiteMetadata, 'author'>
     )> }
-  )> }
+  )>, github: (
+    { __typename?: 'GitHub' }
+    & { repositoryOwner: Maybe<(
+      { __typename?: 'GitHub_Organization' }
+      & Pick<GitHub_Organization, 'avatarUrl'>
+    ) | (
+      { __typename?: 'GitHub_User' }
+      & Pick<GitHub_User, 'avatarUrl'>
+    )> }
+  ) }
 );
 
-export type SiteAuthorQueryQueryVariables = {};
+export type GetPresentationImagesQueryVariables = {};
 
 
-export type SiteAuthorQueryQuery = (
+export type GetPresentationImagesQuery = (
+  { __typename?: 'Query' }
+  & { amathonSessionImages: (
+    { __typename?: 'FileConnection' }
+    & { nodes: Array<(
+      { __typename?: 'File' }
+      & Pick<File, 'base'>
+      & { childImageSharp: Maybe<(
+        { __typename?: 'ImageSharp' }
+        & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
+          & GatsbyImageSharpFluidFragment
+        > }
+      )> }
+    )> }
+  ), univExpoImages: (
+    { __typename?: 'FileConnection' }
+    & { nodes: Array<(
+      { __typename?: 'File' }
+      & Pick<File, 'base'>
+      & { childImageSharp: Maybe<(
+        { __typename?: 'ImageSharp' }
+        & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
+          & GatsbyImageSharpFluidFragment
+        >, resize: Maybe<(
+          { __typename?: 'ImageSharpResize' }
+          & Pick<ImageSharpResize, 'src'>
+        )> }
+      )> }
+    )> }
+  ) }
+);
+
+export type GetGithubInfoQueryVariables = {};
+
+
+export type GetGithubInfoQuery = (
+  { __typename?: 'Query' }
+  & { github: (
+    { __typename?: 'GitHub' }
+    & { viewer: (
+      { __typename?: 'GitHub_User' }
+      & { repositories: (
+        { __typename?: 'GitHub_RepositoryConnection' }
+        & Pick<GitHub_RepositoryConnection, 'totalCount'>
+      ), following: (
+        { __typename?: 'GitHub_FollowingConnection' }
+        & Pick<GitHub_FollowingConnection, 'totalCount'>
+      ), followers: (
+        { __typename?: 'GitHub_FollowerConnection' }
+        & Pick<GitHub_FollowerConnection, 'totalCount'>
+      ), starredRepositories: (
+        { __typename?: 'GitHub_StarredRepositoryConnection' }
+        & Pick<GitHub_StarredRepositoryConnection, 'totalCount'>
+      ) }
+    ) }
+  ) }
+);
+
+export type Unnamed_3_QueryVariables = {};
+
+
+export type Unnamed_3_Query = (
   { __typename?: 'Query' }
   & { site: Maybe<(
     { __typename?: 'Site' }
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'author'>
+      & Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>
     )> }
   )> }
 );

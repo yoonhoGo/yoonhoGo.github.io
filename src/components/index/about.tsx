@@ -1,21 +1,30 @@
-import React, { Profiler } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import IconLabel from "./components/IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
 import Max960 from "../styled/Max960"
+import { GitHub, Site, SiteSiteMetadata } from "../../graphqlTypes"
 
 export default function About(props: { id?: string }) {
-  const data = useStaticQuery(graphql`
-    query SiteAuthorQuery {
+  const data: {
+    site: Site
+    github: GitHub
+  } = useStaticQuery(graphql`
+    query {
       site {
         siteMetadata {
           author
         }
       }
+      github {
+        repositoryOwner(login: "yoonhoGo") {
+          avatarUrl(size: 128)
+        }
+      }
     }
   `)
-  const author = data.site.siteMetadata.author
+  const { author } = data.site.siteMetadata as SiteSiteMetadata
   return (
     <article id="about" className="hero is-medium">
       <div className="hero-body">
@@ -28,14 +37,17 @@ export default function About(props: { id?: string }) {
                   {
                     iconName: "fab fa-github",
                     label: "@yoonhoGo",
+                    href: "https://github.com/yoonhoGo",
                   },
                   {
                     iconName: "fab fa-instagram",
                     label: "@ynh_g",
+                    href: "https://www.instagram.com/ynh_g/",
                   },
                   {
                     iconName: "fas fa-at",
                     label: "rhdbsgh0629@naver.com",
+                    href: "mailto:rhdbsgh0629@naver.com",
                   },
                 ]}
               />
@@ -80,6 +92,7 @@ interface IProfile {
   smallIconLabels?: Array<{
     iconName: string
     label: string
+    href?: string
   }>
 }
 
@@ -93,10 +106,11 @@ function Profile({ profilePhotoSrc, smallIconLabels }: IProfile) {
       </div>
       {smallIconLabels && (
         <span>
-          {smallIconLabels.map(({ iconName, label }, index) => (
+          {smallIconLabels.map(({ iconName, label, href }, index) => (
             <React.Fragment key={index}>
-              <IconLabel iconName={iconName}>{label}</IconLabel>
-              <br />
+              <IconLabel iconName={iconName} href={href} isFull>
+                {label}
+              </IconLabel>
             </React.Fragment>
           ))}
         </span>

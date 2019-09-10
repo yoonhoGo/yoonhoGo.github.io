@@ -34,7 +34,7 @@ export default function IconLabel({
   )
 
   if (href) {
-    return <a href={href}>{innerHTML}</a>
+    return <a href={href} className="has-text-grey-dark">{innerHTML}</a>
   } else if (link) {
     return <Link to={link}>{innerHTML}</Link>
   } else {

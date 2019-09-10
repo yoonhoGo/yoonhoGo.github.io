@@ -14,7 +14,7 @@ export default function AwardsAndCertificate(props: { id?: string }) {
         <div className="columns is-multiline">
           <One
             title="AWS Cloud Partitioner(trying)"
-            issuer="aws certified"
+            issuer="aws certification"
             type="certificate"
           />
           <One title="CISA(yet)" issuer="ISACA" type="certificate" />

@@ -9,6 +9,7 @@ import {
   GetInfoForAboutQuery,
   Site,
 } from "../../graphqlTypes"
+import SimpleTags from "./components/simpleTags"
 
 export default function About(props: { id?: string }) {
   const data: GetInfoForAboutQuery = useStaticQuery(graphql`
@@ -69,12 +70,42 @@ export default function About(props: { id?: string }) {
                     graduate. Fields of study are Back-end Server engineering
                     and security, PaaS Cloud infrastructure for security,
                     microservice, scale-out, serverless. Mainly using languages
-                    are Typescript, Python, Java. Contributed projects are
+                    are Typescript(Javascript), Python. Contributed projects are
                     GraphQL API deployed production, OAuth2 auth server,
                     Tensorflow stock prediction, etc.
                   </small>
                 </p>
               </div>
+              Skills Stack:{" "}
+              <SimpleTags
+                size="are-medium"
+                tags={[
+                  "Python3.x",
+                  "Typescript",
+                  "Javascript",
+                  "AWS EC2",
+                  "AWS ECS",
+                  "AWS Fargate",
+                  "AWS DynamoDB",
+                  "AWS Lambda",
+                  "AWS Route53",
+                  "AWS Aurora(MySQL/PostgreSQL)",
+                  "AWS Cognito",
+                  "AWS S3",
+                  "Node.js",
+                  "Express.js",
+                  "Prisma",
+                  "Serverless Framework",
+                  "GraphQL",
+                  "OAuth2.0",
+                  "React.js",
+                  "Docker",
+                  "Kubernetes",
+                  "Git",
+                  "GitHub",
+                  "ElasticSearch",
+                ]}
+              />
             </div>
           </div>
         </Max960>

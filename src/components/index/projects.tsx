@@ -4,6 +4,7 @@ import GitHubButton from "react-github-btn"
 import { GetGithubInfoQuery } from "../../graphqlTypes"
 import Max960 from "../styled/Max960"
 import SimpleTags from "./components/simpleTags"
+import IconLabel from "./components/IconLabel";
 
 export default function Projects(props: { id?: string }) {
   const data: GetGithubInfoQuery = useStaticQuery(graphql`
@@ -102,11 +103,17 @@ export default function Projects(props: { id?: string }) {
             </ProjectBox>
             <ProjectBox>
               <div className="content">
-                <h4 className="has-text-white-ter">Serverless GraphQL API(외주)</h4>
+                <h4 className="has-text-white-ter">
+                  Serverless GraphQL API(외주)
+                </h4>
                 <p>
                   기업용 회계 솔루션을 만드는 회사에서 GraphQL API를 만들는
                   외주를 받아 진행했습니다.
                 </p>
+                <div>
+                  <IconLabel iconName="fas fa-stopwatch" isFull>소요기간: 2개월</IconLabel>
+                  <IconLabel iconName="fas fa-coins" isFull>의뢰비용: 1,000만원</IconLabel>
+                </div>
                 <SimpleTags
                   tags={[
                     "GraphQL",
@@ -123,17 +130,37 @@ export default function Projects(props: { id?: string }) {
               <div className="content">
                 <h4 className="has-text-white-ter">Python Crawler(외주)</h4>
                 <p>
-                  인터넷 쇼핑몰을 운영하는 회사로부터 의뢰를 받아 인스타그램을 포함한 사이트
-                  세 곳의 크롤러를 제작하여 판매하였습니다.
+                  인터넷 쇼핑몰을 운영하는 회사로부터 의뢰를 받아 인스타그램을
+                  포함한 사이트 세 곳의 크롤러를 제작하여 판매하였습니다.
                 </p>
+                <div>
+                  <IconLabel iconName="fas fa-stopwatch" isFull>소요기간: 건당 4~5시간</IconLabel>
+                  <IconLabel iconName="fas fa-coins" isFull>의뢰비용: 건당 20~40만원</IconLabel>
+                </div>
                 <SimpleTags
                   tags={[
                     "Python",
-                    "Parallel Programming"
+                    "Parallel Programming",
+                    "크롤러",
+                    "크롤링",
+                    "Crawling",
                   ]}
                 />
               </div>
             </ProjectBox>
+            <ProjectBox>
+              <div className="content">
+                <h4 className="has-text-white-ter">
+                  버끝업(버튼 하나로 끝나는 업무)
+                </h4>
+                <p>
+                  M++ 동아리에서 진행한 프로젝트로 각 행정 부처 업무에 관하여 매르로를 제작하여
+                  편의성과 효율성을 도와주는 업무 자동화 프로젝트입니다.
+                </p>
+                <SimpleTags tags={["Excel", "VBS", "Macro", "매크로", "워라밸"]} />
+              </div>
+            </ProjectBox>
+            <ProjectBox size="is-full">그 외...</ProjectBox>
           </div>
         </Max960>
       </div>
@@ -161,7 +188,9 @@ function ProjectBox({
 }) {
   return (
     <div className={`column ${size || ""}`}>
-      <div className="box has-background-grey-dark has-text-white-ter">{children}</div>
+      <div className="box has-background-grey-dark has-text-white-ter">
+        {children}
+      </div>
     </div>
   )
 }

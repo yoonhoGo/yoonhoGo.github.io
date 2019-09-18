@@ -13,11 +13,21 @@ import Contact from "../components/index/contact"
 import AwardsAndCertificate from "../components/index/awardsAndCertificate"
 import Presentation from "../components/index/presentation"
 import backgroundImage from "../images/cool-background.png"
-import ExtracurricularActivities from "../components/index/extracurricularActivities";
+import ExtracurricularActivities from "../components/index/extracurricularActivities"
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout
+      menu={[
+        { id: "about", name: "About" },
+        { id: "projects", name: "Projects" },
+        { id: "presentations", name: "Presentations" },
+        { id: "experience", name: "WorkExperience" },
+        { id: "extracurricularActivities", name: "ExtracurricularActivities" },
+        { id: "awardsAndCertificate", name: "AwardsAndCertificate" },
+        { id: "contact", name: "Contact" },
+      ]}
+    >
       <SEO title="Home" />
       <div
         className="hero is-medium"

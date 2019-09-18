@@ -8,10 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Header from "./header"
+import Header, { IHeaderProps } from "./header"
 import Helmet from "react-helmet"
 
-const Layout = ({ children }: { children: JSX.Element[] }) => {
+const Layout = ({ children, menu }: { children: JSX.Element[], menu: IHeaderProps["menu"] }) => {
   return (
     <>
       <Helmet>
@@ -20,7 +20,7 @@ const Layout = ({ children }: { children: JSX.Element[] }) => {
           src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
         ></script>
       </Helmet>
-      <Header />
+      <Header menu={menu}/>
       <main>{children}</main>
       <footer className="footer has-text-centered">
         © {new Date().getFullYear()}, Built with

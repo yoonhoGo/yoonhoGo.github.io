@@ -24,7 +24,14 @@ function getSiteTitle() {
   return title
 }
 
-const Header = () => {
+export interface IHeaderProps {
+  menu?: Array<{
+    id: string
+    name: string
+  }>
+}
+
+const Header = ({ menu }: IHeaderProps) => {
   const navbar = useRef<HTMLElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
   function toggle(event: React.MouseEvent) {
@@ -86,28 +93,18 @@ const Header = () => {
         </a>
       </div>
       <div className="navbar-menu" id="navMenu" ref={navMenuRef}>
+        <div className="navbar-start">
+          <Link className="navbar-item" to="blog">
+            blog
+          </Link>
+        </div>
         <div className="navbar-end">
-          <a className="navbar-item" href="#about">
-            About
-          </a>
-          <a className="navbar-item" href="#projects">
-            Projects
-          </a>
-          <a className="navbar-item" href="#presentations">
-            Presentations
-          </a>
-          <a className="navbar-item" href="#experience">
-            WorkExperience
-          </a>
-          <a className="navbar-item" href="#extracurricularActivities">
-            ExtracurricularActivities
-          </a>
-          <a className="navbar-item" href="#awardsAndCertificate">
-            AwardsAndCertificate
-          </a>
-          <a className="navbar-item" href="#contact">
-            Contact
-          </a>
+          {menu &&
+            menu.map(item => (
+              <a className="navbar-item" href={"#" + item.id}>
+                {item.name}
+              </a>
+            ))}
         </div>
       </div>
     </nav>

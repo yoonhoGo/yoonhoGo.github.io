@@ -2,6 +2,7 @@ const fs = require(`fs`)
 const fetch = require(`node-fetch`)
 const { buildClientSchema } = require(`graphql`)
 const { createHttpLink } = require(`apollo-link-http`)
+const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -77,6 +78,16 @@ module.exports = {
       options: {
         shortname: `yoonhogo`
       }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
+      },
     },
   ],
 }

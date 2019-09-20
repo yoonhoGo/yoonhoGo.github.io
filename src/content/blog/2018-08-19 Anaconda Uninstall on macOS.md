@@ -27,10 +27,10 @@ Cleaner](https://itunes.apple.com/kr/app/app-cleaner-uninstaller/id1013897218?mt
 
 두번째 방법은 일일이 해당 경로를 삭제하는 것입니다. 위에 나타난 경로 그대로 삭제하면 될 것 같네요. 불안하시면 앱을 이용해주세요 ㅎㅎㅎ
 
-```shell
-$rm -rf ~/anaconda3 ~/.conda ~/.anaconda ~/.condarc
-$rm ~/Library/Application Support/binstar/*anaconda*
-$rm ~/Library/Receipts/io.continuum.pkg.anaconda*
+```bash
+$ rm -rf ~/anaconda3 ~/.conda ~/.anaconda ~/.condarc
+$ rm ~/Library/Application Support/binstar/*anaconda*
+$ rm ~/Library/Receipts/io.continuum.pkg.anaconda*
 ```
 
 잘못된 내용이 있으면 댓글↓↓↓ 달아주세요😃

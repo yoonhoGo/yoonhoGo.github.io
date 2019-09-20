@@ -40,7 +40,7 @@ export default function Template({ data }: any) {
             timeToRead={timeToRead as number}
             disqusConfig={disqusConfig}
           />
-          <div className="content is-medium">
+          <div className="content">
             <div className="blog-post">
               <div
                 className="blog-post-content"

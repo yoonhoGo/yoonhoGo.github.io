@@ -2,7 +2,7 @@ import React from "react"
 import { CommentCount, DisqusConfig } from "gatsby-plugin-disqus"
 
 export function Title({ children }: { children: Children }) {
-  return <h1 className="title has-text-centered">{children}</h1>
+  return <h1 className="title has-text-centered" style={{ wordBreak: "keep-all" }}>{children}</h1>
 }
 
 export function PostMetadata({
@@ -20,7 +20,7 @@ export function PostMetadata({
       {" • "}
       <span>{timeToRead} min read</span>
       {" • "}
-      <CommentCount config={disqusConfig} placeholder="..." />    
+      <CommentCount config={disqusConfig} placeholder="..." />
     </h5>
   )
 }

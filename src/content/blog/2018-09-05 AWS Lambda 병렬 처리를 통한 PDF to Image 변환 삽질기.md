@@ -45,42 +45,37 @@ Javascript에서 PDF 렌더링을 Mozilla에서 만든 [pdf.js](https://github.c
 AMI(Amazon Machine Image) 환경을 구성하고 Lambda로 배포해야합니다. 그래서 가이드에 나온대로 진행하고 예제 소스를
 사용했습니다. Lambda에서 작동해야하기 때문에 Local환경에서는 테스트하지 않고 바로 Lambda에 소스를 올렸습니다.
 
-    /**
-      * 이 예제는 가이드에 나와있는 것과 동일한 예제입니다. 
-      * 저는 이 소스를 serverless framework 환경에 맞춰서 수정하였습니다.
-      */
-     let {createCanvas} = require("canvas");
-     ​
-     function hello(event, context, callback) {
-      let
-       canvas = createCanvas(200, 200),
-       ctx = canvas.getContext('2d');
-     ​
-      // Write "Awesome!"
-      ctx.font = '30px Impact';
-      ctx.rotate(0.1);
-      ctx.fillText('Awesome!', 50, 100);
-     ​
-      // Draw line under text
-      let
-       text = ctx.measureText('Awesome!');
-      ctx.strokeStyle = 'rgba(0,0,0,0.5)';
-      ctx.beginPath();
-      ctx.lineTo(50, 102);
-      ctx.lineTo(50 + text.width, 102);
-      ctx.stroke();
-     ​
-      callback(null, '<img src="' + canvas.toDataURL() + '" />');
-     }
-     ​
-     module.exports = {hello};
-
-<iframe
-  src="https://carbon.now.sh/embed/qEFkPcHwnqMHrKTfgHJY"
-  style="transform:scale(1); width:1024px; height:473px; border:0; overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-
+```javascript
+/**
+  * 이 예제는 가이드에 나와있는 것과 동일한 예제입니다.
+  * 저는 이 소스를 serverless framework 환경에 맞춰서 수정하였습니다.
+  */
+let {createCanvas} = require("canvas");
+​
+function hello(event, context, callback) {
+  let
+    canvas = createCanvas(200, 200),
+    ctx = canvas.getContext('2d');
+  ​
+  // Write "Awesome!"
+  ctx.font = '30px Impact';
+  ctx.rotate(0.1);
+  ctx.fillText('Awesome!', 50, 100);
+  ​
+  // Draw line under text
+  let
+    text = ctx.measureText('Awesome!');
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+  ctx.beginPath();
+  ctx.lineTo(50, 102);
+  ctx.lineTo(50 + text.width, 102);
+  ctx.stroke();
+  ​
+  callback(null, '<img src="' + canvas.toDataURL() + '" />');
+}
+​
+module.exports = {hello};
+```
 
 예제는 잘 실행되었습니다. 변환속도도 괜찮고 맘에 들었습니다. 이거면 되겠다 싶어서 소스를 수정하기 시작했습니다. 예제를 조금 수정해서 한글
 텍스트를 써서 작성하고 실행했습니다. 그런데 그때 예상치 못한 문제를 만났습니다.
@@ -107,8 +102,8 @@ PDFbox는 Adobe에서 Adobe Reader를 만들때 사용한 동일한 라이브러
 Java의 JVM 바이트 코드에서 작동하는 라이브러리만으로 구성되어 있었기 때문에 PC에서 컴파일하여 배포하면 끝나는 형태였습니다. 이미
 AMI를 통해 배포하는 것에 굉~장한 귀찮음을 느끼고 있었기 때문에 저는 바로 Java로 작업을 시작하였습니다.
 
-> *Adobe에서 오픈소스로 제공하는 이 PDFbox라는 라이브러리는 Adobe Reader 프로그램에서 사용하는만큼 Adobe Reader에서
-> 정상적으로 작동하면 이 라이브러리를 사용했을 때도 작동해야 한다고 하는 문구가 매우 설득력 있었습니다.*
+> _Adobe에서 오픈소스로 제공하는 이 PDFbox라는 라이브러리는 Adobe Reader 프로그램에서 사용하는만큼 Adobe Reader에서
+> 정상적으로 작동하면 이 라이브러리를 사용했을 때도 작동해야 한다고 하는 문구가 매우 설득력 있었습니다._
 
 그래서 새로운 삽을 들었습니다. Repository를 만들고 Serverless framework에서 Gradle 기반 Java
 Template로 프로젝트를 만들었습니다. Gradle을 통해서 PDFbox를 받고 Main Class에서 PDFbox를 load 하고
@@ -152,9 +147,9 @@ recievePage3EvnetTrigger FlowChart
 
 ### 시도해보면 좋았을 것들
 
-* Python
-* AWS SQS(Simple Queue Service)
-* 엄격한 권한 관리
+- Python
+- AWS SQS(Simple Queue Service)
+- 엄격한 권한 관리
 
 ### 7. Demo
 

@@ -20,4 +20,7 @@ body.has-navbar-fixed-top {
   &.is-desktop {
     max-width: 960px;
   }
+  &.is-tablet {
+    max-width: 769px;
+  }
 }

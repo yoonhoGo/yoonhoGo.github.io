@@ -2,8 +2,8 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import GitHubButton from "react-github-btn"
 import { GetGithubInfoQuery } from "../../graphqlTypes"
-import SimpleTags from "./components/simpleTags"
-import IconLabel from "./components/IconLabel";
+import SimpleTags from "../simpleTags"
+import IconLabel from "../IconLabel";
 
 export default function Projects(props: { id?: string }) {
   const data: GetGithubInfoQuery = useStaticQuery(graphql`

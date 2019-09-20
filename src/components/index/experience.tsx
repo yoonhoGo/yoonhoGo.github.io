@@ -1,7 +1,7 @@
 import React from "react"
-import IconLabel from "./components/IconLabel"
-import MediaBox from "./components/mediaBox"
-import SimpleTags from "./components/simpleTags"
+import IconLabel from "../IconLabel"
+import MediaBox from "../mediaBox"
+import SimpleTags from "../simpleTags"
 
 export default function Experiences(props: { id?: string }) {
   return (

@@ -1,7 +1,7 @@
 import React from "react"
-import MediaBox from "./components/mediaBox"
-import IconLabel from "./components/IconLabel"
-import SimpleTags from "./components/simpleTags"
+import MediaBox from "../mediaBox"
+import IconLabel from "../IconLabel"
+import SimpleTags from "../simpleTags"
 import HUBLogo from "../../images/hub logo.jpg"
 
 export default function ExtracurricularActivities() {

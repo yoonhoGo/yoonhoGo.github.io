@@ -1,5 +1,5 @@
 import React from "react"
-import IconLabel from "./components/IconLabel"
+import IconLabel from "../IconLabel"
 
 export default function AwardsAndCertificate(props: { id?: string }) {
   return (

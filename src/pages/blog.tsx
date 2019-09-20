@@ -13,5 +13,3 @@ const BlogPostsPage = () => {
 }
 
 export default BlogPostsPage
-
-

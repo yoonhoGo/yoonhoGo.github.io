@@ -17207,6 +17207,29 @@ export type SiteMetadataForSeoQuery = (
   )> }
 );
 
+export type GetAllMarkDownRemarkQueryVariables = {
+  path: Scalars['String']
+};
+
+
+export type GetAllMarkDownRemarkQuery = (
+  { __typename?: 'Query' }
+  & { allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead'>
+        & { frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
+
 export type Unnamed_1_QueryVariables = {
   path: Scalars['String']
 };
@@ -17216,13 +17239,10 @@ export type Unnamed_1_Query = (
   { __typename?: 'Query' }
   & { markdownRemark: Maybe<(
     { __typename?: 'MarkdownRemark' }
-    & Pick<MarkdownRemark, 'html'>
+    & Pick<MarkdownRemark, 'html' | 'timeToRead'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
-      & Pick<MarkdownRemarkFrontmatter, 'date' | 'path' | 'title' | 'language'>
-    )>, wordCount: Maybe<(
-      { __typename?: 'MarkdownWordCount' }
-      & Pick<MarkdownWordCount, 'words'>
+      & Pick<MarkdownRemarkFrontmatter, 'date' | 'path' | 'title'>
     )> }
   )> }
 );

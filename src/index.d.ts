@@ -4,3 +4,5 @@ declare module 'react-body-classname' {
 
 declare module '*.jpg'
 declare module '*.png'
+
+declare type Children = string | number | JSX.Element | JSX.Element[]

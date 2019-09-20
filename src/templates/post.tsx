@@ -1,29 +1,24 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import About from "../components/blog/small-about"
+import { Title, DateAndTTR } from "../components/typography"
 
 export default function Template({ data }: any) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html, wordCount } = markdownRemark
+  const { frontmatter, html, timeToRead } = markdownRemark
   return (
     <Layout>
       <SEO title={frontmatter.title} />
-      <article className="section">
-        <div className="container is-tablet is-margin-center">
-          <h1 className="title has-text-centered">{frontmatter.title}</h1>
-          <h2 className="subtitle">
-            <span>{frontmatter.date}</span>
-            {" • "}
-            <span>
-              {frontmatter.language === "Korean"
-                ? Math.ceil(wordCount.words / 265)
-                : Math.ceil(wordCount.words / 500)}{" "}
-              min read
-            </span>
-          </h2>
+      <article className="container is-tablet is-margin-center">
+        <section className="section">
+          <Link to="/blog" replace>
+            {"⬅︎ Back"}
+          </Link>
+          <Title>{frontmatter.title}</Title>
+          <DateAndTTR date={frontmatter.date} timeToRead={timeToRead}/>
           <div className="content">
             <div className="blog-post">
               <div
@@ -32,7 +27,7 @@ export default function Template({ data }: any) {
               />
             </div>
           </div>
-        </div>
+        </section>
         <About />
       </article>
     </Layout>
@@ -47,11 +42,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-        language
       }
-      wordCount {
-        words
-      }
+      timeToRead
     }
   }
 `

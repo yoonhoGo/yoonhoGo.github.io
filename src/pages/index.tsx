@@ -19,13 +19,21 @@ const IndexPage = () => {
   return (
     <Layout
       menu={[
-        { id: "about", name: "About" },
-        { id: "projects", name: "Projects" },
-        { id: "presentations", name: "Presentations" },
-        { id: "experience", name: "WorkExperience" },
-        { id: "extracurricularActivities", name: "ExtracurricularActivities" },
-        { id: "awardsAndCertificate", name: "AwardsAndCertificate" },
-        { id: "contact", name: "Contact" },
+        { tagType: "a", to: "#about", name: "About" },
+        { tagType: "a", to: "#projects", name: "Projects" },
+        { tagType: "a", to: "#presentations", name: "Presentations" },
+        { tagType: "a", to: "#experience", name: "WorkExperience" },
+        {
+          tagType: "a",
+          to: "#extracurricularActivities",
+          name: "ExtracurricularActivities",
+        },
+        {
+          tagType: "a",
+          to: "#awardsAndCertificate",
+          name: "AwardsAndCertificate",
+        },
+        { tagType: "a", to: "#contact", name: "Contact" },
       ]}
     >
       <SEO title="Home" />

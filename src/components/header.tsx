@@ -25,13 +25,14 @@ function getSiteTitle() {
 }
 
 export interface IHeaderProps {
+  tagType?: "a" | "Link"
   menu?: Array<{
-    id: string
+    to: string
     name: string
   }>
 }
 
-const Header = ({ menu }: IHeaderProps) => {
+const Header = ({ menu, tagType }: IHeaderProps) => {
   const navbar = useRef<HTMLElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
   function toggle(event: React.MouseEvent) {
@@ -100,11 +101,25 @@ const Header = ({ menu }: IHeaderProps) => {
         </div>
         <div className="navbar-end">
           {menu &&
-            menu.map(item => (
-              <a className="navbar-item" href={"#" + item.id}>
-                {item.name}
-              </a>
-            ))}
+            menu.map(item => {
+              switch (tagType) {
+                case "a": {
+                  return (
+                    <a className="navbar-item" href={item.to}>
+                      {item.name}
+                    </a>
+                  )
+                }
+                case "Link":
+                default: {
+                  return (
+                    <Link className="navbar-item" to={item.to}>
+                      {item.name}
+                    </Link>
+                  )
+                }
+              }
+            })}
         </div>
       </div>
     </nav>

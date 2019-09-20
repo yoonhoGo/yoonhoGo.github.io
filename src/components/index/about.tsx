@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import IconLabel from "./components/IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
-import Max960 from "../styled/Max960"
 import {
   SiteSiteMetadata,
   GetInfoForAboutQuery,
@@ -30,7 +29,7 @@ export default function About(props: { id?: string }) {
   return (
     <article id="about" className="hero is-medium">
       <div className="hero-body">
-        <Max960 className="container is-margin-center animated slideInUp">
+        <div className="container is-desktop is-margin-center animated slideInUp">
           <div className="columns">
             <div className="column is-narrow">
               <Profile
@@ -108,7 +107,7 @@ export default function About(props: { id?: string }) {
               />
             </div>
           </div>
-        </Max960>
+        </div>
       </div>
     </article>
   )

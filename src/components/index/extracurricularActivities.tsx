@@ -1,5 +1,4 @@
 import React from "react"
-import Max960 from "../styled/Max960"
 import MediaBox from "./components/mediaBox"
 import IconLabel from "./components/IconLabel"
 import SimpleTags from "./components/simpleTags"
@@ -8,8 +7,8 @@ import HUBLogo from "../../images/hub logo.jpg"
 export default function ExtracurricularActivities() {
   return (
     <article id="extracurricularActivities" className="section">
-      <Max960 className="container is-margin-center">
-        <h1 className="title has-text-dark">Extracurricular Activities</h1>
+      <div className="container is-desktop is-margin-center">
+        <h1 className="title">Extracurricular Activities</h1>
         <MediaBox imageSrc="https://avatars3.githubusercontent.com/u/40321838?s=200&v=4">
           <h4>AUSG</h4>
           <IconLabel iconName="far fa-calendar-alt" isFull>
@@ -75,7 +74,7 @@ export default function ExtracurricularActivities() {
             tags={["Programming", "Python", "Excel", "Visual Basic", "C/C++", "macro"]}
           />
         </MediaBox>
-      </Max960>
+      </div>
     </article>
   )
 }

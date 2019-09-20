@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-// If need, change your variables before importing Bulma
-$title-color: #ff0000;
-
 .is-max-960 {
   max-width: 960px;
 }
@@ -13,3 +10,14 @@ $title-color: #ff0000;
 
 @import "~bulma/bulma.sass";
 @import "~bulma-extensions/bulma-timeline/src/sass/index.sass";
+
+html.has-navbar-fixed-top,
+body.has-navbar-fixed-top {
+  padding-top: 5.25rem;
+}
+
+.container {
+  &.is-desktop {
+    max-width: 960px;
+  }
+}

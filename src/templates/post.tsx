@@ -16,13 +16,13 @@ export default function Template({ data }: any) {
     },
   } = data // data.markdownRemark holds your post data
   const {
-    frontmatter: { title, date },
+    frontmatter: { title, date, path },
     html,
     timeToRead,
     fields: { slug },
   } = markdownRemark as MarkdownRemark
   const disqusConfig = {
-    url: siteUrl + location.pathname,
+    url: siteUrl + path,
     identifier: slug,
     title,
   }

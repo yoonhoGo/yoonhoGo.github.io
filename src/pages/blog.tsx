@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { GetAllMarkDownRemarkQuery } from "../graphqlTypes"
+import { Title, PostMetadata } from "../components/typography"
 
 const BlogPostsPage = () => {
   const data: GetAllMarkDownRemarkQuery = useStaticQuery(pageQuery)
@@ -24,16 +25,16 @@ const BlogPostsPage = () => {
             const {
               timeToRead,
               frontmatter: { title, date, path },
+              fields: { slug },
             } = node
+            const disqusConfig = {
+              identifier: slug,
+              title,
+            }
             return (
               <Link className="box" to={path}>
-                <div className="title">{title}</div>
-                <div>
-                  {" "}
-                  <span>{date}</span>
-                  {" • "}
-                  <span>{timeToRead} min read</span>
-                </div>
+                <Title>{title}</Title>
+                <PostMetadata date={date} timeToRead={timeToRead as number} disqusConfig={disqusConfig} />
               </Link>
             )
           })}
@@ -55,6 +56,9 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             path
+          }
+          fields {
+            slug
           }
         }
       }

@@ -7,6 +7,7 @@ module.exports = {
   siteMetadata: {
     title: `yoonho's dev note`,
     description: `Yoonho's dev note`,
+    siteUrl: `https://yoonho.ga`,
     author: `@yoonhoGo`,
     bio: `정보보안을 기초로하여 인프라 및 운용 시스템 보안을 개발하고
     싶다는 비전을 가지고 있습니다. 특히, 지난 세대의 서버 운용에서
@@ -70,6 +71,12 @@ module.exports = {
         name: `content`,
         path: `${__dirname}/src/content`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `yoonhogo`
+      }
     },
   ],
 }

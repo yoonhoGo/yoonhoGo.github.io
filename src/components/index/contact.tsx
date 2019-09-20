@@ -1,10 +1,9 @@
 import React from "react"
-import Max960 from "../styled/Max960"
 
 export default function Contact() {
   return (
     <article id="contact" className="section has-background-light">
-      <Max960 className="container">
+      <div className="container is-desktop">
         <div className="box is-max-960 is-margin-center">
           <h1 className="title has-text-info">Contact</h1>
           {/* <!-- A little help for the Netlify bots if you're not using a SSG --> */}
@@ -66,7 +65,7 @@ export default function Contact() {
             </p>
           </form>
         </div>
-      </Max960>
+      </div>
     </article>
   )
 }

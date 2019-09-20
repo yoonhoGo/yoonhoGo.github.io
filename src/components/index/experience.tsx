@@ -1,14 +1,13 @@
 import React from "react"
 import IconLabel from "./components/IconLabel"
 import MediaBox from "./components/mediaBox"
-import Max960 from "../styled/Max960"
 import SimpleTags from "./components/simpleTags"
 
 export default function Experiences(props: { id?: string }) {
   return (
     <article id="experience" className="section">
-      <Max960 className="container is-margin-center">
-        <h1 className="title has-text-dark">Work Experience</h1>
+      <div className="container is-desktop is-margin-center">
+        <h1 className="title">Work Experience</h1>
         <MediaBox imageSrc="https://avatars3.githubusercontent.com/u/39777767?s=200&v=4">
           <h4>Erion Co., Ltd. (Seoul)</h4>
           <IconLabel iconName="far fa-calendar-alt" isFull>
@@ -59,7 +58,7 @@ export default function Experiences(props: { id?: string }) {
           </p>
           <SimpleTags tags={["Information Security", "Security", "Server"]} />
         </MediaBox>
-      </Max960>
+      </div>
     </article>
   )
 }

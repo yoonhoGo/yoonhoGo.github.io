@@ -1,12 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 
-import Max960 from "../styled/Max960"
 import presentationImage from "./images/IMG_0133.jpg"
 import ImagesViewer from "./components/ImagesViewer"
 import { useStaticQuery, graphql } from "gatsby"
 import {
-  FileConnection,
   ImageSharp,
   GetPresentationImagesQuery,
   ImageSharpResize,
@@ -57,7 +55,7 @@ export default function Presentation(props: { id?: string }) {
 
   return (
     <StyledArticle id="presentations" className="section">
-      <Max960 className="container is-margin-center">
+      <div className="container is-desktop is-margin-center">
         <Transparent90WhiteBox className="box">
           <h1 className="title has-text-primary">Presentations</h1>
           <div className="timeline">
@@ -217,7 +215,7 @@ export default function Presentation(props: { id?: string }) {
             </div>
           </div>
         </Transparent90WhiteBox>
-      </Max960>
+      </div>
     </StyledArticle>
   )
 }

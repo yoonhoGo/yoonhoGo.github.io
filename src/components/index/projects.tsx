@@ -2,7 +2,6 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import GitHubButton from "react-github-btn"
 import { GetGithubInfoQuery } from "../../graphqlTypes"
-import Max960 from "../styled/Max960"
 import SimpleTags from "./components/simpleTags"
 import IconLabel from "./components/IconLabel";
 
@@ -31,7 +30,7 @@ export default function Projects(props: { id?: string }) {
   return (
     <article id="projects" className="hero is-dark">
       <div className="hero-body">
-        <Max960 className="container animated slideInRight slow">
+        <div className="container is-desktop animated slideInRight slow">
           <h1 className="title">Projects</h1>
           <div className="columns is-multiline">
             <ProjectBox size="is-full">
@@ -162,7 +161,7 @@ export default function Projects(props: { id?: string }) {
             </ProjectBox>
             <ProjectBox size="is-full">그 외...</ProjectBox>
           </div>
-        </Max960>
+        </div>
       </div>
     </article>
   )
@@ -172,7 +171,7 @@ function ProjectBox({
   children,
   size,
 }: {
-  children: JSX.Element | JSX.Element[]
+  children: string | JSX.Element | JSX.Element[]
   size?:
     | "is-full"
     | "is-three-quarters"

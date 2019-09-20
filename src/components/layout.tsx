@@ -11,7 +11,7 @@ import PropTypes from "prop-types"
 import Header, { IHeaderProps } from "./header"
 import Helmet from "react-helmet"
 
-const Layout = ({ children, menu }: { children: JSX.Element[], menu: IHeaderProps["menu"] }) => {
+const Layout = ({ children, menu }: { children: string | JSX.Element | JSX.Element[], menu?: IHeaderProps["menu"] }) => {
   return (
     <>
       <Helmet>

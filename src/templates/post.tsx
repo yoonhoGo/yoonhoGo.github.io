@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import About from "../components/blog/small-about"
 import { Title, PostMetadata } from "../components/typography"
-import { PostTemplateQuery, MarkdownRemark } from "../graphqlTypes"
+import { PostTemplateQuery } from "../graphqlTypes"
 import SimpleTags from "../components/simpleTags"
 
 export default function PostTemplate({ data }: { data: PostTemplateQuery }) {

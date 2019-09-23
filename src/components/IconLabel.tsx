@@ -21,8 +21,7 @@ export default function IconLabel({
   isFull,
   size,
 }: IIconLabel) {
-  size = size || "is-small"
-  const iconClass = "icon" + (size === "is-small" ? " is-small" : "")
+  const iconClass = "icon" + (size ? ` ${size}`:  " is-small")
 
   const innerHTML = (
     <CenteredLine isFull={isFull}>

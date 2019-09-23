@@ -3,9 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import { Title, PostMetadata } from "../components/typography"
-import {
-  BlogPageQuery,
-} from "../graphqlTypes"
+import { BlogPageQuery } from "../graphqlTypes"
 import SimpleTags from "../components/simpleTags"
 
 const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
@@ -31,7 +29,7 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
       ]}
     >
       <article className="section">
-        <div className="container is-desktop is-margin-center">
+        <div className="container is-tablet is-margin-center">
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const {
               timeToRead,
@@ -45,13 +43,17 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
             }
             return (
               <Link className="box" to={path}>
-                <Title>{title}</Title>
-                <PostMetadata
-                  date={date}
-                  timeToRead={timeToRead as number}
-                  disqusConfig={disqusConfig}
-                />
-                <SimpleTags tags={tags || []} />
+                <div className="columns">
+                  <div className="column">
+                    <Title>{title}</Title>
+                    <PostMetadata
+                      date={date}
+                      timeToRead={timeToRead as number}
+                      disqusConfig={disqusConfig}
+                    />
+                    <SimpleTags tags={tags || []} />
+                  </div>
+                </div>
               </Link>
             )
           })}

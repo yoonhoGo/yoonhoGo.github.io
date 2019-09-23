@@ -23,7 +23,7 @@ export default function SmallAbout(props: { id?: string }) {
       }
       github {
         repositoryOwner(login: "yoonhoGo") {
-          avatarUrl(size: 128)
+          avatarUrl(size: 256)
         }
       }
     }

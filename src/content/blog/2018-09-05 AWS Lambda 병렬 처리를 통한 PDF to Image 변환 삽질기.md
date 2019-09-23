@@ -1,7 +1,7 @@
 ---
 title: AWS Lambda 병렬 처리를 통한 PDF to Image 변환 삽질기
 date: 2018-09-05 10:00:00
-path: /blog/AWS Lambda 병렬 처리를 통한 PDF to Image 변환 삽질기
+slug: /2018-09-05/AWS-Lambda-병렬-처리-PDF-Image-변환
 tags: ["Serverless", "AWS Lambda", "Pdf", "Image", "Parallel Computing"]
 ---
 
@@ -27,9 +27,9 @@ tags: ["Serverless", "AWS Lambda", "Pdf", "Image", "Parallel Computing"]
 후보로 있었던 언어는
 
 1.  파이썬
-1.  Javascript
-1.  Java
-1.  C#
+2.  Javascript
+3.  Java
+4.  C#
 
 제가 파이썬을 자주 사용하고 오랫동안 좋아하는 언어였기 때문에 처음엔 파이썬을 사용하려고 했습니다. 그런데 회사에서 작업을 Node.js로
 구성하고 있고 요즘 작업 대부분을 Node.js 환경에서 하다보니 Node.js로 시작하는게 좋겠다 싶어서 Javascript로 처음엔

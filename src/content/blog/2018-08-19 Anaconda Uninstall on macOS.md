@@ -1,7 +1,7 @@
 ---
 title: Anaconda Uninstall on macOS
 date: 2018-08-19
-path: /blog/Anaconda Uninstall on macOS
+slug: /2018-08-19/Anaconda-Uninstall-macOS
 tags: ["macOS", "Anaconda", "Python"]
 ---
 

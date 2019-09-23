@@ -6,33 +6,21 @@
 
 // You can delete this file if you're not using it
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
+  await createPostPage({ createPage, graphql })
+}
+
+async function createPostPage({ createPage, graphql}) {
   const result = await graphql(/* GraphQL */`
-    {
+    query CreatePostPage {
       allMarkdownRemark {
         edges {
           node {
-            fields {
-              slug
-            }
             frontmatter {
-              path
+              slug
             }
           }
         }
@@ -44,11 +32,14 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const blogPostTemplate = path.resolve(`src/templates/post.tsx`)
+    const slug = node.frontmatter.slug
+    console.log(`TCL: exports.createPages -> slug`, slug)
     createPage({
-      path: node.frontmatter.path,
-      component: path.resolve(`src/templates/post.tsx`),
+      path: slug,
+      component: blogPostTemplate,
       context: {
-        slug: node.fields.slug,
+        slug,
       },
     })
   })

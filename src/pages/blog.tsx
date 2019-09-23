@@ -1,40 +1,46 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import { GetAllMarkDownRemarkQuery } from "../graphqlTypes"
+import { graphql, Link } from "gatsby"
 import { Title, PostMetadata } from "../components/typography"
+import { BlogPageQuery } from "../graphqlTypes"
 
-const BlogPostsPage = () => {
-  const data: GetAllMarkDownRemarkQuery = useStaticQuery(pageQuery)
+const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
+  const { siteUrl } = data.site.siteMetadata
   return (
-    <Layout menu={[
-      {
-        name: "Posts",
-      },
-      {
-        name: "Series",
-      },
-      {
-        name: "Tags",
-      },
-    ]}>
+    <Layout
+      menu={[
+        {
+          name: "Posts",
+        },
+        {
+          name: "Series",
+        },
+        {
+          name: "Tags",
+        },
+      ]}
+    >
       <article className="section">
         <div className="container is-desktop is-margin-center">
-          {data.allMarkdownRemark.edges.map(({node}) => {
+          {data.allMarkdownRemark.edges.map(({ node }) => {
             const {
               timeToRead,
-              frontmatter: { title, date, path },
-              fields: { slug },
+              frontmatter: { title, date, slug },
             } = node
             const disqusConfig = {
+              url: siteUrl + slug,
               identifier: slug,
               title,
             }
             return (
-              <Link className="box" to={path}>
+              <Link className="box" to={slug}>
                 <Title>{title}</Title>
-                <PostMetadata date={date} timeToRead={timeToRead as number} disqusConfig={disqusConfig} />
+                <PostMetadata
+                  date={date}
+                  timeToRead={timeToRead as number}
+                  disqusConfig={disqusConfig}
+                />
               </Link>
             )
           })}
@@ -47,7 +53,12 @@ const BlogPostsPage = () => {
 export default BlogPostsPage
 
 export const pageQuery = graphql`
-  query GetAllMarkDownRemark {
+  query BlogPage {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
@@ -55,9 +66,6 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            path
-          }
-          fields {
             slug
           }
         }

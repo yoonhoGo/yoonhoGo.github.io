@@ -1,7 +1,7 @@
 ---
 title: (번역 중)Serverless Docker Beta
 date: 2018-09-02
-path: /blog/(번역 중)Serverless Docker Beta
+slug: /2018-09-02/Serverless-Docker-Beta-zeit
 tags: ["Docker", "Serverless", "Now", "Zeit"]
 ---
 

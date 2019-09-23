@@ -1,28 +1,29 @@
 import { graphql, Link } from "gatsby"
 import { Disqus } from "gatsby-plugin-disqus"
+import _get from "lodash/get"
 import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import About from "../components/blog/small-about"
 import { Title, PostMetadata } from "../components/typography"
-import { MarkdownRemark } from "../graphqlTypes"
+import { PostTemplateQuery, MarkdownRemark } from "../graphqlTypes"
 
-export default function Template({ data }: any) {
+export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
+  console.log(`TCL: PostTemplate -> data`, data)
   const {
     markdownRemark,
     site: {
       siteMetadata: { siteUrl },
     },
-  } = data // data.markdownRemark holds your post data
+  } = data
   const {
-    frontmatter: { title, date, path },
+    frontmatter: { title, date, slug },
     html,
     timeToRead,
-    fields: { slug },
-  } = markdownRemark as MarkdownRemark
+  } = markdownRemark
   const disqusConfig = {
-    url: siteUrl + path,
+    url: siteUrl + slug,
     identifier: slug,
     title,
   }
@@ -61,20 +62,16 @@ export default function Template({ data }: any) {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query PostTemplate($slug: String!) {
     site {
       siteMetadata {
         siteUrl
       }
     }
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      fields {
-        slug
-      }
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        path
         title
       }
       timeToRead

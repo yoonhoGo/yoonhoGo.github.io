@@ -729,6 +729,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
+  ChildMarkdownRemarkFieldsPath = 'childMarkdownRemark___fields___path',
   ChildMarkdownRemarkHtml = 'childMarkdownRemark___html',
   ChildMarkdownRemarkHtmlAst = 'childMarkdownRemark___htmlAst',
   ChildMarkdownRemarkExcerptAst = 'childMarkdownRemark___excerptAst',
@@ -15671,6 +15672,7 @@ export type MarkdownRemark = Node & {
   excerpt?: Maybe<Scalars['String']>,
   rawMarkdownBody?: Maybe<Scalars['String']>,
   fileAbsolutePath?: Maybe<Scalars['String']>,
+  fields?: Maybe<MarkdownRemarkFields>,
   html?: Maybe<Scalars['String']>,
   htmlAst?: Maybe<Scalars['JSON']>,
   excerptAst?: Maybe<Scalars['JSON']>,
@@ -15737,6 +15739,11 @@ export type MarkdownRemarkEdge = {
   previous?: Maybe<MarkdownRemark>,
 };
 
+export type MarkdownRemarkFields = {
+  __typename?: 'MarkdownRemarkFields',
+  path?: Maybe<Scalars['String']>,
+};
+
 export enum MarkdownRemarkFieldsEnum {
   Id = 'id',
   FrontmatterTitle = 'frontmatter___title',
@@ -15746,6 +15753,7 @@ export enum MarkdownRemarkFieldsEnum {
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
+  FieldsPath = 'fields___path',
   Html = 'html',
   HtmlAst = 'htmlAst',
   ExcerptAst = 'excerptAst',
@@ -15844,12 +15852,17 @@ export enum MarkdownRemarkFieldsEnum {
   InternalType = 'internal___type'
 }
 
+export type MarkdownRemarkFieldsFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+};
+
 export type MarkdownRemarkFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
   frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>,
   excerpt?: Maybe<StringQueryOperatorInput>,
   rawMarkdownBody?: Maybe<StringQueryOperatorInput>,
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>,
   html?: Maybe<StringQueryOperatorInput>,
   htmlAst?: Maybe<JsonQueryOperatorInput>,
   excerptAst?: Maybe<JsonQueryOperatorInput>,
@@ -16065,6 +16078,7 @@ export type QueryMarkdownRemarkArgs = {
   excerpt?: Maybe<StringQueryOperatorInput>,
   rawMarkdownBody?: Maybe<StringQueryOperatorInput>,
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>,
   html?: Maybe<StringQueryOperatorInput>,
   htmlAst?: Maybe<JsonQueryOperatorInput>,
   excerptAst?: Maybe<JsonQueryOperatorInput>,
@@ -17147,6 +17161,29 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
+export type SmallAboutComponentQueryVariables = {};
+
+
+export type SmallAboutComponentQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'author' | 'bio'>
+    )> }
+  )>, github: (
+    { __typename?: 'GitHub' }
+    & { repositoryOwner: Maybe<(
+      { __typename?: 'GitHub_Organization' }
+      & Pick<GitHub_Organization, 'avatarUrl'>
+    ) | (
+      { __typename?: 'GitHub_User' }
+      & Pick<GitHub_User, 'avatarUrl'>
+    )> }
+  ) }
+);
+
 export type SiteTitleQueryQueryVariables = {};
 
 
@@ -17161,10 +17198,10 @@ export type SiteTitleQueryQuery = (
   )> }
 );
 
-export type GetInfoForAboutQueryVariables = {};
+export type AboutComponentQueryVariables = {};
 
 
-export type GetInfoForAboutQuery = (
+export type AboutComponentQuery = (
   { __typename?: 'Query' }
   & { site: Maybe<(
     { __typename?: 'Site' }
@@ -17280,9 +17317,12 @@ export type BlogPageQuery = (
       & { node: (
         { __typename?: 'MarkdownRemark' }
         & Pick<MarkdownRemark, 'timeToRead'>
-        & { frontmatter: Maybe<(
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
           { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug'>
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
         )> }
       ) }
     )> }
@@ -17307,7 +17347,7 @@ export type PostTemplateQuery = (
     & Pick<MarkdownRemark, 'html' | 'timeToRead'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
-      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title'>
+      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
     )> }
   )> }
 );

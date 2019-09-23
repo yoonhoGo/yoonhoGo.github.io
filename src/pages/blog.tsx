@@ -3,21 +3,30 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import { Title, PostMetadata } from "../components/typography"
-import { BlogPageQuery } from "../graphqlTypes"
+import {
+  BlogPageQuery,
+} from "../graphqlTypes"
+import SimpleTags from "../components/simpleTags"
 
 const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
-  const { siteUrl } = data.site.siteMetadata
+  const {
+    siteMetadata: { siteUrl },
+  } = data.site
+
   return (
     <Layout
       menu={[
         {
           name: "Posts",
+          to: "/blog/posts",
         },
         {
           name: "Series",
+          to: "/blog/series",
         },
         {
           name: "Tags",
+          to: "/blog/tags",
         },
       ]}
     >
@@ -26,7 +35,8 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const {
               timeToRead,
-              frontmatter: { title, date, slug },
+              frontmatter: { title, date, slug, tags },
+              fields: { path },
             } = node
             const disqusConfig = {
               url: siteUrl + slug,
@@ -34,13 +44,14 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
               title,
             }
             return (
-              <Link className="box" to={slug}>
+              <Link className="box" to={path}>
                 <Title>{title}</Title>
                 <PostMetadata
                   date={date}
                   timeToRead={timeToRead as number}
                   disqusConfig={disqusConfig}
                 />
+                <SimpleTags tags={tags || []} />
               </Link>
             )
           })}
@@ -62,11 +73,15 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          fields {
+            path
+          }
           timeToRead
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
             slug
+            tags
           }
         }
       }

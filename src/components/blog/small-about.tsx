@@ -3,22 +3,38 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import IconLabel from "../IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
-import {
-  SiteSiteMetadata,
-  GetInfoForAboutQuery,
-  Site,
-} from "../../graphqlTypes"
-import { getInfoForAboutQuery } from "../index/about"
+import { SmallAboutComponentQuery } from "../../graphqlTypes"
 
-export default function About(props: { id?: string }) {
-  const data: GetInfoForAboutQuery = useStaticQuery(getInfoForAboutQuery)
-  const { author, bio } = (data.site as Site).siteMetadata as SiteSiteMetadata
+export default function SmallAbout(props: { id?: string }) {
+  const {
+    site: {
+      siteMetadata: { author, bio },
+    },
+    github: {
+      repositoryOwner: { avatarUrl },
+    },
+  }: SmallAboutComponentQuery = useStaticQuery(graphql`
+    query SmallAboutComponent {
+      site {
+        siteMetadata {
+          author
+          bio
+        }
+      }
+      github {
+        repositoryOwner(login: "yoonhoGo") {
+          avatarUrl(size: 128)
+        }
+      }
+    }
+  `)
+  
   return (
-    <div className="container is-tablet is-margin-center animated slideInUp">
+    <div className="container is-tablet is-margin-center">
       <div className="columns">
         <div className="column is-narrow">
           <Profile
-            profilePhotoSrc="https://avatars0.githubusercontent.com/u/6959851?s=460&v=4"
+            profilePhotoSrc={avatarUrl}
             smallIconLabels={[
               {
                 iconName: "fab fa-github",

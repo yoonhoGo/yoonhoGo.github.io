@@ -1,34 +1,35 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import IconLabel from "../IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
-import {
-  SiteSiteMetadata,
-  GetInfoForAboutQuery,
-  Site,
-} from "../../graphqlTypes"
+import { AboutComponentQuery } from "../../graphqlTypes"
 import SimpleTags from "../simpleTags"
 
-export const getInfoForAboutQuery = graphql`
-  query GetInfoForAbout {
-    site {
-      siteMetadata {
-        author
-        bio
+export default function About({ id }: { id?: string }) {
+  const {
+    site: {
+      siteMetadata: { author, bio },
+    },
+    github: {
+      repositoryOwner: { avatarUrl },
+    },
+  }: AboutComponentQuery = useStaticQuery(graphql`
+    query AboutComponent {
+      site {
+        siteMetadata {
+          author
+          bio
+        }
+      }
+      github {
+        repositoryOwner(login: "yoonhoGo") {
+          avatarUrl(size: 128)
+        }
       }
     }
-    github {
-      repositoryOwner(login: "yoonhoGo") {
-        avatarUrl(size: 128)
-      }
-    }
-  }
-`
-
-export default function About(props: { id?: string }) {
-  const data: GetInfoForAboutQuery = useStaticQuery(getInfoForAboutQuery)
-  const { author, bio } = (data.site as Site).siteMetadata as SiteSiteMetadata
+  `)
+  
   return (
     <article id="about" className="hero is-medium">
       <div className="hero-body">
@@ -36,7 +37,7 @@ export default function About(props: { id?: string }) {
           <div className="columns">
             <div className="column is-narrow">
               <Profile
-                profilePhotoSrc="https://avatars0.githubusercontent.com/u/6959851?s=460&v=4"
+                profilePhotoSrc={avatarUrl}
                 smallIconLabels={[
                   {
                     iconName: "fab fa-github",

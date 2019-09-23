@@ -8,25 +8,33 @@ import SEO from "../components/seo"
 import About from "../components/blog/small-about"
 import { Title, PostMetadata } from "../components/typography"
 import { PostTemplateQuery, MarkdownRemark } from "../graphqlTypes"
+import SimpleTags from "../components/simpleTags"
 
 export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
-  console.log(`TCL: PostTemplate -> data`, data)
   const {
-    markdownRemark,
+    markdownRemark: {
+      frontmatter: { title, date, slug, tags },
+      html,
+      timeToRead,
+    },
     site: {
       siteMetadata: { siteUrl },
     },
   } = data
-  const {
-    frontmatter: { title, date, slug },
-    html,
-    timeToRead,
-  } = markdownRemark
+
+  if (!siteUrl || !slug || !title) {
+    throw new Error("Error 55084")
+  }
   const disqusConfig = {
     url: siteUrl + slug,
     identifier: slug,
     title,
   }
+
+  if (!timeToRead || !html) {
+    throw new Error("Error 28592")
+  }
+
   return (
     <Layout>
       <SEO title={title} />
@@ -38,17 +46,18 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
           <Title>{title}</Title>
           <PostMetadata
             date={date}
-            timeToRead={timeToRead as number}
+            timeToRead={timeToRead}
             disqusConfig={disqusConfig}
           />
           <div className="content">
             <div className="blog-post">
               <div
                 className="blog-post-content"
-                dangerouslySetInnerHTML={{ __html: html as string }}
+                dangerouslySetInnerHTML={{ __html: html }}
               />
             </div>
           </div>
+          <SimpleTags tags={tags || []} />
         </section>
         <section className="section">
           <About />
@@ -73,6 +82,8 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        slug
+        tags
       }
       timeToRead
     }

@@ -6,24 +6,21 @@ import { Title, PostMetadata } from "../../components/typography"
 import { BlogPageQuery } from "../../graphqlTypes"
 import SimpleTags from "../../components/simpleTags"
 
+export const headerMenu = [
+  {
+    name: "Posts",
+    to: "/blog/posts",
+  },
+  {
+    name: "Tags",
+    to: "/blog/tags",
+  },
+]
+
 const BlogPage = ({ data }: { data: BlogPageQuery }) => {
   const {
     siteMetadata: { siteUrl },
   } = data.site
-  const headerMenu = [
-    {
-      name: "Posts",
-      to: "/blog/posts",
-    },
-    {
-      name: "Series",
-      to: "/blog/series",
-    },
-    {
-      name: "Tags",
-      to: "/blog/tags",
-    },
-  ]
 
   return (
     <Layout menu={headerMenu}>

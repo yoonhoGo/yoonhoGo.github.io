@@ -6,6 +6,7 @@ import { graphql, Link } from "gatsby"
 import { Title, PostMetadata } from "../../components/typography"
 import { BlogPageQuery } from "../../graphqlTypes"
 import SimpleTags from "../../components/simpleTags"
+import { headerMenu } from "."
 
 const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
   const {
@@ -14,20 +15,6 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
     },
     allMarkdownRemark: { edges },
   } = data
-  const headerMenu = [
-    {
-      name: "Posts",
-      to: "/blog/posts",
-    },
-    {
-      name: "Series",
-      to: "/blog/series",
-    },
-    {
-      name: "Tags",
-      to: "/blog/tags",
-    },
-  ]
   const [filter, setFilter] = useState()
 
   const posts = filter

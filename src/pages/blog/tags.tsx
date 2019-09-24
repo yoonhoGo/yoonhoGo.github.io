@@ -4,9 +4,10 @@ import _ from "lodash"
 import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
 import { Title, PostMetadata } from "../../components/typography"
-import { BlogPageQuery, GraphQlSourceFieldsEnum } from "../../graphqlTypes"
+import { BlogPageQuery } from "../../graphqlTypes"
 import SimpleTags from "../../components/simpleTags"
 import { useQueryString } from "../../hooks/useLocation"
+import { headerMenu } from "."
 
 const BlogTagsPage = ({ data }: { data: BlogPageQuery }) => {
   const {
@@ -31,8 +32,8 @@ const BlogTagsPage = ({ data }: { data: BlogPageQuery }) => {
       isSelected: _.includes(selectedTags || [], tag),
     }))
     .sortBy("tag")
+    .remove(tagObj => tagObj.tag === "null")
     .value()
-  _.remove(tags, tagObj => tagObj.tag === "null")
 
   const matchedPosts = !selectedTags
     ? edges
@@ -48,22 +49,7 @@ const BlogTagsPage = ({ data }: { data: BlogPageQuery }) => {
       )
 
   return (
-    <Layout
-      menu={[
-        {
-          name: "Posts",
-          to: "/blog/posts",
-        },
-        {
-          name: "Series",
-          to: "/blog/series",
-        },
-        {
-          name: "Tags",
-          to: "/blog/tags",
-        },
-      ]}
-    >
+    <Layout menu={headerMenu}>
       <article className="section">
         <div className="container is-tablet is-margin-center">
           <Tags tags={tags} />

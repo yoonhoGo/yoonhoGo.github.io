@@ -1,10 +1,7 @@
 import React from "react"
 
 import Layout from "../../components/layout"
-import { graphql, Link } from "gatsby"
-import { Title, PostMetadata } from "../../components/typography"
-import { BlogPageQuery } from "../../graphqlTypes"
-import SimpleTags from "../../components/simpleTags"
+import Posts from "../../components/blog/posts"
 
 export const headerMenu = [
   {
@@ -17,42 +14,12 @@ export const headerMenu = [
   },
 ]
 
-const BlogPage = ({ data }: { data: BlogPageQuery }) => {
-  const {
-    siteMetadata: { siteUrl },
-  } = data.site
-
+const BlogPage = () => {
   return (
     <Layout menu={headerMenu}>
       <article className="section">
         <div className="container is-tablet is-margin-center">
-          {data.allMarkdownRemark.edges.map(({ node }) => {
-            const {
-              timeToRead,
-              frontmatter: { title, date, slug, tags },
-              fields: { path },
-            } = node
-            const disqusConfig = {
-              url: siteUrl + slug,
-              identifier: slug,
-              title,
-            }
-            return (
-              <Link className="box" to={path}>
-                <div className="columns">
-                  <div className="column">
-                    <Title>{title}</Title>
-                    <PostMetadata
-                      date={date}
-                      timeToRead={timeToRead as number}
-                      disqusConfig={disqusConfig}
-                    />
-                    <SimpleTags tags={tags || []} />
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+          <Posts />
         </div>
       </article>
     </Layout>
@@ -60,29 +27,3 @@ const BlogPage = ({ data }: { data: BlogPageQuery }) => {
 }
 
 export default BlogPage
-
-export const pageQuery = graphql`
-  query BlogPage {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          fields {
-            path
-          }
-          timeToRead
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            slug
-            tags
-          }
-        }
-      }
-    }
-  }
-`

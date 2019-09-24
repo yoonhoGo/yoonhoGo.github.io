@@ -1,84 +1,53 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import _ from "lodash"
 
 import Layout from "../../components/layout"
-import { graphql, Link } from "gatsby"
-import { Title, PostMetadata } from "../../components/typography"
-import { BlogPageQuery } from "../../graphqlTypes"
-import SimpleTags from "../../components/simpleTags"
 import { useQueryString } from "../../hooks/useLocation"
 import { headerMenu } from "."
+import Posts from "../../components/blog/posts"
 
-const BlogTagsPage = ({ data }: { data: BlogPageQuery }) => {
-  const {
-    site: {
-      siteMetadata: { siteUrl },
-    },
-    allMarkdownRemark: { edges },
-  } = data
-
+const BlogTagsPage = () => {
   const queryString = useQueryString()
   const selectedTags =
     typeof queryString.queries.select === "string"
       ? [queryString.queries.select]
       : queryString.queries.select
 
-  const tags = _.chain(edges)
-    .flatMap("node.frontmatter.tags")
-    .countBy()
-    .mapValues((count, tag) => ({
-      count,
-      tag,
-      isSelected: _.includes(selectedTags || [], tag),
-    }))
-    .sortBy("tag")
-    .value()
+  const [edges, setEdges] = useState()
+  const [tags, setTags] = useState()
 
-  const matchedPosts = !selectedTags
-    ? edges
-    : _.filter(
-        edges,
-        _.matches({
-          node: {
-            frontmatter: {
-              tags: selectedTags,
-            },
-          },
-        })
-      )
+  useEffect(() => {
+    const tags = _.chain(edges)
+      .flatMap("node.frontmatter.tags")
+      .countBy()
+      .mapValues((count, tag) => ({
+        count,
+        tag,
+        isSelected: _.includes(selectedTags || [], tag),
+      }))
+      .sortBy("tag")
+      .value()
+    setTags(tags)
+  }, [edges])
 
   return (
     <Layout menu={headerMenu}>
       <article className="section">
         <div className="container is-tablet is-margin-center">
-          <Tags tags={tags} />
-          {matchedPosts.map(({ node }) => {
-            const {
-              timeToRead,
-              frontmatter: { title, date, slug, tags },
-              fields: { path },
-            } = node
-            const disqusConfig = {
-              url: siteUrl + slug,
-              identifier: slug,
-              title,
+          <Tags tags={tags || []} />
+          <Posts
+            getRawPosts={setEdges}
+            filter={
+              selectedTags &&
+              _.matches({
+                node: {
+                  frontmatter: {
+                    tags: selectedTags,
+                  },
+                },
+              })
             }
-            return (
-              <Link className="box" to={path} key={"tags-" + slug}>
-                <div className="columns">
-                  <div className="column">
-                    <Title>{title}</Title>
-                    <PostMetadata
-                      date={date}
-                      timeToRead={timeToRead as number}
-                      disqusConfig={disqusConfig}
-                    />
-                    <SimpleTags tags={tags || []} />
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+          />
         </div>
       </article>
     </Layout>
@@ -86,32 +55,6 @@ const BlogTagsPage = ({ data }: { data: BlogPageQuery }) => {
 }
 
 export default BlogTagsPage
-
-export const pageQuery = graphql`
-  query BlogTagsPage {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-    allMarkdownRemark {
-      edges {
-        node {
-          fields {
-            path
-          }
-          timeToRead
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            slug
-            tags
-          }
-        }
-      }
-    }
-  }
-`
 
 function Tags({
   tags,

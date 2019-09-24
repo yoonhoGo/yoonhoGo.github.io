@@ -10,24 +10,23 @@ const BlogPage = ({ data }: { data: BlogPageQuery }) => {
   const {
     siteMetadata: { siteUrl },
   } = data.site
+  const headerMenu = [
+    {
+      name: "Posts",
+      to: "/blog/posts",
+    },
+    {
+      name: "Series",
+      to: "/blog/series",
+    },
+    {
+      name: "Tags",
+      to: "/blog/tags",
+    },
+  ]
 
   return (
-    <Layout
-      menu={[
-        {
-          name: "Posts",
-          to: "/blog/posts",
-        },
-        {
-          name: "Series",
-          to: "/blog/series",
-        },
-        {
-          name: "Tags",
-          to: "/blog/tags",
-        },
-      ]}
-    >
+    <Layout menu={headerMenu}>
       <article className="section">
         <div className="container is-tablet is-margin-center">
           {data.allMarkdownRemark.edges.map(({ node }) => {

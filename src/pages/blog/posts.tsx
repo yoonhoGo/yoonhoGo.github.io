@@ -1,4 +1,5 @@
-import React from "react"
+import _filter from "lodash/filter"
+import React, { useState } from "react"
 
 import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
@@ -13,27 +14,34 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
     },
     allMarkdownRemark: { edges },
   } = data
+  const headerMenu = [
+    {
+      name: "Posts",
+      to: "/blog/posts",
+    },
+    {
+      name: "Series",
+      to: "/blog/series",
+    },
+    {
+      name: "Tags",
+      to: "/blog/tags",
+    },
+  ]
+  const [filter, setFilter] = useState()
+
+  const posts = filter
+    ? _filter(edges, edge => {
+        return JSON.stringify(edge.node.frontmatter).includes(filter)
+      })
+    : edges
 
   return (
-    <Layout
-      menu={[
-        {
-          name: "Posts",
-          to: "/blog/posts",
-        },
-        {
-          name: "Series",
-          to: "/blog/series",
-        },
-        {
-          name: "Tags",
-          to: "/blog/tags",
-        },
-      ]}
-    >
+    <Layout menu={headerMenu}>
       <article className="section">
         <div className="container is-tablet is-margin-center">
-          {edges.map(({ node }) => {
+          <Filter setFilter={setFilter} />
+          {posts.map(({ node }) => {
             const {
               timeToRead,
               frontmatter: { title, date, slug, tags },
@@ -93,3 +101,22 @@ export const pageQuery = graphql`
     }
   }
 `
+
+function Filter({ setFilter }: { setFilter: (obj: any) => void }) {
+  function onChange(event: React.ChangeEvent<HTMLInputElement>) {
+    return setFilter(event.target.value)
+  }
+  return (
+    <div className="field">
+      <label className="label">Filter</label>
+      <div className="control">
+        <input
+          className="input"
+          type="text"
+          placeholder="Filter"
+          onChange={onChange}
+        />
+      </div>
+    </div>
+  )
+}

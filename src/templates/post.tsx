@@ -49,14 +49,10 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
             timeToRead={timeToRead}
             disqusConfig={disqusConfig}
           />
-          <div className="content">
-            <div className="blog-post">
-              <div
-                className="blog-post-content"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
-            </div>
-          </div>
+          <div
+            className="content is-medium is-family-serif font-family-serif"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
           <SimpleTags tags={tags || []} />
         </section>
         <section className="section">

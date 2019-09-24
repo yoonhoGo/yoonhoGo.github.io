@@ -32,7 +32,6 @@ const BlogTagsPage = ({ data }: { data: BlogPageQuery }) => {
       isSelected: _.includes(selectedTags || [], tag),
     }))
     .sortBy("tag")
-    .remove(tagObj => tagObj.tag === "null")
     .value()
 
   const matchedPosts = !selectedTags

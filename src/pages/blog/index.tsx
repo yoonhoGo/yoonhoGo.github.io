@@ -1,12 +1,12 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
-import { Title, PostMetadata } from "../components/typography"
-import { BlogPageQuery } from "../graphqlTypes"
-import SimpleTags from "../components/simpleTags"
+import { Title, PostMetadata } from "../../components/typography"
+import { BlogPageQuery } from "../../graphqlTypes"
+import SimpleTags from "../../components/simpleTags"
 
-const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
+const BlogPage = ({ data }: { data: BlogPageQuery }) => {
   const {
     siteMetadata: { siteUrl },
   } = data.site
@@ -63,7 +63,7 @@ const BlogPostsPage = ({ data }: { data: BlogPageQuery }) => {
   )
 }
 
-export default BlogPostsPage
+export default BlogPage
 
 export const pageQuery = graphql`
   query BlogPage {

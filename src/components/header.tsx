@@ -83,7 +83,11 @@ const Header = ({ menu, tagType }: IHeaderProps) => {
               switch (tagType) {
                 case "a": {
                   return (
-                    <a className="navbar-item" href={item.to}>
+                    <a
+                      className="navbar-item"
+                      href={item.to}
+                      key={"navbar-item-" + item.name}
+                    >
                       {item.name}
                     </a>
                   )
@@ -91,7 +95,11 @@ const Header = ({ menu, tagType }: IHeaderProps) => {
                 case "Link":
                 default: {
                   return (
-                    <Link className="navbar-item" to={item.to}>
+                    <Link
+                      className="navbar-item"
+                      to={item.to}
+                      key={"navbar-item-" + item.name}
+                    >
                       {item.name}
                     </Link>
                   )

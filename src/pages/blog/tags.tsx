@@ -74,7 +74,8 @@ function Tags({
         value: tag,
         operation: "add",
       })
-      window.location.search = stringify()
+
+      if (typeof window !== "undefined") window.location.search = stringify()
     }
   }
 
@@ -85,7 +86,8 @@ function Tags({
         value: tag,
         operation: "remove",
       })
-      window.location.search = stringify()
+
+      if (typeof window !== "undefined") window.location.search = stringify()
     }
   }
 

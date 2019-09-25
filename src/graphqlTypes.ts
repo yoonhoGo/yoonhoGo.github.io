@@ -17161,6 +17161,36 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
+export type BlogPostsQueryVariables = {};
+
+
+export type BlogPostsQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'siteUrl'>
+    )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
+
 export type SmallAboutComponentQueryVariables = {};
 
 
@@ -17299,36 +17329,6 @@ export type SiteMetadataForSeoQuery = (
   )> }
 );
 
-export type BlogPageQueryVariables = {};
-
-
-export type BlogPageQuery = (
-  { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'siteUrl'>
-    )> }
-  )>, allMarkdownRemark: (
-    { __typename?: 'MarkdownRemarkConnection' }
-    & { edges: Array<(
-      { __typename?: 'MarkdownRemarkEdge' }
-      & { node: (
-        { __typename?: 'MarkdownRemark' }
-        & Pick<MarkdownRemark, 'timeToRead'>
-        & { fields: Maybe<(
-          { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'path'>
-        )>, frontmatter: Maybe<(
-          { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
-        )> }
-      ) }
-    )> }
-  ) }
-);
-
 export type PostTemplateQueryVariables = {
   slug: Scalars['String']
 };
@@ -17344,7 +17344,7 @@ export type PostTemplateQuery = (
     )> }
   )>, markdownRemark: Maybe<(
     { __typename?: 'MarkdownRemark' }
-    & Pick<MarkdownRemark, 'html' | 'timeToRead'>
+    & Pick<MarkdownRemark, 'html' | 'excerpt' | 'timeToRead' | 'tableOfContents'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
       & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>

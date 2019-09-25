@@ -6,8 +6,6 @@ function reducerQS(
   queries: any,
   action: { queryName: string; operation: "add" | "remove"; value?: string }
 ) {
-  console.log(`TCL: queries`, queries)
-  console.log(`TCL: action`, action)
   if (action.operation === "add") {
     switch (typeof queries[action.queryName]) {
       case "undefined": {
@@ -45,7 +43,7 @@ function reducerQS(
 export function useQueryString() {
   const [queries, dispatch] = useReducer(
     reducerQS,
-    qs.parse(window.location.search)
+    qs.parse(typeof window !== "undefined" ? window.location.search : "")
   )
 
   return {

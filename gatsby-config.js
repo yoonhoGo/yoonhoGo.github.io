@@ -2,7 +2,6 @@ const fs = require(`fs`)
 const fetch = require(`node-fetch`)
 const { buildClientSchema } = require(`graphql`)
 const { createHttpLink } = require(`apollo-link-http`)
-const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -65,7 +64,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
-    `gatsby-transformer-remark`,
+    // `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -76,17 +75,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `yoonhogo`
-      }
+        shortname: process.env.GATSBY_DISQUS_NAME,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-          },
-        ],
+        plugins: [`gatsby-remark-autolink-headers`, `gatsby-remark-prismjs`],
       },
     },
   ],

@@ -41,7 +41,7 @@ const Header = ({ menu, tagType }: IHeaderProps) => {
   const navMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    window.onscroll = onScroll(navbar)
+    if (typeof window !== "undefined") window.onscroll = onScroll(navbar)
     return () => {}
   }, [])
 

@@ -12,6 +12,7 @@ export function Title({
     <h1
       className={`title ${isCenter ? "has-text-centerd" : ""}`}
       style={{ wordBreak: "keep-all" }}
+      id="post-title"
     >
       {children}
     </h1>
@@ -30,7 +31,7 @@ export function PostMetadata({
   disqusConfig: DisqusConfig
 }) {
   return (
-    <h5 className={`subtitle ${isCenter ? "has-text-centerd" : ""}`}>
+    <h5 id="post-metadata" className={`subtitle ${isCenter ? "has-text-centerd" : ""}`}>
       <time>{date}</time>
       {" • "}
       <span>{timeToRead} min read</span>

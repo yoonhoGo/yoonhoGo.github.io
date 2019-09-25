@@ -3,7 +3,7 @@ import React from "react"
 import "../static/mystyles.scss"
 import "animate.css"
 
-import Layout from "../components/layout"
+import Layout from "../components/index/layout"
 import SEO from "../components/seo"
 
 import About from "../components/index/about"

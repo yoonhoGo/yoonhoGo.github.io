@@ -3,13 +3,14 @@ import { Disqus } from "gatsby-plugin-disqus"
 import _get from "lodash/get"
 import React from "react"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import About from "../components/blog/small-about"
 import { Title, PostMetadata } from "../components/typography"
 import { PostTemplateQuery } from "../graphqlTypes"
-import SimpleTags from "../components/simpleTags"
+import { SimpleLinkTags } from "../components/simpleTags"
 import SidebarMenu from "../components/blog/sidebar"
+import DefaultLayout from "../components/defaultLayout"
+import Header from "../components/header"
 
 export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   const {
@@ -39,18 +40,16 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   }
 
   return (
-    <Layout>
-      <SEO title={title} description={excerpt} />
+    <DefaultLayout>
+      <Header />
       <div className="columns is-gaples">
         <div className="column">
-          <div className="section is-sticky" style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-          }}>
-            <SidebarMenu title={title} content={tableOfContents}/>
+          <div className="section is-sticky">
+            <SidebarMenu title={title} content={tableOfContents} />
           </div>
         </div>
-        <div className="column is-narrow">
+        <main className="column is-narrow">
+          <SEO title={title} description={excerpt} />
           <article className="container is-tablet is-margin-center">
             <section className="section">
               <Link to="/blog" replace>
@@ -66,7 +65,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
                 className="content is-medium is-family-serif font-family-serif"
                 dangerouslySetInnerHTML={{ __html: html }}
               ></div>
-              <SimpleTags tags={tags || []} />
+              <SimpleLinkTags tags={tags || []} prefix={'/blog/tags?select='}/>
             </section>
             <section className="section" id="post-whoami">
               <About />
@@ -75,10 +74,10 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
               <Disqus config={disqusConfig} />
             </section>
           </article>
-        </div>
+        </main>
         <div className="column"></div>
       </div>
-    </Layout>
+    </DefaultLayout>
   )
 }
 

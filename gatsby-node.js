@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `path`,
-      value: getPath(node.frontmatter.slug),
+      value: getPath(node.frontmatter.slug) + '/',
     })
   }
 }

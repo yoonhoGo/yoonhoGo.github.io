@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import _ from "lodash"
 
-import Layout from "../../components/layout"
+import Layout from "../../components/index/layout"
 import { useQueryString } from "../../hooks/useLocation"
 import { headerMenu } from "."
 import Posts from "../../components/blog/posts"
@@ -32,7 +32,7 @@ const BlogTagsPage = () => {
 
   return (
     <Layout menu={headerMenu}>
-      <article className="section">
+      <article style={{ padding: "0.5em 0em"}}>
         <div className="container is-tablet is-margin-center">
           <Tags tags={tags || []} />
           <Posts

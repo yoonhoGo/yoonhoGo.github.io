@@ -1,6 +1,6 @@
 import React from "react"
 
-import Layout from "../../components/layout"
+import Layout from "../../components/index/layout"
 import Posts from "../../components/blog/posts"
 
 export const headerMenu = [
@@ -17,7 +17,7 @@ export const headerMenu = [
 const BlogPage = () => {
   return (
     <Layout menu={headerMenu}>
-      <article className="section">
+      <article style={{ padding: "0.5em 0em"}}>
         <div className="container is-tablet is-margin-center">
           <Posts />
         </div>

@@ -74,9 +74,7 @@ export default function Posts({
                   timeToRead={timeToRead as number}
                   disqusConfig={disqusConfig}
                 />
-                <div className="content">
-                  {excerpt}
-                </div>
+                <div className="content">{excerpt}</div>
                 <SimpleTags tags={tags || []} />
               </div>
             </div>

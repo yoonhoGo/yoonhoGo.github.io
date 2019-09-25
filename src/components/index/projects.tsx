@@ -28,7 +28,7 @@ export default function Projects(props: { id?: string }) {
   `)
 
   return (
-    <article id="projects" className="hero is-dark">
+    <section id="projects" className="hero is-dark">
       <div className="hero-body">
         <div className="container is-desktop animated slideInRight slow">
           <h1 className="title">Projects</h1>
@@ -163,7 +163,7 @@ export default function Projects(props: { id?: string }) {
           </div>
         </div>
       </div>
-    </article>
+    </section>
   )
 }
 

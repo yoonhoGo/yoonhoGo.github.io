@@ -3,7 +3,7 @@ import IconLabel from "../IconLabel"
 
 export default function AwardsAndCertificate(props: { id?: string }) {
   return (
-    <article id="awardsAndCertificate" className="section">
+    <section id="awardsAndCertificate" className="section">
       <div className="container is-desktop is-margin-center">
         <h1 className="title has-text-primary">
           Skills Awards and Certificate
@@ -91,7 +91,7 @@ export default function AwardsAndCertificate(props: { id?: string }) {
           />
         </div>
       </div>
-    </article>
+    </section>
   )
 }
 

@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Contact() {
   return (
-    <article id="contact" className="section has-background-light">
+    <section id="contact" className="section has-background-light">
       <div className="container is-desktop">
         <div className="box is-max-960 is-margin-center">
           <h1 className="title has-text-info">Contact</h1>
@@ -66,6 +66,6 @@ export default function Contact() {
           </form>
         </div>
       </div>
-    </article>
+    </section>
   )
 }

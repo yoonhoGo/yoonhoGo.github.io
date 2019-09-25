@@ -6,7 +6,7 @@ import HUBLogo from "../../images/hub logo.jpg"
 
 export default function ExtracurricularActivities() {
   return (
-    <article id="extracurricularActivities" className="section">
+    <section id="extracurricularActivities" className="section">
       <div className="container is-desktop is-margin-center">
         <h1 className="title">Extracurricular Activities</h1>
         <MediaBox imageSrc="https://avatars3.githubusercontent.com/u/40321838?s=200&v=4">
@@ -75,6 +75,6 @@ export default function ExtracurricularActivities() {
           />
         </MediaBox>
       </div>
-    </article>
+    </section>
   )
 }

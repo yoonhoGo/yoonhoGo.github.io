@@ -1,7 +1,7 @@
 import _filter from "lodash/filter"
 import React, { useState } from "react"
 
-import Layout from "../../components/layout"
+import Layout from "../../components/index/layout"
 import { headerMenu } from "."
 import Posts from "../../components/blog/posts"
 
@@ -10,7 +10,7 @@ const BlogPostsPage = () => {
 
   return (
     <Layout menu={headerMenu}>
-      <article className="section">
+      <article style={{ padding: "0.5em 0em"}}>
         <div className="container is-tablet is-margin-center">
           <Filter setFilter={setFilter} />
           <Posts

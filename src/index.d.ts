@@ -18,4 +18,4 @@ declare module "gatsby-plugin-disqus" {
   }): any
 }
 
-declare type Children = string | number | JSX.Element | JSX.Element[]
+declare type Children = undefined | React.ReactNode | React.ReactNodeArray

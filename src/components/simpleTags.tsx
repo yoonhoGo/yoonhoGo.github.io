@@ -16,3 +16,20 @@ export default function SimpleTags({ tags, size }: ISimpleTags) {
     </div>
   )
 }
+interface ISimpleLinkTags extends ISimpleTags {
+  tags: string[]
+  size?: "are-medium" | "are-large"
+  prefix: string
+}
+
+export function SimpleLinkTags({ tags, size, prefix }: ISimpleLinkTags) {
+  return (
+    <div className={`tags ${size}`}>
+      {tags.map(tag => (
+        <a href={prefix + tag} className="tag" key={"tag-" + tag}>
+          {tag}
+        </a>
+      ))}
+    </div>
+  )
+}

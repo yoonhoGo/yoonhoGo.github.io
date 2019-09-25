@@ -31,7 +31,7 @@ export default function About({ id }: { id?: string }) {
   `)
   
   return (
-    <article id="about" className="hero is-medium">
+    <section id="about" className="hero is-medium">
       <div className="hero-body">
         <div className="container is-desktop is-margin-center animated slideInUp">
           <div className="columns">
@@ -109,7 +109,7 @@ export default function About({ id }: { id?: string }) {
           </div>
         </div>
       </div>
-    </article>
+    </section>
   )
 }
 

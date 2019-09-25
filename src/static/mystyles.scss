@@ -25,13 +25,24 @@ body.has-navbar-fixed-top {
   }
 }
 
-@import url('http://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css');
+@import url("http://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css");
 
 .font-family-serif {
-  font-family: 'Iropke Batang', serif;
+  font-family: "Iropke Batang", serif;
 }
 
 .is-sticky {
   position: sticky;
   top: 0px;
+  bottom: 0px;
+  height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1024px) {
+  .is-sticky {
+    display: none;
+  }
 }

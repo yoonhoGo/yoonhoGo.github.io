@@ -14,6 +14,13 @@ module.exports = {
     벗어나 현대의 트렌드에 발맞춘 모던 서버 개발에 관심이
     많습니다. 빠른 개발, 안정적인 운영, 지속적이고 유연한
     유지관리를 개발 철학으로 생각하고 있습니다.`,
+    defaultImage: `https://avatars0.githubusercontent.com/u/6959851?s=256&v=4`,
+    socialUsernames: {
+      email: `rhdbsgh0629@naver.com`,
+      instagram: `ynh_g`,
+      github: `yoonhoGo`,
+      twitter: `yoonho_go`,
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

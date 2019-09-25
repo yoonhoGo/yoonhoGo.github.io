@@ -4,33 +4,48 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-
+import _get from "lodash/get"
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import {
-  SiteMetadataForSeoQuery,
+  SeoQuery,
   SiteSiteMetadata,
   Site,
+  SiteSiteMetadataSocialUsernames,
 } from "../graphqlTypes"
 
-function SEO({ description, lang, meta, title }: any) {
-  const { site }: SiteMetadataForSeoQuery = useStaticQuery(
+interface ISEOProps {
+  title: string
+  description?: string
+  image?: string
+  pathname?: string
+  article?: boolean
+  lang?: string
+  meta?: any[]
+}
+
+function SEO({ description, lang, meta, title }: ISEOProps) {
+  const { site }: SeoQuery = useStaticQuery(
     graphql`
-      query SiteMetadataForSEO {
+      query SEO {
         site {
           siteMetadata {
             title
             description
             author
+            defaultImage
+            socialUsernames {
+              twitter
+            }
           }
         }
       }
     `
   )
   const siteMeta = (site as Site).siteMetadata as SiteSiteMetadata
-  const metaDescription = description || siteMeta.description
+  const metaDescription = description || siteMeta.description || ""
 
   return (
     <Helmet
@@ -44,6 +59,7 @@ function SEO({ description, lang, meta, title }: any) {
           name: `description`,
           content: metaDescription,
         },
+        { property: "og:image", content: siteMeta.defaultImage },
         {
           property: `og:title`,
           content: title,
@@ -62,7 +78,7 @@ function SEO({ description, lang, meta, title }: any) {
         },
         {
           name: `twitter:creator`,
-          content: siteMeta.author,
+          content: _get(siteMeta, "socialUsernames.twitter", `yoonho_go`),
         },
         {
           name: `twitter:title`,
@@ -72,22 +88,28 @@ function SEO({ description, lang, meta, title }: any) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(meta || [])}
     />
   )
 }
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
 SEO.propTypes = {
+  title: PropTypes.string.isRequired,
   description: PropTypes.string,
+  image: PropTypes.string,
+  pathname: PropTypes.string,
+  article: PropTypes.bool,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+}
+SEO.defaultProps = {
+  lang: `kr`,
+  meta: [],
+  title: ``,
+  description: null,
+  image: null,
+  pathname: null,
+  article: false,
 }
 
 export default SEO

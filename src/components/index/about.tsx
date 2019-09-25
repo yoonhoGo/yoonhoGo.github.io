@@ -9,7 +9,7 @@ import SimpleTags from "../simpleTags"
 export default function About({ id }: { id?: string }) {
   const {
     site: {
-      siteMetadata: { author, bio },
+      siteMetadata: { author, bio, socialUsernames },
     },
     github: {
       repositoryOwner: { avatarUrl },
@@ -20,6 +20,12 @@ export default function About({ id }: { id?: string }) {
         siteMetadata {
           author
           bio
+          socialUsernames {
+            email
+            github
+            twitter
+            instagram
+          }
         }
       }
       github {
@@ -41,17 +47,17 @@ export default function About({ id }: { id?: string }) {
                 smallIconLabels={[
                   {
                     iconName: "fab fa-github",
-                    label: "@yoonhoGo",
+                    label: "@" + socialUsernames.github,
                     href: "https://github.com/yoonhoGo",
                   },
                   {
                     iconName: "fab fa-instagram",
-                    label: "@ynh_g",
+                    label: "@" + socialUsernames.instagram,
                     href: "https://www.instagram.com/ynh_g/",
                   },
                   {
                     iconName: "fas fa-at",
-                    label: "rhdbsgh0629@naver.com",
+                    label: socialUsernames.email,
                     href: "mailto:rhdbsgh0629@naver.com",
                   },
                 ]}

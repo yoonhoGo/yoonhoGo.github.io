@@ -21,12 +21,11 @@ export default function IconLabel({
   isFull,
   size,
 }: IIconLabel) {
-  size = size || "is-small"
-  const iconClass = "icon" + (size === "is-small" ? " is-small" : "")
+  const iconClass = "icon" + (size ? ` ${size}` : " is-small")
 
   const innerHTML = (
     <CenteredLine isFull={isFull}>
-      <span className={iconClass} style={{ marginRight: "0.2em"}}>
+      <span className={iconClass} style={{ marginRight: "0.2em" }}>
         <i className={iconName + " fa-sm"}></i>
       </span>
       <Label size={size}>{children}</Label>
@@ -34,7 +33,11 @@ export default function IconLabel({
   )
 
   if (href) {
-    return <a href={href} className="has-text-grey-dark">{innerHTML}</a>
+    return (
+      <a href={href} className="has-text-grey-dark">
+        {innerHTML}
+      </a>
+    )
   } else if (link) {
     return <Link to={link}>{innerHTML}</Link>
   } else {
@@ -45,9 +48,10 @@ export default function IconLabel({
 export const CenteredLine = styled.span`
   display: ${({ isFull }: { isFull?: boolean }) =>
     isFull ? "flex" : "inline-flex"};
+  align-items: center;
 `
 
 export const Label = styled.span`
-  font-size: ${({ size }: { size?: Size }) =>
-    size === "is-small" ? "smaller" : ""};
+  ${({ size }: { size?: Size }) =>
+    size === "is-small" ? "font-size: smaller;" : ""}
 `

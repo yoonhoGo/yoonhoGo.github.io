@@ -3,7 +3,7 @@ import React from "react"
 import "../static/mystyles.scss"
 import "animate.css"
 
-import Layout from "../components/layout"
+import Layout from "../components/index/layout"
 import SEO from "../components/seo"
 
 import About from "../components/index/about"
@@ -13,11 +13,29 @@ import Contact from "../components/index/contact"
 import AwardsAndCertificate from "../components/index/awardsAndCertificate"
 import Presentation from "../components/index/presentation"
 import backgroundImage from "../images/cool-background.png"
-import ExtracurricularActivities from "../components/index/extracurricularActivities";
+import ExtracurricularActivities from "../components/index/extracurricularActivities"
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout
+      menu={[
+        { tagType: "a", to: "#about", name: "About" },
+        { tagType: "a", to: "#projects", name: "Projects" },
+        { tagType: "a", to: "#presentations", name: "Presentations" },
+        { tagType: "a", to: "#experience", name: "WorkExperience" },
+        {
+          tagType: "a",
+          to: "#extracurricularActivities",
+          name: "ExtracurricularActivities",
+        },
+        {
+          tagType: "a",
+          to: "#awardsAndCertificate",
+          name: "AwardsAndCertificate",
+        },
+        { tagType: "a", to: "#contact", name: "Contact" },
+      ]}
+    >
       <SEO title="Home" />
       <div
         className="hero is-medium"

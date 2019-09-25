@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import presentationImage from "./images/IMG_0133.jpg"
-import ImagesViewer from "./components/ImagesViewer"
+import ImagesViewer from "../ImagesViewer"
 import { useStaticQuery, graphql } from "gatsby"
 import {
   ImageSharp,

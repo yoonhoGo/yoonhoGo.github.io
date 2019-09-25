@@ -1,11 +1,11 @@
 import React from "react"
-import IconLabel from "./components/IconLabel"
-import MediaBox from "./components/mediaBox"
-import SimpleTags from "./components/simpleTags"
+import IconLabel from "../IconLabel"
+import MediaBox from "../mediaBox"
+import SimpleTags from "../simpleTags"
 
 export default function Experiences(props: { id?: string }) {
   return (
-    <article id="experience" className="section">
+    <section id="experience" className="section">
       <div className="container is-desktop is-margin-center">
         <h1 className="title">Work Experience</h1>
         <MediaBox imageSrc="https://avatars3.githubusercontent.com/u/39777767?s=200&v=4">
@@ -59,6 +59,6 @@ export default function Experiences(props: { id?: string }) {
           <SimpleTags tags={["Information Security", "Security", "Server"]} />
         </MediaBox>
       </div>
-    </article>
+    </section>
   )
 }

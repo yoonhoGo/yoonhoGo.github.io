@@ -7,11 +7,9 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-
-import Header from "./header"
 import Helmet from "react-helmet"
 
-const Layout = ({ children }: { children: JSX.Element[] }) => {
+const DefaultLayout = ({ children }: { children: Children }) => {
   return (
     <>
       <Helmet>
@@ -20,8 +18,7 @@ const Layout = ({ children }: { children: JSX.Element[] }) => {
           src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
         ></script>
       </Helmet>
-      <Header />
-      <main>{children}</main>
+      {children}
       <footer className="footer has-text-centered">
         © {new Date().getFullYear()}, Built with
         {` `}
@@ -48,8 +45,8 @@ const Layout = ({ children }: { children: JSX.Element[] }) => {
   )
 }
 
-Layout.propTypes = {
+DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default DefaultLayout

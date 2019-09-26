@@ -16381,6 +16381,11 @@ export enum SiteFieldsEnum {
   SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
   SiteMetadataAuthor = 'siteMetadata___author',
   SiteMetadataBio = 'siteMetadata___bio',
+  SiteMetadataDefaultImage = 'siteMetadata___defaultImage',
+  SiteMetadataSocialUsernamesEmail = 'siteMetadata___socialUsernames___email',
+  SiteMetadataSocialUsernamesInstagram = 'siteMetadata___socialUsernames___instagram',
+  SiteMetadataSocialUsernamesGithub = 'siteMetadata___socialUsernames___github',
+  SiteMetadataSocialUsernamesTwitter = 'siteMetadata___socialUsernames___twitter',
   Port = 'port',
   Host = 'host',
   Polyfill = 'polyfill',
@@ -16605,6 +16610,8 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPluginsId = 'pluginCreator___pluginOptions___plugins___id',
   PluginCreatorPluginOptionsPluginsName = 'pluginCreator___pluginOptions___plugins___name',
   PluginCreatorPluginOptionsPluginsVersion = 'pluginCreator___pluginOptions___plugins___version',
+  PluginCreatorPluginOptionsPluginsBrowserApIs = 'pluginCreator___pluginOptions___plugins___browserAPIs',
+  PluginCreatorPluginOptionsPluginsSsrApIs = 'pluginCreator___pluginOptions___plugins___ssrAPIs',
   PluginCreatorPluginOptionsPluginsPluginFilepath = 'pluginCreator___pluginOptions___plugins___pluginFilepath',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
@@ -16814,6 +16821,8 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsId = 'pluginOptions___plugins___id',
   PluginOptionsPluginsName = 'pluginOptions___plugins___name',
   PluginOptionsPluginsVersion = 'pluginOptions___plugins___version',
+  PluginOptionsPluginsBrowserApIs = 'pluginOptions___plugins___browserAPIs',
+  PluginOptionsPluginsSsrApIs = 'pluginOptions___plugins___ssrAPIs',
   PluginOptionsPluginsPluginFilepath = 'pluginOptions___plugins___pluginFilepath',
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsPath = 'pluginOptions___path',
@@ -16986,6 +16995,8 @@ export type SitePluginPluginOptionsPlugins = {
   id?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
+  browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
+  ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
   pluginFilepath?: Maybe<Scalars['String']>,
 };
 
@@ -16994,6 +17005,8 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   version?: Maybe<StringQueryOperatorInput>,
+  browserAPIs?: Maybe<StringQueryOperatorInput>,
+  ssrAPIs?: Maybe<StringQueryOperatorInput>,
   pluginFilepath?: Maybe<StringQueryOperatorInput>,
 };
 
@@ -17013,6 +17026,8 @@ export type SiteSiteMetadata = {
   siteUrl?: Maybe<Scalars['String']>,
   author?: Maybe<Scalars['String']>,
   bio?: Maybe<Scalars['String']>,
+  defaultImage?: Maybe<Scalars['String']>,
+  socialUsernames?: Maybe<SiteSiteMetadataSocialUsernames>,
 };
 
 export type SiteSiteMetadataFilterInput = {
@@ -17021,6 +17036,23 @@ export type SiteSiteMetadataFilterInput = {
   siteUrl?: Maybe<StringQueryOperatorInput>,
   author?: Maybe<StringQueryOperatorInput>,
   bio?: Maybe<StringQueryOperatorInput>,
+  defaultImage?: Maybe<StringQueryOperatorInput>,
+  socialUsernames?: Maybe<SiteSiteMetadataSocialUsernamesFilterInput>,
+};
+
+export type SiteSiteMetadataSocialUsernames = {
+  __typename?: 'SiteSiteMetadataSocialUsernames',
+  email?: Maybe<Scalars['String']>,
+  instagram?: Maybe<Scalars['String']>,
+  github?: Maybe<Scalars['String']>,
+  twitter?: Maybe<Scalars['String']>,
+};
+
+export type SiteSiteMetadataSocialUsernamesFilterInput = {
+  email?: Maybe<StringQueryOperatorInput>,
+  instagram?: Maybe<StringQueryOperatorInput>,
+  github?: Maybe<StringQueryOperatorInput>,
+  twitter?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SiteSortInput = {
@@ -17238,6 +17270,10 @@ export type AboutComponentQuery = (
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'author' | 'bio'>
+      & { socialUsernames: Maybe<(
+        { __typename?: 'SiteSiteMetadataSocialUsernames' }
+        & Pick<SiteSiteMetadataSocialUsernames, 'email' | 'github' | 'twitter' | 'instagram'>
+      )> }
     )> }
   )>, github: (
     { __typename?: 'GitHub' }
@@ -17315,16 +17351,20 @@ export type GetGithubInfoQuery = (
   ) }
 );
 
-export type SiteMetadataForSeoQueryVariables = {};
+export type SeoQueryVariables = {};
 
 
-export type SiteMetadataForSeoQuery = (
+export type SeoQuery = (
   { __typename?: 'Query' }
   & { site: Maybe<(
     { __typename?: 'Site' }
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>
+      & Pick<SiteSiteMetadata, 'title' | 'description' | 'author' | 'defaultImage'>
+      & { socialUsernames: Maybe<(
+        { __typename?: 'SiteSiteMetadataSocialUsernames' }
+        & Pick<SiteSiteMetadataSocialUsernames, 'twitter'>
+      )> }
     )> }
   )> }
 );
@@ -17345,7 +17385,10 @@ export type PostTemplateQuery = (
   )>, markdownRemark: Maybe<(
     { __typename?: 'MarkdownRemark' }
     & Pick<MarkdownRemark, 'html' | 'excerpt' | 'timeToRead' | 'tableOfContents'>
-    & { frontmatter: Maybe<(
+    & { fields: Maybe<(
+      { __typename?: 'MarkdownRemarkFields' }
+      & Pick<MarkdownRemarkFields, 'path'>
+    )>, frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
       & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
     )> }

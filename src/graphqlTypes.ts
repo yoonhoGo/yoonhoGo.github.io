@@ -726,6 +726,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
   ChildMarkdownRemarkFrontmatterSlug = 'childMarkdownRemark___frontmatter___slug',
   ChildMarkdownRemarkFrontmatterTags = 'childMarkdownRemark___frontmatter___tags',
+  ChildMarkdownRemarkFrontmatterImage = 'childMarkdownRemark___frontmatter___image',
   ChildMarkdownRemarkExcerpt = 'childMarkdownRemark___excerpt',
   ChildMarkdownRemarkRawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   ChildMarkdownRemarkFileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -15750,6 +15751,7 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterDate = 'frontmatter___date',
   FrontmatterSlug = 'frontmatter___slug',
   FrontmatterTags = 'frontmatter___tags',
+  FrontmatterImage = 'frontmatter___image',
   Excerpt = 'excerpt',
   RawMarkdownBody = 'rawMarkdownBody',
   FileAbsolutePath = 'fileAbsolutePath',
@@ -15881,6 +15883,7 @@ export type MarkdownRemarkFrontmatter = {
   date?: Maybe<Scalars['Date']>,
   slug?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  image?: Maybe<Scalars['String']>,
 };
 
 
@@ -15896,6 +15899,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   date?: Maybe<DateQueryOperatorInput>,
   slug?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -17369,6 +17373,48 @@ export type SeoQuery = (
   )> }
 );
 
+export type BlogPageQueryVariables = {};
+
+
+export type BlogPageQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'siteUrl'>
+    )> }
+  )> }
+);
+
+export type BlogPostsPageQueryVariables = {};
+
+
+export type BlogPostsPageQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'siteUrl'>
+    )> }
+  )> }
+);
+
+export type BlogTagsPageQueryVariables = {};
+
+
+export type BlogTagsPageQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'siteUrl'>
+    )> }
+  )> }
+);
+
 export type PostTemplateQueryVariables = {
   slug: Scalars['String']
 };
@@ -17390,7 +17436,7 @@ export type PostTemplateQuery = (
       & Pick<MarkdownRemarkFields, 'path'>
     )>, frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
-      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
+      & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags' | 'image'>
     )> }
   )> }
 );

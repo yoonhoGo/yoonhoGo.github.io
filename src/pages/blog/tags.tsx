@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from "react"
 import _ from "lodash"
+import _get from "lodash/get"
+import { graphql } from "gatsby"
+import React, { useState, useEffect } from "react"
 
 import Layout from "../../components/index/layout"
 import { useQueryString } from "../../hooks/useLocation"
 import { headerMenu } from "."
 import Posts from "../../components/blog/posts"
+import SEO from "../../components/seo"
+import { BlogTagsPageQuery } from "../../graphqlTypes"
 
-const BlogTagsPage = () => {
+const BlogTagsPage = ({ data: { site } }: { data: BlogTagsPageQuery }) => {
+  const siteUrl = _get(site, "siteMetadata.siteUrl", "https://yoonho.ga")
   const queryString = useQueryString()
   const selectedTags =
     typeof queryString.queries.select === "string"
@@ -32,7 +37,8 @@ const BlogTagsPage = () => {
 
   return (
     <Layout menu={headerMenu}>
-      <article style={{ padding: "1em 1em"}}>
+      <SEO title="Blog Tags" url={siteUrl + "/blog/tags"} />
+      <article style={{ padding: "1em" }}>
         <div className="container is-tablet is-margin-center">
           <Tags tags={tags || []} />
           <Posts
@@ -114,3 +120,13 @@ function Tags({
     </div>
   )
 }
+
+export const query = graphql`
+  query BlogTagsPage {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`

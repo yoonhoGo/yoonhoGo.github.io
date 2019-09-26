@@ -1,16 +1,21 @@
 import _filter from "lodash/filter"
+import _get from "lodash/get"
+import { graphql } from "gatsby"
 import React, { useState } from "react"
 
 import Layout from "../../components/index/layout"
 import { headerMenu } from "."
 import Posts from "../../components/blog/posts"
+import SEO from "../../components/seo"
+import { BlogPostsPageQuery } from "../../graphqlTypes"
 
-const BlogPostsPage = () => {
+const BlogPostsPage = ({ data: { site } }: { data: BlogPostsPageQuery }) => {
+  const siteUrl = _get(site, "siteMetadata.siteUrl", "https://yoonho.ga")
   const [filter, setFilter] = useState()
-
   return (
     <Layout menu={headerMenu}>
-      <article style={{ padding: "1em 1em"}}>
+      <SEO title="Blog Posts" url={siteUrl + "/blog/posts"} />
+      <article style={{ padding: "1em" }}>
         <div className="container is-tablet is-margin-center">
           <Filter setFilter={setFilter} />
           <Posts
@@ -47,3 +52,13 @@ function Filter({ setFilter }: { setFilter: (obj: any) => void }) {
     </div>
   )
 }
+
+export const query = graphql`
+  query BlogPostsPage {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`

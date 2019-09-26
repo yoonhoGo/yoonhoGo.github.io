@@ -13,7 +13,6 @@ import {
   SeoQuery,
   SiteSiteMetadata,
   Site,
-  SiteSiteMetadataSocialUsernames,
 } from "../graphqlTypes"
 
 interface ISEOProps {

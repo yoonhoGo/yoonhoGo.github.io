@@ -44,7 +44,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   return (
     <DefaultLayout>
       <Header />
-      <div className="columns is-gaples">
+      <div className="columns is-gaples" style={{ margin: "1rem 0rem"}}>
         <div className="column">
           <div className="section is-sticky">
             <SidebarMenu title={title} content={tableOfContents} />
@@ -53,7 +53,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
         <main className="column is-narrow">
           <SEO title={title} description={excerpt} url={url} image={image} />
           <article className="container is-tablet is-margin-center">
-            <section className="section">
+            <section>
               <Link to="/blog" replace>
                 {"⬅︎ Back"}
               </Link>

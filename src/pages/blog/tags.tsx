@@ -32,7 +32,7 @@ const BlogTagsPage = () => {
 
   return (
     <Layout menu={headerMenu}>
-      <article style={{ padding: "0.5em 0em"}}>
+      <article style={{ padding: "1em 1em"}}>
         <div className="container is-tablet is-margin-center">
           <Tags tags={tags || []} />
           <Posts

@@ -18,7 +18,7 @@ export default function SidebarMenu({
           fontSize: "medium",
         }}
       >
-        <a href="#">{title}</a>
+        <a href={"#" + title}>{title}</a>
       </p>
       {liTag && (
         <>

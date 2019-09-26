@@ -5,14 +5,14 @@ export function Title({
   children,
   isCenter,
 }: {
-  children: Children
+  children: string
   isCenter?: boolean
 }) {
   return (
     <h1
       className={`title ${isCenter ? "has-text-centerd" : ""}`}
       style={{ wordBreak: "keep-all" }}
-      id="post-title"
+      id={children}
     >
       {children}
     </h1>

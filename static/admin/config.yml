@@ -13,10 +13,11 @@ collections:
     create: true
     slug: "/{{year}}-{{month}}-{{day}}/{{slug}}"
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: "Publish Date", name: date, widget: datetime }
+      - { label: 제목, name: title, widget: string }
+      - { label: 날짜, name: date, widget: datetime }
       - { label: Slug, name: slug, widget: string }
-      - { label: Tags, name: tags, widget: list }
-      - { label: Body, name: body, widget: markdown }
+      - { label: 기본 이미지, name: image, widget: string }
+      - { label: 태그, name: tags, widget: list }
+      - { label: 내용, name: body, widget: markdown }

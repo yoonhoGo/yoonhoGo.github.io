@@ -15,7 +15,7 @@ import Header from "../components/header"
 export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   const {
     markdownRemark: {
-      frontmatter: { title, date, slug, tags },
+      frontmatter: { title, date, slug, tags, image },
       html,
       timeToRead,
       tableOfContents,
@@ -29,10 +29,12 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   if (!siteUrl || !slug || !title) {
     throw new Error("Error 55084")
   }
+
+  const url = siteUrl + slug
   const disqusConfig = {
-    url: siteUrl + slug,
     identifier: slug,
     title,
+    url,
   }
 
   if (!timeToRead || !html) {
@@ -49,7 +51,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
           </div>
         </div>
         <main className="column is-narrow">
-          <SEO title={title} description={excerpt} />
+          <SEO title={title} description={excerpt} url={url} image={image} />
           <article className="container is-tablet is-margin-center">
             <section className="section">
               <Link to="/blog" replace>
@@ -65,7 +67,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
                 className="content is-medium is-family-serif font-family-serif"
                 dangerouslySetInnerHTML={{ __html: html }}
               ></div>
-              <SimpleLinkTags tags={tags || []} prefix={'/blog/tags?select='}/>
+              <SimpleLinkTags tags={tags || []} prefix={"/blog/tags?select="} />
             </section>
             <section className="section" id="post-whoami">
               <About />
@@ -99,6 +101,7 @@ export const pageQuery = graphql`
         title
         slug
         tags
+        image
       }
       timeToRead
       tableOfContents(pathToSlugField: "fields.path")

@@ -3,6 +3,7 @@ title: (번역 중)Serverless Docker Beta
 date: 2018-09-02
 slug: /2018-09-02/Serverless-Docker-Beta-zeit
 tags: ["Docker", "Serverless", "Now", "Zeit"]
+image: https://cdn-images-1.medium.com/max/1600/0*PBNCCGfFVAn1_Cec.gif
 ---
 
 시간이 좀처럼 안나서 뜸뜸이 번역하고 있어서 나온지 꽤 됬는데도 아직 포스팅을 못했습니다😂 그래서 좀 부족하더라도 미리 올려 놓고 조금씩
@@ -10,15 +11,11 @@ tags: ["Docker", "Serverless", "Now", "Zeit"]
 
 ---
 
-얼마전에 메일로 Now를 만드는 회사인 Zeit에서 새소식이 왔습니다. 바로! [Serverless docker
-beta](https://zeit.co/blog/serverless-docker)!!!!(띠용🤔) 서버리스면 서버리스고 도커면 도커지 두개가
-같이 있을 수 있나…??!!!!!! 도커가 서버리스로?! 아무튼 그래서 번역을 해보았습니다. 실제 사용 후기는 이후에 올려드리겠습니다. 오역이나
-어설픈 부분은 알려주시기 바랍니다😄(도와줘서 고마워요 구글 번역기)
+얼마전에 메일로 Now를 만드는 회사인 Zeit에서 새소식이 왔습니다. 바로! [Serverless docker beta](https://zeit.co/blog/serverless-docker)!!!!(띠용🤔) 서버리스면 서버리스고 도커면 도커지 두개가 같이 있을 수 있나…??!!!!!! 도커가 서버리스로?! 아무튼 그래서 번역을 해보았습니다. 실제 사용 후기는 이후에 올려드리겠습니다. 오역이나 어설픈 부분은 알려주시기 바랍니다😄(도와줘서 고마워요 구글 번역기)
 
 ---
 
-올해 [ZEIT Day Keynote](https://www.youtube.com/watch?v=yqACl3tRHNI)의 초점은 Now 클라우드
-플랫폼의 새로운 가능성입니다. 특히, 우리는 Serverless Docker 개발에서 우리의 초점을 강조했습니다.
+올해 [ZEIT Day Keynote](https://www.youtube.com/watch?v=yqACl3tRHNI)의 초점은 Now 클라우드 플랫폼의 새로운 가능성입니다. 특히, 우리는 Serverless Docker 개발에서 우리의 초점을 강조했습니다.
 
 오늘, 우리는 공개 베타 버전으로써 발표할 것입니다. 다음 기능을 제공합니다:
 
@@ -115,8 +112,6 @@ We selected these demos in particular to underline a very important point. We
 think Serverless can be a very general computing model. One that does not
 require new protocols, new APIs and can support every programming language and
 framework without large rewrites.
-
-우리는
 
 Here are three of the underlying ideas behind this new architecture.
 

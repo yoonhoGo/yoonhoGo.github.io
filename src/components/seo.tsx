@@ -6,26 +6,20 @@
  */
 import _get from "lodash/get"
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import {
-  SeoQuery,
-  SiteSiteMetadata,
-  Site,
-} from "../graphqlTypes"
+import { SeoQuery, SiteSiteMetadata, Site } from "../graphqlTypes"
 
 interface ISEOProps {
   title: string
   description?: string
   image?: string
-  pathname?: string
-  article?: boolean
   lang?: string
   meta?: any[]
+  url?: string
 }
 
-function SEO({ description, lang, meta, title }: ISEOProps) {
+function SEO({ description, lang, meta, title, image, url }: ISEOProps) {
   const { site }: SeoQuery = useStaticQuery(
     graphql`
       query SEO {
@@ -55,13 +49,28 @@ function SEO({ description, lang, meta, title }: ISEOProps) {
       titleTemplate={`%s | ${siteMeta.title}`}
       meta={[
         {
+          name: `title`,
+          content: title
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
-        { property: "og:image", content: siteMeta.defaultImage },
         {
           property: `og:title`,
           content: title,
+        },
+        {
+          property: "og:site_name",
+          content: title
+        },
+        {
+          property: "og:url",
+          content: url || (siteMeta.siteUrl as string)
+        },
+        {
+          property: "og:image",
+          content: image || (siteMeta.defaultImage as string),
         },
         {
           property: `og:description`,
@@ -79,36 +88,17 @@ function SEO({ description, lang, meta, title }: ISEOProps) {
           name: `twitter:creator`,
           content: _get(siteMeta, "socialUsernames.twitter", `yoonho_go`),
         },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
       ].concat(meta || [])}
     />
   )
 }
 
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  pathname: PropTypes.string,
-  article: PropTypes.bool,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-}
 SEO.defaultProps = {
   lang: `kr`,
   meta: [],
   title: ``,
   description: null,
   image: null,
-  pathname: null,
-  article: false,
 }
 
 export default SEO

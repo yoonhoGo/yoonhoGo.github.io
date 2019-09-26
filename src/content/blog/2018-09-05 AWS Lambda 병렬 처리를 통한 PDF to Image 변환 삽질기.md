@@ -3,6 +3,7 @@ title: AWS Lambda 병렬 처리를 통한 PDF to Image 변환 삽질기
 date: 2018-09-05 10:00:00
 slug: /2018-09-05/AWS-Lambda-병렬-처리-PDF-Image-변환
 tags: ["Serverless", "AWS Lambda", "Pdf", "Image", "Parallel Computing"]
+image: https://cdn-images-1.medium.com/max/1600/0*wyNsMpINP29vTzW2.png
 ---
 
 > **이 글은 7월에 있었던 AWSKRUG Serverless 발표때 사용한 내용입니다.**
@@ -19,7 +20,7 @@ tags: ["Serverless", "AWS Lambda", "Pdf", "Image", "Parallel Computing"]
 특히 나중에 도입될 변환 서비스에서 너무 과한 시간이 걸릴 것으로 판단해서 병렬처리를 도입하려고 하였습니다. 그런데 PC에서 병렬처리는 한계가
 있기 때문에 AWS Lambda를 이용하기로 결정하였습니다.
 
-### 1. 고민들
+# 1. 고민들
 
 작업을 시작하기 전에 했던 고민들이 있었는데요. 첫번째는 어떤 Program Language를 사용할까 하는 것이었습니다. Lambda에서
 실행할 것이었기 때문에 Lambda에서 운영되는 언어중에 골랐어야 했습니다.
@@ -35,7 +36,7 @@ tags: ["Serverless", "AWS Lambda", "Pdf", "Image", "Parallel Computing"]
 구성하고 있고 요즘 작업 대부분을 Node.js 환경에서 하다보니 Node.js로 시작하는게 좋겠다 싶어서 Javascript로 처음엔
 시작했습니다.
 
-### 2. 삽을 들다
+# 2. 삽을 들다
 
 Javascript에서 PDF 렌더링을 Mozilla에서 만든 [pdf.js](https://github.com/mozilla/pdf.js)를
 이용했습니다. 이 pdf.js는 canvas에 의존적인데요. node에서는 canvas가 없기 때문에
@@ -80,7 +81,7 @@ module.exports = {hello};
 예제는 잘 실행되었습니다. 변환속도도 괜찮고 맘에 들었습니다. 이거면 되겠다 싶어서 소스를 수정하기 시작했습니다. 예제를 조금 수정해서 한글
 텍스트를 써서 작성하고 실행했습니다. 그런데 그때 예상치 못한 문제를 만났습니다.
 
-### 3. 예상치 못한 문제를 만나다
+# 3. 예상치 못한 문제를 만나다
 
 테스트용 소스는 **충격적**이게도 한글 텍스트를 제대로 인식하지 못하고 글자가 깨져서 안나왔습니다. 문제를 해결해보려고 여러 방법을
 시도해봤는데요.
@@ -94,7 +95,7 @@ module.exports = {hello};
 방법이 있었겠지만 저는 그 방법을 찾지 못했습니다. 결국 오랜시간의 삽질에도 불구하고 그래서 과감하게 미련없이 다른 언어의 다른 방법으로
 환승했습니다.
 
-### 4. 도와줘요 Adobe!
+# 4. 도와줘요 Adobe!
 
 결국, 다른 남은 언어 중에서 Python, Java의 선택지를 생각하면서 알아보다가 Python에서 PDF Rendering Library 중
 유명한 것이 Poppler입니다. 그런데 이 라이브러리도 Bynary file에 의존적이었습니다. 반면에 Java에서 사용하는 라이브러리인
@@ -111,7 +112,7 @@ Lambda 이벤트를 받으면 이벤트에 있는 S3 주소를 받아서 그 위
 중간에 여러번의 삽질이 있었지만 결국 성공했습니다. 영문 페이지도 한글 페이지도 성공적으로 변환되었습니다. 이미지 등도 잘 변환되었구요. 이때
 엄청 환호성을 질렀습니다. 글로는 간략하게 설명됬었지만 2~3일 정도 고생했거든요.
 
-### 5. 병렬처리 시작
+# 5. 병렬처리 시작
 
 꽤 오랜시간 고생했지만 아직 본래 하려던 내용은 시작도 못했습니다. 애초에 목적은 변환이 아니라 병렬처리였으니까요. 그래서 소스를 병렬로
 처리하기 위해서 작업을 시작했습니다. 병렬로 변환하게 만드는 소스를 짜기까지는 오래 걸리지 않았습니다. 애초에 잘 작동하는 소스로 Lambda를
@@ -131,7 +132,7 @@ recievePage3EvnetTrigger FlowChart
 
 ![](https://cdn-images-1.medium.com/max/1600/0*zRbsJorov7cF5VPB.png)
 
-### 6. 결과와 문제점
+# 6. 결과와 문제점
 
 자, 이제 프로그램은 완성되었습니다. 길고 긴 시간이 걸렸습니다만 소스는 무사히 완성되었네요. 실행방법은 두가지입니다.
 
@@ -145,13 +146,13 @@ recievePage3EvnetTrigger FlowChart
 1.  람다 동시성 예약 1000건
 1.  특수한 글자 인식 오류
 
-### 시도해보면 좋았을 것들
+# 시도해보면 좋았을 것들
 
 - Python
 - AWS SQS(Simple Queue Service)
 - 엄격한 권한 관리
 
-### 7. Demo
+# 7. Demo
 
 이 [Repository](https://github.com/witherion/PdfToImageOnLambda)에서 해당 소스를 가져올수
 있습니다. 맘에 드신다면 별⭐️도 췍췍!

@@ -44,7 +44,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   return (
     <DefaultLayout>
       <Header />
-      <div className="columns is-gaples" style={{ margin: "0rem"}}>
+      <div className="columns is-gaples" style={{ margin: "0rem" }}>
         <div className="column is-padding">
           <div className="is-sticky">
             <SidebarMenu title={title} content={tableOfContents} />
@@ -52,7 +52,10 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
         </div>
         <main className="column is-narrow">
           <SEO title={title} description={excerpt} url={url} image={image} />
-          <article className="container is-tablet is-margin-center">
+          <article
+            className="container is-tablet is-margin-center"
+            style={{ padding: "0 0.75em" }}
+          >
             <section>
               <Link to="/blog" replace>
                 {"⬅︎ Back"}
@@ -69,10 +72,10 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
               ></div>
               <SimpleLinkTags tags={tags || []} prefix={"/blog/tags?select="} />
             </section>
-            <section className="section" id="post-whoami">
+            <section id="post-whoami" style={{ marginTop: "2em" }}>
               <About />
             </section>
-            <section className="section" id="post-comment">
+            <section id="post-comment" style={{ marginTop: "2em" }}>
               <Disqus config={disqusConfig} />
             </section>
           </article>

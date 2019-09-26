@@ -34,5 +34,5 @@ $ rm ~/Library/Receipts/io.continuum.pkg.anaconda*
 
 참고 링크입니다.
 
-1. [https://nektony.com/how-to/uninstall-anaconda-on-a-mac](https://nektony.com/how-to/uninstall-anaconda-on-a-mac)
-2. [https://itunes.apple.com/kr/app/app-cleaner-uninstaller/id1013897218?mt=12](https://itunes.apple.com/kr/app/app-cleaner-uninstaller/id1013897218?mt=12)
+1. [Uninstall Anaconda on a Mac - Full Removal Guide](https://nektony.com/how-to/uninstall-anaconda-on-a-mac)
+2. [‎Mac App Store에서 제공하는 Cleaner-App](https://itunes.apple.com/kr/app/app-cleaner-uninstaller/id1013897218?mt=12)

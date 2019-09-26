@@ -48,17 +48,22 @@ export default function About({ id }: { id?: string }) {
                   {
                     iconName: "fab fa-github",
                     label: "@" + socialUsernames.github,
-                    href: "https://github.com/yoonhoGo",
+                    href: "https://github.com/" + socialUsernames.github,
                   },
                   {
                     iconName: "fab fa-instagram",
                     label: "@" + socialUsernames.instagram,
-                    href: "https://www.instagram.com/ynh_g/",
+                    href: "https://www.instagram.com/" + socialUsernames.instagram,
+                  },
+                  {
+                    iconName: "fab fa-twitter",
+                    label: "@" + socialUsernames.twitter,
+                    href: "https://www.twitter.com/" + socialUsernames.twitter,
                   },
                   {
                     iconName: "fas fa-at",
                     label: socialUsernames.email,
-                    href: "mailto:rhdbsgh0629@naver.com",
+                    href: "mailto:" + socialUsernames.email,
                   },
                 ]}
               />

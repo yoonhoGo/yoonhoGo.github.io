@@ -22,7 +22,7 @@ const BlogPage = ({ data: { site } }: { data: BlogPageQuery }) => {
   const siteUrl = _get(site, "siteMetadata.siteUrl", "https://yoonho.ga")
   return (
     <Layout menu={headerMenu}>
-      <SEO title="Blog" url={siteUrl + "/blog"} />
+      <SEO title="Blog Home" url={siteUrl + "/blog"} />
       <article style={{ padding: "1em" }}>
         <div className="container is-tablet is-margin-center">
           <Posts />

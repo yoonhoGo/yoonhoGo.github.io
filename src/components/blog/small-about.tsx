@@ -8,7 +8,7 @@ import { SmallAboutComponentQuery } from "../../graphqlTypes"
 export default function SmallAbout(props: { id?: string }) {
   const {
     site: {
-      siteMetadata: { author, bio },
+      siteMetadata: { author, bio, socialUsernames },
     },
     github: {
       repositoryOwner: { avatarUrl },
@@ -19,6 +19,12 @@ export default function SmallAbout(props: { id?: string }) {
         siteMetadata {
           author
           bio
+          socialUsernames {
+            email
+            github
+            twitter
+            instagram
+          }
         }
       }
       github {
@@ -28,7 +34,7 @@ export default function SmallAbout(props: { id?: string }) {
       }
     }
   `)
-  
+
   return (
     <div className="container is-tablet is-margin-center">
       <div className="columns">
@@ -38,18 +44,23 @@ export default function SmallAbout(props: { id?: string }) {
             smallIconLabels={[
               {
                 iconName: "fab fa-github",
-                label: "@yoonhoGo",
-                href: "https://github.com/yoonhoGo",
+                label: "@" + socialUsernames.github,
+                href: "https://github.com/" + socialUsernames.github,
               },
               {
                 iconName: "fab fa-instagram",
-                label: "@ynh_g",
-                href: "https://www.instagram.com/ynh_g/",
+                label: "@" + socialUsernames.instagram,
+                href: "https://www.instagram.com/" + socialUsernames.instagram,
+              },
+              {
+                iconName: "fab fa-twitter",
+                label: "@" + socialUsernames.twitter,
+                href: "https://www.twitter.com/" + socialUsernames.twitter,
               },
               {
                 iconName: "fas fa-at",
-                label: "rhdbsgh0629@naver.com",
-                href: "mailto:rhdbsgh0629@naver.com",
+                label: socialUsernames.email,
+                href: "mailto:" + socialUsernames.email,
               },
             ]}
           />

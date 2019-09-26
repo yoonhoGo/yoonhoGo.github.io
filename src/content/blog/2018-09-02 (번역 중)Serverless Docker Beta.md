@@ -35,9 +35,9 @@ image: https://cdn-images-1.medium.com/max/1600/0*PBNCCGfFVAn1_Cec.gif
 Read on to learn how it works or head directly to our
 [examples](https://github.com/zeit/now-examples).
 
-### [실습 방법](https://zeit.co/blog/serverless-docker#walkthrough)
+# [실습 방법](https://zeit.co/blog/serverless-docker#walkthrough)
 
-#### [Serverless Node.js Functions](https://zeit.co/blog/serverless-docker#serverless-node.js-functions)
+## [Serverless Node.js Functions](https://zeit.co/blog/serverless-docker#serverless-node.js-functions)
 
 `micro`를 이용해 간단한 HTTP 서비스 함수를 배포 해봅시다:
 
@@ -60,7 +60,7 @@ Read on to learn how it works or head directly to our
 
 이 작업을 수행하기 위한 요구사항은 오직 당신의 now.json에서 기능 플래그를 통해 베타를 활성화 하는 것입니다:
 
-#### [Serverless Go + Websockets](https://zeit.co/blog/serverless-docker#serverless-go-+-websockets)
+## [Serverless Go + Websockets](https://zeit.co/blog/serverless-docker#serverless-go-+-websockets)
 
 이 기술의 능력을 조금 더 깊숙히 알아봅시다. 다음 예제는 Docker registry에서 Go로 작성된 이미지를 가져옵니다.
 
@@ -77,7 +77,7 @@ Read on to learn how it works or head directly to our
 - 500ms 미만의 Cold 왕복. Go는 거대한 어플리케이션이지만 더 나은 시작 성능을 보여줍니다.(이 예제에서는 일반적으로 400~500ms)
 - 이 서비스는 초기화된 HTML를 제공하는 HTTP 요청에 응답합니다. 그리고 WebSocket 연결을 통해 PTY 데이터를 교환합니다.
 
-#### [Serverless Rust(Global)](<https://zeit.co/blog/serverless-docker#serverless-rust-(global)>)
+## [Serverless Rust(Global)](<https://zeit.co/blog/serverless-docker#serverless-rust-(global)>)
 
 이 인프라는 [Global Now](https://zeit.co/blog/multi-dc)와 합쳐져 매우 잘 작동합니다. 다시 말해, 모든
 Global locations에 serverless하게 배포하는데 하나의 플래그만 있으면 됩니다.
@@ -93,7 +93,7 @@ Global locations에 serverless하게 배포하는데 하나의 플래그만 있�
 
 이것은 또한 다음을 실행하여 이미 배포된 후에도 확장할 수 있습니다:
 
-#### [Automatic Horizontal Scalability(자동 수평 확장성)](https://zeit.co/blog/serverless-docker#automatic-horizontal-scalability)
+## [Automatic Horizontal Scalability(자동 수평 확장성)](https://zeit.co/blog/serverless-docker#automatic-horizontal-scalability)
 
 (정의하는 경계 안에서)당신이 정의한 파라매터로 자동 확장하는 이 시스템의 능력을 강조하기 위해서, 여기 `wrk`(load-testing
 tool)로 [stress test](https://ko.wikipedia.org/wiki/ì¤í¸ë ì¤_íì¤í¸)를 위한
@@ -106,7 +106,7 @@ tool)로 [stress test](https://ko.wikipedia.org/wiki/ì¤í¸ë ì¤_í�
 이 것은(우리 생각에) Serverless 배포의 가장 중요한 특징을 정의합니다. 하지만, 우리가 다음을 보게 되는 것만은 아닙니다.(>
 무슨말이죠..?)
 
-### [Serverless 컴퓨팅의 원리](https://zeit.co/blog/serverless-docker#principles-of-serverless-computing)
+# [Serverless 컴퓨팅의 원리](https://zeit.co/blog/serverless-docker#principles-of-serverless-computing)
 
 We selected these demos in particular to underline a very important point. We
 think Serverless can be a very general computing model. One that does not
@@ -115,7 +115,7 @@ framework without large rewrites.
 
 Here are three of the underlying ideas behind this new architecture.
 
-#### [1. Focus on Code, Not Infrastructure](https://zeit.co/blog/serverless-docker#1.-focus-on-code,-not-infrastructure)
+## [1. Focus on Code, Not Infrastructure](https://zeit.co/blog/serverless-docker#1.-focus-on-code,-not-infrastructure)
 
 Serverless enables engineers to focus on code rather than managing servers, VMs,
 registries, clusters, load balancers, availability zones, and so on.
@@ -139,7 +139,7 @@ When we deployed the examples above, we didn’t have to deal with:
 - Container registries and authentication
 - Container image storage, garbage collection and distributed caching
 
-#### [2. Deployments Should Self-Heal](https://zeit.co/blog/serverless-docker#2.-deployments-should-self-heal)
+## [2. Deployments Should Self-Heal](https://zeit.co/blog/serverless-docker#2.-deployments-should-self-heal)
 
 A very common category of failure of software applications is associated with
 failures that occur after programs get into states that the developers didn’t
@@ -162,7 +162,7 @@ Your deployment instances are constantly recycling and rotating. Because of the
 request-driven nature of scheduling execution, combined with limits such as
 maximum execution length, you avoid many common operational errors completely.
 
-#### [3. Deployments Should Automatically and Predictably Scale](https://zeit.co/blog/serverless-docker#3.-deployments-should-automatically-and-predictably-scale)
+## [3. Deployments Should Automatically and Predictably Scale](https://zeit.co/blog/serverless-docker#3.-deployments-should-automatically-and-predictably-scale)
 
 Perhaps the most important or appealing aspect of the serverless paradigm is the
 promise of _automatic scalability_.
@@ -174,7 +174,7 @@ provisioned or an existing one is re-used.
 We have taken this a step further, by allowing you to customize the concurrency
 your process can handle.
 
-### [Technical Details](https://zeit.co/blog/serverless-docker#technical-details)
+# [Technical Details](https://zeit.co/blog/serverless-docker#technical-details)
 
 This new infrastructure is already available to Docker deployments made in the
 free tier, or for paying subscriptions that opt-into the feature via `now.json`:
@@ -183,7 +183,7 @@ Please ensure that your [Now CLI](https://zeit.co/download#now-cli) is up to
 date, or deploy directly via our [GitHub integration](https://zeit.co/github) or
 [API](https://zeit.co/api).
 
-#### [Limits](https://zeit.co/blog/serverless-docker#limits)
+## [Limits](https://zeit.co/blog/serverless-docker#limits)
 
 [Hard Limits](https://zeit.co/blog/serverless-docker#hard-limits)
 
@@ -206,15 +206,15 @@ These limits are configurable in `now.json` as part of a `limits` object.
 - `timeout` how long in _ms_ to wait after the last request to downscale
   (min/default 1 minute, max 30 minutes)
 
-#### [Pricing](https://zeit.co/blog/serverless-docker#pricing)
+## [Pricing](https://zeit.co/blog/serverless-docker#pricing)
 
 While in beta, we require a paid subscription to be able to go over the maximum
 of `3` concurrent deployment instances. Current rates apply and are subject to
 change.
 
-### [Next up: Faster, More Capable, Smaller](https://zeit.co/blog/serverless-docker#next-up:-faster,-more-capable,-smaller)
+# [Next up: Faster, More Capable, Smaller](https://zeit.co/blog/serverless-docker#next-up:-faster,-more-capable,-smaller)
 
-#### [Faster Cold Start](https://zeit.co/blog/serverless-docker#faster-cold-start)
+## [Faster Cold Start](https://zeit.co/blog/serverless-docker#faster-cold-start)
 
 Despite having so dramatically sped up instantiation times, we still have very
 significant room for improvement.
@@ -222,14 +222,14 @@ significant room for improvement.
 We are excited about unveiling some of these over the coming weeks before the
 new infrastructure goes into General Availability.
 
-#### [Additional](https://zeit.co/blog/serverless-docker#additionalslotconfigurations)`slot`[Configurations](https://zeit.co/blog/serverless-docker#additionalslotconfigurations)
+## [Additional](https://zeit.co/blog/serverless-docker#additionalslotconfigurations) `slot` [Configurations](https://zeit.co/blog/serverless-docker#additionalslotconfigurations)
 
 We will introduce new `slot` identifiers so that you can fit your applications
 into other CPU/memory combinations.
 
 This is important for resource-intensive applications.
 
-#### [Smaller Images](https://zeit.co/blog/serverless-docker#smaller-images)
+## [Smaller Images](https://zeit.co/blog/serverless-docker#smaller-images)
 
 When your code is built, we post-process the resulting snapshot and let you know
 what the total size is.
@@ -240,7 +240,7 @@ of our customers’ workloads without any issues.
 However, we are currently developing improvements to optimize this dimension
 further, without you having to make any changes.
 
-### [결론](https://zeit.co/blog/serverless-docker#conclusions)
+# [결론](https://zeit.co/blog/serverless-docker#conclusions)
 
 이 베타 버전은 지난 2년동안 수백만 건의 배포를 완료한 대규모 배포와 다양한 사용자 기반의 교훈과 경험이 포함되어 있습니다.
 

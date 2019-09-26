@@ -44,9 +44,9 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   return (
     <DefaultLayout>
       <Header />
-      <div className="columns is-gaples" style={{ margin: "1rem 0rem"}}>
-        <div className="column">
-          <div className="section is-sticky">
+      <div className="columns is-gaples" style={{ margin: "0rem"}}>
+        <div className="column is-padding">
+          <div className="is-sticky">
             <SidebarMenu title={title} content={tableOfContents} />
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
             </section>
           </article>
         </main>
-        <div className="column"></div>
+        <div className="column is-padding"></div>
       </div>
     </DefaultLayout>
   )

@@ -44,7 +44,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   return (
     <DefaultLayout>
       <Header />
-      <div className="columns is-gaples" style={{ margin: "0rem" }}>
+      <div className="columns is-gaples is-centered" style={{ margin: "0rem" }}>
         <div className="column is-padding">
           <div className="is-sticky">
             <SidebarMenu title={title} content={tableOfContents} />

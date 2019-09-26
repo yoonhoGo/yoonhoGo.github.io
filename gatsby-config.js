@@ -91,6 +91,13 @@ module.exports = {
         plugins: [`gatsby-remark-autolink-headers`, `gatsby-remark-prismjs`],
       },
     },
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-148849742-1",
+      },
+    },
   ],
 }

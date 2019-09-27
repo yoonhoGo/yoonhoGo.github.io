@@ -16628,6 +16628,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsFieldName = 'pluginCreator___pluginOptions___fieldName',
   PluginCreatorPluginOptionsTypeName = 'pluginCreator___pluginOptions___typeName',
   PluginCreatorPluginOptionsShortname = 'pluginCreator___pluginOptions___shortname',
+  PluginCreatorPluginOptionsTrackingId = 'pluginCreator___pluginOptions___trackingId',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
@@ -16839,6 +16840,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsFieldName = 'pluginOptions___fieldName',
   PluginOptionsTypeName = 'pluginOptions___typeName',
   PluginOptionsShortname = 'pluginOptions___shortname',
+  PluginOptionsTrackingId = 'pluginOptions___trackingId',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
@@ -16974,6 +16976,7 @@ export type SitePluginPluginOptions = {
   fieldName?: Maybe<Scalars['String']>,
   typeName?: Maybe<Scalars['String']>,
   shortname?: Maybe<Scalars['String']>,
+  trackingId?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
@@ -16990,6 +16993,7 @@ export type SitePluginPluginOptionsFilterInput = {
   fieldName?: Maybe<StringQueryOperatorInput>,
   typeName?: Maybe<StringQueryOperatorInput>,
   shortname?: Maybe<StringQueryOperatorInput>,
+  trackingId?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
@@ -17197,36 +17201,6 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
-export type BlogPostsQueryVariables = {};
-
-
-export type BlogPostsQuery = (
-  { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'siteUrl'>
-    )> }
-  )>, allMarkdownRemark: (
-    { __typename?: 'MarkdownRemarkConnection' }
-    & { edges: Array<(
-      { __typename?: 'MarkdownRemarkEdge' }
-      & { node: (
-        { __typename?: 'MarkdownRemark' }
-        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
-        & { fields: Maybe<(
-          { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'path'>
-        )>, frontmatter: Maybe<(
-          { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
-        )> }
-      ) }
-    )> }
-  ) }
-);
-
 export type SmallAboutComponentQueryVariables = {};
 
 
@@ -17237,6 +17211,10 @@ export type SmallAboutComponentQuery = (
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'author' | 'bio'>
+      & { socialUsernames: Maybe<(
+        { __typename?: 'SiteSiteMetadataSocialUsernames' }
+        & Pick<SiteSiteMetadataSocialUsernames, 'email' | 'github' | 'twitter' | 'instagram'>
+      )> }
     )> }
   )>, github: (
     { __typename?: 'GitHub' }
@@ -17384,7 +17362,23 @@ export type BlogPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
+        )> }
+      ) }
+    )> }
+  ) }
 );
 
 export type BlogPostsPageQueryVariables = {};
@@ -17398,7 +17392,23 @@ export type BlogPostsPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
+        )> }
+      ) }
+    )> }
+  ) }
 );
 
 export type BlogTagsPageQueryVariables = {};
@@ -17412,7 +17422,23 @@ export type BlogTagsPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
+        )> }
+      ) }
+    )> }
+  ) }
 );
 
 export type PostTemplateQueryVariables = {

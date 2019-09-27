@@ -5,6 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+const fs = require("fs")
 const path = require(`path`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -16,7 +17,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `path`,
-      value: getPath(node.frontmatter.slug) + '/',
+      value: getPath(node.frontmatter.slug) + "/",
     })
   }
 }
@@ -25,10 +26,11 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
   await createPostPage({ createPage, graphql })
+  createPostsToJson({ graphql })
 }
 
-async function createPostPage({ createPage, graphql}) {
-  const result = await graphql(/* GraphQL */`
+async function createPostPage({ createPage, graphql }) {
+  const { data } = await graphql(/* GraphQL */ `
     query CreatePostPage {
       allMarkdownRemark {
         edges {
@@ -41,11 +43,8 @@ async function createPostPage({ createPage, graphql}) {
       }
     }
   `)
-  if (result.errors) {
-    console.error(result.errors)
-  }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  data.allMarkdownRemark.edges.forEach(({ node }) => {
     const blogPostTemplate = path.resolve(`src/templates/post.tsx`)
     const slug = node.frontmatter.slug
     createPage({
@@ -59,5 +58,40 @@ async function createPostPage({ createPage, graphql}) {
 }
 
 function getPath(slug) {
-  return '/blog' + slug
+  return "/blog" + slug
+}
+
+async function createPostsToJson({ graphql }) {
+  const { data } = await graphql(/* GraphQL */ `
+    query PostsToJson {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        nodes {
+          fields {
+            path
+          }
+          excerpt(format: PLAIN)
+          timeToRead
+          internal {
+            content
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            slug
+            tags
+          }
+        }
+      }
+    }
+  `)
+  fs.writeFile(
+    __dirname + "/static/json/posts.json",
+    JSON.stringify(data.allMarkdownRemark.nodes),
+    err => {
+      if (err) {
+        console.error(err)
+      }
+      console.log("export static posts at /static/json/posts.json")
+    }
+  )
 }

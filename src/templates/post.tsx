@@ -29,8 +29,8 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   if (!siteUrl || !slug || !title) {
     throw new Error("Error 55084")
   }
-
-  const url = siteUrl + slug
+  
+  const url = `${siteUrl}/blog/${slug}`
   const disqusConfig = {
     identifier: slug,
     title,

@@ -60,7 +60,7 @@ export default function Posts({
           excerpt,
         } = node
         const disqusConfig = {
-          url: siteUrl + slug,
+          url: siteUrl + path,
           identifier: slug,
           title,
         }

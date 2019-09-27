@@ -20,6 +20,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
       timeToRead,
       tableOfContents,
       excerpt,
+      fields: { path }
     },
     site: {
       siteMetadata: { siteUrl },
@@ -29,8 +30,8 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   if (!siteUrl || !slug || !title) {
     throw new Error("Error 55084")
   }
-  
-  const url = `${siteUrl}/blog/${slug}`
+
+  const url = siteUrl + path
   const disqusConfig = {
     identifier: slug,
     title,

@@ -30,7 +30,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
     throw new Error("Error 55084")
   }
 
-  const url = siteUrl + slug
+  const url = siteUrl + "/blog" + slug
   const disqusConfig = {
     identifier: slug,
     title,

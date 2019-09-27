@@ -1,9 +1,8 @@
 import _filter from "lodash/filter"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { BlogPostsQuery } from "../../graphqlTypes"
-import SimpleTags from "../../components/simpleTags"
-import { Title, PostMetadata } from "../../components/typography"
+import PostCard from "./postCard"
 
 export default function Posts({
   filter,
@@ -37,6 +36,7 @@ export default function Posts({
               title
               slug
               tags
+              image
             }
           }
         }
@@ -55,30 +55,28 @@ export default function Posts({
       {posts.map(({ node }) => {
         const {
           timeToRead,
-          frontmatter: { title, date, slug, tags },
+          frontmatter: { title, date, slug, tags, image },
           fields: { path },
           excerpt,
         } = node
         const disqusConfig = {
-          url: siteUrl + slug,
+          url: siteUrl + path,
           identifier: slug,
           title,
         }
         return (
-          <Link className="box" to={path}>
-            <div className="columns">
-              <div className="column">
-                <Title>{title}</Title>
-                <PostMetadata
-                  date={date}
-                  timeToRead={timeToRead as number}
-                  disqusConfig={disqusConfig}
-                />
-                <div className="content">{excerpt}</div>
-                <SimpleTags tags={tags || []} />
-              </div>
-            </div>
-          </Link>
+          <PostCard
+            title={title}
+            summary={excerpt || ""}
+            path={path}
+            meta={{
+              date: date,
+              timeToRead: timeToRead as number,
+              disqusConfig,
+            }}
+            tags={tags}
+            image={image}
+          />
         )
       })}
     </>

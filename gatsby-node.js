@@ -30,21 +30,32 @@ exports.createPages = async ({ actions, graphql }) => {
 }
 
 async function createPostPage({ createPage, graphql }) {
-  const { data } = await graphql(/* GraphQL */ `
+  const {
+    data: {
+      allMarkdownRemark: { nodes },
+    },
+  } = await graphql(/* GraphQL */ `
     query CreatePostPage {
       allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              slug
-            }
+        nodes {
+          fields {
+            path
+          }
+          excerpt(format: PLAIN)
+          timeToRead
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            slug
+            tags
+            image
           }
         }
       }
     }
   `)
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
+  nodes.forEach((node, index) => {
     const blogPostTemplate = path.resolve(`src/templates/post.tsx`)
     const slug = node.frontmatter.slug
     createPage({
@@ -52,6 +63,8 @@ async function createPostPage({ createPage, graphql }) {
       component: blogPostTemplate,
       context: {
         slug,
+        previous: index === nodes.length - 1 ? null : nodes[index + 1],
+        next: index === 0 ? null : nodes[index - 1],
       },
     })
   })
@@ -79,6 +92,7 @@ async function createPostsToJson({ graphql }) {
             title
             slug
             tags
+            image
           }
         }
       }

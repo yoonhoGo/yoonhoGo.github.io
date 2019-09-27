@@ -16462,10 +16462,96 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   __typename?: 'SitePageContext',
   slug?: Maybe<Scalars['String']>,
+  previous?: Maybe<SitePageContextPrevious>,
+  next?: Maybe<SitePageContextNext>,
 };
 
 export type SitePageContextFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>,
+  previous?: Maybe<SitePageContextPreviousFilterInput>,
+  next?: Maybe<SitePageContextNextFilterInput>,
+};
+
+export type SitePageContextNext = {
+  __typename?: 'SitePageContextNext',
+  fields?: Maybe<SitePageContextNextFields>,
+  excerpt?: Maybe<Scalars['String']>,
+  timeToRead?: Maybe<Scalars['Int']>,
+  frontmatter?: Maybe<SitePageContextNextFrontmatter>,
+};
+
+export type SitePageContextNextFields = {
+  __typename?: 'SitePageContextNextFields',
+  path?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextFieldsFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextNextFilterInput = {
+  fields?: Maybe<SitePageContextNextFieldsFilterInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  frontmatter?: Maybe<SitePageContextNextFrontmatterFilterInput>,
+};
+
+export type SitePageContextNextFrontmatter = {
+  __typename?: 'SitePageContextNextFrontmatter',
+  date?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  slug?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  image?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextFrontmatterFilterInput = {
+  date?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPrevious = {
+  __typename?: 'SitePageContextPrevious',
+  fields?: Maybe<SitePageContextPreviousFields>,
+  excerpt?: Maybe<Scalars['String']>,
+  timeToRead?: Maybe<Scalars['Int']>,
+  frontmatter?: Maybe<SitePageContextPreviousFrontmatter>,
+};
+
+export type SitePageContextPreviousFields = {
+  __typename?: 'SitePageContextPreviousFields',
+  path?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousFieldsFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPreviousFilterInput = {
+  fields?: Maybe<SitePageContextPreviousFieldsFilterInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  frontmatter?: Maybe<SitePageContextPreviousFrontmatterFilterInput>,
+};
+
+export type SitePageContextPreviousFrontmatter = {
+  __typename?: 'SitePageContextPreviousFrontmatter',
+  date?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  slug?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  image?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousFrontmatterFilterInput = {
+  date?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  slug?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -16568,6 +16654,22 @@ export enum SitePageFieldsEnum {
   ComponentChunkName = 'componentChunkName',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
   ContextSlug = 'context___slug',
+  ContextPreviousFieldsPath = 'context___previous___fields___path',
+  ContextPreviousExcerpt = 'context___previous___excerpt',
+  ContextPreviousTimeToRead = 'context___previous___timeToRead',
+  ContextPreviousFrontmatterDate = 'context___previous___frontmatter___date',
+  ContextPreviousFrontmatterTitle = 'context___previous___frontmatter___title',
+  ContextPreviousFrontmatterSlug = 'context___previous___frontmatter___slug',
+  ContextPreviousFrontmatterTags = 'context___previous___frontmatter___tags',
+  ContextPreviousFrontmatterImage = 'context___previous___frontmatter___image',
+  ContextNextFieldsPath = 'context___next___fields___path',
+  ContextNextExcerpt = 'context___next___excerpt',
+  ContextNextTimeToRead = 'context___next___timeToRead',
+  ContextNextFrontmatterDate = 'context___next___frontmatter___date',
+  ContextNextFrontmatterTitle = 'context___next___frontmatter___title',
+  ContextNextFrontmatterSlug = 'context___next___frontmatter___slug',
+  ContextNextFrontmatterTags = 'context___next___frontmatter___tags',
+  ContextNextFrontmatterImage = 'context___next___frontmatter___image',
   PluginCreatorId = 'pluginCreator___id',
   PluginCreatorParentId = 'pluginCreator___parent___id',
   PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -17201,6 +17303,36 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
 );
 
+export type BlogPostsQueryVariables = {};
+
+
+export type BlogPostsQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'siteUrl'>
+    )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
+
 export type SmallAboutComponentQueryVariables = {};
 
 
@@ -17362,23 +17494,7 @@ export type BlogPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )>, allMarkdownRemark: (
-    { __typename?: 'MarkdownRemarkConnection' }
-    & { edges: Array<(
-      { __typename?: 'MarkdownRemarkEdge' }
-      & { node: (
-        { __typename?: 'MarkdownRemark' }
-        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
-        & { fields: Maybe<(
-          { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'path'>
-        )>, frontmatter: Maybe<(
-          { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
-        )> }
-      ) }
-    )> }
-  ) }
+  )> }
 );
 
 export type BlogPostsPageQueryVariables = {};
@@ -17392,23 +17508,7 @@ export type BlogPostsPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )>, allMarkdownRemark: (
-    { __typename?: 'MarkdownRemarkConnection' }
-    & { edges: Array<(
-      { __typename?: 'MarkdownRemarkEdge' }
-      & { node: (
-        { __typename?: 'MarkdownRemark' }
-        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
-        & { fields: Maybe<(
-          { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'path'>
-        )>, frontmatter: Maybe<(
-          { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
-        )> }
-      ) }
-    )> }
-  ) }
+  )> }
 );
 
 export type BlogTagsPageQueryVariables = {};
@@ -17422,23 +17522,7 @@ export type BlogTagsPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )>, allMarkdownRemark: (
-    { __typename?: 'MarkdownRemarkConnection' }
-    & { edges: Array<(
-      { __typename?: 'MarkdownRemarkEdge' }
-      & { node: (
-        { __typename?: 'MarkdownRemark' }
-        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
-        & { fields: Maybe<(
-          { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'path'>
-        )>, frontmatter: Maybe<(
-          { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
-        )> }
-      ) }
-    )> }
-  ) }
+  )> }
 );
 
 export type PostTemplateQueryVariables = {

@@ -3,7 +3,7 @@ title: Anaconda Uninstall on macOS
 date: 2018-08-19
 slug: /2018-08-19/Anaconda-Uninstall-macOS
 tags: ["macOS", "Anaconda", "Python"]
-image: https://itunes.apple.com/kr/app/app-cleaner-uninstaller/id1013897218?mt=12
+image: https://cdn-images-1.medium.com/max/1600/1*vTb29refTamA8FHbBc-Teg.png
 ---
 
 제가 학교에 재학 중일 때는 개인적으로 파이썬을 자주 쓰기도 하고 프로젝트에서도 머신러닝이나 데이터 분석때 파이썬을 자주 쓰다보니 패키지 관리를 위해서나 호환성을 위해서나 아나콘다를 설치해서 쓰는 일이 잦았습니다.

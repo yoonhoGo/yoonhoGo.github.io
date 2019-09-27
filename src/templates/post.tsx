@@ -6,13 +6,25 @@ import React from "react"
 import SEO from "../components/seo"
 import About from "../components/blog/small-about"
 import { Title, PostMetadata } from "../components/typography"
-import { PostTemplateQuery } from "../graphqlTypes"
+import {
+  PostTemplateQuery,
+  SitePageContext,
+  MarkdownRemarkFrontmatter,
+  MarkdownRemarkFields,
+} from "../graphqlTypes"
 import { SimpleLinkTags } from "../components/simpleTags"
 import SidebarMenu from "../components/blog/sidebar"
 import DefaultLayout from "../components/defaultLayout"
 import Header from "../components/header"
+import PostCard from "../components/blog/postCard"
 
-export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
+export default function PostTemplate({
+  data,
+  pageContext,
+}: {
+  data: PostTemplateQuery
+  pageContext: SitePageContext
+}) {
   const {
     markdownRemark: {
       frontmatter: { title, date, slug, tags, image },
@@ -20,7 +32,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
       timeToRead,
       tableOfContents,
       excerpt,
-      fields: { path }
+      fields: { path },
     },
     site: {
       siteMetadata: { siteUrl },
@@ -45,7 +57,7 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
   return (
     <DefaultLayout>
       <Header />
-      <div className="columns is-gaples is-centered" style={{ margin: "0rem" }}>
+      <div className="columns is-gaples is-centered is-marginless">
         <div className="column is-padding">
           <div className="is-sticky">
             <SidebarMenu title={title} content={tableOfContents} />
@@ -75,6 +87,12 @@ export default function PostTemplate({ data }: { data: PostTemplateQuery }) {
             </section>
             <section id="post-whoami" style={{ marginTop: "2em" }}>
               <About />
+            </section>
+            <section id="post-others" style={{ marginTop: "2em" }}>
+              <PageNavigation
+                previous={pageContext.previous}
+                next={pageContext.next}
+              />
             </section>
             <section id="post-comment" style={{ marginTop: "2em" }}>
               <Disqus config={disqusConfig} />
@@ -112,3 +130,59 @@ export const pageQuery = graphql`
     }
   }
 `
+
+interface IPageNavigationProps {
+  next?: SitePageContext["next"]
+  previous?: SitePageContext["previous"]
+  others?: any
+}
+
+function PageNavigation({ next, previous }: IPageNavigationProps) {
+  const previousFrontmatter =
+    previous && (previous.frontmatter as MarkdownRemarkFrontmatter)
+  const nextFrontmatter =
+    next && (next.frontmatter as MarkdownRemarkFrontmatter)
+
+  return (
+    <div className="columns">
+      {previous && (
+        <div className="column">
+          <PostCard
+            rel="prev"
+            title={(previousFrontmatter && previousFrontmatter.title) || ""}
+            summary={previous.excerpt || ""}
+            path={(previous.fields as MarkdownRemarkFields).path as string}
+            meta={{
+              date: previousFrontmatter && previousFrontmatter.date,
+              timeToRead: previous.timeToRead || 0,
+            }}
+            tags={
+              (previousFrontmatter && previousFrontmatter.tags) as (
+                | string[]
+                | undefined)
+            }
+          />
+        </div>
+      )}
+      {next && (
+        <div className="column">
+          <PostCard
+            rel="next"
+            title={(nextFrontmatter && nextFrontmatter.title) || ""}
+            summary={next.excerpt || ""}
+            path={(next.fields as MarkdownRemarkFields).path as string}
+            meta={{
+              date: nextFrontmatter && nextFrontmatter.date,
+              timeToRead: next.timeToRead || 0,
+            }}
+            tags={
+              (nextFrontmatter && nextFrontmatter.tags) as (
+                | string[]
+                | undefined)
+            }
+          />
+        </div>
+      )}
+    </div>
+  )
+}

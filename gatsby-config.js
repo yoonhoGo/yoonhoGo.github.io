@@ -20,7 +20,7 @@ module.exports = {
       instagram: `ynh_g`,
       github: `yoonhoGo`,
       twitter: `yoonho_go`,
-    }
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

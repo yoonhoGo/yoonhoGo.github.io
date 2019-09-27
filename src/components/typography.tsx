@@ -1,42 +1,43 @@
 import React from "react"
 import { CommentCount, DisqusConfig } from "gatsby-plugin-disqus"
+import { useStaticQuery, graphql } from "gatsby"
 
-export function Title({
-  children,
-  isCenter,
-}: {
+export interface ITitleProps {
   children: string
-  isCenter?: boolean
-}) {
+}
+export function Title({ children }: ITitleProps) {
   return (
-    <h1
-      className={`title ${isCenter ? "has-text-centerd" : ""}`}
-      style={{ wordBreak: "keep-all" }}
-      id={children}
-    >
+    <h1 className="title" style={{ wordBreak: "keep-all" }} id={children}>
       {children}
     </h1>
   )
 }
 
+export interface IPostMetadataProps {
+  date: string
+  timeToRead: number
+  disqusConfig?: DisqusConfig
+}
 export function PostMetadata({
   date,
   timeToRead,
-  isCenter,
   disqusConfig,
-}: {
-  date: string
-  timeToRead: number
-  isCenter?: boolean
-  disqusConfig: DisqusConfig
-}) {
+}: IPostMetadataProps) {
   return (
-    <h5 id="post-metadata" className={`subtitle ${isCenter ? "has-text-centerd" : ""}`}>
-      <time>{date}</time>
-      {" • "}
-      <span>{timeToRead} min read</span>
-      {" • "}
-      <CommentCount config={disqusConfig} placeholder="..." />
+    <h5 id="post-metadata" className="subtitle">
+      {date && <time>{date}</time>}
+      {timeToRead && (
+        <>
+          {" • "}
+          <span>{timeToRead} min read</span>
+        </>
+      )}
+      {disqusConfig && (
+        <>
+          {" • "}
+          <CommentCount config={disqusConfig} placeholder="..." />
+        </>
+      )}
     </h5>
   )
 }

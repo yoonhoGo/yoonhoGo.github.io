@@ -61,7 +61,7 @@ export default function Posts({
         } = node
         const disqusConfig = {
           url: siteUrl + path,
-          identifier: slug,
+          identifier: path,
           title,
         }
         return (

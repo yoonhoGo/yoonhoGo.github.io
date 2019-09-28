@@ -1,21 +1,14 @@
-import _filter from "lodash/filter"
+import _map from "lodash/map"
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
-import { BlogPostsQuery } from "../../graphqlTypes"
+import { BlogPostsQuery, MarkdownRemark } from "../../graphqlTypes"
 import PostCard from "./postCard"
 
-export default function Posts({
-  filter,
-  getRawPosts,
-}: {
-  filter?: <T>(edge: T) => boolean
-  getRawPosts?: <T>(edge: T) => void
-}) {
+export default function Posts({ data }: { data: MarkdownRemark[] }) {
   const {
     site: {
       siteMetadata: { siteUrl },
     },
-    allMarkdownRemark: { edges },
   }: BlogPostsQuery = useStaticQuery(graphql`
     query BlogPosts {
       site {
@@ -23,36 +16,12 @@ export default function Posts({
           siteUrl
         }
       }
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-        edges {
-          node {
-            fields {
-              path
-            }
-            timeToRead
-            excerpt(format: PLAIN)
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              slug
-              tags
-              image
-            }
-          }
-        }
-      }
     }
   `)
 
-  if (getRawPosts && edges) {
-    getRawPosts(edges)
-  }
-
-  const posts = filter ? _filter(edges, filter) : edges
-
   return (
     <>
-      {posts.map(({ node }) => {
+      {_map(data, node => {
         const {
           timeToRead,
           frontmatter: { title, date, slug, tags, image },

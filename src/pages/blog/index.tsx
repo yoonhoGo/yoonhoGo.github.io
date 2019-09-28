@@ -5,7 +5,7 @@ import React from "react"
 import Layout from "../../components/index/layout"
 import Posts from "../../components/blog/posts"
 import SEO from "../../components/seo"
-import { BlogPageQuery } from "../../graphqlTypes"
+import { BlogPageQuery, MarkdownRemark } from "../../graphqlTypes"
 
 export const headerMenu = [
   {
@@ -18,14 +18,21 @@ export const headerMenu = [
   },
 ]
 
-const BlogPage = ({ data: { site } }: { data: BlogPageQuery }) => {
+const BlogPage = ({
+  data: {
+    site,
+    allMarkdownRemark: { nodes },
+  },
+}: {
+  data: BlogPageQuery
+}) => {
   const siteUrl = _get(site, "siteMetadata.siteUrl", "https://yoonho.ga")
   return (
     <Layout menu={headerMenu}>
       <SEO title="Blog Home" url={siteUrl + "/blog"} />
       <article style={{ padding: "1em" }}>
         <div className="container is-tablet is-margin-center">
-          <Posts />
+          <Posts data={nodes as MarkdownRemark[]} />
         </div>
       </article>
     </Layout>
@@ -39,6 +46,22 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        fields {
+          path
+        }
+        timeToRead
+        excerpt(format: PLAIN)
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          slug
+          tags
+          image
+        }
       }
     }
   }

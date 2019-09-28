@@ -8,9 +8,13 @@ import { useQueryString } from "../../hooks/useLocation"
 import { headerMenu } from "."
 import Posts from "../../components/blog/posts"
 import SEO from "../../components/seo"
-import { BlogTagsPageQuery } from "../../graphqlTypes"
+import { BlogTagsPageQuery, MarkdownRemark } from "../../graphqlTypes"
 
-const BlogTagsPage = ({ data: { site } }: { data: BlogTagsPageQuery }) => {
+const BlogTagsPage = ({
+  data: { site, allMarkdownRemark },
+}: {
+  data: BlogTagsPageQuery
+}) => {
   const siteUrl = _get(site, "siteMetadata.siteUrl", "https://yoonho.ga")
   const queryString = useQueryString()
   const selectedTags =
@@ -18,22 +22,30 @@ const BlogTagsPage = ({ data: { site } }: { data: BlogTagsPageQuery }) => {
       ? [queryString.queries.select]
       : queryString.queries.select
 
-  const [edges, setEdges] = useState()
+  const [group] = useState(allMarkdownRemark.group)
   const [tags, setTags] = useState()
 
   useEffect(() => {
-    const tags = _.chain(edges)
-      .flatMap("node.frontmatter.tags")
-      .countBy()
-      .mapValues((count, tag) => ({
-        count,
-        tag,
-        isSelected: _.includes(selectedTags || [], tag),
+    const tags = _.chain(allMarkdownRemark.group)
+      .map(({ fieldValue, nodes }) => ({
+        count: nodes.length,
+        tag: fieldValue,
+        isSelected: _.includes(selectedTags || [], fieldValue),
       }))
-      .sortBy("tag")
       .value()
     setTags(tags)
-  }, [edges])
+  }, [])
+
+  const getPosts = () =>
+    _.chain(group)
+      .filter(({ fieldValue }) => {
+        return _.includes(selectedTags, fieldValue)
+      })
+      .map("nodes")
+      .reduce((prev, curr) => _.intersectionWith(prev, curr, _.isEqual))
+      .value()
+
+  const posts = selectedTags ? getPosts() : allMarkdownRemark.nodes
 
   return (
     <Layout menu={headerMenu}>
@@ -41,19 +53,7 @@ const BlogTagsPage = ({ data: { site } }: { data: BlogTagsPageQuery }) => {
       <article style={{ padding: "1em" }}>
         <div className="container is-tablet is-margin-center">
           <Tags tags={tags || []} />
-          <Posts
-            getRawPosts={setEdges}
-            filter={
-              selectedTags &&
-              _.matches({
-                node: {
-                  frontmatter: {
-                    tags: selectedTags,
-                  },
-                },
-              })
-            }
-          />
+          <Posts data={posts as MarkdownRemark[]} />
         </div>
       </article>
     </Layout>
@@ -126,6 +126,39 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+    allMarkdownRemark {
+      nodes {
+        fields {
+          path
+        }
+        timeToRead
+        excerpt(format: PLAIN)
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          slug
+          tags
+          image
+        }
+      }
+      group(field: frontmatter___tags) {
+        fieldValue
+        nodes {
+          fields {
+            path
+          }
+          timeToRead
+          excerpt(format: PLAIN)
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            slug
+            tags
+            image
+          }
+        }
       }
     }
   }

@@ -17314,23 +17314,7 @@ export type BlogPostsQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )>, allMarkdownRemark: (
-    { __typename?: 'MarkdownRemarkConnection' }
-    & { edges: Array<(
-      { __typename?: 'MarkdownRemarkEdge' }
-      & { node: (
-        { __typename?: 'MarkdownRemark' }
-        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
-        & { fields: Maybe<(
-          { __typename?: 'MarkdownRemarkFields' }
-          & Pick<MarkdownRemarkFields, 'path'>
-        )>, frontmatter: Maybe<(
-          { __typename?: 'MarkdownRemarkFrontmatter' }
-          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags'>
-        )> }
-      ) }
-    )> }
-  ) }
+  )> }
 );
 
 export type SmallAboutComponentQueryVariables = {};
@@ -17494,7 +17478,20 @@ export type BlogPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { nodes: Array<(
+      { __typename?: 'MarkdownRemark' }
+      & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+      & { fields: Maybe<(
+        { __typename?: 'MarkdownRemarkFields' }
+        & Pick<MarkdownRemarkFields, 'path'>
+      )>, frontmatter: Maybe<(
+        { __typename?: 'MarkdownRemarkFrontmatter' }
+        & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags' | 'image'>
+      )> }
+    )> }
+  ) }
 );
 
 export type BlogPostsPageQueryVariables = {};
@@ -17508,7 +17505,20 @@ export type BlogPostsPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { nodes: Array<(
+      { __typename?: 'MarkdownRemark' }
+      & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+      & { fields: Maybe<(
+        { __typename?: 'MarkdownRemarkFields' }
+        & Pick<MarkdownRemarkFields, 'path'>
+      )>, frontmatter: Maybe<(
+        { __typename?: 'MarkdownRemarkFrontmatter' }
+        & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags' | 'image'>
+      )> }
+    )> }
+  ) }
 );
 
 export type BlogTagsPageQueryVariables = {};
@@ -17522,7 +17532,34 @@ export type BlogTagsPageQuery = (
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'siteUrl'>
     )> }
-  )> }
+  )>, allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { nodes: Array<(
+      { __typename?: 'MarkdownRemark' }
+      & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+      & { fields: Maybe<(
+        { __typename?: 'MarkdownRemarkFields' }
+        & Pick<MarkdownRemarkFields, 'path'>
+      )>, frontmatter: Maybe<(
+        { __typename?: 'MarkdownRemarkFrontmatter' }
+        & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags' | 'image'>
+      )> }
+    )>, group: Array<(
+      { __typename?: 'MarkdownRemarkGroupConnection' }
+      & Pick<MarkdownRemarkGroupConnection, 'fieldValue'>
+      & { nodes: Array<(
+        { __typename?: 'MarkdownRemark' }
+        & Pick<MarkdownRemark, 'timeToRead' | 'excerpt'>
+        & { fields: Maybe<(
+          { __typename?: 'MarkdownRemarkFields' }
+          & Pick<MarkdownRemarkFields, 'path'>
+        )>, frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'date' | 'title' | 'slug' | 'tags' | 'image'>
+        )> }
+      )> }
+    )> }
+  ) }
 );
 
 export type PostTemplateQueryVariables = {

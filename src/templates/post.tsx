@@ -45,7 +45,7 @@ export default function PostTemplate({
 
   const url = siteUrl + path
   const disqusConfig = {
-    identifier: slug,
+    identifier: path,
     title,
     url,
   }

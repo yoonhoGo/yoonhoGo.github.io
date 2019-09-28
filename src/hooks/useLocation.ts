@@ -37,7 +37,9 @@ function reducerQS(
       }
     }
   }
-  return queries
+  return queries as {
+    [queryName: string]: string | string[] | undefined | null
+  }
 }
 
 export function useQueryString() {

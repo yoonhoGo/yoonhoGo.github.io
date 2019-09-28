@@ -7,25 +7,29 @@ import Layout from "../../components/index/layout"
 import { headerMenu } from "."
 import Posts from "../../components/blog/posts"
 import SEO from "../../components/seo"
-import { BlogPostsPageQuery } from "../../graphqlTypes"
+import { BlogPostsPageQuery, MarkdownRemark } from "../../graphqlTypes"
 
-const BlogPostsPage = ({ data: { site } }: { data: BlogPostsPageQuery }) => {
+const BlogPostsPage = ({
+  data: {
+    site,
+    allMarkdownRemark: { nodes },
+  },
+}: {
+  data: BlogPostsPageQuery
+}) => {
   const siteUrl = _get(site, "siteMetadata.siteUrl", "https://yoonho.ga")
   const [filter, setFilter] = useState()
+
+  const posts = filter
+    ? _filter(nodes, node => JSON.stringify(node.frontmatter).includes(filter))
+    : nodes
   return (
     <Layout menu={headerMenu}>
       <SEO title="Blog Posts" url={siteUrl + "/blog/posts"} />
       <article style={{ padding: "1em" }}>
         <div className="container is-tablet is-margin-center">
           <Filter setFilter={setFilter} />
-          <Posts
-            filter={
-              filter &&
-              (edge => {
-                return JSON.stringify(edge.node.frontmatter).includes(filter)
-              })
-            }
-          />
+          <Posts data={posts as MarkdownRemark[]} />
         </div>
       </article>
     </Layout>
@@ -58,6 +62,22 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        fields {
+          path
+        }
+        timeToRead
+        excerpt(format: PLAIN)
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          slug
+          tags
+          image
+        }
       }
     }
   }

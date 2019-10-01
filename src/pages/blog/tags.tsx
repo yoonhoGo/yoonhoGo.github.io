@@ -128,7 +128,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         fields {
           path

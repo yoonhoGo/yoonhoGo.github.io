@@ -128,7 +128,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         fields {
           path
@@ -157,6 +157,24 @@ export const query = graphql`
             slug
             tags
             image
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  aspectRatio
+                  base64
+                  originalImg
+                  originalName
+                  presentationHeight
+                  presentationWidth
+                  sizes
+                  src
+                  srcSet
+                  srcSetWebp
+                  srcWebp
+                  tracedSVG
+                }
+              }
+            }
           }
         }
       }

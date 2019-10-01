@@ -11,6 +11,10 @@ import {
   SitePageContext,
   MarkdownRemarkFrontmatter,
   MarkdownRemarkFields,
+  MarkdownRemark,
+  Site,
+  SiteSiteMetadata,
+  File,
 } from "../graphqlTypes"
 import { SimpleLinkTags } from "../components/simpleTags"
 import SidebarMenu from "../components/blog/sidebar"
@@ -27,7 +31,7 @@ export default function PostTemplate({
 }) {
   const {
     markdownRemark: {
-      frontmatter: { title, date, slug, tags, image },
+      frontmatter: { title, date, slug, tags, image, featuredImage },
       html,
       timeToRead,
       tableOfContents,
@@ -37,7 +41,30 @@ export default function PostTemplate({
     site: {
       siteMetadata: { siteUrl },
     },
-  } = data
+  } = data as {
+    markdownRemark: MarkdownRemark & {
+      frontmatter: MarkdownRemarkFrontmatter & {
+        title: string
+        data: string
+        slug: string
+        tags: string[] | []
+        image?: string
+        featuredImage?: File
+      }
+      html: string
+      timeToRead: number
+      tableOfContents: string
+      excerpt: string
+      fields: MarkdownRemarkFields & {
+        path: string
+      }
+    }
+    site: Site & {
+      siteMetadata: SiteSiteMetadata & {
+        siteUrl: string
+      }
+    }
+  }
 
   if (!siteUrl || !slug || !title) {
     throw new Error("Error 55084")
@@ -54,6 +81,8 @@ export default function PostTemplate({
     throw new Error("Error 28592")
   }
 
+  const seoImage = image || _get(featuredImage, 'publicURL') || undefined
+
   return (
     <DefaultLayout>
       <Header />
@@ -64,7 +93,7 @@ export default function PostTemplate({
           </div>
         </div>
         <main className="column is-narrow">
-          <SEO title={title} description={excerpt} url={url} image={image} />
+          <SEO title={title} description={excerpt} url={url} image={seoImage} />
           <article
             className="container is-tablet is-margin-center"
             style={{ padding: "0 0.75em" }}
@@ -124,6 +153,25 @@ export const pageQuery = graphql`
         slug
         tags
         image
+        featuredImage {
+          childImageSharp {
+            fluid {
+              aspectRatio
+              base64
+              originalImg
+              originalName
+              presentationHeight
+              presentationWidth
+              sizes
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
+              tracedSVG
+            }
+          }
+          publicURL
+        }
       }
       timeToRead
       tableOfContents(pathToSlugField: "fields.path")

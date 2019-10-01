@@ -1,33 +1,45 @@
+import _get from "lodash/get"
 import _map from "lodash/map"
-import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
-import { BlogPostsQuery, MarkdownRemark } from "../../graphqlTypes"
+import {
+  BlogPostsQuery,
+  MarkdownRemark,
+  MarkdownRemarkFrontmatter,
+  MarkdownRemarkFields,
+} from "../../graphqlTypes"
 import PostCard from "./postCard"
+import { useSiteMetadata } from "../../hooks/useSiteMetadata"
 
 export default function Posts({ data }: { data: MarkdownRemark[] }) {
   const {
     site: {
       siteMetadata: { siteUrl },
     },
-  }: BlogPostsQuery = useStaticQuery(graphql`
-    query BlogPosts {
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `)
+  } = useSiteMetadata()
 
   return (
     <>
       {_map(data, node => {
         const {
           timeToRead,
-          frontmatter: { title, date, slug, tags, image },
+          frontmatter: { title, date, slug, tags, image, featuredImage },
           fields: { path },
           excerpt,
-        } = node
+        } = node as MarkdownRemark & {
+          timeToRead: number
+          frontmatter: MarkdownRemarkFrontmatter & {
+            title: string
+            date: string
+            slug: string
+            tags: string[] | []
+            image?: string
+            featuredImage?: File
+          }
+          fields: MarkdownRemarkFields & {
+            path: string
+          }
+          excerpt: string
+        }
         const disqusConfig = {
           url: siteUrl + path,
           identifier: path,
@@ -44,7 +56,7 @@ export default function Posts({ data }: { data: MarkdownRemark[] }) {
               disqusConfig,
             }}
             tags={tags}
-            image={image}
+            image={image || (_get(featuredImage, 'childImageSharp.fluid'))}
           />
         )
       })}

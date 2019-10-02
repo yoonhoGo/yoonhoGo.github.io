@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 
 import "../static/mystyles.scss"
 import "animate.css"
-import WOW from "wow.js"
 
 import Layout from "../components/index/layout"
 import SEO from "../components/seo"
@@ -18,7 +17,10 @@ import ExtracurricularActivities from "../components/index/extracurricularActivi
 
 const IndexPage = () => {
   useEffect(() => {
-    new WOW().init()
+    if (typeof window !== "undefined") {
+      const WOW = require("wow.js")
+      new WOW().init()
+    }
   }, [])
 
   return (

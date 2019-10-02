@@ -4,8 +4,8 @@ backend:
   accept_roles: #optional - accepts all users if left out
     - admin
     - editor
-media_folder: static/img
-public_folder: /img
+media_folder: src/images/blog
+public_folder: /static
 collections:
   - name: blog
     label: Blog

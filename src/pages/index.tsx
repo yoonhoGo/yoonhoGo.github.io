@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import "../static/mystyles.scss"
 import "animate.css"
+import WOW from "wow.js"
 
 import Layout from "../components/index/layout"
 import SEO from "../components/seo"
@@ -16,6 +17,10 @@ import backgroundImage from "../images/cool-background.png"
 import ExtracurricularActivities from "../components/index/extracurricularActivities"
 
 const IndexPage = () => {
+  useEffect(() => {
+    new WOW().init()
+  }, [])
+
   return (
     <Layout
       menu={[
@@ -46,7 +51,7 @@ const IndexPage = () => {
       >
         <div className="hero-body">
           <div className="container has-text-centered has-text-white">
-            <span className="title is-1 has-text-white animated bounce">
+            <span className="title is-1 has-text-white wow bounce">
               Welcome.
               <br />
               I'm 윤호

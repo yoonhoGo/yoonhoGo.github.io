@@ -30,7 +30,7 @@ export default function Projects(props: { id?: string }) {
   return (
     <section id="projects" className="hero is-dark">
       <div className="hero-body">
-        <div className="container is-desktop animated slideInRight slow">
+        <div className="container is-desktop wow slideInRight">
           <h1 className="title">Projects</h1>
           <div className="columns is-multiline">
             <ProjectBox size="is-full">
@@ -109,10 +109,10 @@ export default function Projects(props: { id?: string }) {
                   기업용 회계 솔루션을 만드는 회사에서 GraphQL API를 만들는
                   외주를 받아 진행했습니다.
                 </p>
-                <div>
+                <p>
                   <IconLabel iconName="fas fa-stopwatch" isFull>소요기간: 2개월</IconLabel>
-                  <IconLabel iconName="fas fa-coins" isFull>의뢰비용: 1,000만원</IconLabel>
-                </div>
+                  <IconLabel iconName="fas fa-coins" isFull>의뢰비용: 0,000만원</IconLabel>
+                </p>
                 <SimpleTags
                   tags={[
                     "GraphQL",
@@ -132,10 +132,10 @@ export default function Projects(props: { id?: string }) {
                   인터넷 쇼핑몰을 운영하는 회사로부터 의뢰를 받아 인스타그램을
                   포함한 사이트 세 곳의 크롤러를 제작하여 판매하였습니다.
                 </p>
-                <div>
+                <p>
                   <IconLabel iconName="fas fa-stopwatch" isFull>소요기간: 건당 4~5시간</IconLabel>
-                  <IconLabel iconName="fas fa-coins" isFull>의뢰비용: 건당 20~40만원</IconLabel>
-                </div>
+                  <IconLabel iconName="fas fa-coins" isFull>의뢰비용: 건당 00~00만원</IconLabel>
+                </p>
                 <SimpleTags
                   tags={[
                     "Python",

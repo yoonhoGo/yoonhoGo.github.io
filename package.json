@@ -44,7 +44,8 @@
     "react-github-btn": "^1.0.6",
     "react-helmet": "^5.2.1",
     "styled-components": "^4.3.2",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "wow.js": "^1.2.2"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.6.1",

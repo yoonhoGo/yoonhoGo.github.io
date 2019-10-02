@@ -19,3 +19,9 @@ declare module "gatsby-plugin-disqus" {
 }
 
 declare type Children = undefined | React.ReactNode | React.ReactNodeArray
+
+declare module "wow.js" {
+  export default class WOW {
+    init(): void
+  }
+}

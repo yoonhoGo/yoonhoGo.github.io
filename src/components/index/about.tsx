@@ -3,7 +3,14 @@ import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import IconLabel from "../IconLabel"
 import InnerItemsCenter from "../styled/InnerItemsCenter"
-import { AboutComponentQuery } from "../../graphqlTypes"
+import {
+  AboutComponentQuery,
+  Site,
+  SiteSiteMetadata,
+  GitHub,
+  GitHub_RepositoryOwner,
+  SiteSiteMetadataSocialUsernames,
+} from "../../graphqlTypes"
 import SimpleTags from "../simpleTags"
 
 export default function About({ id }: { id?: string }) {
@@ -14,7 +21,18 @@ export default function About({ id }: { id?: string }) {
     github: {
       repositoryOwner: { avatarUrl },
     },
-  }: AboutComponentQuery = useStaticQuery(graphql`
+  }: AboutComponentQuery & {
+    site: Site & {
+      siteMetadata: SiteSiteMetadata & {
+        author: string
+        bio: string
+        socialUsernames: SiteSiteMetadataSocialUsernames
+      }
+    }
+    github: GitHub & {
+      repositoryOwner: GitHub_RepositoryOwner
+    }
+  } = useStaticQuery(graphql`
     query AboutComponent {
       site {
         siteMetadata {
@@ -35,11 +53,11 @@ export default function About({ id }: { id?: string }) {
       }
     }
   `)
-  
+
   return (
     <section id="about" className="hero is-medium">
       <div className="hero-body">
-        <div className="container is-desktop is-margin-center animated slideInUp">
+        <div className="container is-desktop is-margin-center wow slideInUp">
           <div className="columns">
             <div className="column is-narrow">
               <Profile
@@ -53,7 +71,8 @@ export default function About({ id }: { id?: string }) {
                   {
                     iconName: "fab fa-instagram",
                     label: "@" + socialUsernames.instagram,
-                    href: "https://www.instagram.com/" + socialUsernames.instagram,
+                    href:
+                      "https://www.instagram.com/" + socialUsernames.instagram,
                   },
                   {
                     iconName: "fab fa-twitter",
@@ -62,7 +81,7 @@ export default function About({ id }: { id?: string }) {
                   },
                   {
                     iconName: "fas fa-at",
-                    label: socialUsernames.email,
+                    label: socialUsernames.email || '',
                     href: "mailto:" + socialUsernames.email,
                   },
                 ]}

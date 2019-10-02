@@ -8,7 +8,7 @@ interface IMediaBox {
 
 export default function MediaBox({ imageSrc, children, alt }: IMediaBox) {
   return (
-    <div className="box animated zoomIn slow delay-2s">
+    <div className="box wow zoomIn slow">
       <article className="media">
         <div className="media-left">
           {imageSrc ? (

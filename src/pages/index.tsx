@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 
-import "../static/mystyles.scss"
 import "animate.css"
+import "../static/mystyles.scss"
 
 import Layout from "../components/index/layout"
 import SEO from "../components/seo"

@@ -8,7 +8,12 @@ import _get from "lodash/get"
 import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { SeoQuery, SiteSiteMetadata, Site } from "../graphqlTypes"
+import {
+  SeoQuery,
+  SiteSiteMetadata,
+  Site,
+  SiteSiteMetadataSocialUsernames,
+} from "../graphqlTypes"
 
 interface ISEOProps {
   title: string
@@ -20,24 +25,41 @@ interface ISEOProps {
 }
 
 function SEO({ description, lang, meta, title, image, url }: ISEOProps) {
-  const { site }: SeoQuery = useStaticQuery(
+  const { site } = useStaticQuery(
     graphql`
       query SEO {
         site {
           siteMetadata {
             title
-            description
-            author
-            defaultImage
             socialUsernames {
               twitter
+              instagram
+              github
+              email
             }
+            siteUrl
+            description
+            defaultImage
+            bio
+            author
           }
         }
       }
     `
-  )
-  const siteMeta = (site as Site).siteMetadata as SiteSiteMetadata
+  ) as SeoQuery & {
+    site: Site & {
+      siteMetadata: SiteSiteMetadata & {
+        title: string
+        socialUsernames: SiteSiteMetadataSocialUsernames
+        siteUrl: string
+        description: string
+        defaultImage: string
+        bio: string
+        author: string
+      }
+    }
+  }
+  const siteMeta = site.siteMetadata
   const metaDescription = description || siteMeta.description || ""
 
   return (
@@ -50,7 +72,7 @@ function SEO({ description, lang, meta, title, image, url }: ISEOProps) {
       meta={[
         {
           name: `title`,
-          content: title
+          content: title,
         },
         {
           name: `description`,
@@ -62,15 +84,16 @@ function SEO({ description, lang, meta, title, image, url }: ISEOProps) {
         },
         {
           property: "og:site_name",
-          content: title
+          content: title,
         },
         {
           property: "og:url",
-          content: url || (siteMeta.siteUrl as string)
+          content: url || (siteMeta.siteUrl as string),
         },
         {
           property: "og:image",
-          content: image || (siteMeta.defaultImage as string),
+          content:
+            siteMeta.siteUrl + image || (siteMeta.defaultImage as string),
         },
         {
           property: `og:description`,

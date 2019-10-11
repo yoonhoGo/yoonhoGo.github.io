@@ -92,8 +92,7 @@ function SEO({ description, lang, meta, title, image, url }: ISEOProps) {
         },
         {
           property: "og:image",
-          content:
-            siteMeta.siteUrl + image || (siteMeta.defaultImage as string),
+          content: image || (siteMeta.defaultImage as string),
         },
         {
           property: `og:description`,

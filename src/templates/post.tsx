@@ -2,6 +2,16 @@ import { graphql, Link } from "gatsby"
 import { Disqus } from "gatsby-plugin-disqus"
 import _get from "lodash/get"
 import React from "react"
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  TelegramIcon,
+  EmailIcon,
+} from "react-share"
 
 import SEO from "../components/seo"
 import About from "../components/blog/small-about"
@@ -21,6 +31,7 @@ import SidebarMenu from "../components/blog/sidebar"
 import DefaultLayout from "../components/defaultLayout"
 import Header from "../components/header"
 import PostCard from "../components/blog/postCard"
+import Label from "../components/label"
 
 export default function PostTemplate({
   data,
@@ -81,7 +92,10 @@ export default function PostTemplate({
     throw new Error("Error 28592")
   }
 
-  const seoImage = image || _get(featuredImage, 'publicURL') || undefined
+  const publicURL =
+    _get(featuredImage, "publicURL") &&
+    siteUrl + _get(featuredImage, "publicURL")
+  const seoImage = image || publicURL || undefined
 
   return (
     <DefaultLayout>
@@ -112,7 +126,45 @@ export default function PostTemplate({
                 className="content is-medium is-family-serif font-family-serif"
                 dangerouslySetInnerHTML={{ __html: html }}
               ></div>
-              <SimpleLinkTags tags={tags || []} prefix={"/blog/tags?select="} />
+              {tags && (
+                <SimpleLinkTags
+                  label="Tags:"
+                  tags={tags}
+                  prefix={"/blog/tags?select="}
+                />
+              )}
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                }}
+              >
+                <Label>Share:</Label>
+                <span style={{ margin: "3px" }}>
+                  <FacebookShareButton url={siteUrl + slug} quote={title}>
+                    <FacebookIcon size={32} borderRadius={10} />
+                  </FacebookShareButton>
+                </span>
+                <span style={{ margin: "3px" }}>
+                  <TwitterShareButton url={siteUrl + slug} title={title}>
+                    <TwitterIcon size={32} borderRadius={10} />
+                  </TwitterShareButton>
+                </span>
+                <span style={{ margin: "3px" }}>
+                  <TelegramShareButton url={siteUrl + slug} title={title}>
+                    <TelegramIcon size={32} borderRadius={10} />
+                  </TelegramShareButton>
+                </span>
+                <span style={{ margin: "3px" }}>
+                  <EmailShareButton
+                    url={siteUrl + slug}
+                    subject={title}
+                    body="body"
+                  >
+                    <EmailIcon size={32} borderRadius={10} />
+                  </EmailShareButton>
+                </span>
+              </span>
             </section>
             <section id="post-whoami" style={{ marginTop: "2em" }}>
               <About />

@@ -141,23 +141,23 @@ export default function PostTemplate({
               >
                 <Label>Share:</Label>
                 <span style={{ margin: "3px" }}>
-                  <FacebookShareButton url={siteUrl + slug} quote={title}>
+                  <FacebookShareButton url={url} quote={title}>
                     <FacebookIcon size={32} borderRadius={10} />
                   </FacebookShareButton>
                 </span>
                 <span style={{ margin: "3px" }}>
-                  <TwitterShareButton url={siteUrl + slug} title={title}>
+                  <TwitterShareButton url={url} title={title}>
                     <TwitterIcon size={32} borderRadius={10} />
                   </TwitterShareButton>
                 </span>
                 <span style={{ margin: "3px" }}>
-                  <TelegramShareButton url={siteUrl + slug} title={title}>
+                  <TelegramShareButton url={url} title={title}>
                     <TelegramIcon size={32} borderRadius={10} />
                   </TelegramShareButton>
                 </span>
                 <span style={{ margin: "3px" }}>
                   <EmailShareButton
-                    url={siteUrl + slug}
+                    url={url}
                     subject={title}
                     body="body"
                   >

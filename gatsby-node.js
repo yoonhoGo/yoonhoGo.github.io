@@ -26,7 +26,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
   await createPostPage({ createPage, graphql })
-  createPostsToJson({ graphql })
+  // createPostsToJson({ graphql })
 }
 
 async function createPostPage({ createPage, graphql }) {

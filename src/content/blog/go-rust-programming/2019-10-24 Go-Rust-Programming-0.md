@@ -1,7 +1,7 @@
 ---
 title: "고랭? 러스트가 그렇게 좋다며?(0)"
 date: 2019-10-24T12:17:19.770Z
-slug: /go-rust-programming/go-rust-programming-0
+slug: /go-rust-programming/intro
 featuredImage: ../../../images/blog/go-rust-programming/go-rust-image.png
 tags:
   - Golang

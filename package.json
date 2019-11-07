@@ -59,7 +59,7 @@
     "@types/react-helmet": "^5.0.9",
     "@types/react-share": "^3.0.1",
     "@types/styled-components": "^4.1.18",
-    "dotenv-cli": "^2.0.1",
+    "dotenv-cli": "^3.0.0",
     "eslint-plugin-graphql": "^3.0.3",
     "prettier": "^1.18.2"
   },

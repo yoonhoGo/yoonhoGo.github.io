@@ -1,18 +1,28 @@
-import { Link, graphql, StaticQuery } from "gatsby"
+import { Link, graphql } from "gatsby"
 import QRCode from "qrcode.react"
 import React, { useState } from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import Profile from "../components/profile"
 import {
   SiteSiteMetadataSocialUsernames,
   SiteSiteMetadata,
+  CallingCardPageQuery,
 } from "../graphqlTypes"
 import vCard from "../components/calling-card/vCard"
 import { useModal } from "../components/modal"
 
-const CallingCardPage = () => {
+export const query = graphql`
+  query CallingCardPage {
+    github {
+      viewer {
+        bio
+      }
+    }
+  }
+`
+
+const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
   const siteMetadata = useSiteMetadata()
   const { siteUrl, defaultImage: avatarUrl, socialUsernames } = siteMetadata
     .site.siteMetadata as SiteSiteMetadata & {
@@ -20,6 +30,8 @@ const CallingCardPage = () => {
     defaultImage: string
     socialUsernames: SiteSiteMetadataSocialUsernames
   }
+
+  const [toggleBio, setToggleBio] = useState(false)
 
   const [openPageQRCodeModal, PageQRCodeModal] = useModal()
   const [openVCardQRCodeModal, VCardQRCodeModal] = useModal()
@@ -75,28 +87,45 @@ const CallingCardPage = () => {
           </HeadSection>
 
           <BodySection
-            className="animated fadeInDown delay-1s"
-            style={{ margin: "0 auto" }}
+            className="is-size-5 animated fadeInDown delay-1s"
           >
-            <ProfileFigure className="image is-256x256">
-              <img
-                src={avatarUrl}
-                style={{
-                  borderRadius: "1rem",
-                }}
-              />
-            </ProfileFigure>
-            <div>
-              {sns.map(({ iconName, label, href }, index) => (
-                <a key={index} href={href}>
-                  <h1 className="is-size-5 has-text-grey-dark">
-                    <span className="icon is-small">
-                      <li className={iconName}></li>
-                    </span>
-                    <span> {label}</span>
-                  </h1>
-                </a>
-              ))}
+            <div className="columns is-centered">
+              <div className="column is-half">
+                <ProfileFigure className="image is-256x256">
+                  <img
+                    src={avatarUrl}
+                    style={{
+                      borderRadius: "1rem",
+                    }}
+                  />
+                </ProfileFigure>
+                <div>
+                  {sns.map(({ iconName, label, href }, index) => (
+                    <a key={index} href={href}>
+                      <h1 className="has-text-grey-dark">
+                        <span className="icon is-small">
+                          <li className={iconName}></li>
+                        </span>
+                        <span> {label}</span>
+                      </h1>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div
+                className={`column is-hidden-tablet has-text-centered${
+                  toggleBio ? " is-hidden" : ""
+                }`}
+                onClick={() => setToggleBio(true)}
+              >
+                touch for bio.
+              </div>
+              <div
+                className={`column${toggleBio ? "" : " is-hidden-mobile"}`}
+                onClick={() => setToggleBio(false)}
+              >
+                <div className="content">{data.github.viewer.bio}</div>
+              </div>
             </div>
           </BodySection>
 
@@ -194,6 +223,7 @@ const HeadSection = styled.section`
 
 const BodySection = styled.section`
   padding: 1em 1.5rem;
+  width: 100%;
 `
 
 const FootSection = styled.section`

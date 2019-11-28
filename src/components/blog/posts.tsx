@@ -2,7 +2,6 @@ import _get from "lodash/get"
 import _map from "lodash/map"
 import React from "react"
 import {
-  BlogPostsQuery,
   MarkdownRemark,
   MarkdownRemarkFrontmatter,
   MarkdownRemarkFields,

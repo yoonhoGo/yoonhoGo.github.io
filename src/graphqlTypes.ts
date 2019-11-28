@@ -63,7 +63,7 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
-  __typename?: 'Directory',
+   __typename?: 'Directory',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -168,7 +168,7 @@ export type DirectoryBirthtimeArgs = {
 };
 
 export type DirectoryConnection = {
-  __typename?: 'DirectoryConnection',
+   __typename?: 'DirectoryConnection',
   totalCount: Scalars['Int'],
   edges: Array<DirectoryEdge>,
   nodes: Array<Directory>,
@@ -190,7 +190,7 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
-  __typename?: 'DirectoryEdge',
+   __typename?: 'DirectoryEdge',
   next?: Maybe<Directory>,
   node: Directory,
   previous?: Maybe<Directory>,
@@ -359,7 +359,7 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
-  __typename?: 'DirectoryGroupConnection',
+   __typename?: 'DirectoryGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<DirectoryEdge>,
   nodes: Array<Directory>,
@@ -380,7 +380,7 @@ export type DuotoneGradient = {
 };
 
 export type File = Node & {
-  __typename?: 'File',
+   __typename?: 'File',
   birthtime?: Maybe<Scalars['Date']>,
   birthtimeMs?: Maybe<Scalars['Float']>,
   sourceInstanceName?: Maybe<Scalars['String']>,
@@ -416,11 +416,11 @@ export type File = Node & {
   ctime?: Maybe<Scalars['Date']>,
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>,
+  childImageSharp?: Maybe<ImageSharp>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  childImageSharp?: Maybe<ImageSharp>,
   childMarkdownRemark?: Maybe<MarkdownRemark>,
 };
 
@@ -481,7 +481,7 @@ export type FileCtimeArgs = {
 };
 
 export type FileConnection = {
-  __typename?: 'FileConnection',
+   __typename?: 'FileConnection',
   totalCount: Scalars['Int'],
   edges: Array<FileEdge>,
   nodes: Array<File>,
@@ -503,7 +503,7 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
-  __typename?: 'FileEdge',
+   __typename?: 'FileEdge',
   next?: Maybe<File>,
   node: File,
   previous?: Maybe<File>,
@@ -544,6 +544,97 @@ export enum FileFieldsEnum {
   Mtime = 'mtime',
   Ctime = 'ctime',
   PublicUrl = 'publicURL',
+  ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
+  ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
+  ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
+  ChildImageSharpFixedWidth = 'childImageSharp___fixed___width',
+  ChildImageSharpFixedHeight = 'childImageSharp___fixed___height',
+  ChildImageSharpFixedSrc = 'childImageSharp___fixed___src',
+  ChildImageSharpFixedSrcSet = 'childImageSharp___fixed___srcSet',
+  ChildImageSharpFixedSrcWebp = 'childImageSharp___fixed___srcWebp',
+  ChildImageSharpFixedSrcSetWebp = 'childImageSharp___fixed___srcSetWebp',
+  ChildImageSharpFixedOriginalName = 'childImageSharp___fixed___originalName',
+  ChildImageSharpResolutionsBase64 = 'childImageSharp___resolutions___base64',
+  ChildImageSharpResolutionsTracedSvg = 'childImageSharp___resolutions___tracedSVG',
+  ChildImageSharpResolutionsAspectRatio = 'childImageSharp___resolutions___aspectRatio',
+  ChildImageSharpResolutionsWidth = 'childImageSharp___resolutions___width',
+  ChildImageSharpResolutionsHeight = 'childImageSharp___resolutions___height',
+  ChildImageSharpResolutionsSrc = 'childImageSharp___resolutions___src',
+  ChildImageSharpResolutionsSrcSet = 'childImageSharp___resolutions___srcSet',
+  ChildImageSharpResolutionsSrcWebp = 'childImageSharp___resolutions___srcWebp',
+  ChildImageSharpResolutionsSrcSetWebp = 'childImageSharp___resolutions___srcSetWebp',
+  ChildImageSharpResolutionsOriginalName = 'childImageSharp___resolutions___originalName',
+  ChildImageSharpFluidBase64 = 'childImageSharp___fluid___base64',
+  ChildImageSharpFluidTracedSvg = 'childImageSharp___fluid___tracedSVG',
+  ChildImageSharpFluidAspectRatio = 'childImageSharp___fluid___aspectRatio',
+  ChildImageSharpFluidSrc = 'childImageSharp___fluid___src',
+  ChildImageSharpFluidSrcSet = 'childImageSharp___fluid___srcSet',
+  ChildImageSharpFluidSrcWebp = 'childImageSharp___fluid___srcWebp',
+  ChildImageSharpFluidSrcSetWebp = 'childImageSharp___fluid___srcSetWebp',
+  ChildImageSharpFluidSizes = 'childImageSharp___fluid___sizes',
+  ChildImageSharpFluidOriginalImg = 'childImageSharp___fluid___originalImg',
+  ChildImageSharpFluidOriginalName = 'childImageSharp___fluid___originalName',
+  ChildImageSharpFluidPresentationWidth = 'childImageSharp___fluid___presentationWidth',
+  ChildImageSharpFluidPresentationHeight = 'childImageSharp___fluid___presentationHeight',
+  ChildImageSharpSizesBase64 = 'childImageSharp___sizes___base64',
+  ChildImageSharpSizesTracedSvg = 'childImageSharp___sizes___tracedSVG',
+  ChildImageSharpSizesAspectRatio = 'childImageSharp___sizes___aspectRatio',
+  ChildImageSharpSizesSrc = 'childImageSharp___sizes___src',
+  ChildImageSharpSizesSrcSet = 'childImageSharp___sizes___srcSet',
+  ChildImageSharpSizesSrcWebp = 'childImageSharp___sizes___srcWebp',
+  ChildImageSharpSizesSrcSetWebp = 'childImageSharp___sizes___srcSetWebp',
+  ChildImageSharpSizesSizes = 'childImageSharp___sizes___sizes',
+  ChildImageSharpSizesOriginalImg = 'childImageSharp___sizes___originalImg',
+  ChildImageSharpSizesOriginalName = 'childImageSharp___sizes___originalName',
+  ChildImageSharpSizesPresentationWidth = 'childImageSharp___sizes___presentationWidth',
+  ChildImageSharpSizesPresentationHeight = 'childImageSharp___sizes___presentationHeight',
+  ChildImageSharpOriginalWidth = 'childImageSharp___original___width',
+  ChildImageSharpOriginalHeight = 'childImageSharp___original___height',
+  ChildImageSharpOriginalSrc = 'childImageSharp___original___src',
+  ChildImageSharpResizeSrc = 'childImageSharp___resize___src',
+  ChildImageSharpResizeTracedSvg = 'childImageSharp___resize___tracedSVG',
+  ChildImageSharpResizeWidth = 'childImageSharp___resize___width',
+  ChildImageSharpResizeHeight = 'childImageSharp___resize___height',
+  ChildImageSharpResizeAspectRatio = 'childImageSharp___resize___aspectRatio',
+  ChildImageSharpResizeOriginalName = 'childImageSharp___resize___originalName',
+  ChildImageSharpId = 'childImageSharp___id',
+  ChildImageSharpParentId = 'childImageSharp___parent___id',
+  ChildImageSharpParentParentId = 'childImageSharp___parent___parent___id',
+  ChildImageSharpParentParentChildren = 'childImageSharp___parent___parent___children',
+  ChildImageSharpParentChildren = 'childImageSharp___parent___children',
+  ChildImageSharpParentChildrenId = 'childImageSharp___parent___children___id',
+  ChildImageSharpParentChildrenChildren = 'childImageSharp___parent___children___children',
+  ChildImageSharpParentInternalContent = 'childImageSharp___parent___internal___content',
+  ChildImageSharpParentInternalContentDigest = 'childImageSharp___parent___internal___contentDigest',
+  ChildImageSharpParentInternalDescription = 'childImageSharp___parent___internal___description',
+  ChildImageSharpParentInternalFieldOwners = 'childImageSharp___parent___internal___fieldOwners',
+  ChildImageSharpParentInternalIgnoreType = 'childImageSharp___parent___internal___ignoreType',
+  ChildImageSharpParentInternalMediaType = 'childImageSharp___parent___internal___mediaType',
+  ChildImageSharpParentInternalOwner = 'childImageSharp___parent___internal___owner',
+  ChildImageSharpParentInternalType = 'childImageSharp___parent___internal___type',
+  ChildImageSharpChildren = 'childImageSharp___children',
+  ChildImageSharpChildrenId = 'childImageSharp___children___id',
+  ChildImageSharpChildrenParentId = 'childImageSharp___children___parent___id',
+  ChildImageSharpChildrenParentChildren = 'childImageSharp___children___parent___children',
+  ChildImageSharpChildrenChildren = 'childImageSharp___children___children',
+  ChildImageSharpChildrenChildrenId = 'childImageSharp___children___children___id',
+  ChildImageSharpChildrenChildrenChildren = 'childImageSharp___children___children___children',
+  ChildImageSharpChildrenInternalContent = 'childImageSharp___children___internal___content',
+  ChildImageSharpChildrenInternalContentDigest = 'childImageSharp___children___internal___contentDigest',
+  ChildImageSharpChildrenInternalDescription = 'childImageSharp___children___internal___description',
+  ChildImageSharpChildrenInternalFieldOwners = 'childImageSharp___children___internal___fieldOwners',
+  ChildImageSharpChildrenInternalIgnoreType = 'childImageSharp___children___internal___ignoreType',
+  ChildImageSharpChildrenInternalMediaType = 'childImageSharp___children___internal___mediaType',
+  ChildImageSharpChildrenInternalOwner = 'childImageSharp___children___internal___owner',
+  ChildImageSharpChildrenInternalType = 'childImageSharp___children___internal___type',
+  ChildImageSharpInternalContent = 'childImageSharp___internal___content',
+  ChildImageSharpInternalContentDigest = 'childImageSharp___internal___contentDigest',
+  ChildImageSharpInternalDescription = 'childImageSharp___internal___description',
+  ChildImageSharpInternalFieldOwners = 'childImageSharp___internal___fieldOwners',
+  ChildImageSharpInternalIgnoreType = 'childImageSharp___internal___ignoreType',
+  ChildImageSharpInternalMediaType = 'childImageSharp___internal___mediaType',
+  ChildImageSharpInternalOwner = 'childImageSharp___internal___owner',
+  ChildImageSharpInternalType = 'childImageSharp___internal___type',
   Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
@@ -630,97 +721,6 @@ export enum FileFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  ChildImageSharpId = 'childImageSharp___id',
-  ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
-  ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
-  ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
-  ChildImageSharpFixedWidth = 'childImageSharp___fixed___width',
-  ChildImageSharpFixedHeight = 'childImageSharp___fixed___height',
-  ChildImageSharpFixedSrc = 'childImageSharp___fixed___src',
-  ChildImageSharpFixedSrcSet = 'childImageSharp___fixed___srcSet',
-  ChildImageSharpFixedSrcWebp = 'childImageSharp___fixed___srcWebp',
-  ChildImageSharpFixedSrcSetWebp = 'childImageSharp___fixed___srcSetWebp',
-  ChildImageSharpFixedOriginalName = 'childImageSharp___fixed___originalName',
-  ChildImageSharpResolutionsBase64 = 'childImageSharp___resolutions___base64',
-  ChildImageSharpResolutionsTracedSvg = 'childImageSharp___resolutions___tracedSVG',
-  ChildImageSharpResolutionsAspectRatio = 'childImageSharp___resolutions___aspectRatio',
-  ChildImageSharpResolutionsWidth = 'childImageSharp___resolutions___width',
-  ChildImageSharpResolutionsHeight = 'childImageSharp___resolutions___height',
-  ChildImageSharpResolutionsSrc = 'childImageSharp___resolutions___src',
-  ChildImageSharpResolutionsSrcSet = 'childImageSharp___resolutions___srcSet',
-  ChildImageSharpResolutionsSrcWebp = 'childImageSharp___resolutions___srcWebp',
-  ChildImageSharpResolutionsSrcSetWebp = 'childImageSharp___resolutions___srcSetWebp',
-  ChildImageSharpResolutionsOriginalName = 'childImageSharp___resolutions___originalName',
-  ChildImageSharpFluidBase64 = 'childImageSharp___fluid___base64',
-  ChildImageSharpFluidTracedSvg = 'childImageSharp___fluid___tracedSVG',
-  ChildImageSharpFluidAspectRatio = 'childImageSharp___fluid___aspectRatio',
-  ChildImageSharpFluidSrc = 'childImageSharp___fluid___src',
-  ChildImageSharpFluidSrcSet = 'childImageSharp___fluid___srcSet',
-  ChildImageSharpFluidSrcWebp = 'childImageSharp___fluid___srcWebp',
-  ChildImageSharpFluidSrcSetWebp = 'childImageSharp___fluid___srcSetWebp',
-  ChildImageSharpFluidSizes = 'childImageSharp___fluid___sizes',
-  ChildImageSharpFluidOriginalImg = 'childImageSharp___fluid___originalImg',
-  ChildImageSharpFluidOriginalName = 'childImageSharp___fluid___originalName',
-  ChildImageSharpFluidPresentationWidth = 'childImageSharp___fluid___presentationWidth',
-  ChildImageSharpFluidPresentationHeight = 'childImageSharp___fluid___presentationHeight',
-  ChildImageSharpSizesBase64 = 'childImageSharp___sizes___base64',
-  ChildImageSharpSizesTracedSvg = 'childImageSharp___sizes___tracedSVG',
-  ChildImageSharpSizesAspectRatio = 'childImageSharp___sizes___aspectRatio',
-  ChildImageSharpSizesSrc = 'childImageSharp___sizes___src',
-  ChildImageSharpSizesSrcSet = 'childImageSharp___sizes___srcSet',
-  ChildImageSharpSizesSrcWebp = 'childImageSharp___sizes___srcWebp',
-  ChildImageSharpSizesSrcSetWebp = 'childImageSharp___sizes___srcSetWebp',
-  ChildImageSharpSizesSizes = 'childImageSharp___sizes___sizes',
-  ChildImageSharpSizesOriginalImg = 'childImageSharp___sizes___originalImg',
-  ChildImageSharpSizesOriginalName = 'childImageSharp___sizes___originalName',
-  ChildImageSharpSizesPresentationWidth = 'childImageSharp___sizes___presentationWidth',
-  ChildImageSharpSizesPresentationHeight = 'childImageSharp___sizes___presentationHeight',
-  ChildImageSharpOriginalWidth = 'childImageSharp___original___width',
-  ChildImageSharpOriginalHeight = 'childImageSharp___original___height',
-  ChildImageSharpOriginalSrc = 'childImageSharp___original___src',
-  ChildImageSharpResizeSrc = 'childImageSharp___resize___src',
-  ChildImageSharpResizeTracedSvg = 'childImageSharp___resize___tracedSVG',
-  ChildImageSharpResizeWidth = 'childImageSharp___resize___width',
-  ChildImageSharpResizeHeight = 'childImageSharp___resize___height',
-  ChildImageSharpResizeAspectRatio = 'childImageSharp___resize___aspectRatio',
-  ChildImageSharpResizeOriginalName = 'childImageSharp___resize___originalName',
-  ChildImageSharpParentId = 'childImageSharp___parent___id',
-  ChildImageSharpParentParentId = 'childImageSharp___parent___parent___id',
-  ChildImageSharpParentParentChildren = 'childImageSharp___parent___parent___children',
-  ChildImageSharpParentChildren = 'childImageSharp___parent___children',
-  ChildImageSharpParentChildrenId = 'childImageSharp___parent___children___id',
-  ChildImageSharpParentChildrenChildren = 'childImageSharp___parent___children___children',
-  ChildImageSharpParentInternalContent = 'childImageSharp___parent___internal___content',
-  ChildImageSharpParentInternalContentDigest = 'childImageSharp___parent___internal___contentDigest',
-  ChildImageSharpParentInternalDescription = 'childImageSharp___parent___internal___description',
-  ChildImageSharpParentInternalFieldOwners = 'childImageSharp___parent___internal___fieldOwners',
-  ChildImageSharpParentInternalIgnoreType = 'childImageSharp___parent___internal___ignoreType',
-  ChildImageSharpParentInternalMediaType = 'childImageSharp___parent___internal___mediaType',
-  ChildImageSharpParentInternalOwner = 'childImageSharp___parent___internal___owner',
-  ChildImageSharpParentInternalType = 'childImageSharp___parent___internal___type',
-  ChildImageSharpChildren = 'childImageSharp___children',
-  ChildImageSharpChildrenId = 'childImageSharp___children___id',
-  ChildImageSharpChildrenParentId = 'childImageSharp___children___parent___id',
-  ChildImageSharpChildrenParentChildren = 'childImageSharp___children___parent___children',
-  ChildImageSharpChildrenChildren = 'childImageSharp___children___children',
-  ChildImageSharpChildrenChildrenId = 'childImageSharp___children___children___id',
-  ChildImageSharpChildrenChildrenChildren = 'childImageSharp___children___children___children',
-  ChildImageSharpChildrenInternalContent = 'childImageSharp___children___internal___content',
-  ChildImageSharpChildrenInternalContentDigest = 'childImageSharp___children___internal___contentDigest',
-  ChildImageSharpChildrenInternalDescription = 'childImageSharp___children___internal___description',
-  ChildImageSharpChildrenInternalFieldOwners = 'childImageSharp___children___internal___fieldOwners',
-  ChildImageSharpChildrenInternalIgnoreType = 'childImageSharp___children___internal___ignoreType',
-  ChildImageSharpChildrenInternalMediaType = 'childImageSharp___children___internal___mediaType',
-  ChildImageSharpChildrenInternalOwner = 'childImageSharp___children___internal___owner',
-  ChildImageSharpChildrenInternalType = 'childImageSharp___children___internal___type',
-  ChildImageSharpInternalContent = 'childImageSharp___internal___content',
-  ChildImageSharpInternalContentDigest = 'childImageSharp___internal___contentDigest',
-  ChildImageSharpInternalDescription = 'childImageSharp___internal___description',
-  ChildImageSharpInternalFieldOwners = 'childImageSharp___internal___fieldOwners',
-  ChildImageSharpInternalIgnoreType = 'childImageSharp___internal___ignoreType',
-  ChildImageSharpInternalMediaType = 'childImageSharp___internal___mediaType',
-  ChildImageSharpInternalOwner = 'childImageSharp___internal___owner',
-  ChildImageSharpInternalType = 'childImageSharp___internal___type',
   ChildMarkdownRemarkId = 'childMarkdownRemark___id',
   ChildMarkdownRemarkFrontmatterTitle = 'childMarkdownRemark___frontmatter___title',
   ChildMarkdownRemarkFrontmatterDate = 'childMarkdownRemark___frontmatter___date',
@@ -852,16 +852,16 @@ export type FileFilterInput = {
   mtime?: Maybe<DateQueryOperatorInput>,
   ctime?: Maybe<DateQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
+  childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  childImageSharp?: Maybe<ImageSharpFilterInput>,
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>,
 };
 
 export type FileGroupConnection = {
-  __typename?: 'FileGroupConnection',
+   __typename?: 'FileGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<FileEdge>,
   nodes: Array<File>,
@@ -887,7 +887,7 @@ export type FloatQueryOperatorInput = {
 };
 
 export type GitHub = {
-  __typename?: 'GitHub',
+   __typename?: 'GitHub',
   /** Look up a code of conduct by its key */
   codeOfConduct?: Maybe<GitHub_CodeOfConduct>,
   /** Look up a code of conduct by its key */
@@ -1095,7 +1095,7 @@ export type GitHub_AcceptTopicSuggestionInput = {
 
 /** Autogenerated return type of AcceptTopicSuggestion */
 export type GitHub_AcceptTopicSuggestionPayload = {
-  __typename?: 'GitHub_AcceptTopicSuggestionPayload',
+   __typename?: 'GitHub_AcceptTopicSuggestionPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The accepted topic. */
@@ -1122,7 +1122,7 @@ export type GitHub_ActorAvatarUrlArgs = {
 
 /** Location information for an actor */
 export type GitHub_ActorLocation = {
-  __typename?: 'GitHub_ActorLocation',
+   __typename?: 'GitHub_ActorLocation',
   /** City */
   city?: Maybe<Scalars['String']>,
   /** Country name */
@@ -1147,7 +1147,7 @@ export type GitHub_AddAssigneesToAssignableInput = {
 
 /** Autogenerated return type of AddAssigneesToAssignable */
 export type GitHub_AddAssigneesToAssignablePayload = {
-  __typename?: 'GitHub_AddAssigneesToAssignablePayload',
+   __typename?: 'GitHub_AddAssigneesToAssignablePayload',
   /** The item that was assigned. */
   assignable?: Maybe<GitHub_Assignable>,
   /** A unique identifier for the client performing the mutation. */
@@ -1166,7 +1166,7 @@ export type GitHub_AddCommentInput = {
 
 /** Autogenerated return type of AddComment */
 export type GitHub_AddCommentPayload = {
-  __typename?: 'GitHub_AddCommentPayload',
+   __typename?: 'GitHub_AddCommentPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The edge from the subject's comment connection. */
@@ -1179,7 +1179,7 @@ export type GitHub_AddCommentPayload = {
 
 /** Represents a 'added_to_project' event on a given issue or pull request. */
 export type GitHub_AddedToProjectEvent = GitHub_Node & {
-  __typename?: 'GitHub_AddedToProjectEvent',
+   __typename?: 'GitHub_AddedToProjectEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -1201,7 +1201,7 @@ export type GitHub_AddLabelsToLabelableInput = {
 
 /** Autogenerated return type of AddLabelsToLabelable */
 export type GitHub_AddLabelsToLabelablePayload = {
-  __typename?: 'GitHub_AddLabelsToLabelablePayload',
+   __typename?: 'GitHub_AddLabelsToLabelablePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The item that was labeled. */
@@ -1222,7 +1222,7 @@ export type GitHub_AddProjectCardInput = {
 
 /** Autogenerated return type of AddProjectCard */
 export type GitHub_AddProjectCardPayload = {
-  __typename?: 'GitHub_AddProjectCardPayload',
+   __typename?: 'GitHub_AddProjectCardPayload',
   /** The edge from the ProjectColumn's card connection. */
   cardEdge?: Maybe<GitHub_ProjectCardEdge>,
   /** A unique identifier for the client performing the mutation. */
@@ -1243,7 +1243,7 @@ export type GitHub_AddProjectColumnInput = {
 
 /** Autogenerated return type of AddProjectColumn */
 export type GitHub_AddProjectColumnPayload = {
-  __typename?: 'GitHub_AddProjectColumnPayload',
+   __typename?: 'GitHub_AddProjectColumnPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The edge from the project's column connection. */
@@ -1272,7 +1272,7 @@ export type GitHub_AddPullRequestReviewCommentInput = {
 
 /** Autogenerated return type of AddPullRequestReviewComment */
 export type GitHub_AddPullRequestReviewCommentPayload = {
-  __typename?: 'GitHub_AddPullRequestReviewCommentPayload',
+   __typename?: 'GitHub_AddPullRequestReviewCommentPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The newly created comment. */
@@ -1299,7 +1299,7 @@ export type GitHub_AddPullRequestReviewInput = {
 
 /** Autogenerated return type of AddPullRequestReview */
 export type GitHub_AddPullRequestReviewPayload = {
-  __typename?: 'GitHub_AddPullRequestReviewPayload',
+   __typename?: 'GitHub_AddPullRequestReviewPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The newly created pull request review. */
@@ -1320,7 +1320,7 @@ export type GitHub_AddReactionInput = {
 
 /** Autogenerated return type of AddReaction */
 export type GitHub_AddReactionPayload = {
-  __typename?: 'GitHub_AddReactionPayload',
+   __typename?: 'GitHub_AddReactionPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The reaction object. */
@@ -1339,7 +1339,7 @@ export type GitHub_AddStarInput = {
 
 /** Autogenerated return type of AddStar */
 export type GitHub_AddStarPayload = {
-  __typename?: 'GitHub_AddStarPayload',
+   __typename?: 'GitHub_AddStarPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The starrable. */
@@ -1348,7 +1348,7 @@ export type GitHub_AddStarPayload = {
 
 /** A GitHub App. */
 export type GitHub_App = GitHub_Node & {
-  __typename?: 'GitHub_App',
+   __typename?: 'GitHub_App',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   /** Identifies the primary key from the database. */
@@ -1378,7 +1378,7 @@ export type GitHub_AppLogoUrlArgs = {
 
 /** An edge in a connection. */
 export type GitHub_AppEdge = {
-  __typename?: 'GitHub_AppEdge',
+   __typename?: 'GitHub_AppEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -1402,7 +1402,7 @@ export type GitHub_AssignableAssigneesArgs = {
 
 /** Represents an 'assigned' event on any assignable object. */
 export type GitHub_AssignedEvent = GitHub_Node & {
-  __typename?: 'GitHub_AssignedEvent',
+   __typename?: 'GitHub_AssignedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the assignable associated with the event. */
@@ -1466,7 +1466,7 @@ export enum GitHub_AuditLogOrderField {
 
 /** Represents a 'base_ref_changed' event on a given issue or pull request. */
 export type GitHub_BaseRefChangedEvent = GitHub_Node & {
-  __typename?: 'GitHub_BaseRefChangedEvent',
+   __typename?: 'GitHub_BaseRefChangedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -1478,7 +1478,7 @@ export type GitHub_BaseRefChangedEvent = GitHub_Node & {
 
 /** Represents a 'base_ref_force_pushed' event on a given pull request. */
 export type GitHub_BaseRefForcePushedEvent = GitHub_Node & {
-  __typename?: 'GitHub_BaseRefForcePushedEvent',
+   __typename?: 'GitHub_BaseRefForcePushedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the after commit SHA for the 'base_ref_force_pushed' event. */
@@ -1496,14 +1496,14 @@ export type GitHub_BaseRefForcePushedEvent = GitHub_Node & {
 
 /** Represents a Git blame. */
 export type GitHub_Blame = {
-  __typename?: 'GitHub_Blame',
+   __typename?: 'GitHub_Blame',
   /** The list of ranges from a Git blame. */
   ranges: Array<GitHub_BlameRange>,
 };
 
 /** Represents a range of information from a Git blame. */
 export type GitHub_BlameRange = {
-  __typename?: 'GitHub_BlameRange',
+   __typename?: 'GitHub_BlameRange',
   /** 
  * Identifies the recency of the change, from 1 (new) to 10 (old). This is
    * calculated as a 2-quantile and determines the length of distance between the
@@ -1521,7 +1521,7 @@ export type GitHub_BlameRange = {
 
 /** Represents a Git blob. */
 export type GitHub_Blob = GitHub_Node & GitHub_GitObject & {
-  __typename?: 'GitHub_Blob',
+   __typename?: 'GitHub_Blob',
   /** An abbreviated version of the Git object ID */
   abbreviatedOid: Scalars['String'],
   /** Byte size of Blob object */
@@ -1545,7 +1545,7 @@ export type GitHub_Blob = GitHub_Node & GitHub_GitObject & {
 
 /** A special type of user which takes actions on behalf of GitHub Apps. */
 export type GitHub_Bot = GitHub_Node & GitHub_Actor & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Bot',
+   __typename?: 'GitHub_Bot',
   /** A URL pointing to the GitHub App's public avatar. */
   avatarUrl: Scalars['GitHub_URI'],
   /** Identifies the date and time when the object was created. */
@@ -1571,7 +1571,7 @@ export type GitHub_BotAvatarUrlArgs = {
 
 /** A branch protection rule. */
 export type GitHub_BranchProtectionRule = GitHub_Node & {
-  __typename?: 'GitHub_BranchProtectionRule',
+   __typename?: 'GitHub_BranchProtectionRule',
   /** A list of conflicts matching branches protection rule and other branch protection rules */
   branchProtectionRuleConflicts: GitHub_BranchProtectionRuleConflictConnection,
   /** The actor who created this branch protection rule. */
@@ -1651,7 +1651,7 @@ export type GitHub_BranchProtectionRuleReviewDismissalAllowancesArgs = {
 
 /** A conflict between two branch protection rules. */
 export type GitHub_BranchProtectionRuleConflict = {
-  __typename?: 'GitHub_BranchProtectionRuleConflict',
+   __typename?: 'GitHub_BranchProtectionRuleConflict',
   /** Identifies the branch protection rule. */
   branchProtectionRule?: Maybe<GitHub_BranchProtectionRule>,
   /** Identifies the conflicting branch protection rule. */
@@ -1662,7 +1662,7 @@ export type GitHub_BranchProtectionRuleConflict = {
 
 /** The connection type for BranchProtectionRuleConflict. */
 export type GitHub_BranchProtectionRuleConflictConnection = {
-  __typename?: 'GitHub_BranchProtectionRuleConflictConnection',
+   __typename?: 'GitHub_BranchProtectionRuleConflictConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_BranchProtectionRuleConflictEdge>>>,
   /** A list of nodes. */
@@ -1675,7 +1675,7 @@ export type GitHub_BranchProtectionRuleConflictConnection = {
 
 /** An edge in a connection. */
 export type GitHub_BranchProtectionRuleConflictEdge = {
-  __typename?: 'GitHub_BranchProtectionRuleConflictEdge',
+   __typename?: 'GitHub_BranchProtectionRuleConflictEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -1684,7 +1684,7 @@ export type GitHub_BranchProtectionRuleConflictEdge = {
 
 /** The connection type for BranchProtectionRule. */
 export type GitHub_BranchProtectionRuleConnection = {
-  __typename?: 'GitHub_BranchProtectionRuleConnection',
+   __typename?: 'GitHub_BranchProtectionRuleConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_BranchProtectionRuleEdge>>>,
   /** A list of nodes. */
@@ -1697,7 +1697,7 @@ export type GitHub_BranchProtectionRuleConnection = {
 
 /** An edge in a connection. */
 export type GitHub_BranchProtectionRuleEdge = {
-  __typename?: 'GitHub_BranchProtectionRuleEdge',
+   __typename?: 'GitHub_BranchProtectionRuleEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -1733,7 +1733,7 @@ export type GitHub_ChangeUserStatusInput = {
 
 /** Autogenerated return type of ChangeUserStatus */
 export type GitHub_ChangeUserStatusPayload = {
-  __typename?: 'GitHub_ChangeUserStatusPayload',
+   __typename?: 'GitHub_ChangeUserStatusPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** Your updated status. */
@@ -1750,7 +1750,7 @@ export type GitHub_ClearLabelsFromLabelableInput = {
 
 /** Autogenerated return type of ClearLabelsFromLabelable */
 export type GitHub_ClearLabelsFromLabelablePayload = {
-  __typename?: 'GitHub_ClearLabelsFromLabelablePayload',
+   __typename?: 'GitHub_ClearLabelsFromLabelablePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The item that was unlabeled. */
@@ -1777,7 +1777,7 @@ export type GitHub_CloneProjectInput = {
 
 /** Autogenerated return type of CloneProject */
 export type GitHub_CloneProjectPayload = {
-  __typename?: 'GitHub_CloneProjectPayload',
+   __typename?: 'GitHub_CloneProjectPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The id of the JobStatus for populating cloned fields. */
@@ -1804,7 +1804,7 @@ export type GitHub_CloneTemplateRepositoryInput = {
 
 /** Autogenerated return type of CloneTemplateRepository */
 export type GitHub_CloneTemplateRepositoryPayload = {
-  __typename?: 'GitHub_CloneTemplateRepositoryPayload',
+   __typename?: 'GitHub_CloneTemplateRepositoryPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The new repository. */
@@ -1821,7 +1821,7 @@ export type GitHub_Closable = {
 
 /** Represents a 'closed' event on any `Closable`. */
 export type GitHub_ClosedEvent = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_ClosedEvent',
+   __typename?: 'GitHub_ClosedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Object that was closed. */
@@ -1847,7 +1847,7 @@ export type GitHub_CloseIssueInput = {
 
 /** Autogenerated return type of CloseIssue */
 export type GitHub_CloseIssuePayload = {
-  __typename?: 'GitHub_CloseIssuePayload',
+   __typename?: 'GitHub_CloseIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The issue that was closed. */
@@ -1864,7 +1864,7 @@ export type GitHub_ClosePullRequestInput = {
 
 /** Autogenerated return type of ClosePullRequest */
 export type GitHub_ClosePullRequestPayload = {
-  __typename?: 'GitHub_ClosePullRequestPayload',
+   __typename?: 'GitHub_ClosePullRequestPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The pull request that was closed. */
@@ -1876,7 +1876,7 @@ export type GitHub_Closer = GitHub_Commit | GitHub_PullRequest;
 
 /** The Code of Conduct for a repository */
 export type GitHub_CodeOfConduct = GitHub_Node & {
-  __typename?: 'GitHub_CodeOfConduct',
+   __typename?: 'GitHub_CodeOfConduct',
   /** The body of the Code of Conduct */
   body?: Maybe<Scalars['String']>,
   id: Scalars['ID'],
@@ -1983,7 +1983,7 @@ export enum GitHub_CommentCannotUpdateReason {
 
 /** Represents a 'comment_deleted' event on a given issue or pull request. */
 export type GitHub_CommentDeletedEvent = GitHub_Node & {
-  __typename?: 'GitHub_CommentDeletedEvent',
+   __typename?: 'GitHub_CommentDeletedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -1995,7 +1995,7 @@ export type GitHub_CommentDeletedEvent = GitHub_Node & {
 
 /** Represents a Git commit. */
 export type GitHub_Commit = GitHub_Node & GitHub_GitObject & GitHub_Subscribable & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Commit',
+   __typename?: 'GitHub_Commit',
   /** An abbreviated version of the Git object ID */
   abbreviatedOid: Scalars['String'],
   /** The number of additions in this commit. */
@@ -2150,7 +2150,7 @@ export type GitHub_CommitAuthor = {
 
 /** Represents a comment on a given Commit. */
 export type GitHub_CommitComment = GitHub_Node & GitHub_Comment & GitHub_Deletable & GitHub_Updatable & GitHub_UpdatableComment & GitHub_Reactable & GitHub_RepositoryNode & {
-  __typename?: 'GitHub_CommitComment',
+   __typename?: 'GitHub_CommitComment',
   /** The actor who authored the comment. */
   author?: Maybe<GitHub_Actor>,
   /** Author's association with the subject of the comment. */
@@ -2236,7 +2236,7 @@ export type GitHub_CommitCommentUserContentEditsArgs = {
 
 /** The connection type for CommitComment. */
 export type GitHub_CommitCommentConnection = {
-  __typename?: 'GitHub_CommitCommentConnection',
+   __typename?: 'GitHub_CommitCommentConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CommitCommentEdge>>>,
   /** A list of nodes. */
@@ -2249,7 +2249,7 @@ export type GitHub_CommitCommentConnection = {
 
 /** An edge in a connection. */
 export type GitHub_CommitCommentEdge = {
-  __typename?: 'GitHub_CommitCommentEdge',
+   __typename?: 'GitHub_CommitCommentEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -2258,7 +2258,7 @@ export type GitHub_CommitCommentEdge = {
 
 /** A thread of comments on a commit. */
 export type GitHub_CommitCommentThread = GitHub_Node & GitHub_RepositoryNode & {
-  __typename?: 'GitHub_CommitCommentThread',
+   __typename?: 'GitHub_CommitCommentThread',
   /** The comments that exist in this thread. */
   comments: GitHub_CommitCommentConnection,
   /** The commit the comments were made on. */
@@ -2283,7 +2283,7 @@ export type GitHub_CommitCommentThreadCommentsArgs = {
 
 /** The connection type for Commit. */
 export type GitHub_CommitConnection = {
-  __typename?: 'GitHub_CommitConnection',
+   __typename?: 'GitHub_CommitConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CommitEdge>>>,
   /** A list of nodes. */
@@ -2312,7 +2312,7 @@ export enum GitHub_CommitContributionOrderField {
 
 /** This aggregates commits made by a user within one repository. */
 export type GitHub_CommitContributionsByRepository = {
-  __typename?: 'GitHub_CommitContributionsByRepository',
+   __typename?: 'GitHub_CommitContributionsByRepository',
   /** The commit contributions, each representing a day. */
   contributions: GitHub_CreatedCommitContributionConnection,
   /** The repository in which the commits were made. */
@@ -2335,7 +2335,7 @@ export type GitHub_CommitContributionsByRepositoryContributionsArgs = {
 
 /** An edge in a connection. */
 export type GitHub_CommitEdge = {
-  __typename?: 'GitHub_CommitEdge',
+   __typename?: 'GitHub_CommitEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -2344,7 +2344,7 @@ export type GitHub_CommitEdge = {
 
 /** The connection type for Commit. */
 export type GitHub_CommitHistoryConnection = {
-  __typename?: 'GitHub_CommitHistoryConnection',
+   __typename?: 'GitHub_CommitHistoryConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CommitEdge>>>,
   /** A list of nodes. */
@@ -2357,7 +2357,7 @@ export type GitHub_CommitHistoryConnection = {
 
 /** A content attachment */
 export type GitHub_ContentAttachment = {
-  __typename?: 'GitHub_ContentAttachment',
+   __typename?: 'GitHub_ContentAttachment',
   /** The body text of the content attachment. This parameter supports markdown. */
   body: Scalars['String'],
   /** The content reference that the content attachment is attached to. */
@@ -2371,7 +2371,7 @@ export type GitHub_ContentAttachment = {
 
 /** A content reference */
 export type GitHub_ContentReference = {
-  __typename?: 'GitHub_ContentReference',
+   __typename?: 'GitHub_ContentReference',
   /** Identifies the primary key from the database. */
   databaseId: Scalars['Int'],
   id: Scalars['ID'],
@@ -2399,7 +2399,7 @@ export type GitHub_Contribution = {
 
 /** A calendar of contributions made on GitHub by a user. */
 export type GitHub_ContributionCalendar = {
-  __typename?: 'GitHub_ContributionCalendar',
+   __typename?: 'GitHub_ContributionCalendar',
   /** A list of hex color codes used in this calendar. The darker the color, the more contributions it represents. */
   colors: Array<Scalars['String']>,
   /** Determine if the color set was chosen because it's currently Halloween. */
@@ -2414,7 +2414,7 @@ export type GitHub_ContributionCalendar = {
 
 /** Represents a single day of contributions on GitHub by a user. */
 export type GitHub_ContributionCalendarDay = {
-  __typename?: 'GitHub_ContributionCalendarDay',
+   __typename?: 'GitHub_ContributionCalendarDay',
   /** The hex color code that represents how many contributions were made on this day compared to others in the calendar. */
   color: Scalars['String'],
   /** How many contributions were made by the user on this day. */
@@ -2427,7 +2427,7 @@ export type GitHub_ContributionCalendarDay = {
 
 /** A month of contributions in a user's contribution graph. */
 export type GitHub_ContributionCalendarMonth = {
-  __typename?: 'GitHub_ContributionCalendarMonth',
+   __typename?: 'GitHub_ContributionCalendarMonth',
   /** The date of the first day of this month. */
   firstDay: Scalars['GitHub_Date'],
   /** The name of the month. */
@@ -2440,7 +2440,7 @@ export type GitHub_ContributionCalendarMonth = {
 
 /** A week of contributions in a user's contribution graph. */
 export type GitHub_ContributionCalendarWeek = {
-  __typename?: 'GitHub_ContributionCalendarWeek',
+   __typename?: 'GitHub_ContributionCalendarWeek',
   /** The days of contributions in this week. */
   contributionDays: Array<GitHub_ContributionCalendarDay>,
   /** The date of the earliest square in this week. */
@@ -2469,7 +2469,7 @@ export enum GitHub_ContributionOrderField {
 
 /** A contributions collection aggregates contributions such as opened issues and commits created by a user. */
 export type GitHub_ContributionsCollection = {
-  __typename?: 'GitHub_ContributionsCollection',
+   __typename?: 'GitHub_ContributionsCollection',
   /** Commit contributions made by the user, grouped by repository. */
   commitContributionsByRepository: Array<GitHub_CommitContributionsByRepository>,
   /** A calendar of this user's contributions on GitHub. */
@@ -2700,7 +2700,7 @@ export type GitHub_ContributionsCollectionTotalRepositoryContributionsArgs = {
 
 /** Represents a 'converted_note_to_issue' event on a given issue or pull request. */
 export type GitHub_ConvertedNoteToIssueEvent = GitHub_Node & {
-  __typename?: 'GitHub_ConvertedNoteToIssueEvent',
+   __typename?: 'GitHub_ConvertedNoteToIssueEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -2726,7 +2726,7 @@ export type GitHub_ConvertProjectCardNoteToIssueInput = {
 
 /** Autogenerated return type of ConvertProjectCardNoteToIssue */
 export type GitHub_ConvertProjectCardNoteToIssuePayload = {
-  __typename?: 'GitHub_ConvertProjectCardNoteToIssuePayload',
+   __typename?: 'GitHub_ConvertProjectCardNoteToIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated ProjectCard. */
@@ -2771,7 +2771,7 @@ export type GitHub_CreateBranchProtectionRuleInput = {
 
 /** Autogenerated return type of CreateBranchProtectionRule */
 export type GitHub_CreateBranchProtectionRulePayload = {
-  __typename?: 'GitHub_CreateBranchProtectionRulePayload',
+   __typename?: 'GitHub_CreateBranchProtectionRulePayload',
   /** The newly created BranchProtectionRule. */
   branchProtectionRule?: Maybe<GitHub_BranchProtectionRule>,
   /** A unique identifier for the client performing the mutation. */
@@ -2792,7 +2792,7 @@ export type GitHub_CreateContentAttachmentInput = {
 
 /** Represents the contribution a user made by committing to a repository. */
 export type GitHub_CreatedCommitContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_CreatedCommitContribution',
+   __typename?: 'GitHub_CreatedCommitContribution',
   /** How many commits were made on this day to this repository by the user. */
   commitCount: Scalars['Int'],
   /** 
@@ -2815,7 +2815,7 @@ export type GitHub_CreatedCommitContribution = GitHub_Contribution & {
 
 /** The connection type for CreatedCommitContribution. */
 export type GitHub_CreatedCommitContributionConnection = {
-  __typename?: 'GitHub_CreatedCommitContributionConnection',
+   __typename?: 'GitHub_CreatedCommitContributionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CreatedCommitContributionEdge>>>,
   /** A list of nodes. */
@@ -2828,7 +2828,7 @@ export type GitHub_CreatedCommitContributionConnection = {
 
 /** An edge in a connection. */
 export type GitHub_CreatedCommitContributionEdge = {
-  __typename?: 'GitHub_CreatedCommitContributionEdge',
+   __typename?: 'GitHub_CreatedCommitContributionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -2837,7 +2837,7 @@ export type GitHub_CreatedCommitContributionEdge = {
 
 /** Represents the contribution a user made on GitHub by opening an issue. */
 export type GitHub_CreatedIssueContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_CreatedIssueContribution',
+   __typename?: 'GitHub_CreatedIssueContribution',
   /** 
  * Whether this contribution is associated with a record you do not have access to. For
    * example, your own 'first issue' contribution may have been made on a repository you can no
@@ -2858,7 +2858,7 @@ export type GitHub_CreatedIssueContribution = GitHub_Contribution & {
 
 /** The connection type for CreatedIssueContribution. */
 export type GitHub_CreatedIssueContributionConnection = {
-  __typename?: 'GitHub_CreatedIssueContributionConnection',
+   __typename?: 'GitHub_CreatedIssueContributionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CreatedIssueContributionEdge>>>,
   /** A list of nodes. */
@@ -2871,7 +2871,7 @@ export type GitHub_CreatedIssueContributionConnection = {
 
 /** An edge in a connection. */
 export type GitHub_CreatedIssueContributionEdge = {
-  __typename?: 'GitHub_CreatedIssueContributionEdge',
+   __typename?: 'GitHub_CreatedIssueContributionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -2883,7 +2883,7 @@ export type GitHub_CreatedIssueOrRestrictedContribution = GitHub_CreatedIssueCon
 
 /** Represents the contribution a user made on GitHub by opening a pull request. */
 export type GitHub_CreatedPullRequestContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_CreatedPullRequestContribution',
+   __typename?: 'GitHub_CreatedPullRequestContribution',
   /** 
  * Whether this contribution is associated with a record you do not have access to. For
    * example, your own 'first issue' contribution may have been made on a repository you can no
@@ -2904,7 +2904,7 @@ export type GitHub_CreatedPullRequestContribution = GitHub_Contribution & {
 
 /** The connection type for CreatedPullRequestContribution. */
 export type GitHub_CreatedPullRequestContributionConnection = {
-  __typename?: 'GitHub_CreatedPullRequestContributionConnection',
+   __typename?: 'GitHub_CreatedPullRequestContributionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CreatedPullRequestContributionEdge>>>,
   /** A list of nodes. */
@@ -2917,7 +2917,7 @@ export type GitHub_CreatedPullRequestContributionConnection = {
 
 /** An edge in a connection. */
 export type GitHub_CreatedPullRequestContributionEdge = {
-  __typename?: 'GitHub_CreatedPullRequestContributionEdge',
+   __typename?: 'GitHub_CreatedPullRequestContributionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -2929,7 +2929,7 @@ export type GitHub_CreatedPullRequestOrRestrictedContribution = GitHub_CreatedPu
 
 /** Represents the contribution a user made by leaving a review on a pull request. */
 export type GitHub_CreatedPullRequestReviewContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_CreatedPullRequestReviewContribution',
+   __typename?: 'GitHub_CreatedPullRequestReviewContribution',
   /** 
  * Whether this contribution is associated with a record you do not have access to. For
    * example, your own 'first issue' contribution may have been made on a repository you can no
@@ -2954,7 +2954,7 @@ export type GitHub_CreatedPullRequestReviewContribution = GitHub_Contribution & 
 
 /** The connection type for CreatedPullRequestReviewContribution. */
 export type GitHub_CreatedPullRequestReviewContributionConnection = {
-  __typename?: 'GitHub_CreatedPullRequestReviewContributionConnection',
+   __typename?: 'GitHub_CreatedPullRequestReviewContributionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CreatedPullRequestReviewContributionEdge>>>,
   /** A list of nodes. */
@@ -2967,7 +2967,7 @@ export type GitHub_CreatedPullRequestReviewContributionConnection = {
 
 /** An edge in a connection. */
 export type GitHub_CreatedPullRequestReviewContributionEdge = {
-  __typename?: 'GitHub_CreatedPullRequestReviewContributionEdge',
+   __typename?: 'GitHub_CreatedPullRequestReviewContributionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -2976,7 +2976,7 @@ export type GitHub_CreatedPullRequestReviewContributionEdge = {
 
 /** Represents the contribution a user made on GitHub by creating a repository. */
 export type GitHub_CreatedRepositoryContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_CreatedRepositoryContribution',
+   __typename?: 'GitHub_CreatedRepositoryContribution',
   /** 
  * Whether this contribution is associated with a record you do not have access to. For
    * example, your own 'first issue' contribution may have been made on a repository you can no
@@ -2997,7 +2997,7 @@ export type GitHub_CreatedRepositoryContribution = GitHub_Contribution & {
 
 /** The connection type for CreatedRepositoryContribution. */
 export type GitHub_CreatedRepositoryContributionConnection = {
-  __typename?: 'GitHub_CreatedRepositoryContributionConnection',
+   __typename?: 'GitHub_CreatedRepositoryContributionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_CreatedRepositoryContributionEdge>>>,
   /** A list of nodes. */
@@ -3010,7 +3010,7 @@ export type GitHub_CreatedRepositoryContributionConnection = {
 
 /** An edge in a connection. */
 export type GitHub_CreatedRepositoryContributionEdge = {
-  __typename?: 'GitHub_CreatedRepositoryContributionEdge',
+   __typename?: 'GitHub_CreatedRepositoryContributionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3058,7 +3058,7 @@ export type GitHub_CreateIssueInput = {
 
 /** Autogenerated return type of CreateIssue */
 export type GitHub_CreateIssuePayload = {
-  __typename?: 'GitHub_CreateIssuePayload',
+   __typename?: 'GitHub_CreateIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The new issue. */
@@ -3083,7 +3083,7 @@ export type GitHub_CreateProjectInput = {
 
 /** Autogenerated return type of CreateProject */
 export type GitHub_CreateProjectPayload = {
-  __typename?: 'GitHub_CreateProjectPayload',
+   __typename?: 'GitHub_CreateProjectPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The new project. */
@@ -3117,7 +3117,7 @@ export type GitHub_CreatePullRequestInput = {
 
 /** Autogenerated return type of CreatePullRequest */
 export type GitHub_CreatePullRequestPayload = {
-  __typename?: 'GitHub_CreatePullRequestPayload',
+   __typename?: 'GitHub_CreatePullRequestPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The new pull request. */
@@ -3138,7 +3138,7 @@ export type GitHub_CreateRefInput = {
 
 /** Autogenerated return type of CreateRef */
 export type GitHub_CreateRefPayload = {
-  __typename?: 'GitHub_CreateRefPayload',
+   __typename?: 'GitHub_CreateRefPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The newly created ref. */
@@ -3177,7 +3177,7 @@ export type GitHub_CreateRepositoryInput = {
 
 /** Autogenerated return type of CreateRepository */
 export type GitHub_CreateRepositoryPayload = {
-  __typename?: 'GitHub_CreateRepositoryPayload',
+   __typename?: 'GitHub_CreateRepositoryPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The new repository. */
@@ -3186,7 +3186,7 @@ export type GitHub_CreateRepositoryPayload = {
 
 /** Represents a mention made by one issue or pull request to another. */
 export type GitHub_CrossReferencedEvent = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_CrossReferencedEvent',
+   __typename?: 'GitHub_CrossReferencedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -3224,7 +3224,7 @@ export type GitHub_DeclineTopicSuggestionInput = {
 
 /** Autogenerated return type of DeclineTopicSuggestion */
 export type GitHub_DeclineTopicSuggestionPayload = {
-  __typename?: 'GitHub_DeclineTopicSuggestionPayload',
+   __typename?: 'GitHub_DeclineTopicSuggestionPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The declined topic. */
@@ -3259,7 +3259,7 @@ export type GitHub_DeleteBranchProtectionRuleInput = {
 
 /** Autogenerated return type of DeleteBranchProtectionRule */
 export type GitHub_DeleteBranchProtectionRulePayload = {
-  __typename?: 'GitHub_DeleteBranchProtectionRulePayload',
+   __typename?: 'GitHub_DeleteBranchProtectionRulePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
 };
@@ -3274,7 +3274,7 @@ export type GitHub_DeleteIssueCommentInput = {
 
 /** Autogenerated return type of DeleteIssueComment */
 export type GitHub_DeleteIssueCommentPayload = {
-  __typename?: 'GitHub_DeleteIssueCommentPayload',
+   __typename?: 'GitHub_DeleteIssueCommentPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
 };
@@ -3289,7 +3289,7 @@ export type GitHub_DeleteIssueInput = {
 
 /** Autogenerated return type of DeleteIssue */
 export type GitHub_DeleteIssuePayload = {
-  __typename?: 'GitHub_DeleteIssuePayload',
+   __typename?: 'GitHub_DeleteIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The repository the issue belonged to */
@@ -3306,7 +3306,7 @@ export type GitHub_DeleteProjectCardInput = {
 
 /** Autogenerated return type of DeleteProjectCard */
 export type GitHub_DeleteProjectCardPayload = {
-  __typename?: 'GitHub_DeleteProjectCardPayload',
+   __typename?: 'GitHub_DeleteProjectCardPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The column the deleted card was in. */
@@ -3325,7 +3325,7 @@ export type GitHub_DeleteProjectColumnInput = {
 
 /** Autogenerated return type of DeleteProjectColumn */
 export type GitHub_DeleteProjectColumnPayload = {
-  __typename?: 'GitHub_DeleteProjectColumnPayload',
+   __typename?: 'GitHub_DeleteProjectColumnPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The deleted column ID. */
@@ -3344,7 +3344,7 @@ export type GitHub_DeleteProjectInput = {
 
 /** Autogenerated return type of DeleteProject */
 export type GitHub_DeleteProjectPayload = {
-  __typename?: 'GitHub_DeleteProjectPayload',
+   __typename?: 'GitHub_DeleteProjectPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The repository or organization the project was removed from. */
@@ -3361,7 +3361,7 @@ export type GitHub_DeletePullRequestReviewCommentInput = {
 
 /** Autogenerated return type of DeletePullRequestReviewComment */
 export type GitHub_DeletePullRequestReviewCommentPayload = {
-  __typename?: 'GitHub_DeletePullRequestReviewCommentPayload',
+   __typename?: 'GitHub_DeletePullRequestReviewCommentPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The pull request review the deleted comment belonged to. */
@@ -3378,7 +3378,7 @@ export type GitHub_DeletePullRequestReviewInput = {
 
 /** Autogenerated return type of DeletePullRequestReview */
 export type GitHub_DeletePullRequestReviewPayload = {
-  __typename?: 'GitHub_DeletePullRequestReviewPayload',
+   __typename?: 'GitHub_DeletePullRequestReviewPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The deleted pull request review. */
@@ -3395,14 +3395,14 @@ export type GitHub_DeleteRefInput = {
 
 /** Autogenerated return type of DeleteRef */
 export type GitHub_DeleteRefPayload = {
-  __typename?: 'GitHub_DeleteRefPayload',
+   __typename?: 'GitHub_DeleteRefPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
 };
 
 /** Represents a 'demilestoned' event on a given issue or pull request. */
 export type GitHub_DemilestonedEvent = GitHub_Node & {
-  __typename?: 'GitHub_DemilestonedEvent',
+   __typename?: 'GitHub_DemilestonedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -3416,7 +3416,7 @@ export type GitHub_DemilestonedEvent = GitHub_Node & {
 
 /** Represents a 'deployed' event on a given pull request. */
 export type GitHub_DeployedEvent = GitHub_Node & {
-  __typename?: 'GitHub_DeployedEvent',
+   __typename?: 'GitHub_DeployedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -3434,7 +3434,7 @@ export type GitHub_DeployedEvent = GitHub_Node & {
 
 /** A repository deploy key. */
 export type GitHub_DeployKey = GitHub_Node & {
-  __typename?: 'GitHub_DeployKey',
+   __typename?: 'GitHub_DeployKey',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   id: Scalars['ID'],
@@ -3450,7 +3450,7 @@ export type GitHub_DeployKey = GitHub_Node & {
 
 /** The connection type for DeployKey. */
 export type GitHub_DeployKeyConnection = {
-  __typename?: 'GitHub_DeployKeyConnection',
+   __typename?: 'GitHub_DeployKeyConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_DeployKeyEdge>>>,
   /** A list of nodes. */
@@ -3463,7 +3463,7 @@ export type GitHub_DeployKeyConnection = {
 
 /** An edge in a connection. */
 export type GitHub_DeployKeyEdge = {
-  __typename?: 'GitHub_DeployKeyEdge',
+   __typename?: 'GitHub_DeployKeyEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3472,7 +3472,7 @@ export type GitHub_DeployKeyEdge = {
 
 /** Represents triggered deployment instance. */
 export type GitHub_Deployment = GitHub_Node & {
-  __typename?: 'GitHub_Deployment',
+   __typename?: 'GitHub_Deployment',
   /** Identifies the commit sha of the deployment. */
   commit?: Maybe<GitHub_Commit>,
   /** Identifies the oid of the deployment commit, even if the commit has been deleted. */
@@ -3517,7 +3517,7 @@ export type GitHub_DeploymentStatusesArgs = {
 
 /** The connection type for Deployment. */
 export type GitHub_DeploymentConnection = {
-  __typename?: 'GitHub_DeploymentConnection',
+   __typename?: 'GitHub_DeploymentConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_DeploymentEdge>>>,
   /** A list of nodes. */
@@ -3530,7 +3530,7 @@ export type GitHub_DeploymentConnection = {
 
 /** An edge in a connection. */
 export type GitHub_DeploymentEdge = {
-  __typename?: 'GitHub_DeploymentEdge',
+   __typename?: 'GitHub_DeploymentEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3539,7 +3539,7 @@ export type GitHub_DeploymentEdge = {
 
 /** Represents a 'deployment_environment_changed' event on a given pull request. */
 export type GitHub_DeploymentEnvironmentChangedEvent = GitHub_Node & {
-  __typename?: 'GitHub_DeploymentEnvironmentChangedEvent',
+   __typename?: 'GitHub_DeploymentEnvironmentChangedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -3589,7 +3589,7 @@ export enum GitHub_DeploymentState {
 
 /** Describes the status of a given deployment attempt. */
 export type GitHub_DeploymentStatus = GitHub_Node & {
-  __typename?: 'GitHub_DeploymentStatus',
+   __typename?: 'GitHub_DeploymentStatus',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   /** Identifies the actor who triggered the deployment. */
@@ -3611,7 +3611,7 @@ export type GitHub_DeploymentStatus = GitHub_Node & {
 
 /** The connection type for DeploymentStatus. */
 export type GitHub_DeploymentStatusConnection = {
-  __typename?: 'GitHub_DeploymentStatusConnection',
+   __typename?: 'GitHub_DeploymentStatusConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_DeploymentStatusEdge>>>,
   /** A list of nodes. */
@@ -3624,7 +3624,7 @@ export type GitHub_DeploymentStatusConnection = {
 
 /** An edge in a connection. */
 export type GitHub_DeploymentStatusEdge = {
-  __typename?: 'GitHub_DeploymentStatusEdge',
+   __typename?: 'GitHub_DeploymentStatusEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3661,7 +3661,7 @@ export type GitHub_DismissPullRequestReviewInput = {
 
 /** Autogenerated return type of DismissPullRequestReview */
 export type GitHub_DismissPullRequestReviewPayload = {
-  __typename?: 'GitHub_DismissPullRequestReviewPayload',
+   __typename?: 'GitHub_DismissPullRequestReviewPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The dismissed pull request review. */
@@ -3690,7 +3690,7 @@ export type GitHub_EnterpriseAuditEntryData = {
 
 /** An external identity provisioned by SAML SSO or SCIM. */
 export type GitHub_ExternalIdentity = GitHub_Node & {
-  __typename?: 'GitHub_ExternalIdentity',
+   __typename?: 'GitHub_ExternalIdentity',
   /** The GUID for this identity */
   guid: Scalars['String'],
   id: Scalars['ID'],
@@ -3706,7 +3706,7 @@ export type GitHub_ExternalIdentity = GitHub_Node & {
 
 /** The connection type for ExternalIdentity. */
 export type GitHub_ExternalIdentityConnection = {
-  __typename?: 'GitHub_ExternalIdentityConnection',
+   __typename?: 'GitHub_ExternalIdentityConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ExternalIdentityEdge>>>,
   /** A list of nodes. */
@@ -3719,7 +3719,7 @@ export type GitHub_ExternalIdentityConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ExternalIdentityEdge = {
-  __typename?: 'GitHub_ExternalIdentityEdge',
+   __typename?: 'GitHub_ExternalIdentityEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3728,21 +3728,21 @@ export type GitHub_ExternalIdentityEdge = {
 
 /** SAML attributes for the External Identity */
 export type GitHub_ExternalIdentitySamlAttributes = {
-  __typename?: 'GitHub_ExternalIdentitySamlAttributes',
+   __typename?: 'GitHub_ExternalIdentitySamlAttributes',
   /** The NameID of the SAML identity */
   nameId?: Maybe<Scalars['String']>,
 };
 
 /** SCIM attributes for the External Identity */
 export type GitHub_ExternalIdentityScimAttributes = {
-  __typename?: 'GitHub_ExternalIdentityScimAttributes',
+   __typename?: 'GitHub_ExternalIdentityScimAttributes',
   /** The userName of the SCIM identity */
   username?: Maybe<Scalars['String']>,
 };
 
 /** The connection type for User. */
 export type GitHub_FollowerConnection = {
-  __typename?: 'GitHub_FollowerConnection',
+   __typename?: 'GitHub_FollowerConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_UserEdge>>>,
   /** A list of nodes. */
@@ -3755,7 +3755,7 @@ export type GitHub_FollowerConnection = {
 
 /** The connection type for User. */
 export type GitHub_FollowingConnection = {
-  __typename?: 'GitHub_FollowingConnection',
+   __typename?: 'GitHub_FollowingConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_UserEdge>>>,
   /** A list of nodes. */
@@ -3768,7 +3768,7 @@ export type GitHub_FollowingConnection = {
 
 /** A Gist. */
 export type GitHub_Gist = GitHub_Node & GitHub_Starrable & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Gist',
+   __typename?: 'GitHub_Gist',
   /** A list of comments associated with the gist */
   comments: GitHub_GistCommentConnection,
   /** Identifies the date and time when the object was created. */
@@ -3840,7 +3840,7 @@ export type GitHub_GistStargazersArgs = {
 
 /** Represents a comment on an Gist. */
 export type GitHub_GistComment = GitHub_Node & GitHub_Comment & GitHub_Deletable & GitHub_Updatable & GitHub_UpdatableComment & {
-  __typename?: 'GitHub_GistComment',
+   __typename?: 'GitHub_GistComment',
   /** The actor who authored the comment. */
   author?: Maybe<GitHub_Actor>,
   /** Author's association with the gist. */
@@ -3899,7 +3899,7 @@ export type GitHub_GistCommentUserContentEditsArgs = {
 
 /** The connection type for GistComment. */
 export type GitHub_GistCommentConnection = {
-  __typename?: 'GitHub_GistCommentConnection',
+   __typename?: 'GitHub_GistCommentConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_GistCommentEdge>>>,
   /** A list of nodes. */
@@ -3912,7 +3912,7 @@ export type GitHub_GistCommentConnection = {
 
 /** An edge in a connection. */
 export type GitHub_GistCommentEdge = {
-  __typename?: 'GitHub_GistCommentEdge',
+   __typename?: 'GitHub_GistCommentEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3921,7 +3921,7 @@ export type GitHub_GistCommentEdge = {
 
 /** The connection type for Gist. */
 export type GitHub_GistConnection = {
-  __typename?: 'GitHub_GistConnection',
+   __typename?: 'GitHub_GistConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_GistEdge>>>,
   /** A list of nodes. */
@@ -3934,7 +3934,7 @@ export type GitHub_GistConnection = {
 
 /** An edge in a connection. */
 export type GitHub_GistEdge = {
-  __typename?: 'GitHub_GistEdge',
+   __typename?: 'GitHub_GistEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -3943,7 +3943,7 @@ export type GitHub_GistEdge = {
 
 /** A file in a gist. */
 export type GitHub_GistFile = {
-  __typename?: 'GitHub_GistFile',
+   __typename?: 'GitHub_GistFile',
   /** The file name encoded to remove characters that are invalid in URL paths. */
   encodedName?: Maybe<Scalars['String']>,
   /** The gist file encoding. */
@@ -4000,7 +4000,7 @@ export enum GitHub_GistPrivacy {
 
 /** Represents an actor in a Git commit (ie. an author or committer). */
 export type GitHub_GitActor = {
-  __typename?: 'GitHub_GitActor',
+   __typename?: 'GitHub_GitActor',
   /** A URL pointing to the author's public avatar. */
   avatarUrl: Scalars['GitHub_URI'],
   /** The timestamp of the Git action (authoring or committing). */
@@ -4021,7 +4021,7 @@ export type GitHub_GitActorAvatarUrlArgs = {
 
 /** An edge in a connection. */
 export type GitHub_GitActorEdge = {
-  __typename?: 'GitHub_GitActorEdge',
+   __typename?: 'GitHub_GitActorEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4030,7 +4030,7 @@ export type GitHub_GitActorEdge = {
 
 /** Represents information about the GitHub instance. */
 export type GitHub_GitHubMetadata = {
-  __typename?: 'GitHub_GitHubMetadata',
+   __typename?: 'GitHub_GitHubMetadata',
   /** Returns a String that's a SHA of `github-services` */
   gitHubServicesSha: Scalars['GitHub_GitObjectID'],
   /** IP addresses that users connect to for git operations */
@@ -4124,7 +4124,7 @@ export enum GitHub_GitSignatureState {
 
 /** Represents a GPG signature on a Commit or Tag. */
 export type GitHub_GpgSignature = GitHub_GitSignature & {
-  __typename?: 'GitHub_GpgSignature',
+   __typename?: 'GitHub_GpgSignature',
   /** Email used to sign this object. */
   email: Scalars['String'],
   /** True if the signature is valid and verified by GitHub. */
@@ -4148,7 +4148,7 @@ export type GitHub_GpgSignature = GitHub_GitSignature & {
 
 /** Represents a 'head_ref_deleted' event on a given pull request. */
 export type GitHub_HeadRefDeletedEvent = GitHub_Node & {
-  __typename?: 'GitHub_HeadRefDeletedEvent',
+   __typename?: 'GitHub_HeadRefDeletedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -4164,7 +4164,7 @@ export type GitHub_HeadRefDeletedEvent = GitHub_Node & {
 
 /** Represents a 'head_ref_force_pushed' event on a given pull request. */
 export type GitHub_HeadRefForcePushedEvent = GitHub_Node & {
-  __typename?: 'GitHub_HeadRefForcePushedEvent',
+   __typename?: 'GitHub_HeadRefForcePushedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the after commit SHA for the 'head_ref_force_pushed' event. */
@@ -4182,7 +4182,7 @@ export type GitHub_HeadRefForcePushedEvent = GitHub_Node & {
 
 /** Represents a 'head_ref_restored' event on a given pull request. */
 export type GitHub_HeadRefRestoredEvent = GitHub_Node & {
-  __typename?: 'GitHub_HeadRefRestoredEvent',
+   __typename?: 'GitHub_HeadRefRestoredEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -4221,7 +4221,7 @@ export type GitHub_ImportProjectInput = {
 
 /** An installation on a repository */
 export type GitHub_InstalledAppEdge = {
-  __typename?: 'GitHub_InstalledAppEdge',
+   __typename?: 'GitHub_InstalledAppEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4242,7 +4242,7 @@ export type GitHub_InviteEnterpriseAdminInput = {
 
 /** An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project. */
 export type GitHub_Issue = GitHub_Node & GitHub_Assignable & GitHub_Closable & GitHub_Comment & GitHub_Updatable & GitHub_UpdatableComment & GitHub_Labelable & GitHub_Lockable & GitHub_Reactable & GitHub_RepositoryNode & GitHub_Subscribable & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Issue',
+   __typename?: 'GitHub_Issue',
   /** Reason that the conversation was locked. */
   activeLockReason?: Maybe<GitHub_LockReason>,
   /** A list of Users assigned to this object. */
@@ -4416,7 +4416,7 @@ export type GitHub_IssueUserContentEditsArgs = {
 
 /** Represents a comment on an Issue. */
 export type GitHub_IssueComment = GitHub_Node & GitHub_Comment & GitHub_Deletable & GitHub_Updatable & GitHub_UpdatableComment & GitHub_Reactable & GitHub_RepositoryNode & {
-  __typename?: 'GitHub_IssueComment',
+   __typename?: 'GitHub_IssueComment',
   /** The actor who authored the comment. */
   author?: Maybe<GitHub_Actor>,
   /** Author's association with the subject of the comment. */
@@ -4503,7 +4503,7 @@ export type GitHub_IssueCommentUserContentEditsArgs = {
 
 /** The connection type for IssueComment. */
 export type GitHub_IssueCommentConnection = {
-  __typename?: 'GitHub_IssueCommentConnection',
+   __typename?: 'GitHub_IssueCommentConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_IssueCommentEdge>>>,
   /** A list of nodes. */
@@ -4516,7 +4516,7 @@ export type GitHub_IssueCommentConnection = {
 
 /** An edge in a connection. */
 export type GitHub_IssueCommentEdge = {
-  __typename?: 'GitHub_IssueCommentEdge',
+   __typename?: 'GitHub_IssueCommentEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4525,7 +4525,7 @@ export type GitHub_IssueCommentEdge = {
 
 /** The connection type for Issue. */
 export type GitHub_IssueConnection = {
-  __typename?: 'GitHub_IssueConnection',
+   __typename?: 'GitHub_IssueConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_IssueEdge>>>,
   /** A list of nodes. */
@@ -4538,7 +4538,7 @@ export type GitHub_IssueConnection = {
 
 /** This aggregates issues opened by a user within one repository. */
 export type GitHub_IssueContributionsByRepository = {
-  __typename?: 'GitHub_IssueContributionsByRepository',
+   __typename?: 'GitHub_IssueContributionsByRepository',
   /** The issue contributions. */
   contributions: GitHub_CreatedIssueContributionConnection,
   /** The repository in which the issues were opened. */
@@ -4557,7 +4557,7 @@ export type GitHub_IssueContributionsByRepositoryContributionsArgs = {
 
 /** An edge in a connection. */
 export type GitHub_IssueEdge = {
-  __typename?: 'GitHub_IssueEdge',
+   __typename?: 'GitHub_IssueEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4614,7 +4614,7 @@ export type GitHub_IssueOrPullRequest = GitHub_Issue | GitHub_PullRequest;
 
 /** An edge in a connection. */
 export type GitHub_IssueOrPullRequestEdge = {
-  __typename?: 'GitHub_IssueOrPullRequestEdge',
+   __typename?: 'GitHub_IssueOrPullRequestEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4643,7 +4643,7 @@ export enum GitHub_IssueState {
 
 /** The connection type for IssueTimelineItem. */
 export type GitHub_IssueTimelineConnection = {
-  __typename?: 'GitHub_IssueTimelineConnection',
+   __typename?: 'GitHub_IssueTimelineConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_IssueTimelineItemEdge>>>,
   /** A list of nodes. */
@@ -4659,7 +4659,7 @@ export type GitHub_IssueTimelineItem = GitHub_Commit | GitHub_IssueComment | Git
 
 /** An edge in a connection. */
 export type GitHub_IssueTimelineItemEdge = {
-  __typename?: 'GitHub_IssueTimelineItemEdge',
+   __typename?: 'GitHub_IssueTimelineItemEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4671,7 +4671,7 @@ export type GitHub_IssueTimelineItems = GitHub_IssueComment | GitHub_CrossRefere
 
 /** The connection type for IssueTimelineItems. */
 export type GitHub_IssueTimelineItemsConnection = {
-  __typename?: 'GitHub_IssueTimelineItemsConnection',
+   __typename?: 'GitHub_IssueTimelineItemsConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_IssueTimelineItemsEdge>>>,
   /** Identifies the count of items after applying `before` and `after` filters. */
@@ -4690,7 +4690,7 @@ export type GitHub_IssueTimelineItemsConnection = {
 
 /** An edge in a connection. */
 export type GitHub_IssueTimelineItemsEdge = {
-  __typename?: 'GitHub_IssueTimelineItemsEdge',
+   __typename?: 'GitHub_IssueTimelineItemsEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4757,7 +4757,7 @@ export enum GitHub_IssueTimelineItemsItemType {
 
 /** Represents a user signing up for a GitHub account. */
 export type GitHub_JoinedGitHubContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_JoinedGitHubContribution',
+   __typename?: 'GitHub_JoinedGitHubContribution',
   /** 
  * Whether this contribution is associated with a record you do not have access to. For
    * example, your own 'first issue' contribution may have been made on a repository you can no
@@ -4776,7 +4776,7 @@ export type GitHub_JoinedGitHubContribution = GitHub_Contribution & {
 
 /** A label for categorizing Issues or Milestones with a given Repository. */
 export type GitHub_Label = GitHub_Node & {
-  __typename?: 'GitHub_Label',
+   __typename?: 'GitHub_Label',
   /** Identifies the label color. */
   color: Scalars['String'],
   /** Identifies the date and time when the label was created. */
@@ -4846,7 +4846,7 @@ export type GitHub_LabelableLabelsArgs = {
 
 /** The connection type for Label. */
 export type GitHub_LabelConnection = {
-  __typename?: 'GitHub_LabelConnection',
+   __typename?: 'GitHub_LabelConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_LabelEdge>>>,
   /** A list of nodes. */
@@ -4859,7 +4859,7 @@ export type GitHub_LabelConnection = {
 
 /** Represents a 'labeled' event on a given issue or pull request. */
 export type GitHub_LabeledEvent = GitHub_Node & {
-  __typename?: 'GitHub_LabeledEvent',
+   __typename?: 'GitHub_LabeledEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -4873,7 +4873,7 @@ export type GitHub_LabeledEvent = GitHub_Node & {
 
 /** An edge in a connection. */
 export type GitHub_LabelEdge = {
-  __typename?: 'GitHub_LabelEdge',
+   __typename?: 'GitHub_LabelEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -4882,7 +4882,7 @@ export type GitHub_LabelEdge = {
 
 /** Represents a given language found in repositories. */
 export type GitHub_Language = GitHub_Node & {
-  __typename?: 'GitHub_Language',
+   __typename?: 'GitHub_Language',
   /** The color defined for the current language. */
   color?: Maybe<Scalars['String']>,
   id: Scalars['ID'],
@@ -4892,7 +4892,7 @@ export type GitHub_Language = GitHub_Node & {
 
 /** A list of languages associated with the parent. */
 export type GitHub_LanguageConnection = {
-  __typename?: 'GitHub_LanguageConnection',
+   __typename?: 'GitHub_LanguageConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_LanguageEdge>>>,
   /** A list of nodes. */
@@ -4907,7 +4907,7 @@ export type GitHub_LanguageConnection = {
 
 /** Represents the language of a repository. */
 export type GitHub_LanguageEdge = {
-  __typename?: 'GitHub_LanguageEdge',
+   __typename?: 'GitHub_LanguageEdge',
   cursor: Scalars['String'],
   node: GitHub_Language,
   /** The number of bytes of code written in the language. */
@@ -4930,7 +4930,7 @@ export enum GitHub_LanguageOrderField {
 
 /** A repository's open source license */
 export type GitHub_License = GitHub_Node & {
-  __typename?: 'GitHub_License',
+   __typename?: 'GitHub_License',
   /** The full text of the license */
   body: Scalars['String'],
   /** The conditions set by the license */
@@ -4964,7 +4964,7 @@ export type GitHub_License = GitHub_Node & {
 
 /** Describes a License's conditions, permissions, and limitations */
 export type GitHub_LicenseRule = {
-  __typename?: 'GitHub_LicenseRule',
+   __typename?: 'GitHub_LicenseRule',
   /** A description of the rule */
   description: Scalars['String'],
   /** The machine-readable rule key */
@@ -4985,7 +4985,7 @@ export type GitHub_LinkRepositoryToProjectInput = {
 
 /** Autogenerated return type of LinkRepositoryToProject */
 export type GitHub_LinkRepositoryToProjectPayload = {
-  __typename?: 'GitHub_LinkRepositoryToProjectPayload',
+   __typename?: 'GitHub_LinkRepositoryToProjectPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The linked Project. */
@@ -5004,7 +5004,7 @@ export type GitHub_Lockable = {
 
 /** Represents a 'locked' event on a given issue or pull request. */
 export type GitHub_LockedEvent = GitHub_Node & {
-  __typename?: 'GitHub_LockedEvent',
+   __typename?: 'GitHub_LockedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -5028,7 +5028,7 @@ export type GitHub_LockLockableInput = {
 
 /** Autogenerated return type of LockLockable */
 export type GitHub_LockLockablePayload = {
-  __typename?: 'GitHub_LockLockablePayload',
+   __typename?: 'GitHub_LockLockablePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The item that was locked. */
@@ -5049,7 +5049,7 @@ export enum GitHub_LockReason {
 
 /** A placeholder user for attribution of imported data on GitHub. */
 export type GitHub_Mannequin = GitHub_Node & GitHub_Actor & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Mannequin',
+   __typename?: 'GitHub_Mannequin',
   /** A URL pointing to the GitHub App's public avatar. */
   avatarUrl: Scalars['GitHub_URI'],
   /** Identifies the date and time when the object was created. */
@@ -5075,7 +5075,7 @@ export type GitHub_MannequinAvatarUrlArgs = {
 
 /** Represents a 'marked_as_duplicate' event on a given issue or pull request. */
 export type GitHub_MarkedAsDuplicateEvent = GitHub_Node & {
-  __typename?: 'GitHub_MarkedAsDuplicateEvent',
+   __typename?: 'GitHub_MarkedAsDuplicateEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -5085,7 +5085,7 @@ export type GitHub_MarkedAsDuplicateEvent = GitHub_Node & {
 
 /** A public description of a Marketplace category. */
 export type GitHub_MarketplaceCategory = GitHub_Node & {
-  __typename?: 'GitHub_MarketplaceCategory',
+   __typename?: 'GitHub_MarketplaceCategory',
   /** The category's description. */
   description?: Maybe<Scalars['String']>,
   /** The technical description of how apps listed in this category work with GitHub. */
@@ -5107,7 +5107,7 @@ export type GitHub_MarketplaceCategory = GitHub_Node & {
 
 /** A listing in the GitHub integration marketplace. */
 export type GitHub_MarketplaceListing = GitHub_Node & {
-  __typename?: 'GitHub_MarketplaceListing',
+   __typename?: 'GitHub_MarketplaceListing',
   /** The GitHub App this listing represents. */
   app?: Maybe<GitHub_App>,
   /** URL to the listing owner's company site. */
@@ -5254,7 +5254,7 @@ export type GitHub_MarketplaceListingLogoUrlArgs = {
 
 /** Look up Marketplace Listings */
 export type GitHub_MarketplaceListingConnection = {
-  __typename?: 'GitHub_MarketplaceListingConnection',
+   __typename?: 'GitHub_MarketplaceListingConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_MarketplaceListingEdge>>>,
   /** A list of nodes. */
@@ -5267,7 +5267,7 @@ export type GitHub_MarketplaceListingConnection = {
 
 /** An edge in a connection. */
 export type GitHub_MarketplaceListingEdge = {
-  __typename?: 'GitHub_MarketplaceListingEdge',
+   __typename?: 'GitHub_MarketplaceListingEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -5276,7 +5276,7 @@ export type GitHub_MarketplaceListingEdge = {
 
 /** Audit log entry for a members_can_delete_repos.clear event. */
 export type GitHub_MembersCanDeleteReposClearAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_MembersCanDeleteReposClearAuditEntry',
+   __typename?: 'GitHub_MembersCanDeleteReposClearAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -5320,7 +5320,7 @@ export type GitHub_MembersCanDeleteReposClearAuditEntry = GitHub_Node & GitHub_A
 
 /** Audit log entry for a members_can_delete_repos.disable event. */
 export type GitHub_MembersCanDeleteReposDisableAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_MembersCanDeleteReposDisableAuditEntry',
+   __typename?: 'GitHub_MembersCanDeleteReposDisableAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -5364,7 +5364,7 @@ export type GitHub_MembersCanDeleteReposDisableAuditEntry = GitHub_Node & GitHub
 
 /** Audit log entry for a members_can_delete_repos.enable event. */
 export type GitHub_MembersCanDeleteReposEnableAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_MembersCanDeleteReposEnableAuditEntry',
+   __typename?: 'GitHub_MembersCanDeleteReposEnableAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -5424,7 +5424,7 @@ export type GitHub_MemberStatusableMemberStatusesArgs = {
 
 /** Represents a 'mentioned' event on a given issue or pull request. */
 export type GitHub_MentionedEvent = GitHub_Node & {
-  __typename?: 'GitHub_MentionedEvent',
+   __typename?: 'GitHub_MentionedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -5460,7 +5460,7 @@ export type GitHub_MergeBranchInput = {
 
 /** Autogenerated return type of MergeBranch */
 export type GitHub_MergeBranchPayload = {
-  __typename?: 'GitHub_MergeBranchPayload',
+   __typename?: 'GitHub_MergeBranchPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The resulting merge Commit. */
@@ -5469,7 +5469,7 @@ export type GitHub_MergeBranchPayload = {
 
 /** Represents a 'merged' event on a given pull request. */
 export type GitHub_MergedEvent = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_MergedEvent',
+   __typename?: 'GitHub_MergedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the commit associated with the `merge` event. */
@@ -5505,7 +5505,7 @@ export type GitHub_MergePullRequestInput = {
 
 /** Autogenerated return type of MergePullRequest */
 export type GitHub_MergePullRequestPayload = {
-  __typename?: 'GitHub_MergePullRequestPayload',
+   __typename?: 'GitHub_MergePullRequestPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The pull request that was merged. */
@@ -5514,7 +5514,7 @@ export type GitHub_MergePullRequestPayload = {
 
 /** Represents a Milestone object on a given repository. */
 export type GitHub_Milestone = GitHub_Node & GitHub_Closable & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Milestone',
+   __typename?: 'GitHub_Milestone',
   /** `true` if the object is closed (definition of closed may depend on type) */
   closed: Scalars['Boolean'],
   /** Identifies the date and time when the object was closed. */
@@ -5579,7 +5579,7 @@ export type GitHub_MilestonePullRequestsArgs = {
 
 /** The connection type for Milestone. */
 export type GitHub_MilestoneConnection = {
-  __typename?: 'GitHub_MilestoneConnection',
+   __typename?: 'GitHub_MilestoneConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_MilestoneEdge>>>,
   /** A list of nodes. */
@@ -5592,7 +5592,7 @@ export type GitHub_MilestoneConnection = {
 
 /** Represents a 'milestoned' event on a given issue or pull request. */
 export type GitHub_MilestonedEvent = GitHub_Node & {
-  __typename?: 'GitHub_MilestonedEvent',
+   __typename?: 'GitHub_MilestonedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -5606,7 +5606,7 @@ export type GitHub_MilestonedEvent = GitHub_Node & {
 
 /** An edge in a connection. */
 export type GitHub_MilestoneEdge = {
-  __typename?: 'GitHub_MilestoneEdge',
+   __typename?: 'GitHub_MilestoneEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -5656,7 +5656,7 @@ export type GitHub_MinimizeCommentInput = {
 
 /** Represents a 'moved_columns_in_project' event on a given issue or pull request. */
 export type GitHub_MovedColumnsInProjectEvent = GitHub_Node & {
-  __typename?: 'GitHub_MovedColumnsInProjectEvent',
+   __typename?: 'GitHub_MovedColumnsInProjectEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -5680,7 +5680,7 @@ export type GitHub_MoveProjectCardInput = {
 
 /** Autogenerated return type of MoveProjectCard */
 export type GitHub_MoveProjectCardPayload = {
-  __typename?: 'GitHub_MoveProjectCardPayload',
+   __typename?: 'GitHub_MoveProjectCardPayload',
   /** The new edge of the moved card. */
   cardEdge?: Maybe<GitHub_ProjectCardEdge>,
   /** A unique identifier for the client performing the mutation. */
@@ -5699,7 +5699,7 @@ export type GitHub_MoveProjectColumnInput = {
 
 /** Autogenerated return type of MoveProjectColumn */
 export type GitHub_MoveProjectColumnPayload = {
-  __typename?: 'GitHub_MoveProjectColumnPayload',
+   __typename?: 'GitHub_MoveProjectColumnPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The new edge of the moved column. */
@@ -5724,7 +5724,7 @@ export type GitHub_OauthApplicationAuditEntryData = {
 
 /** Audit log entry for a oauth_application.create event. */
 export type GitHub_OauthApplicationCreateAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OauthApplicationAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OauthApplicationCreateAuditEntry',
+   __typename?: 'GitHub_OauthApplicationCreateAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -5804,7 +5804,7 @@ export enum GitHub_OrderDirection {
 
 /** Audit log entry for a org.add_billing_manager */
 export type GitHub_OrgAddBillingManagerAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgAddBillingManagerAuditEntry',
+   __typename?: 'GitHub_OrgAddBillingManagerAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -5844,7 +5844,7 @@ export type GitHub_OrgAddBillingManagerAuditEntry = GitHub_Node & GitHub_AuditEn
 
 /** Audit log entry for a org.add_member */
 export type GitHub_OrgAddMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgAddMemberAuditEntry',
+   __typename?: 'GitHub_OrgAddMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -5892,7 +5892,7 @@ export enum GitHub_OrgAddMemberAuditEntryPermission {
 
 /** An account on GitHub, with one or more owners, that has repositories, members and teams. */
 export type GitHub_Organization = GitHub_Node & GitHub_Actor & GitHub_RegistryPackageOwner & GitHub_RegistryPackageSearch & GitHub_ProjectOwner & GitHub_RepositoryOwner & GitHub_UniformResourceLocatable & GitHub_MemberStatusable & GitHub_ProfileOwner & {
-  __typename?: 'GitHub_Organization',
+   __typename?: 'GitHub_Organization',
   /** Determine if this repository owner has any items that can be pinned to their profile. */
   anyPinnableItems: Scalars['Boolean'],
   /** Audit log entries of the organization */
@@ -6167,7 +6167,7 @@ export type GitHub_OrganizationAuditEntry = GitHub_MembersCanDeleteReposClearAud
 
 /** The connection type for OrganizationAuditEntry. */
 export type GitHub_OrganizationAuditEntryConnection = {
-  __typename?: 'GitHub_OrganizationAuditEntryConnection',
+   __typename?: 'GitHub_OrganizationAuditEntryConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_OrganizationAuditEntryEdge>>>,
   /** A list of nodes. */
@@ -6192,7 +6192,7 @@ export type GitHub_OrganizationAuditEntryData = {
 
 /** An edge in a connection. */
 export type GitHub_OrganizationAuditEntryEdge = {
-  __typename?: 'GitHub_OrganizationAuditEntryEdge',
+   __typename?: 'GitHub_OrganizationAuditEntryEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -6201,7 +6201,7 @@ export type GitHub_OrganizationAuditEntryEdge = {
 
 /** The connection type for Organization. */
 export type GitHub_OrganizationConnection = {
-  __typename?: 'GitHub_OrganizationConnection',
+   __typename?: 'GitHub_OrganizationConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_OrganizationEdge>>>,
   /** A list of nodes. */
@@ -6214,7 +6214,7 @@ export type GitHub_OrganizationConnection = {
 
 /** An edge in a connection. */
 export type GitHub_OrganizationEdge = {
-  __typename?: 'GitHub_OrganizationEdge',
+   __typename?: 'GitHub_OrganizationEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -6223,7 +6223,7 @@ export type GitHub_OrganizationEdge = {
 
 /** An Identity Provider configured to provision SAML and SCIM identities for Organizations */
 export type GitHub_OrganizationIdentityProvider = GitHub_Node & {
-  __typename?: 'GitHub_OrganizationIdentityProvider',
+   __typename?: 'GitHub_OrganizationIdentityProvider',
   /** The digest algorithm used to sign SAML requests for the Identity Provider. */
   digestMethod?: Maybe<Scalars['GitHub_URI']>,
   /** External Identities provisioned by this Identity Provider */
@@ -6252,7 +6252,7 @@ export type GitHub_OrganizationIdentityProviderExternalIdentitiesArgs = {
 
 /** An Invitation for a user to an organization. */
 export type GitHub_OrganizationInvitation = GitHub_Node & {
-  __typename?: 'GitHub_OrganizationInvitation',
+   __typename?: 'GitHub_OrganizationInvitation',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   /** The email address of the user invited to the organization. */
@@ -6272,7 +6272,7 @@ export type GitHub_OrganizationInvitation = GitHub_Node & {
 
 /** The connection type for OrganizationInvitation. */
 export type GitHub_OrganizationInvitationConnection = {
-  __typename?: 'GitHub_OrganizationInvitationConnection',
+   __typename?: 'GitHub_OrganizationInvitationConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_OrganizationInvitationEdge>>>,
   /** A list of nodes. */
@@ -6285,7 +6285,7 @@ export type GitHub_OrganizationInvitationConnection = {
 
 /** An edge in a connection. */
 export type GitHub_OrganizationInvitationEdge = {
-  __typename?: 'GitHub_OrganizationInvitationEdge',
+   __typename?: 'GitHub_OrganizationInvitationEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -6314,7 +6314,7 @@ export enum GitHub_OrganizationInvitationType {
 
 /** The connection type for User. */
 export type GitHub_OrganizationMemberConnection = {
-  __typename?: 'GitHub_OrganizationMemberConnection',
+   __typename?: 'GitHub_OrganizationMemberConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_OrganizationMemberEdge>>>,
   /** A list of nodes. */
@@ -6327,7 +6327,7 @@ export type GitHub_OrganizationMemberConnection = {
 
 /** Represents a user within an organization. */
 export type GitHub_OrganizationMemberEdge = {
-  __typename?: 'GitHub_OrganizationMemberEdge',
+   __typename?: 'GitHub_OrganizationMemberEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** Whether the organization member has two factor enabled or not. Returns null if information is not available to viewer. */
@@ -6348,7 +6348,7 @@ export enum GitHub_OrganizationMemberRole {
 
 /** Audit log entry for a org.block_user */
 export type GitHub_OrgBlockUserAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgBlockUserAuditEntry',
+   __typename?: 'GitHub_OrgBlockUserAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6394,7 +6394,7 @@ export type GitHub_OrgBlockUserAuditEntry = GitHub_Node & GitHub_AuditEntry & Gi
 
 /** Audit log entry for a org.config.disable_collaborators_only event. */
 export type GitHub_OrgConfigDisableCollaboratorsOnlyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgConfigDisableCollaboratorsOnlyAuditEntry',
+   __typename?: 'GitHub_OrgConfigDisableCollaboratorsOnlyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6432,7 +6432,7 @@ export type GitHub_OrgConfigDisableCollaboratorsOnlyAuditEntry = GitHub_Node & G
 
 /** Audit log entry for a org.config.enable_collaborators_only event. */
 export type GitHub_OrgConfigEnableCollaboratorsOnlyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgConfigEnableCollaboratorsOnlyAuditEntry',
+   __typename?: 'GitHub_OrgConfigEnableCollaboratorsOnlyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6470,7 +6470,7 @@ export type GitHub_OrgConfigEnableCollaboratorsOnlyAuditEntry = GitHub_Node & Gi
 
 /** Audit log entry for a org.disable_oauth_app_restrictions event. */
 export type GitHub_OrgDisableOauthAppRestrictionsAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgDisableOauthAppRestrictionsAuditEntry',
+   __typename?: 'GitHub_OrgDisableOauthAppRestrictionsAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6508,7 +6508,7 @@ export type GitHub_OrgDisableOauthAppRestrictionsAuditEntry = GitHub_Node & GitH
 
 /** Audit log entry for a org.disable_saml event. */
 export type GitHub_OrgDisableSamlAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgDisableSamlAuditEntry',
+   __typename?: 'GitHub_OrgDisableSamlAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6554,7 +6554,7 @@ export type GitHub_OrgDisableSamlAuditEntry = GitHub_Node & GitHub_AuditEntry & 
 
 /** Audit log entry for a org.disable_two_factor_requirement event. */
 export type GitHub_OrgDisableTwoFactorRequirementAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgDisableTwoFactorRequirementAuditEntry',
+   __typename?: 'GitHub_OrgDisableTwoFactorRequirementAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6592,7 +6592,7 @@ export type GitHub_OrgDisableTwoFactorRequirementAuditEntry = GitHub_Node & GitH
 
 /** Audit log entry for a org.enable_oauth_app_restrictions event. */
 export type GitHub_OrgEnableOauthAppRestrictionsAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgEnableOauthAppRestrictionsAuditEntry',
+   __typename?: 'GitHub_OrgEnableOauthAppRestrictionsAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6630,7 +6630,7 @@ export type GitHub_OrgEnableOauthAppRestrictionsAuditEntry = GitHub_Node & GitHu
 
 /** Audit log entry for a org.enable_saml event. */
 export type GitHub_OrgEnableSamlAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgEnableSamlAuditEntry',
+   __typename?: 'GitHub_OrgEnableSamlAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6676,7 +6676,7 @@ export type GitHub_OrgEnableSamlAuditEntry = GitHub_Node & GitHub_AuditEntry & G
 
 /** Audit log entry for a org.enable_two_factor_requirement event. */
 export type GitHub_OrgEnableTwoFactorRequirementAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgEnableTwoFactorRequirementAuditEntry',
+   __typename?: 'GitHub_OrgEnableTwoFactorRequirementAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6714,7 +6714,7 @@ export type GitHub_OrgEnableTwoFactorRequirementAuditEntry = GitHub_Node & GitHu
 
 /** Audit log entry for a org.invite_member event. */
 export type GitHub_OrgInviteMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgInviteMemberAuditEntry',
+   __typename?: 'GitHub_OrgInviteMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6756,7 +6756,7 @@ export type GitHub_OrgInviteMemberAuditEntry = GitHub_Node & GitHub_AuditEntry &
 
 /** Audit log entry for a org.invite_to_business event. */
 export type GitHub_OrgInviteToBusinessAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgInviteToBusinessAuditEntry',
+   __typename?: 'GitHub_OrgInviteToBusinessAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6800,7 +6800,7 @@ export type GitHub_OrgInviteToBusinessAuditEntry = GitHub_Node & GitHub_AuditEnt
 
 /** Audit log entry for a org.oauth_app_access_approved event. */
 export type GitHub_OrgOauthAppAccessApprovedAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OauthApplicationAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgOauthAppAccessApprovedAuditEntry',
+   __typename?: 'GitHub_OrgOauthAppAccessApprovedAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6844,7 +6844,7 @@ export type GitHub_OrgOauthAppAccessApprovedAuditEntry = GitHub_Node & GitHub_Au
 
 /** Audit log entry for a org.oauth_app_access_denied event. */
 export type GitHub_OrgOauthAppAccessDeniedAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OauthApplicationAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgOauthAppAccessDeniedAuditEntry',
+   __typename?: 'GitHub_OrgOauthAppAccessDeniedAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6888,7 +6888,7 @@ export type GitHub_OrgOauthAppAccessDeniedAuditEntry = GitHub_Node & GitHub_Audi
 
 /** Audit log entry for a org.oauth_app_access_requested event. */
 export type GitHub_OrgOauthAppAccessRequestedAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OauthApplicationAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgOauthAppAccessRequestedAuditEntry',
+   __typename?: 'GitHub_OrgOauthAppAccessRequestedAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6932,7 +6932,7 @@ export type GitHub_OrgOauthAppAccessRequestedAuditEntry = GitHub_Node & GitHub_A
 
 /** Audit log entry for a org.remove_billing_manager event. */
 export type GitHub_OrgRemoveBillingManagerAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgRemoveBillingManagerAuditEntry',
+   __typename?: 'GitHub_OrgRemoveBillingManagerAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -6982,7 +6982,7 @@ export enum GitHub_OrgRemoveBillingManagerAuditEntryReason {
 
 /** Audit log entry for a org.remove_member event. */
 export type GitHub_OrgRemoveMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgRemoveMemberAuditEntry',
+   __typename?: 'GitHub_OrgRemoveMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7060,7 +7060,7 @@ export enum GitHub_OrgRemoveMemberAuditEntryReason {
 
 /** Audit log entry for a org.remove_outside_collaborator event. */
 export type GitHub_OrgRemoveOutsideCollaboratorAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgRemoveOutsideCollaboratorAuditEntry',
+   __typename?: 'GitHub_OrgRemoveOutsideCollaboratorAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7127,7 +7127,7 @@ export enum GitHub_OrgRemoveOutsideCollaboratorAuditEntryReason {
 
 /** Audit log entry for a org.restore_member event. */
 export type GitHub_OrgRestoreMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgRestoreMemberAuditEntry',
+   __typename?: 'GitHub_OrgRestoreMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7182,7 +7182,7 @@ export type GitHub_OrgRestoreMemberAuditEntryMembership = GitHub_OrgRestoreMembe
 
 /** Metadata for an organization membership for org.restore_member actions */
 export type GitHub_OrgRestoreMemberMembershipOrganizationAuditEntryData = GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgRestoreMemberMembershipOrganizationAuditEntryData',
+   __typename?: 'GitHub_OrgRestoreMemberMembershipOrganizationAuditEntryData',
   /** The Organization associated with the Audit Entry. */
   organization?: Maybe<GitHub_Organization>,
   /** The name of the Organization. */
@@ -7195,7 +7195,7 @@ export type GitHub_OrgRestoreMemberMembershipOrganizationAuditEntryData = GitHub
 
 /** Metadata for a repository membership for org.restore_member actions */
 export type GitHub_OrgRestoreMemberMembershipRepositoryAuditEntryData = GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_OrgRestoreMemberMembershipRepositoryAuditEntryData',
+   __typename?: 'GitHub_OrgRestoreMemberMembershipRepositoryAuditEntryData',
   /** The repository associated with the action */
   repository?: Maybe<GitHub_Repository>,
   /** The name of the repository */
@@ -7208,7 +7208,7 @@ export type GitHub_OrgRestoreMemberMembershipRepositoryAuditEntryData = GitHub_R
 
 /** Metadata for a team membership for org.restore_member actions */
 export type GitHub_OrgRestoreMemberMembershipTeamAuditEntryData = GitHub_TeamAuditEntryData & {
-  __typename?: 'GitHub_OrgRestoreMemberMembershipTeamAuditEntryData',
+   __typename?: 'GitHub_OrgRestoreMemberMembershipTeamAuditEntryData',
   /** The team associated with the action */
   team?: Maybe<GitHub_Team>,
   /** The name of the team */
@@ -7221,7 +7221,7 @@ export type GitHub_OrgRestoreMemberMembershipTeamAuditEntryData = GitHub_TeamAud
 
 /** Audit log entry for a org.unblock_user */
 export type GitHub_OrgUnblockUserAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgUnblockUserAuditEntry',
+   __typename?: 'GitHub_OrgUnblockUserAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7267,7 +7267,7 @@ export type GitHub_OrgUnblockUserAuditEntry = GitHub_Node & GitHub_AuditEntry & 
 
 /** Audit log entry for a org.update_default_repository_permission */
 export type GitHub_OrgUpdateDefaultRepositoryPermissionAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgUpdateDefaultRepositoryPermissionAuditEntry',
+   __typename?: 'GitHub_OrgUpdateDefaultRepositoryPermissionAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7321,7 +7321,7 @@ export enum GitHub_OrgUpdateDefaultRepositoryPermissionAuditEntryPermission {
 
 /** Audit log entry for a org.update_member event. */
 export type GitHub_OrgUpdateMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgUpdateMemberAuditEntry',
+   __typename?: 'GitHub_OrgUpdateMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7371,7 +7371,7 @@ export enum GitHub_OrgUpdateMemberAuditEntryPermission {
 
 /** Audit log entry for a org.update_member_repository_creation_permission event. */
 export type GitHub_OrgUpdateMemberRepositoryCreationPermissionAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgUpdateMemberRepositoryCreationPermissionAuditEntry',
+   __typename?: 'GitHub_OrgUpdateMemberRepositoryCreationPermissionAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7421,7 +7421,7 @@ export enum GitHub_OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibili
 
 /** Audit log entry for a org.update_member_repository_invitation_permission event. */
 export type GitHub_OrgUpdateMemberRepositoryInvitationPermissionAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_OrgUpdateMemberRepositoryInvitationPermissionAuditEntry',
+   __typename?: 'GitHub_OrgUpdateMemberRepositoryInvitationPermissionAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7461,7 +7461,7 @@ export type GitHub_OrgUpdateMemberRepositoryInvitationPermissionAuditEntry = Git
 
 /** Information about pagination in a connection. */
 export type GitHub_PageInfo = {
-  __typename?: 'GitHub_PageInfo',
+   __typename?: 'GitHub_PageInfo',
   /** When paginating forwards, the cursor to continue. */
   endCursor?: Maybe<Scalars['String']>,
   /** When paginating forwards, are there more items? */
@@ -7474,7 +7474,7 @@ export type GitHub_PageInfo = {
 
 /** Represents a pending collaborator on a repository. */
 export type GitHub_PendingCollaboratorEdge = {
-  __typename?: 'GitHub_PendingCollaboratorEdge',
+   __typename?: 'GitHub_PendingCollaboratorEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -7486,7 +7486,7 @@ export type GitHub_PermissionGranter = GitHub_Organization | GitHub_Repository |
 
 /** A level of permission and source for a user's access to a repository. */
 export type GitHub_PermissionSource = {
-  __typename?: 'GitHub_PermissionSource',
+   __typename?: 'GitHub_PermissionSource',
   /** The organization the repository belongs to. */
   organization: GitHub_Organization,
   /** The level of access this source has granted to the user. */
@@ -7508,7 +7508,7 @@ export type GitHub_PinnableItem = GitHub_Gist | GitHub_Repository;
 
 /** The connection type for PinnableItem. */
 export type GitHub_PinnableItemConnection = {
-  __typename?: 'GitHub_PinnableItemConnection',
+   __typename?: 'GitHub_PinnableItemConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PinnableItemEdge>>>,
   /** A list of nodes. */
@@ -7521,7 +7521,7 @@ export type GitHub_PinnableItemConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PinnableItemEdge = {
-  __typename?: 'GitHub_PinnableItemEdge',
+   __typename?: 'GitHub_PinnableItemEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -7550,7 +7550,7 @@ export enum GitHub_PinnableItemType {
 
 /** Represents a 'pinned' event on a given issue or pull request. */
 export type GitHub_PinnedEvent = GitHub_Node & {
-  __typename?: 'GitHub_PinnedEvent',
+   __typename?: 'GitHub_PinnedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -7563,7 +7563,7 @@ export type GitHub_PinnedEvent = GitHub_Node & {
 
 /** Audit log entry for a private_repository_forking.disable event. */
 export type GitHub_PrivateRepositoryForkingDisableAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_PrivateRepositoryForkingDisableAuditEntry',
+   __typename?: 'GitHub_PrivateRepositoryForkingDisableAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7615,7 +7615,7 @@ export type GitHub_PrivateRepositoryForkingDisableAuditEntry = GitHub_Node & Git
 
 /** Audit log entry for a private_repository_forking.enable event. */
 export type GitHub_PrivateRepositoryForkingEnableAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_PrivateRepositoryForkingEnableAuditEntry',
+   __typename?: 'GitHub_PrivateRepositoryForkingEnableAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -7670,7 +7670,7 @@ export type GitHub_PrivateRepositoryForkingEnableAuditEntry = GitHub_Node & GitH
  * to showing the most popular repositories they own.
  **/
 export type GitHub_ProfileItemShowcase = {
-  __typename?: 'GitHub_ProfileItemShowcase',
+   __typename?: 'GitHub_ProfileItemShowcase',
   /** Whether or not the owner has pinned any repositories or gists. */
   hasPinnedItems: Scalars['Boolean'],
   /** 
@@ -7751,7 +7751,7 @@ export type GitHub_ProfileOwnerPinnedItemsArgs = {
 
 /** Projects manage issues, pull requests and notes within a project owner. */
 export type GitHub_Project = GitHub_Node & GitHub_Closable & GitHub_Updatable & {
-  __typename?: 'GitHub_Project',
+   __typename?: 'GitHub_Project',
   /** The project's description body. */
   body?: Maybe<Scalars['String']>,
   /** The projects description body rendered to HTML. */
@@ -7810,7 +7810,7 @@ export type GitHub_ProjectPendingCardsArgs = {
 
 /** A card in a project. */
 export type GitHub_ProjectCard = GitHub_Node & {
-  __typename?: 'GitHub_ProjectCard',
+   __typename?: 'GitHub_ProjectCard',
   /** 
  * The project column this card is associated under. A card may only belong to one
    * project column at a time. The column field will be null if the card is created
@@ -7853,7 +7853,7 @@ export enum GitHub_ProjectCardArchivedState {
 
 /** The connection type for ProjectCard. */
 export type GitHub_ProjectCardConnection = {
-  __typename?: 'GitHub_ProjectCardConnection',
+   __typename?: 'GitHub_ProjectCardConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ProjectCardEdge>>>,
   /** A list of nodes. */
@@ -7866,7 +7866,7 @@ export type GitHub_ProjectCardConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ProjectCardEdge = {
-  __typename?: 'GitHub_ProjectCardEdge',
+   __typename?: 'GitHub_ProjectCardEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -7896,7 +7896,7 @@ export enum GitHub_ProjectCardState {
 
 /** A column inside a project. */
 export type GitHub_ProjectColumn = GitHub_Node & {
-  __typename?: 'GitHub_ProjectColumn',
+   __typename?: 'GitHub_ProjectColumn',
   /** List of cards in the column */
   cards: GitHub_ProjectCardConnection,
   /** Identifies the date and time when the object was created. */
@@ -7930,7 +7930,7 @@ export type GitHub_ProjectColumnCardsArgs = {
 
 /** The connection type for ProjectColumn. */
 export type GitHub_ProjectColumnConnection = {
-  __typename?: 'GitHub_ProjectColumnConnection',
+   __typename?: 'GitHub_ProjectColumnConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ProjectColumnEdge>>>,
   /** A list of nodes. */
@@ -7943,7 +7943,7 @@ export type GitHub_ProjectColumnConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ProjectColumnEdge = {
-  __typename?: 'GitHub_ProjectColumnEdge',
+   __typename?: 'GitHub_ProjectColumnEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -7972,7 +7972,7 @@ export enum GitHub_ProjectColumnPurpose {
 
 /** A list of projects associated with the owner. */
 export type GitHub_ProjectConnection = {
-  __typename?: 'GitHub_ProjectConnection',
+   __typename?: 'GitHub_ProjectConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ProjectEdge>>>,
   /** A list of nodes. */
@@ -7985,7 +7985,7 @@ export type GitHub_ProjectConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ProjectEdge = {
-  __typename?: 'GitHub_ProjectEdge',
+   __typename?: 'GitHub_ProjectEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8053,7 +8053,7 @@ export enum GitHub_ProjectState {
 
 /** Represents a connection between a project (parent) and a team (child). */
 export type GitHub_ProjectTeamEdge = {
-  __typename?: 'GitHub_ProjectTeamEdge',
+   __typename?: 'GitHub_ProjectTeamEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8078,7 +8078,7 @@ export enum GitHub_ProjectTemplate {
 
 /** Represents a user project. */
 export type GitHub_ProjectUserEdge = {
-  __typename?: 'GitHub_ProjectUserEdge',
+   __typename?: 'GitHub_ProjectUserEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8087,7 +8087,7 @@ export type GitHub_ProjectUserEdge = {
 
 /** A user's public key. */
 export type GitHub_PublicKey = GitHub_Node & {
-  __typename?: 'GitHub_PublicKey',
+   __typename?: 'GitHub_PublicKey',
   /** The last time this authorization was used to perform an action. Values will be null for keys not owned by the user. */
   accessedAt?: Maybe<Scalars['GitHub_DateTime']>,
   /** 
@@ -8112,7 +8112,7 @@ export type GitHub_PublicKey = GitHub_Node & {
 
 /** The connection type for PublicKey. */
 export type GitHub_PublicKeyConnection = {
-  __typename?: 'GitHub_PublicKeyConnection',
+   __typename?: 'GitHub_PublicKeyConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PublicKeyEdge>>>,
   /** A list of nodes. */
@@ -8125,7 +8125,7 @@ export type GitHub_PublicKeyConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PublicKeyEdge = {
-  __typename?: 'GitHub_PublicKeyEdge',
+   __typename?: 'GitHub_PublicKeyEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8134,7 +8134,7 @@ export type GitHub_PublicKeyEdge = {
 
 /** A repository pull request. */
 export type GitHub_PullRequest = GitHub_Node & GitHub_Assignable & GitHub_Closable & GitHub_Comment & GitHub_Updatable & GitHub_UpdatableComment & GitHub_Labelable & GitHub_Lockable & GitHub_Reactable & GitHub_RepositoryNode & GitHub_Subscribable & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_PullRequest',
+   __typename?: 'GitHub_PullRequest',
   /** Reason that the conversation was locked. */
   activeLockReason?: Maybe<GitHub_LockReason>,
   /** The number of additions in this pull request. */
@@ -8420,7 +8420,7 @@ export type GitHub_PullRequestUserContentEditsArgs = {
 
 /** A file changed in a pull request. */
 export type GitHub_PullRequestChangedFile = {
-  __typename?: 'GitHub_PullRequestChangedFile',
+   __typename?: 'GitHub_PullRequestChangedFile',
   /** The number of additions to the file. */
   additions: Scalars['Int'],
   /** The number of deletions to the file. */
@@ -8431,7 +8431,7 @@ export type GitHub_PullRequestChangedFile = {
 
 /** The connection type for PullRequestChangedFile. */
 export type GitHub_PullRequestChangedFileConnection = {
-  __typename?: 'GitHub_PullRequestChangedFileConnection',
+   __typename?: 'GitHub_PullRequestChangedFileConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestChangedFileEdge>>>,
   /** A list of nodes. */
@@ -8444,7 +8444,7 @@ export type GitHub_PullRequestChangedFileConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PullRequestChangedFileEdge = {
-  __typename?: 'GitHub_PullRequestChangedFileEdge',
+   __typename?: 'GitHub_PullRequestChangedFileEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8453,7 +8453,7 @@ export type GitHub_PullRequestChangedFileEdge = {
 
 /** Represents a Git commit part of a pull request. */
 export type GitHub_PullRequestCommit = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_PullRequestCommit',
+   __typename?: 'GitHub_PullRequestCommit',
   /** The Git commit object */
   commit: GitHub_Commit,
   id: Scalars['ID'],
@@ -8467,7 +8467,7 @@ export type GitHub_PullRequestCommit = GitHub_Node & GitHub_UniformResourceLocat
 
 /** Represents a commit comment thread part of a pull request. */
 export type GitHub_PullRequestCommitCommentThread = GitHub_Node & GitHub_RepositoryNode & {
-  __typename?: 'GitHub_PullRequestCommitCommentThread',
+   __typename?: 'GitHub_PullRequestCommitCommentThread',
   /** The comments that exist in this thread. */
   comments: GitHub_CommitCommentConnection,
   /** The commit the comments were made on. */
@@ -8494,7 +8494,7 @@ export type GitHub_PullRequestCommitCommentThreadCommentsArgs = {
 
 /** The connection type for PullRequestCommit. */
 export type GitHub_PullRequestCommitConnection = {
-  __typename?: 'GitHub_PullRequestCommitConnection',
+   __typename?: 'GitHub_PullRequestCommitConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestCommitEdge>>>,
   /** A list of nodes. */
@@ -8507,7 +8507,7 @@ export type GitHub_PullRequestCommitConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PullRequestCommitEdge = {
-  __typename?: 'GitHub_PullRequestCommitEdge',
+   __typename?: 'GitHub_PullRequestCommitEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8516,7 +8516,7 @@ export type GitHub_PullRequestCommitEdge = {
 
 /** The connection type for PullRequest. */
 export type GitHub_PullRequestConnection = {
-  __typename?: 'GitHub_PullRequestConnection',
+   __typename?: 'GitHub_PullRequestConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestEdge>>>,
   /** A list of nodes. */
@@ -8529,7 +8529,7 @@ export type GitHub_PullRequestConnection = {
 
 /** This aggregates pull requests opened by a user within one repository. */
 export type GitHub_PullRequestContributionsByRepository = {
-  __typename?: 'GitHub_PullRequestContributionsByRepository',
+   __typename?: 'GitHub_PullRequestContributionsByRepository',
   /** The pull request contributions. */
   contributions: GitHub_CreatedPullRequestContributionConnection,
   /** The repository in which the pull requests were opened. */
@@ -8548,7 +8548,7 @@ export type GitHub_PullRequestContributionsByRepositoryContributionsArgs = {
 
 /** An edge in a connection. */
 export type GitHub_PullRequestEdge = {
-  __typename?: 'GitHub_PullRequestEdge',
+   __typename?: 'GitHub_PullRequestEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8587,7 +8587,7 @@ export enum GitHub_PullRequestPubSubTopic {
 
 /** A review object for a given pull request. */
 export type GitHub_PullRequestReview = GitHub_Node & GitHub_Comment & GitHub_Deletable & GitHub_Updatable & GitHub_UpdatableComment & GitHub_Reactable & GitHub_RepositoryNode & {
-  __typename?: 'GitHub_PullRequestReview',
+   __typename?: 'GitHub_PullRequestReview',
   /** The actor who authored the comment. */
   author?: Maybe<GitHub_Actor>,
   /** Author's association with the subject of the comment. */
@@ -8691,7 +8691,7 @@ export type GitHub_PullRequestReviewUserContentEditsArgs = {
 
 /** A review comment associated with a given repository pull request. */
 export type GitHub_PullRequestReviewComment = GitHub_Node & GitHub_Comment & GitHub_Deletable & GitHub_Updatable & GitHub_UpdatableComment & GitHub_Reactable & GitHub_RepositoryNode & {
-  __typename?: 'GitHub_PullRequestReviewComment',
+   __typename?: 'GitHub_PullRequestReviewComment',
   /** The actor who authored the comment. */
   author?: Maybe<GitHub_Actor>,
   /** Author's association with the subject of the comment. */
@@ -8795,7 +8795,7 @@ export type GitHub_PullRequestReviewCommentUserContentEditsArgs = {
 
 /** The connection type for PullRequestReviewComment. */
 export type GitHub_PullRequestReviewCommentConnection = {
-  __typename?: 'GitHub_PullRequestReviewCommentConnection',
+   __typename?: 'GitHub_PullRequestReviewCommentConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestReviewCommentEdge>>>,
   /** A list of nodes. */
@@ -8808,7 +8808,7 @@ export type GitHub_PullRequestReviewCommentConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PullRequestReviewCommentEdge = {
-  __typename?: 'GitHub_PullRequestReviewCommentEdge',
+   __typename?: 'GitHub_PullRequestReviewCommentEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8825,7 +8825,7 @@ export enum GitHub_PullRequestReviewCommentState {
 
 /** The connection type for PullRequestReview. */
 export type GitHub_PullRequestReviewConnection = {
-  __typename?: 'GitHub_PullRequestReviewConnection',
+   __typename?: 'GitHub_PullRequestReviewConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestReviewEdge>>>,
   /** A list of nodes. */
@@ -8838,7 +8838,7 @@ export type GitHub_PullRequestReviewConnection = {
 
 /** This aggregates pull request reviews made by a user within one repository. */
 export type GitHub_PullRequestReviewContributionsByRepository = {
-  __typename?: 'GitHub_PullRequestReviewContributionsByRepository',
+   __typename?: 'GitHub_PullRequestReviewContributionsByRepository',
   /** The pull request review contributions. */
   contributions: GitHub_CreatedPullRequestReviewContributionConnection,
   /** The repository in which the pull request reviews were made. */
@@ -8857,7 +8857,7 @@ export type GitHub_PullRequestReviewContributionsByRepositoryContributionsArgs =
 
 /** An edge in a connection. */
 export type GitHub_PullRequestReviewEdge = {
-  __typename?: 'GitHub_PullRequestReviewEdge',
+   __typename?: 'GitHub_PullRequestReviewEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8892,7 +8892,7 @@ export enum GitHub_PullRequestReviewState {
 
 /** A threaded list of comments for a given pull request. */
 export type GitHub_PullRequestReviewThread = GitHub_Node & {
-  __typename?: 'GitHub_PullRequestReviewThread',
+   __typename?: 'GitHub_PullRequestReviewThread',
   /** A list of pull request comments associated with the thread. */
   comments: GitHub_PullRequestReviewCommentConnection,
   id: Scalars['ID'],
@@ -8921,7 +8921,7 @@ export type GitHub_PullRequestReviewThreadCommentsArgs = {
 
 /** Review comment threads for a pull request review. */
 export type GitHub_PullRequestReviewThreadConnection = {
-  __typename?: 'GitHub_PullRequestReviewThreadConnection',
+   __typename?: 'GitHub_PullRequestReviewThreadConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestReviewThreadEdge>>>,
   /** A list of nodes. */
@@ -8934,7 +8934,7 @@ export type GitHub_PullRequestReviewThreadConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PullRequestReviewThreadEdge = {
-  __typename?: 'GitHub_PullRequestReviewThreadEdge',
+   __typename?: 'GitHub_PullRequestReviewThreadEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8943,7 +8943,7 @@ export type GitHub_PullRequestReviewThreadEdge = {
 
 /** Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits. */
 export type GitHub_PullRequestRevisionMarker = {
-  __typename?: 'GitHub_PullRequestRevisionMarker',
+   __typename?: 'GitHub_PullRequestRevisionMarker',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   /** The last commit the viewer has seen. */
@@ -8964,7 +8964,7 @@ export enum GitHub_PullRequestState {
 
 /** The connection type for PullRequestTimelineItem. */
 export type GitHub_PullRequestTimelineConnection = {
-  __typename?: 'GitHub_PullRequestTimelineConnection',
+   __typename?: 'GitHub_PullRequestTimelineConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestTimelineItemEdge>>>,
   /** A list of nodes. */
@@ -8980,7 +8980,7 @@ export type GitHub_PullRequestTimelineItem = GitHub_Commit | GitHub_CommitCommen
 
 /** An edge in a connection. */
 export type GitHub_PullRequestTimelineItemEdge = {
-  __typename?: 'GitHub_PullRequestTimelineItemEdge',
+   __typename?: 'GitHub_PullRequestTimelineItemEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -8992,7 +8992,7 @@ export type GitHub_PullRequestTimelineItems = GitHub_PullRequestCommit | GitHub_
 
 /** The connection type for PullRequestTimelineItems. */
 export type GitHub_PullRequestTimelineItemsConnection = {
-  __typename?: 'GitHub_PullRequestTimelineItemsConnection',
+   __typename?: 'GitHub_PullRequestTimelineItemsConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PullRequestTimelineItemsEdge>>>,
   /** Identifies the count of items after applying `before` and `after` filters. */
@@ -9011,7 +9011,7 @@ export type GitHub_PullRequestTimelineItemsConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PullRequestTimelineItemsEdge = {
-  __typename?: 'GitHub_PullRequestTimelineItemsEdge',
+   __typename?: 'GitHub_PullRequestTimelineItemsEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9112,7 +9112,7 @@ export enum GitHub_PullRequestTimelineItemsItemType {
 
 /** A team, user or app who has the ability to push to a protected branch. */
 export type GitHub_PushAllowance = GitHub_Node & {
-  __typename?: 'GitHub_PushAllowance',
+   __typename?: 'GitHub_PushAllowance',
   /** The actor that can push. */
   actor?: Maybe<GitHub_PushAllowanceActor>,
   /** Identifies the branch protection rule associated with the allowed user or team. */
@@ -9125,7 +9125,7 @@ export type GitHub_PushAllowanceActor = GitHub_User | GitHub_Team | GitHub_App;
 
 /** The connection type for PushAllowance. */
 export type GitHub_PushAllowanceConnection = {
-  __typename?: 'GitHub_PushAllowanceConnection',
+   __typename?: 'GitHub_PushAllowanceConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_PushAllowanceEdge>>>,
   /** A list of nodes. */
@@ -9138,7 +9138,7 @@ export type GitHub_PushAllowanceConnection = {
 
 /** An edge in a connection. */
 export type GitHub_PushAllowanceEdge = {
-  __typename?: 'GitHub_PushAllowanceEdge',
+   __typename?: 'GitHub_PushAllowanceEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9147,7 +9147,7 @@ export type GitHub_PushAllowanceEdge = {
 
 /** Represents the client's rate limit. */
 export type GitHub_RateLimit = {
-  __typename?: 'GitHub_RateLimit',
+   __typename?: 'GitHub_RateLimit',
   /** The point cost for the current query counting against the rate limit. */
   cost: Scalars['Int'],
   /** The maximum number of points the client is permitted to consume in a 60 minute window. */
@@ -9186,7 +9186,7 @@ export type GitHub_ReactableReactionsArgs = {
 
 /** The connection type for User. */
 export type GitHub_ReactingUserConnection = {
-  __typename?: 'GitHub_ReactingUserConnection',
+   __typename?: 'GitHub_ReactingUserConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ReactingUserEdge>>>,
   /** A list of nodes. */
@@ -9199,7 +9199,7 @@ export type GitHub_ReactingUserConnection = {
 
 /** Represents a user that's made a reaction. */
 export type GitHub_ReactingUserEdge = {
-  __typename?: 'GitHub_ReactingUserEdge',
+   __typename?: 'GitHub_ReactingUserEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   node: GitHub_User,
@@ -9209,7 +9209,7 @@ export type GitHub_ReactingUserEdge = {
 
 /** An emoji reaction to a particular piece of content. */
 export type GitHub_Reaction = GitHub_Node & {
-  __typename?: 'GitHub_Reaction',
+   __typename?: 'GitHub_Reaction',
   /** Identifies the emoji reaction. */
   content: GitHub_ReactionContent,
   /** Identifies the date and time when the object was created. */
@@ -9225,7 +9225,7 @@ export type GitHub_Reaction = GitHub_Node & {
 
 /** A list of reactions that have been left on the subject. */
 export type GitHub_ReactionConnection = {
-  __typename?: 'GitHub_ReactionConnection',
+   __typename?: 'GitHub_ReactionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ReactionEdge>>>,
   /** A list of nodes. */
@@ -9260,7 +9260,7 @@ export enum GitHub_ReactionContent {
 
 /** An edge in a connection. */
 export type GitHub_ReactionEdge = {
-  __typename?: 'GitHub_ReactionEdge',
+   __typename?: 'GitHub_ReactionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9269,7 +9269,7 @@ export type GitHub_ReactionEdge = {
 
 /** A group of emoji reactions to a particular piece of content. */
 export type GitHub_ReactionGroup = {
-  __typename?: 'GitHub_ReactionGroup',
+   __typename?: 'GitHub_ReactionGroup',
   /** Identifies the emoji reaction. */
   content: GitHub_ReactionContent,
   /** Identifies when the reaction was created. */
@@ -9307,7 +9307,7 @@ export enum GitHub_ReactionOrderField {
 
 /** Represents a 'ready_for_review' event on a given pull request. */
 export type GitHub_ReadyForReviewEvent = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_ReadyForReviewEvent',
+   __typename?: 'GitHub_ReadyForReviewEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -9323,7 +9323,7 @@ export type GitHub_ReadyForReviewEvent = GitHub_Node & GitHub_UniformResourceLoc
 
 /** Represents a Git reference. */
 export type GitHub_Ref = GitHub_Node & {
-  __typename?: 'GitHub_Ref',
+   __typename?: 'GitHub_Ref',
   /** A list of pull requests with this ref as the head ref. */
   associatedPullRequests: GitHub_PullRequestConnection,
   id: Scalars['ID'],
@@ -9353,7 +9353,7 @@ export type GitHub_RefAssociatedPullRequestsArgs = {
 
 /** The connection type for Ref. */
 export type GitHub_RefConnection = {
-  __typename?: 'GitHub_RefConnection',
+   __typename?: 'GitHub_RefConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RefEdge>>>,
   /** A list of nodes. */
@@ -9366,7 +9366,7 @@ export type GitHub_RefConnection = {
 
 /** An edge in a connection. */
 export type GitHub_RefEdge = {
-  __typename?: 'GitHub_RefEdge',
+   __typename?: 'GitHub_RefEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9375,7 +9375,7 @@ export type GitHub_RefEdge = {
 
 /** Represents a 'referenced' event on a given `ReferencedSubject`. */
 export type GitHub_ReferencedEvent = GitHub_Node & {
-  __typename?: 'GitHub_ReferencedEvent',
+   __typename?: 'GitHub_ReferencedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the commit associated with the 'referenced' event. */
@@ -9422,7 +9422,7 @@ export type GitHub_RegenerateEnterpriseIdentityProviderRecoveryCodesInput = {
 
 /** A registry package contains the content for an uploaded package. */
 export type GitHub_RegistryPackage = GitHub_Node & {
-  __typename?: 'GitHub_RegistryPackage',
+   __typename?: 'GitHub_RegistryPackage',
   /** The package type color */
   color: Scalars['String'],
   id: Scalars['ID'],
@@ -9541,7 +9541,7 @@ export type GitHub_RegistryPackageVersionsByMetadatumArgs = {
 
 /** The connection type for RegistryPackage. */
 export type GitHub_RegistryPackageConnection = {
-  __typename?: 'GitHub_RegistryPackageConnection',
+   __typename?: 'GitHub_RegistryPackageConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RegistryPackageEdge>>>,
   /** A list of nodes. */
@@ -9554,7 +9554,7 @@ export type GitHub_RegistryPackageConnection = {
 
 /** A package dependency contains the information needed to satisfy a dependency. */
 export type GitHub_RegistryPackageDependency = GitHub_Node & {
-  __typename?: 'GitHub_RegistryPackageDependency',
+   __typename?: 'GitHub_RegistryPackageDependency',
   /** Identifies the type of dependency. */
   dependencyType: GitHub_RegistryPackageDependencyType,
   id: Scalars['ID'],
@@ -9566,7 +9566,7 @@ export type GitHub_RegistryPackageDependency = GitHub_Node & {
 
 /** The connection type for RegistryPackageDependency. */
 export type GitHub_RegistryPackageDependencyConnection = {
-  __typename?: 'GitHub_RegistryPackageDependencyConnection',
+   __typename?: 'GitHub_RegistryPackageDependencyConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RegistryPackageDependencyEdge>>>,
   /** A list of nodes. */
@@ -9579,7 +9579,7 @@ export type GitHub_RegistryPackageDependencyConnection = {
 
 /** An edge in a connection. */
 export type GitHub_RegistryPackageDependencyEdge = {
-  __typename?: 'GitHub_RegistryPackageDependencyEdge',
+   __typename?: 'GitHub_RegistryPackageDependencyEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9604,7 +9604,7 @@ export enum GitHub_RegistryPackageDependencyType {
 
 /** An edge in a connection. */
 export type GitHub_RegistryPackageEdge = {
-  __typename?: 'GitHub_RegistryPackageEdge',
+   __typename?: 'GitHub_RegistryPackageEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9613,7 +9613,7 @@ export type GitHub_RegistryPackageEdge = {
 
 /** A file in a specific registry package version. */
 export type GitHub_RegistryPackageFile = GitHub_Node & {
-  __typename?: 'GitHub_RegistryPackageFile',
+   __typename?: 'GitHub_RegistryPackageFile',
   /** A unique identifier for this file. */
   guid?: Maybe<Scalars['String']>,
   id: Scalars['ID'],
@@ -9639,7 +9639,7 @@ export type GitHub_RegistryPackageFile = GitHub_Node & {
 
 /** The connection type for RegistryPackageFile. */
 export type GitHub_RegistryPackageFileConnection = {
-  __typename?: 'GitHub_RegistryPackageFileConnection',
+   __typename?: 'GitHub_RegistryPackageFileConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RegistryPackageFileEdge>>>,
   /** A list of nodes. */
@@ -9652,7 +9652,7 @@ export type GitHub_RegistryPackageFileConnection = {
 
 /** An edge in a connection. */
 export type GitHub_RegistryPackageFileEdge = {
-  __typename?: 'GitHub_RegistryPackageFileEdge',
+   __typename?: 'GitHub_RegistryPackageFileEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9719,7 +9719,7 @@ export type GitHub_RegistryPackageSearchRegistryPackagesForQueryArgs = {
 
 /** Represents a object that contains package activity statistics such as downloads. */
 export type GitHub_RegistryPackageStatistics = {
-  __typename?: 'GitHub_RegistryPackageStatistics',
+   __typename?: 'GitHub_RegistryPackageStatistics',
   /** Number of times the package was downloaded this month. */
   downloadsThisMonth: Scalars['Int'],
   /** Number of times the package was downloaded this week. */
@@ -9734,7 +9734,7 @@ export type GitHub_RegistryPackageStatistics = {
 
 /** A version tag contains the mapping between a tag name and a version. */
 export type GitHub_RegistryPackageTag = GitHub_Node & {
-  __typename?: 'GitHub_RegistryPackageTag',
+   __typename?: 'GitHub_RegistryPackageTag',
   id: Scalars['ID'],
   /** Identifies the tag name of the version. */
   name: Scalars['String'],
@@ -9744,7 +9744,7 @@ export type GitHub_RegistryPackageTag = GitHub_Node & {
 
 /** The connection type for RegistryPackageTag. */
 export type GitHub_RegistryPackageTagConnection = {
-  __typename?: 'GitHub_RegistryPackageTagConnection',
+   __typename?: 'GitHub_RegistryPackageTagConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RegistryPackageTagEdge>>>,
   /** A list of nodes. */
@@ -9757,7 +9757,7 @@ export type GitHub_RegistryPackageTagConnection = {
 
 /** An edge in a connection. */
 export type GitHub_RegistryPackageTagEdge = {
-  __typename?: 'GitHub_RegistryPackageTagEdge',
+   __typename?: 'GitHub_RegistryPackageTagEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9784,7 +9784,7 @@ export enum GitHub_RegistryPackageType {
 
 /** A package version contains the information about a specific package version. */
 export type GitHub_RegistryPackageVersion = GitHub_Node & {
-  __typename?: 'GitHub_RegistryPackageVersion',
+   __typename?: 'GitHub_RegistryPackageVersion',
   /** list of dependencies for this package */
   dependencies: GitHub_RegistryPackageDependencyConnection,
   /** A file associated with this registry package version */
@@ -9851,7 +9851,7 @@ export type GitHub_RegistryPackageVersionFilesArgs = {
 
 /** The connection type for RegistryPackageVersion. */
 export type GitHub_RegistryPackageVersionConnection = {
-  __typename?: 'GitHub_RegistryPackageVersionConnection',
+   __typename?: 'GitHub_RegistryPackageVersionConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RegistryPackageVersionEdge>>>,
   /** A list of nodes. */
@@ -9864,7 +9864,7 @@ export type GitHub_RegistryPackageVersionConnection = {
 
 /** An edge in a connection. */
 export type GitHub_RegistryPackageVersionEdge = {
-  __typename?: 'GitHub_RegistryPackageVersionEdge',
+   __typename?: 'GitHub_RegistryPackageVersionEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9873,7 +9873,7 @@ export type GitHub_RegistryPackageVersionEdge = {
 
 /** Represents a object that contains package version activity statistics such as downloads. */
 export type GitHub_RegistryPackageVersionStatistics = {
-  __typename?: 'GitHub_RegistryPackageVersionStatistics',
+   __typename?: 'GitHub_RegistryPackageVersionStatistics',
   /** Number of times the package was downloaded this month. */
   downloadsThisMonth: Scalars['Int'],
   /** Number of times the package was downloaded this week. */
@@ -9888,7 +9888,7 @@ export type GitHub_RegistryPackageVersionStatistics = {
 
 /** A release contains the content for a release. */
 export type GitHub_Release = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_Release',
+   __typename?: 'GitHub_Release',
   /** The author of the release */
   author?: Maybe<GitHub_User>,
   /** Identifies the date and time when the object was created. */
@@ -9940,7 +9940,7 @@ export type GitHub_ReleaseShortDescriptionHtmlArgs = {
 
 /** A release asset contains the content for a release asset. */
 export type GitHub_ReleaseAsset = GitHub_Node & {
-  __typename?: 'GitHub_ReleaseAsset',
+   __typename?: 'GitHub_ReleaseAsset',
   /** The asset's content-type */
   contentType: Scalars['String'],
   /** Identifies the date and time when the object was created. */
@@ -9966,7 +9966,7 @@ export type GitHub_ReleaseAsset = GitHub_Node & {
 
 /** The connection type for ReleaseAsset. */
 export type GitHub_ReleaseAssetConnection = {
-  __typename?: 'GitHub_ReleaseAssetConnection',
+   __typename?: 'GitHub_ReleaseAssetConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ReleaseAssetEdge>>>,
   /** A list of nodes. */
@@ -9979,7 +9979,7 @@ export type GitHub_ReleaseAssetConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ReleaseAssetEdge = {
-  __typename?: 'GitHub_ReleaseAssetEdge',
+   __typename?: 'GitHub_ReleaseAssetEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -9988,7 +9988,7 @@ export type GitHub_ReleaseAssetEdge = {
 
 /** The connection type for Release. */
 export type GitHub_ReleaseConnection = {
-  __typename?: 'GitHub_ReleaseConnection',
+   __typename?: 'GitHub_ReleaseConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ReleaseEdge>>>,
   /** A list of nodes. */
@@ -10001,7 +10001,7 @@ export type GitHub_ReleaseConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ReleaseEdge = {
-  __typename?: 'GitHub_ReleaseEdge',
+   __typename?: 'GitHub_ReleaseEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -10036,7 +10036,7 @@ export type GitHub_RemoveAssigneesFromAssignableInput = {
 
 /** Autogenerated return type of RemoveAssigneesFromAssignable */
 export type GitHub_RemoveAssigneesFromAssignablePayload = {
-  __typename?: 'GitHub_RemoveAssigneesFromAssignablePayload',
+   __typename?: 'GitHub_RemoveAssigneesFromAssignablePayload',
   /** The item that was unassigned. */
   assignable?: Maybe<GitHub_Assignable>,
   /** A unique identifier for the client performing the mutation. */
@@ -10045,7 +10045,7 @@ export type GitHub_RemoveAssigneesFromAssignablePayload = {
 
 /** Represents a 'removed_from_project' event on a given issue or pull request. */
 export type GitHub_RemovedFromProjectEvent = GitHub_Node & {
-  __typename?: 'GitHub_RemovedFromProjectEvent',
+   __typename?: 'GitHub_RemovedFromProjectEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -10087,7 +10087,7 @@ export type GitHub_RemoveLabelsFromLabelableInput = {
 
 /** Autogenerated return type of RemoveLabelsFromLabelable */
 export type GitHub_RemoveLabelsFromLabelablePayload = {
-  __typename?: 'GitHub_RemoveLabelsFromLabelablePayload',
+   __typename?: 'GitHub_RemoveLabelsFromLabelablePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The Labelable the labels were removed from. */
@@ -10106,7 +10106,7 @@ export type GitHub_RemoveOutsideCollaboratorInput = {
 
 /** Autogenerated return type of RemoveOutsideCollaborator */
 export type GitHub_RemoveOutsideCollaboratorPayload = {
-  __typename?: 'GitHub_RemoveOutsideCollaboratorPayload',
+   __typename?: 'GitHub_RemoveOutsideCollaboratorPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The user that was removed as an outside collaborator. */
@@ -10125,7 +10125,7 @@ export type GitHub_RemoveReactionInput = {
 
 /** Autogenerated return type of RemoveReaction */
 export type GitHub_RemoveReactionPayload = {
-  __typename?: 'GitHub_RemoveReactionPayload',
+   __typename?: 'GitHub_RemoveReactionPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The reaction object. */
@@ -10144,7 +10144,7 @@ export type GitHub_RemoveStarInput = {
 
 /** Autogenerated return type of RemoveStar */
 export type GitHub_RemoveStarPayload = {
-  __typename?: 'GitHub_RemoveStarPayload',
+   __typename?: 'GitHub_RemoveStarPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The starrable. */
@@ -10153,7 +10153,7 @@ export type GitHub_RemoveStarPayload = {
 
 /** Represents a 'renamed' event on a given issue or pull request */
 export type GitHub_RenamedTitleEvent = GitHub_Node & {
-  __typename?: 'GitHub_RenamedTitleEvent',
+   __typename?: 'GitHub_RenamedTitleEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -10172,7 +10172,7 @@ export type GitHub_RenamedTitleSubject = GitHub_Issue | GitHub_PullRequest;
 
 /** Represents a 'reopened' event on any `Closable`. */
 export type GitHub_ReopenedEvent = GitHub_Node & {
-  __typename?: 'GitHub_ReopenedEvent',
+   __typename?: 'GitHub_ReopenedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Object that was reopened. */
@@ -10192,7 +10192,7 @@ export type GitHub_ReopenIssueInput = {
 
 /** Autogenerated return type of ReopenIssue */
 export type GitHub_ReopenIssuePayload = {
-  __typename?: 'GitHub_ReopenIssuePayload',
+   __typename?: 'GitHub_ReopenIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The issue that was opened. */
@@ -10209,7 +10209,7 @@ export type GitHub_ReopenPullRequestInput = {
 
 /** Autogenerated return type of ReopenPullRequest */
 export type GitHub_ReopenPullRequestPayload = {
-  __typename?: 'GitHub_ReopenPullRequestPayload',
+   __typename?: 'GitHub_ReopenPullRequestPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The pull request that was reopened. */
@@ -10218,7 +10218,7 @@ export type GitHub_ReopenPullRequestPayload = {
 
 /** Audit log entry for a repo.access event. */
 export type GitHub_RepoAccessAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoAccessAuditEntry',
+   __typename?: 'GitHub_RepoAccessAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10276,7 +10276,7 @@ export enum GitHub_RepoAccessAuditEntryVisibility {
 
 /** Audit log entry for a repo.add_member event. */
 export type GitHub_RepoAddMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoAddMemberAuditEntry',
+   __typename?: 'GitHub_RepoAddMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10334,7 +10334,7 @@ export enum GitHub_RepoAddMemberAuditEntryVisibility {
 
 /** Audit log entry for a repo.add_topic event. */
 export type GitHub_RepoAddTopicAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_RepositoryAuditEntryData & GitHub_OrganizationAuditEntryData & GitHub_TopicAuditEntryData & {
-  __typename?: 'GitHub_RepoAddTopicAuditEntry',
+   __typename?: 'GitHub_RepoAddTopicAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10384,7 +10384,7 @@ export type GitHub_RepoAddTopicAuditEntry = GitHub_Node & GitHub_AuditEntry & Gi
 
 /** Audit log entry for a repo.archived event. */
 export type GitHub_RepoArchivedAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_RepositoryAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_RepoArchivedAuditEntry',
+   __typename?: 'GitHub_RepoArchivedAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10442,7 +10442,7 @@ export enum GitHub_RepoArchivedAuditEntryVisibility {
 
 /** Audit log entry for a repo.change_merge_setting event. */
 export type GitHub_RepoChangeMergeSettingAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_RepositoryAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_RepoChangeMergeSettingAuditEntry',
+   __typename?: 'GitHub_RepoChangeMergeSettingAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10502,7 +10502,7 @@ export enum GitHub_RepoChangeMergeSettingAuditEntryMergeType {
 
 /** Audit log entry for a repo.config.disable_anonymous_git_access event. */
 export type GitHub_RepoConfigDisableAnonymousGitAccessAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigDisableAnonymousGitAccessAuditEntry',
+   __typename?: 'GitHub_RepoConfigDisableAnonymousGitAccessAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10548,7 +10548,7 @@ export type GitHub_RepoConfigDisableAnonymousGitAccessAuditEntry = GitHub_Node &
 
 /** Audit log entry for a repo.config.disable_collaborators_only event. */
 export type GitHub_RepoConfigDisableCollaboratorsOnlyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigDisableCollaboratorsOnlyAuditEntry',
+   __typename?: 'GitHub_RepoConfigDisableCollaboratorsOnlyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10594,7 +10594,7 @@ export type GitHub_RepoConfigDisableCollaboratorsOnlyAuditEntry = GitHub_Node & 
 
 /** Audit log entry for a repo.config.disable_contributors_only event. */
 export type GitHub_RepoConfigDisableContributorsOnlyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigDisableContributorsOnlyAuditEntry',
+   __typename?: 'GitHub_RepoConfigDisableContributorsOnlyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10640,7 +10640,7 @@ export type GitHub_RepoConfigDisableContributorsOnlyAuditEntry = GitHub_Node & G
 
 /** Audit log entry for a repo.config.disable_sockpuppet_disallowed event. */
 export type GitHub_RepoConfigDisableSockpuppetDisallowedAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigDisableSockpuppetDisallowedAuditEntry',
+   __typename?: 'GitHub_RepoConfigDisableSockpuppetDisallowedAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10686,7 +10686,7 @@ export type GitHub_RepoConfigDisableSockpuppetDisallowedAuditEntry = GitHub_Node
 
 /** Audit log entry for a repo.config.enable_anonymous_git_access event. */
 export type GitHub_RepoConfigEnableAnonymousGitAccessAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigEnableAnonymousGitAccessAuditEntry',
+   __typename?: 'GitHub_RepoConfigEnableAnonymousGitAccessAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10732,7 +10732,7 @@ export type GitHub_RepoConfigEnableAnonymousGitAccessAuditEntry = GitHub_Node & 
 
 /** Audit log entry for a repo.config.enable_collaborators_only event. */
 export type GitHub_RepoConfigEnableCollaboratorsOnlyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigEnableCollaboratorsOnlyAuditEntry',
+   __typename?: 'GitHub_RepoConfigEnableCollaboratorsOnlyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10778,7 +10778,7 @@ export type GitHub_RepoConfigEnableCollaboratorsOnlyAuditEntry = GitHub_Node & G
 
 /** Audit log entry for a repo.config.enable_contributors_only event. */
 export type GitHub_RepoConfigEnableContributorsOnlyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigEnableContributorsOnlyAuditEntry',
+   __typename?: 'GitHub_RepoConfigEnableContributorsOnlyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10824,7 +10824,7 @@ export type GitHub_RepoConfigEnableContributorsOnlyAuditEntry = GitHub_Node & Gi
 
 /** Audit log entry for a repo.config.enable_sockpuppet_disallowed event. */
 export type GitHub_RepoConfigEnableSockpuppetDisallowedAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigEnableSockpuppetDisallowedAuditEntry',
+   __typename?: 'GitHub_RepoConfigEnableSockpuppetDisallowedAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10870,7 +10870,7 @@ export type GitHub_RepoConfigEnableSockpuppetDisallowedAuditEntry = GitHub_Node 
 
 /** Audit log entry for a repo.config.lock_anonymous_git_access event. */
 export type GitHub_RepoConfigLockAnonymousGitAccessAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigLockAnonymousGitAccessAuditEntry',
+   __typename?: 'GitHub_RepoConfigLockAnonymousGitAccessAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10916,7 +10916,7 @@ export type GitHub_RepoConfigLockAnonymousGitAccessAuditEntry = GitHub_Node & Gi
 
 /** Audit log entry for a repo.config.unlock_anonymous_git_access event. */
 export type GitHub_RepoConfigUnlockAnonymousGitAccessAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoConfigUnlockAnonymousGitAccessAuditEntry',
+   __typename?: 'GitHub_RepoConfigUnlockAnonymousGitAccessAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -10962,7 +10962,7 @@ export type GitHub_RepoConfigUnlockAnonymousGitAccessAuditEntry = GitHub_Node & 
 
 /** Audit log entry for a repo.create event. */
 export type GitHub_RepoCreateAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_RepositoryAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_RepoCreateAuditEntry',
+   __typename?: 'GitHub_RepoCreateAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -11024,7 +11024,7 @@ export enum GitHub_RepoCreateAuditEntryVisibility {
 
 /** Audit log entry for a repo.destroy event. */
 export type GitHub_RepoDestroyAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_RepositoryAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_RepoDestroyAuditEntry',
+   __typename?: 'GitHub_RepoDestroyAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -11082,7 +11082,7 @@ export enum GitHub_RepoDestroyAuditEntryVisibility {
 
 /** Audit log entry for a repo.remove_member event. */
 export type GitHub_RepoRemoveMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & {
-  __typename?: 'GitHub_RepoRemoveMemberAuditEntry',
+   __typename?: 'GitHub_RepoRemoveMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -11140,7 +11140,7 @@ export enum GitHub_RepoRemoveMemberAuditEntryVisibility {
 
 /** Audit log entry for a repo.remove_topic event. */
 export type GitHub_RepoRemoveTopicAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_RepositoryAuditEntryData & GitHub_OrganizationAuditEntryData & GitHub_TopicAuditEntryData & {
-  __typename?: 'GitHub_RepoRemoveTopicAuditEntry',
+   __typename?: 'GitHub_RepoRemoveTopicAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -11204,7 +11204,7 @@ export enum GitHub_ReportedContentClassifiers {
 
 /** A repository contains the content for a project. */
 export type GitHub_Repository = GitHub_Node & GitHub_ProjectOwner & GitHub_RegistryPackageOwner & GitHub_Subscribable & GitHub_Starrable & GitHub_UniformResourceLocatable & GitHub_RepositoryInfo & {
-  __typename?: 'GitHub_Repository',
+   __typename?: 'GitHub_Repository',
   /** A list of users that can be assigned to issues in this repository. */
   assignableUsers: GitHub_UserConnection,
   /** A list of branch protection rules for this repository. */
@@ -11671,7 +11671,7 @@ export enum GitHub_RepositoryCollaboratorAffiliation {
 
 /** The connection type for User. */
 export type GitHub_RepositoryCollaboratorConnection = {
-  __typename?: 'GitHub_RepositoryCollaboratorConnection',
+   __typename?: 'GitHub_RepositoryCollaboratorConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RepositoryCollaboratorEdge>>>,
   /** A list of nodes. */
@@ -11684,7 +11684,7 @@ export type GitHub_RepositoryCollaboratorConnection = {
 
 /** Represents a user who is a collaborator of a repository. */
 export type GitHub_RepositoryCollaboratorEdge = {
-  __typename?: 'GitHub_RepositoryCollaboratorEdge',
+   __typename?: 'GitHub_RepositoryCollaboratorEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   node: GitHub_User,
@@ -11696,7 +11696,7 @@ export type GitHub_RepositoryCollaboratorEdge = {
 
 /** A list of repositories owned by the subject. */
 export type GitHub_RepositoryConnection = {
-  __typename?: 'GitHub_RepositoryConnection',
+   __typename?: 'GitHub_RepositoryConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RepositoryEdge>>>,
   /** A list of nodes. */
@@ -11725,7 +11725,7 @@ export enum GitHub_RepositoryContributionType {
 
 /** A user who has contributed to a repository. */
 export type GitHub_RepositoryContributorEdge = {
-  __typename?: 'GitHub_RepositoryContributorEdge',
+   __typename?: 'GitHub_RepositoryContributorEdge',
   /** The number of contributions the user has made in the repository. */
   contributionsCount: Scalars['Int'],
   /** A cursor for use in pagination. */
@@ -11736,7 +11736,7 @@ export type GitHub_RepositoryContributorEdge = {
 
 /** An edge in a connection. */
 export type GitHub_RepositoryEdge = {
-  __typename?: 'GitHub_RepositoryEdge',
+   __typename?: 'GitHub_RepositoryEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -11807,7 +11807,7 @@ export type GitHub_RepositoryInfoShortDescriptionHtmlArgs = {
 
 /** An invitation for a user to be added to a repository. */
 export type GitHub_RepositoryInvitation = GitHub_Node & {
-  __typename?: 'GitHub_RepositoryInvitation',
+   __typename?: 'GitHub_RepositoryInvitation',
   id: Scalars['ID'],
   /** The user who received the invitation. */
   invitee: GitHub_User,
@@ -11821,7 +11821,7 @@ export type GitHub_RepositoryInvitation = GitHub_Node & {
 
 /** An edge in a connection. */
 export type GitHub_RepositoryInvitationEdge = {
-  __typename?: 'GitHub_RepositoryInvitationEdge',
+   __typename?: 'GitHub_RepositoryInvitationEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -11955,7 +11955,7 @@ export enum GitHub_RepositoryPrivacy {
 
 /** A repository-topic connects a repository to a topic. */
 export type GitHub_RepositoryTopic = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_RepositoryTopic',
+   __typename?: 'GitHub_RepositoryTopic',
   id: Scalars['ID'],
   /** The HTTP path for this repository-topic. */
   resourcePath: Scalars['GitHub_URI'],
@@ -11967,7 +11967,7 @@ export type GitHub_RepositoryTopic = GitHub_Node & GitHub_UniformResourceLocatab
 
 /** The connection type for RepositoryTopic. */
 export type GitHub_RepositoryTopicConnection = {
-  __typename?: 'GitHub_RepositoryTopicConnection',
+   __typename?: 'GitHub_RepositoryTopicConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_RepositoryTopicEdge>>>,
   /** A list of nodes. */
@@ -11980,7 +11980,7 @@ export type GitHub_RepositoryTopicConnection = {
 
 /** An edge in a connection. */
 export type GitHub_RepositoryTopicEdge = {
-  __typename?: 'GitHub_RepositoryTopicEdge',
+   __typename?: 'GitHub_RepositoryTopicEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -11999,7 +11999,7 @@ export enum GitHub_RepositoryVisibility {
 
 /** Audit log entry for a repository_visibility_change.disable event. */
 export type GitHub_RepositoryVisibilityChangeDisableAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_RepositoryVisibilityChangeDisableAuditEntry',
+   __typename?: 'GitHub_RepositoryVisibilityChangeDisableAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -12043,7 +12043,7 @@ export type GitHub_RepositoryVisibilityChangeDisableAuditEntry = GitHub_Node & G
 
 /** Audit log entry for a repository_visibility_change.enable event. */
 export type GitHub_RepositoryVisibilityChangeEnableAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_EnterpriseAuditEntryData & GitHub_OrganizationAuditEntryData & {
-  __typename?: 'GitHub_RepositoryVisibilityChangeEnableAuditEntry',
+   __typename?: 'GitHub_RepositoryVisibilityChangeEnableAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -12104,7 +12104,7 @@ export type GitHub_RequestReviewsInput = {
 
 /** Autogenerated return type of RequestReviews */
 export type GitHub_RequestReviewsPayload = {
-  __typename?: 'GitHub_RequestReviewsPayload',
+   __typename?: 'GitHub_RequestReviewsPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The pull request that is getting requests. */
@@ -12123,7 +12123,7 @@ export type GitHub_ResolveReviewThreadInput = {
 
 /** Autogenerated return type of ResolveReviewThread */
 export type GitHub_ResolveReviewThreadPayload = {
-  __typename?: 'GitHub_ResolveReviewThreadPayload',
+   __typename?: 'GitHub_ResolveReviewThreadPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The thread to resolve. */
@@ -12132,7 +12132,7 @@ export type GitHub_ResolveReviewThreadPayload = {
 
 /** Represents a private contribution a user made on GitHub. */
 export type GitHub_RestrictedContribution = GitHub_Contribution & {
-  __typename?: 'GitHub_RestrictedContribution',
+   __typename?: 'GitHub_RestrictedContribution',
   /** 
  * Whether this contribution is associated with a record you do not have access to. For
    * example, your own 'first issue' contribution may have been made on a repository you can no
@@ -12151,7 +12151,7 @@ export type GitHub_RestrictedContribution = GitHub_Contribution & {
 
 /** A team or user who has the ability to dismiss a review on a protected branch. */
 export type GitHub_ReviewDismissalAllowance = GitHub_Node & {
-  __typename?: 'GitHub_ReviewDismissalAllowance',
+   __typename?: 'GitHub_ReviewDismissalAllowance',
   /** The actor that can dismiss. */
   actor?: Maybe<GitHub_ReviewDismissalAllowanceActor>,
   /** Identifies the branch protection rule associated with the allowed user or team. */
@@ -12164,7 +12164,7 @@ export type GitHub_ReviewDismissalAllowanceActor = GitHub_User | GitHub_Team;
 
 /** The connection type for ReviewDismissalAllowance. */
 export type GitHub_ReviewDismissalAllowanceConnection = {
-  __typename?: 'GitHub_ReviewDismissalAllowanceConnection',
+   __typename?: 'GitHub_ReviewDismissalAllowanceConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ReviewDismissalAllowanceEdge>>>,
   /** A list of nodes. */
@@ -12177,7 +12177,7 @@ export type GitHub_ReviewDismissalAllowanceConnection = {
 
 /** An edge in a connection. */
 export type GitHub_ReviewDismissalAllowanceEdge = {
-  __typename?: 'GitHub_ReviewDismissalAllowanceEdge',
+   __typename?: 'GitHub_ReviewDismissalAllowanceEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12186,7 +12186,7 @@ export type GitHub_ReviewDismissalAllowanceEdge = {
 
 /** Represents a 'review_dismissed' event on a given issue or pull request. */
 export type GitHub_ReviewDismissedEvent = GitHub_Node & GitHub_UniformResourceLocatable & {
-  __typename?: 'GitHub_ReviewDismissedEvent',
+   __typename?: 'GitHub_ReviewDismissedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -12214,7 +12214,7 @@ export type GitHub_ReviewDismissedEvent = GitHub_Node & GitHub_UniformResourceLo
 
 /** A request for a user to review a pull request. */
 export type GitHub_ReviewRequest = GitHub_Node & {
-  __typename?: 'GitHub_ReviewRequest',
+   __typename?: 'GitHub_ReviewRequest',
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>,
   id: Scalars['ID'],
@@ -12226,7 +12226,7 @@ export type GitHub_ReviewRequest = GitHub_Node & {
 
 /** The connection type for ReviewRequest. */
 export type GitHub_ReviewRequestConnection = {
-  __typename?: 'GitHub_ReviewRequestConnection',
+   __typename?: 'GitHub_ReviewRequestConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_ReviewRequestEdge>>>,
   /** A list of nodes. */
@@ -12239,7 +12239,7 @@ export type GitHub_ReviewRequestConnection = {
 
 /** Represents an 'review_requested' event on a given pull request. */
 export type GitHub_ReviewRequestedEvent = GitHub_Node & {
-  __typename?: 'GitHub_ReviewRequestedEvent',
+   __typename?: 'GitHub_ReviewRequestedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -12253,7 +12253,7 @@ export type GitHub_ReviewRequestedEvent = GitHub_Node & {
 
 /** An edge in a connection. */
 export type GitHub_ReviewRequestEdge = {
-  __typename?: 'GitHub_ReviewRequestEdge',
+   __typename?: 'GitHub_ReviewRequestEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12262,7 +12262,7 @@ export type GitHub_ReviewRequestEdge = {
 
 /** Represents an 'review_request_removed' event on a given pull request. */
 export type GitHub_ReviewRequestRemovedEvent = GitHub_Node & {
-  __typename?: 'GitHub_ReviewRequestRemovedEvent',
+   __typename?: 'GitHub_ReviewRequestRemovedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -12276,7 +12276,7 @@ export type GitHub_ReviewRequestRemovedEvent = GitHub_Node & {
 
 /** A Saved Reply is text a user can use to reply quickly. */
 export type GitHub_SavedReply = GitHub_Node & {
-  __typename?: 'GitHub_SavedReply',
+   __typename?: 'GitHub_SavedReply',
   /** The body of the saved reply. */
   body: Scalars['String'],
   /** The saved reply body rendered to HTML. */
@@ -12292,7 +12292,7 @@ export type GitHub_SavedReply = GitHub_Node & {
 
 /** The connection type for SavedReply. */
 export type GitHub_SavedReplyConnection = {
-  __typename?: 'GitHub_SavedReplyConnection',
+   __typename?: 'GitHub_SavedReplyConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_SavedReplyEdge>>>,
   /** A list of nodes. */
@@ -12305,7 +12305,7 @@ export type GitHub_SavedReplyConnection = {
 
 /** An edge in a connection. */
 export type GitHub_SavedReplyEdge = {
-  __typename?: 'GitHub_SavedReplyEdge',
+   __typename?: 'GitHub_SavedReplyEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12331,7 +12331,7 @@ export type GitHub_SearchResultItem = GitHub_Issue | GitHub_PullRequest | GitHub
 
 /** A list of results that matched against a search query. */
 export type GitHub_SearchResultItemConnection = {
-  __typename?: 'GitHub_SearchResultItemConnection',
+   __typename?: 'GitHub_SearchResultItemConnection',
   /** The number of pieces of code that matched the search query. */
   codeCount: Scalars['Int'],
   /** A list of edges. */
@@ -12352,7 +12352,7 @@ export type GitHub_SearchResultItemConnection = {
 
 /** An edge in a connection. */
 export type GitHub_SearchResultItemEdge = {
-  __typename?: 'GitHub_SearchResultItemEdge',
+   __typename?: 'GitHub_SearchResultItemEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12373,7 +12373,7 @@ export enum GitHub_SearchType {
 
 /** A GitHub Security Advisory */
 export type GitHub_SecurityAdvisory = GitHub_Node & {
-  __typename?: 'GitHub_SecurityAdvisory',
+   __typename?: 'GitHub_SecurityAdvisory',
   /** Identifies the primary key from the database. */
   databaseId?: Maybe<Scalars['Int']>,
   /** This is a long plaintext description of the advisory */
@@ -12416,7 +12416,7 @@ export type GitHub_SecurityAdvisoryVulnerabilitiesArgs = {
 
 /** The connection type for SecurityAdvisory. */
 export type GitHub_SecurityAdvisoryConnection = {
-  __typename?: 'GitHub_SecurityAdvisoryConnection',
+   __typename?: 'GitHub_SecurityAdvisoryConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_SecurityAdvisoryEdge>>>,
   /** A list of nodes. */
@@ -12443,7 +12443,7 @@ export enum GitHub_SecurityAdvisoryEcosystem {
 
 /** An edge in a connection. */
 export type GitHub_SecurityAdvisoryEdge = {
-  __typename?: 'GitHub_SecurityAdvisoryEdge',
+   __typename?: 'GitHub_SecurityAdvisoryEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12452,7 +12452,7 @@ export type GitHub_SecurityAdvisoryEdge = {
 
 /** A GitHub Security Advisory Identifier */
 export type GitHub_SecurityAdvisoryIdentifier = {
-  __typename?: 'GitHub_SecurityAdvisoryIdentifier',
+   __typename?: 'GitHub_SecurityAdvisoryIdentifier',
   /** The identifier type, e.g. GHSA, CVE */
   type: Scalars['String'],
   /** The identifier */
@@ -12493,7 +12493,7 @@ export enum GitHub_SecurityAdvisoryOrderField {
 
 /** An individual package */
 export type GitHub_SecurityAdvisoryPackage = {
-  __typename?: 'GitHub_SecurityAdvisoryPackage',
+   __typename?: 'GitHub_SecurityAdvisoryPackage',
   /** The ecosystem the package belongs to, e.g. RUBYGEMS, NPM */
   ecosystem: GitHub_SecurityAdvisoryEcosystem,
   /** The package name */
@@ -12502,14 +12502,14 @@ export type GitHub_SecurityAdvisoryPackage = {
 
 /** An individual package version */
 export type GitHub_SecurityAdvisoryPackageVersion = {
-  __typename?: 'GitHub_SecurityAdvisoryPackageVersion',
+   __typename?: 'GitHub_SecurityAdvisoryPackageVersion',
   /** The package name or version */
   identifier: Scalars['String'],
 };
 
 /** A GitHub Security Advisory Reference */
 export type GitHub_SecurityAdvisoryReference = {
-  __typename?: 'GitHub_SecurityAdvisoryReference',
+   __typename?: 'GitHub_SecurityAdvisoryReference',
   /** A publicly accessible reference */
   url: Scalars['GitHub_URI'],
 };
@@ -12528,7 +12528,7 @@ export enum GitHub_SecurityAdvisorySeverity {
 
 /** An individual vulnerability within an Advisory */
 export type GitHub_SecurityVulnerability = {
-  __typename?: 'GitHub_SecurityVulnerability',
+   __typename?: 'GitHub_SecurityVulnerability',
   /** The Advisory associated with this Vulnerability */
   advisory: GitHub_SecurityAdvisory,
   /** The first version containing a fix for the vulnerability */
@@ -12553,7 +12553,7 @@ export type GitHub_SecurityVulnerability = {
 
 /** The connection type for SecurityVulnerability. */
 export type GitHub_SecurityVulnerabilityConnection = {
-  __typename?: 'GitHub_SecurityVulnerabilityConnection',
+   __typename?: 'GitHub_SecurityVulnerabilityConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_SecurityVulnerabilityEdge>>>,
   /** A list of nodes. */
@@ -12566,7 +12566,7 @@ export type GitHub_SecurityVulnerabilityConnection = {
 
 /** An edge in a connection. */
 export type GitHub_SecurityVulnerabilityEdge = {
-  __typename?: 'GitHub_SecurityVulnerabilityEdge',
+   __typename?: 'GitHub_SecurityVulnerabilityEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12589,7 +12589,7 @@ export enum GitHub_SecurityVulnerabilityOrderField {
 
 /** Represents an S/MIME signature on a Commit or Tag. */
 export type GitHub_SmimeSignature = GitHub_GitSignature & {
-  __typename?: 'GitHub_SmimeSignature',
+   __typename?: 'GitHub_SmimeSignature',
   /** Email used to sign this object. */
   email: Scalars['String'],
   /** True if the signature is valid and verified by GitHub. */
@@ -12640,7 +12640,7 @@ export type GitHub_SponsorableSponsorshipsAsSponsorArgs = {
 
 /** Represents a sponsor. */
 export type GitHub_SponsorEdge = {
-  __typename?: 'GitHub_SponsorEdge',
+   __typename?: 'GitHub_SponsorEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12649,7 +12649,7 @@ export type GitHub_SponsorEdge = {
 
 /** A sponsorship relationship between a sponsor and a maintainer */
 export type GitHub_Sponsorship = GitHub_Node & {
-  __typename?: 'GitHub_Sponsorship',
+   __typename?: 'GitHub_Sponsorship',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   id: Scalars['ID'],
@@ -12663,7 +12663,7 @@ export type GitHub_Sponsorship = GitHub_Node & {
 
 /** The connection type for Sponsorship. */
 export type GitHub_SponsorshipConnection = {
-  __typename?: 'GitHub_SponsorshipConnection',
+   __typename?: 'GitHub_SponsorshipConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_SponsorshipEdge>>>,
   /** A list of nodes. */
@@ -12676,7 +12676,7 @@ export type GitHub_SponsorshipConnection = {
 
 /** An edge in a connection. */
 export type GitHub_SponsorshipEdge = {
-  __typename?: 'GitHub_SponsorshipEdge',
+   __typename?: 'GitHub_SponsorshipEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -12699,7 +12699,7 @@ export enum GitHub_SponsorshipPrivacy {
 
 /** A GitHub Sponsors listing. */
 export type GitHub_SponsorsListing = GitHub_Node & {
-  __typename?: 'GitHub_SponsorsListing',
+   __typename?: 'GitHub_SponsorsListing',
   /** The full description of the listing. */
   fullDescription: Scalars['String'],
   id: Scalars['ID'],
@@ -12711,7 +12711,7 @@ export type GitHub_SponsorsListing = GitHub_Node & {
 
 /** The connection type for User. */
 export type GitHub_StargazerConnection = {
-  __typename?: 'GitHub_StargazerConnection',
+   __typename?: 'GitHub_StargazerConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_StargazerEdge>>>,
   /** A list of nodes. */
@@ -12724,7 +12724,7 @@ export type GitHub_StargazerConnection = {
 
 /** Represents a user that's starred a repository. */
 export type GitHub_StargazerEdge = {
-  __typename?: 'GitHub_StargazerEdge',
+   __typename?: 'GitHub_StargazerEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   node: GitHub_User,
@@ -12767,7 +12767,7 @@ export type GitHub_StarrableStargazersArgs = {
 
 /** The connection type for Repository. */
 export type GitHub_StarredRepositoryConnection = {
-  __typename?: 'GitHub_StarredRepositoryConnection',
+   __typename?: 'GitHub_StarredRepositoryConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_StarredRepositoryEdge>>>,
   /** A list of nodes. */
@@ -12780,7 +12780,7 @@ export type GitHub_StarredRepositoryConnection = {
 
 /** Represents a starred repository. */
 export type GitHub_StarredRepositoryEdge = {
-  __typename?: 'GitHub_StarredRepositoryEdge',
+   __typename?: 'GitHub_StarredRepositoryEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   node: GitHub_Repository,
@@ -12790,7 +12790,7 @@ export type GitHub_StarredRepositoryEdge = {
 
 /** Represents a starred topic. */
 export type GitHub_StarredTopicEdge = {
-  __typename?: 'GitHub_StarredTopicEdge',
+   __typename?: 'GitHub_StarredTopicEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   node: GitHub_Topic,
@@ -12800,7 +12800,7 @@ export type GitHub_StarredTopicEdge = {
 
 /** Represents a commit status. */
 export type GitHub_Status = GitHub_Node & {
-  __typename?: 'GitHub_Status',
+   __typename?: 'GitHub_Status',
   /** The commit this status is attached to. */
   commit?: Maybe<GitHub_Commit>,
   /** Looks up an individual status context by context name. */
@@ -12820,7 +12820,7 @@ export type GitHub_StatusContextArgs = {
 
 /** Represents an individual commit status context */
 export type GitHub_StatusContext = GitHub_Node & {
-  __typename?: 'GitHub_StatusContext',
+   __typename?: 'GitHub_StatusContext',
   /** The avatar of the OAuth application or the user that created the status */
   avatarUrl?: Maybe<Scalars['GitHub_URI']>,
   /** This commit this status context is attached to. */
@@ -12874,7 +12874,7 @@ export type GitHub_SubmitPullRequestReviewInput = {
 
 /** Autogenerated return type of SubmitPullRequestReview */
 export type GitHub_SubmitPullRequestReviewPayload = {
-  __typename?: 'GitHub_SubmitPullRequestReviewPayload',
+   __typename?: 'GitHub_SubmitPullRequestReviewPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The submitted pull request review. */
@@ -12892,7 +12892,7 @@ export type GitHub_Subscribable = {
 
 /** Represents a 'subscribed' event on a given `Subscribable`. */
 export type GitHub_SubscribedEvent = GitHub_Node & {
-  __typename?: 'GitHub_SubscribedEvent',
+   __typename?: 'GitHub_SubscribedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -12914,7 +12914,7 @@ export enum GitHub_SubscriptionState {
 
 /** A suggestion to review a pull request based on a user's commit history and review comments. */
 export type GitHub_SuggestedReviewer = {
-  __typename?: 'GitHub_SuggestedReviewer',
+   __typename?: 'GitHub_SuggestedReviewer',
   /** Is this suggestion based on past commits? */
   isAuthor: Scalars['Boolean'],
   /** Is this suggestion based on past review comments? */
@@ -12925,7 +12925,7 @@ export type GitHub_SuggestedReviewer = {
 
 /** Represents a Git tag. */
 export type GitHub_Tag = GitHub_Node & GitHub_GitObject & {
-  __typename?: 'GitHub_Tag',
+   __typename?: 'GitHub_Tag',
   /** An abbreviated version of the Git object ID */
   abbreviatedOid: Scalars['String'],
   /** The HTTP path for this Git object */
@@ -12949,7 +12949,7 @@ export type GitHub_Tag = GitHub_Node & GitHub_GitObject & {
 
 /** A team of users in an organization. */
 export type GitHub_Team = GitHub_Node & GitHub_Subscribable & GitHub_MemberStatusable & {
-  __typename?: 'GitHub_Team',
+   __typename?: 'GitHub_Team',
   /** A list of teams that are ancestors of this team. */
   ancestors: GitHub_TeamConnection,
   /** A URL pointing to the team's avatar. */
@@ -13087,7 +13087,7 @@ export type GitHub_TeamRepositoriesArgs = {
 
 /** Audit log entry for a team.add_member event. */
 export type GitHub_TeamAddMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_TeamAuditEntryData & {
-  __typename?: 'GitHub_TeamAddMemberAuditEntry',
+   __typename?: 'GitHub_TeamAddMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -13135,7 +13135,7 @@ export type GitHub_TeamAddMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & G
 
 /** Audit log entry for a team.add_repository event. */
 export type GitHub_TeamAddRepositoryAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & GitHub_TeamAuditEntryData & {
-  __typename?: 'GitHub_TeamAddRepositoryAuditEntry',
+   __typename?: 'GitHub_TeamAddRepositoryAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -13203,7 +13203,7 @@ export type GitHub_TeamAuditEntryData = {
 
 /** Audit log entry for a team.change_parent_team event. */
 export type GitHub_TeamChangeParentTeamAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_TeamAuditEntryData & {
-  __typename?: 'GitHub_TeamChangeParentTeamAuditEntry',
+   __typename?: 'GitHub_TeamChangeParentTeamAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -13267,7 +13267,7 @@ export type GitHub_TeamChangeParentTeamAuditEntry = GitHub_Node & GitHub_AuditEn
 
 /** The connection type for Team. */
 export type GitHub_TeamConnection = {
-  __typename?: 'GitHub_TeamConnection',
+   __typename?: 'GitHub_TeamConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_TeamEdge>>>,
   /** A list of nodes. */
@@ -13280,7 +13280,7 @@ export type GitHub_TeamConnection = {
 
 /** An edge in a connection. */
 export type GitHub_TeamEdge = {
-  __typename?: 'GitHub_TeamEdge',
+   __typename?: 'GitHub_TeamEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -13289,7 +13289,7 @@ export type GitHub_TeamEdge = {
 
 /** Represents a team's eligibility to be a child team of another */
 export type GitHub_TeamEligibilityEdge = {
-  __typename?: 'GitHub_TeamEligibilityEdge',
+   __typename?: 'GitHub_TeamEligibilityEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -13298,7 +13298,7 @@ export type GitHub_TeamEligibilityEdge = {
 
 /** The connection type for User. */
 export type GitHub_TeamMemberConnection = {
-  __typename?: 'GitHub_TeamMemberConnection',
+   __typename?: 'GitHub_TeamMemberConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_TeamMemberEdge>>>,
   /** A list of nodes. */
@@ -13311,7 +13311,7 @@ export type GitHub_TeamMemberConnection = {
 
 /** Represents a user who is a member of a team. */
 export type GitHub_TeamMemberEdge = {
-  __typename?: 'GitHub_TeamMemberEdge',
+   __typename?: 'GitHub_TeamMemberEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The HTTP path to the organization's member access page. */
@@ -13381,7 +13381,7 @@ export enum GitHub_TeamPrivacy {
 
 /** Represents a connection between a team (parent) and a project (child). */
 export type GitHub_TeamProjectEdge = {
-  __typename?: 'GitHub_TeamProjectEdge',
+   __typename?: 'GitHub_TeamProjectEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The parent team that grants inherited permission to this project */
@@ -13396,7 +13396,7 @@ export type GitHub_TeamProjectEdge = {
 
 /** Audit log entry for a team.remove_member event. */
 export type GitHub_TeamRemoveMemberAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_TeamAuditEntryData & {
-  __typename?: 'GitHub_TeamRemoveMemberAuditEntry',
+   __typename?: 'GitHub_TeamRemoveMemberAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -13444,7 +13444,7 @@ export type GitHub_TeamRemoveMemberAuditEntry = GitHub_Node & GitHub_AuditEntry 
 
 /** Audit log entry for a team.remove_repository event. */
 export type GitHub_TeamRemoveRepositoryAuditEntry = GitHub_Node & GitHub_AuditEntry & GitHub_OrganizationAuditEntryData & GitHub_RepositoryAuditEntryData & GitHub_TeamAuditEntryData & {
-  __typename?: 'GitHub_TeamRemoveRepositoryAuditEntry',
+   __typename?: 'GitHub_TeamRemoveRepositoryAuditEntry',
   /** The action name */
   action: Scalars['String'],
   /** The user who initiated the action */
@@ -13500,7 +13500,7 @@ export type GitHub_TeamRemoveRepositoryAuditEntry = GitHub_Node & GitHub_AuditEn
 
 /** The connection type for Repository. */
 export type GitHub_TeamRepositoryConnection = {
-  __typename?: 'GitHub_TeamRepositoryConnection',
+   __typename?: 'GitHub_TeamRepositoryConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_TeamRepositoryEdge>>>,
   /** A list of nodes. */
@@ -13513,7 +13513,7 @@ export type GitHub_TeamRepositoryConnection = {
 
 /** Represents a team repository. */
 export type GitHub_TeamRepositoryEdge = {
-  __typename?: 'GitHub_TeamRepositoryEdge',
+   __typename?: 'GitHub_TeamRepositoryEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   node: GitHub_Repository,
@@ -13555,7 +13555,7 @@ export enum GitHub_TeamRole {
 
 /** A text match within a search result. */
 export type GitHub_TextMatch = {
-  __typename?: 'GitHub_TextMatch',
+   __typename?: 'GitHub_TextMatch',
   /** The specific text fragment within the property matched on. */
   fragment: Scalars['String'],
   /** Highlights within the matched fragment. */
@@ -13566,7 +13566,7 @@ export type GitHub_TextMatch = {
 
 /** Represents a single highlight in a search result match. */
 export type GitHub_TextMatchHighlight = {
-  __typename?: 'GitHub_TextMatchHighlight',
+   __typename?: 'GitHub_TextMatchHighlight',
   /** The indice in the fragment where the matched text begins. */
   beginIndice: Scalars['Int'],
   /** The indice in the fragment where the matched text ends. */
@@ -13577,7 +13577,7 @@ export type GitHub_TextMatchHighlight = {
 
 /** A topic aggregates entities that are related to a subject. */
 export type GitHub_Topic = GitHub_Node & GitHub_Starrable & {
-  __typename?: 'GitHub_Topic',
+   __typename?: 'GitHub_Topic',
   id: Scalars['ID'],
   /** The topic's name. */
   name: Scalars['String'],
@@ -13618,7 +13618,7 @@ export type GitHub_TopicAuditEntryData = {
 
 /** The connection type for Topic. */
 export type GitHub_TopicConnection = {
-  __typename?: 'GitHub_TopicConnection',
+   __typename?: 'GitHub_TopicConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_TopicEdge>>>,
   /** A list of nodes. */
@@ -13631,7 +13631,7 @@ export type GitHub_TopicConnection = {
 
 /** An edge in a connection. */
 export type GitHub_TopicEdge = {
-  __typename?: 'GitHub_TopicEdge',
+   __typename?: 'GitHub_TopicEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -13662,7 +13662,7 @@ export type GitHub_TransferIssueInput = {
 
 /** Autogenerated return type of TransferIssue */
 export type GitHub_TransferIssuePayload = {
-  __typename?: 'GitHub_TransferIssuePayload',
+   __typename?: 'GitHub_TransferIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The issue that was transferred */
@@ -13671,7 +13671,7 @@ export type GitHub_TransferIssuePayload = {
 
 /** Represents a 'transferred' event on a given issue or pull request. */
 export type GitHub_TransferredEvent = GitHub_Node & {
-  __typename?: 'GitHub_TransferredEvent',
+   __typename?: 'GitHub_TransferredEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -13685,7 +13685,7 @@ export type GitHub_TransferredEvent = GitHub_Node & {
 
 /** Represents a Git tree. */
 export type GitHub_Tree = GitHub_Node & GitHub_GitObject & {
-  __typename?: 'GitHub_Tree',
+   __typename?: 'GitHub_Tree',
   /** An abbreviated version of the Git object ID */
   abbreviatedOid: Scalars['String'],
   /** The HTTP path for this Git object */
@@ -13703,7 +13703,7 @@ export type GitHub_Tree = GitHub_Node & GitHub_GitObject & {
 
 /** Represents a Git tree entry. */
 export type GitHub_TreeEntry = {
-  __typename?: 'GitHub_TreeEntry',
+   __typename?: 'GitHub_TreeEntry',
   /** Entry file mode. */
   mode: Scalars['Int'],
   /** Entry file name. */
@@ -13720,7 +13720,7 @@ export type GitHub_TreeEntry = {
 
 /** Represents an 'unassigned' event on any assignable object. */
 export type GitHub_UnassignedEvent = GitHub_Node & {
-  __typename?: 'GitHub_UnassignedEvent',
+   __typename?: 'GitHub_UnassignedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the assignable associated with the event. */
@@ -13744,7 +13744,7 @@ export type GitHub_UniformResourceLocatable = {
 
 /** Represents an unknown signature on a Commit or Tag. */
 export type GitHub_UnknownSignature = GitHub_GitSignature & {
-  __typename?: 'GitHub_UnknownSignature',
+   __typename?: 'GitHub_UnknownSignature',
   /** Email used to sign this object. */
   email: Scalars['String'],
   /** True if the signature is valid and verified by GitHub. */
@@ -13766,7 +13766,7 @@ export type GitHub_UnknownSignature = GitHub_GitSignature & {
 
 /** Represents an 'unlabeled' event on a given issue or pull request. */
 export type GitHub_UnlabeledEvent = GitHub_Node & {
-  __typename?: 'GitHub_UnlabeledEvent',
+   __typename?: 'GitHub_UnlabeledEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -13790,7 +13790,7 @@ export type GitHub_UnlinkRepositoryFromProjectInput = {
 
 /** Autogenerated return type of UnlinkRepositoryFromProject */
 export type GitHub_UnlinkRepositoryFromProjectPayload = {
-  __typename?: 'GitHub_UnlinkRepositoryFromProjectPayload',
+   __typename?: 'GitHub_UnlinkRepositoryFromProjectPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The linked Project. */
@@ -13801,7 +13801,7 @@ export type GitHub_UnlinkRepositoryFromProjectPayload = {
 
 /** Represents an 'unlocked' event on a given issue or pull request. */
 export type GitHub_UnlockedEvent = GitHub_Node & {
-  __typename?: 'GitHub_UnlockedEvent',
+   __typename?: 'GitHub_UnlockedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -13821,7 +13821,7 @@ export type GitHub_UnlockLockableInput = {
 
 /** Autogenerated return type of UnlockLockable */
 export type GitHub_UnlockLockablePayload = {
-  __typename?: 'GitHub_UnlockLockablePayload',
+   __typename?: 'GitHub_UnlockLockablePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The item that was unlocked. */
@@ -13840,7 +13840,7 @@ export type GitHub_UnmarkIssueAsDuplicateInput = {
 
 /** Autogenerated return type of UnmarkIssueAsDuplicate */
 export type GitHub_UnmarkIssueAsDuplicatePayload = {
-  __typename?: 'GitHub_UnmarkIssueAsDuplicatePayload',
+   __typename?: 'GitHub_UnmarkIssueAsDuplicatePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The issue or pull request that was marked as a duplicate. */
@@ -13865,7 +13865,7 @@ export type GitHub_UnpinIssueInput = {
 
 /** Represents an 'unpinned' event on a given issue or pull request. */
 export type GitHub_UnpinnedEvent = GitHub_Node & {
-  __typename?: 'GitHub_UnpinnedEvent',
+   __typename?: 'GitHub_UnpinnedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -13885,7 +13885,7 @@ export type GitHub_UnresolveReviewThreadInput = {
 
 /** Autogenerated return type of UnresolveReviewThread */
 export type GitHub_UnresolveReviewThreadPayload = {
-  __typename?: 'GitHub_UnresolveReviewThreadPayload',
+   __typename?: 'GitHub_UnresolveReviewThreadPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The thread to resolve. */
@@ -13894,7 +13894,7 @@ export type GitHub_UnresolveReviewThreadPayload = {
 
 /** Represents an 'unsubscribed' event on a given `Subscribable`. */
 export type GitHub_UnsubscribedEvent = GitHub_Node & {
-  __typename?: 'GitHub_UnsubscribedEvent',
+   __typename?: 'GitHub_UnsubscribedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Identifies the date and time when the object was created. */
@@ -13954,7 +13954,7 @@ export type GitHub_UpdateBranchProtectionRuleInput = {
 
 /** Autogenerated return type of UpdateBranchProtectionRule */
 export type GitHub_UpdateBranchProtectionRulePayload = {
-  __typename?: 'GitHub_UpdateBranchProtectionRulePayload',
+   __typename?: 'GitHub_UpdateBranchProtectionRulePayload',
   /** The newly created BranchProtectionRule. */
   branchProtectionRule?: Maybe<GitHub_BranchProtectionRule>,
   /** A unique identifier for the client performing the mutation. */
@@ -14119,7 +14119,7 @@ export type GitHub_UpdateIssueCommentInput = {
 
 /** Autogenerated return type of UpdateIssueComment */
 export type GitHub_UpdateIssueCommentPayload = {
-  __typename?: 'GitHub_UpdateIssueCommentPayload',
+   __typename?: 'GitHub_UpdateIssueCommentPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated comment. */
@@ -14150,7 +14150,7 @@ export type GitHub_UpdateIssueInput = {
 
 /** Autogenerated return type of UpdateIssue */
 export type GitHub_UpdateIssuePayload = {
-  __typename?: 'GitHub_UpdateIssuePayload',
+   __typename?: 'GitHub_UpdateIssuePayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The issue. */
@@ -14171,7 +14171,7 @@ export type GitHub_UpdateProjectCardInput = {
 
 /** Autogenerated return type of UpdateProjectCard */
 export type GitHub_UpdateProjectCardPayload = {
-  __typename?: 'GitHub_UpdateProjectCardPayload',
+   __typename?: 'GitHub_UpdateProjectCardPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated ProjectCard. */
@@ -14190,7 +14190,7 @@ export type GitHub_UpdateProjectColumnInput = {
 
 /** Autogenerated return type of UpdateProjectColumn */
 export type GitHub_UpdateProjectColumnPayload = {
-  __typename?: 'GitHub_UpdateProjectColumnPayload',
+   __typename?: 'GitHub_UpdateProjectColumnPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated project column. */
@@ -14215,7 +14215,7 @@ export type GitHub_UpdateProjectInput = {
 
 /** Autogenerated return type of UpdateProject */
 export type GitHub_UpdateProjectPayload = {
-  __typename?: 'GitHub_UpdateProjectPayload',
+   __typename?: 'GitHub_UpdateProjectPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated project. */
@@ -14243,7 +14243,7 @@ export type GitHub_UpdatePullRequestInput = {
 
 /** Autogenerated return type of UpdatePullRequest */
 export type GitHub_UpdatePullRequestPayload = {
-  __typename?: 'GitHub_UpdatePullRequestPayload',
+   __typename?: 'GitHub_UpdatePullRequestPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated pull request. */
@@ -14262,7 +14262,7 @@ export type GitHub_UpdatePullRequestReviewCommentInput = {
 
 /** Autogenerated return type of UpdatePullRequestReviewComment */
 export type GitHub_UpdatePullRequestReviewCommentPayload = {
-  __typename?: 'GitHub_UpdatePullRequestReviewCommentPayload',
+   __typename?: 'GitHub_UpdatePullRequestReviewCommentPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated comment. */
@@ -14281,7 +14281,7 @@ export type GitHub_UpdatePullRequestReviewInput = {
 
 /** Autogenerated return type of UpdatePullRequestReview */
 export type GitHub_UpdatePullRequestReviewPayload = {
-  __typename?: 'GitHub_UpdatePullRequestReviewPayload',
+   __typename?: 'GitHub_UpdatePullRequestReviewPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated pull request review. */
@@ -14302,7 +14302,7 @@ export type GitHub_UpdateRefInput = {
 
 /** Autogenerated return type of UpdateRef */
 export type GitHub_UpdateRefPayload = {
-  __typename?: 'GitHub_UpdateRefPayload',
+   __typename?: 'GitHub_UpdateRefPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated Ref. */
@@ -14336,7 +14336,7 @@ export type GitHub_UpdateRepositoryInput = {
 
 /** Autogenerated return type of UpdateRepository */
 export type GitHub_UpdateRepositoryPayload = {
-  __typename?: 'GitHub_UpdateRepositoryPayload',
+   __typename?: 'GitHub_UpdateRepositoryPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The updated repository. */
@@ -14355,7 +14355,7 @@ export type GitHub_UpdateSubscriptionInput = {
 
 /** Autogenerated return type of UpdateSubscription */
 export type GitHub_UpdateSubscriptionPayload = {
-  __typename?: 'GitHub_UpdateSubscriptionPayload',
+   __typename?: 'GitHub_UpdateSubscriptionPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** The input subscribable entity. */
@@ -14374,7 +14374,7 @@ export type GitHub_UpdateTopicsInput = {
 
 /** Autogenerated return type of UpdateTopics */
 export type GitHub_UpdateTopicsPayload = {
-  __typename?: 'GitHub_UpdateTopicsPayload',
+   __typename?: 'GitHub_UpdateTopicsPayload',
   /** A unique identifier for the client performing the mutation. */
   clientMutationId?: Maybe<Scalars['String']>,
   /** Names of the provided topics that are not valid. */
@@ -14386,7 +14386,7 @@ export type GitHub_UpdateTopicsPayload = {
 
 /** A user is an individual's account on GitHub that owns repositories and can make new content. */
 export type GitHub_User = GitHub_Node & GitHub_Actor & GitHub_RegistryPackageOwner & GitHub_RegistryPackageSearch & GitHub_ProjectOwner & GitHub_RepositoryOwner & GitHub_UniformResourceLocatable & GitHub_ProfileOwner & GitHub_Sponsorable & {
-  __typename?: 'GitHub_User',
+   __typename?: 'GitHub_User',
   /** Determine if this repository owner has any items that can be pinned to their profile. */
   anyPinnableItems: Scalars['Boolean'],
   /** A URL pointing to the user's public avatar. */
@@ -14844,7 +14844,7 @@ export enum GitHub_UserBlockDuration {
 
 /** Represents a 'user_blocked' event on a given user. */
 export type GitHub_UserBlockedEvent = GitHub_Node & {
-  __typename?: 'GitHub_UserBlockedEvent',
+   __typename?: 'GitHub_UserBlockedEvent',
   /** Identifies the actor who performed the event. */
   actor?: Maybe<GitHub_Actor>,
   /** Number of days that the user was blocked for. */
@@ -14858,7 +14858,7 @@ export type GitHub_UserBlockedEvent = GitHub_Node & {
 
 /** The connection type for User. */
 export type GitHub_UserConnection = {
-  __typename?: 'GitHub_UserConnection',
+   __typename?: 'GitHub_UserConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_UserEdge>>>,
   /** A list of nodes. */
@@ -14871,7 +14871,7 @@ export type GitHub_UserConnection = {
 
 /** An edit on user content */
 export type GitHub_UserContentEdit = GitHub_Node & {
-  __typename?: 'GitHub_UserContentEdit',
+   __typename?: 'GitHub_UserContentEdit',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   /** Identifies the date and time when the object was deleted. */
@@ -14891,7 +14891,7 @@ export type GitHub_UserContentEdit = GitHub_Node & {
 
 /** A list of edits to content. */
 export type GitHub_UserContentEditConnection = {
-  __typename?: 'GitHub_UserContentEditConnection',
+   __typename?: 'GitHub_UserContentEditConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_UserContentEditEdge>>>,
   /** A list of nodes. */
@@ -14904,7 +14904,7 @@ export type GitHub_UserContentEditConnection = {
 
 /** An edge in a connection. */
 export type GitHub_UserContentEditEdge = {
-  __typename?: 'GitHub_UserContentEditEdge',
+   __typename?: 'GitHub_UserContentEditEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -14913,7 +14913,7 @@ export type GitHub_UserContentEditEdge = {
 
 /** Represents a user. */
 export type GitHub_UserEdge = {
-  __typename?: 'GitHub_UserEdge',
+   __typename?: 'GitHub_UserEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -14922,7 +14922,7 @@ export type GitHub_UserEdge = {
 
 /** The user's description of what they're currently doing. */
 export type GitHub_UserStatus = GitHub_Node & {
-  __typename?: 'GitHub_UserStatus',
+   __typename?: 'GitHub_UserStatus',
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['GitHub_DateTime'],
   /** An emoji summarizing the user's status. */
@@ -14947,7 +14947,7 @@ export type GitHub_UserStatus = GitHub_Node & {
 
 /** The connection type for UserStatus. */
 export type GitHub_UserStatusConnection = {
-  __typename?: 'GitHub_UserStatusConnection',
+   __typename?: 'GitHub_UserStatusConnection',
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<GitHub_UserStatusEdge>>>,
   /** A list of nodes. */
@@ -14960,7 +14960,7 @@ export type GitHub_UserStatusConnection = {
 
 /** An edge in a connection. */
 export type GitHub_UserStatusEdge = {
-  __typename?: 'GitHub_UserStatusEdge',
+   __typename?: 'GitHub_UserStatusEdge',
   /** A cursor for use in pagination. */
   cursor: Scalars['String'],
   /** The item at the end of the edge. */
@@ -14983,7 +14983,7 @@ export enum GitHub_UserStatusOrderField {
 
 
 export type GraphQlSource = Node & {
-  __typename?: 'GraphQLSource',
+   __typename?: 'GraphQLSource',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -14993,7 +14993,7 @@ export type GraphQlSource = Node & {
 };
 
 export type GraphQlSourceConnection = {
-  __typename?: 'GraphQLSourceConnection',
+   __typename?: 'GraphQLSourceConnection',
   totalCount: Scalars['Int'],
   edges: Array<GraphQlSourceEdge>,
   nodes: Array<GraphQlSource>,
@@ -15015,7 +15015,7 @@ export type GraphQlSourceConnectionGroupArgs = {
 };
 
 export type GraphQlSourceEdge = {
-  __typename?: 'GraphQLSourceEdge',
+   __typename?: 'GraphQLSourceEdge',
   next?: Maybe<GraphQlSource>,
   node: GraphQlSource,
   previous?: Maybe<GraphQlSource>,
@@ -15122,7 +15122,7 @@ export type GraphQlSourceFilterInput = {
 };
 
 export type GraphQlSourceGroupConnection = {
-  __typename?: 'GraphQLSourceGroupConnection',
+   __typename?: 'GraphQLSourceGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<GraphQlSourceEdge>,
   nodes: Array<GraphQlSource>,
@@ -15164,14 +15164,14 @@ export enum ImageFormat {
 }
 
 export type ImageSharp = Node & {
-  __typename?: 'ImageSharp',
-  id: Scalars['ID'],
+   __typename?: 'ImageSharp',
   fixed?: Maybe<ImageSharpFixed>,
   resolutions?: Maybe<ImageSharpResolutions>,
   fluid?: Maybe<ImageSharpFluid>,
   sizes?: Maybe<ImageSharpSizes>,
   original?: Maybe<ImageSharpOriginal>,
   resize?: Maybe<ImageSharpResize>,
+  id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
@@ -15188,6 +15188,9 @@ export type ImageSharpFixedArgs = {
   duotone?: Maybe<DuotoneGradient>,
   traceSVG?: Maybe<Potrace>,
   quality?: Maybe<Scalars['Int']>,
+  jpegQuality?: Maybe<Scalars['Int']>,
+  pngQuality?: Maybe<Scalars['Int']>,
+  webpQuality?: Maybe<Scalars['Int']>,
   toFormat?: Maybe<ImageFormat>,
   toFormatBase64?: Maybe<ImageFormat>,
   cropFocus?: Maybe<ImageCropFocus>,
@@ -15208,6 +15211,9 @@ export type ImageSharpResolutionsArgs = {
   duotone?: Maybe<DuotoneGradient>,
   traceSVG?: Maybe<Potrace>,
   quality?: Maybe<Scalars['Int']>,
+  jpegQuality?: Maybe<Scalars['Int']>,
+  pngQuality?: Maybe<Scalars['Int']>,
+  webpQuality?: Maybe<Scalars['Int']>,
   toFormat?: Maybe<ImageFormat>,
   toFormatBase64?: Maybe<ImageFormat>,
   cropFocus?: Maybe<ImageCropFocus>,
@@ -15228,6 +15234,9 @@ export type ImageSharpFluidArgs = {
   duotone?: Maybe<DuotoneGradient>,
   traceSVG?: Maybe<Potrace>,
   quality?: Maybe<Scalars['Int']>,
+  jpegQuality?: Maybe<Scalars['Int']>,
+  pngQuality?: Maybe<Scalars['Int']>,
+  webpQuality?: Maybe<Scalars['Int']>,
   toFormat?: Maybe<ImageFormat>,
   toFormatBase64?: Maybe<ImageFormat>,
   cropFocus?: Maybe<ImageCropFocus>,
@@ -15250,6 +15259,9 @@ export type ImageSharpSizesArgs = {
   duotone?: Maybe<DuotoneGradient>,
   traceSVG?: Maybe<Potrace>,
   quality?: Maybe<Scalars['Int']>,
+  jpegQuality?: Maybe<Scalars['Int']>,
+  pngQuality?: Maybe<Scalars['Int']>,
+  webpQuality?: Maybe<Scalars['Int']>,
   toFormat?: Maybe<ImageFormat>,
   toFormatBase64?: Maybe<ImageFormat>,
   cropFocus?: Maybe<ImageCropFocus>,
@@ -15266,6 +15278,9 @@ export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars['Int']>,
   height?: Maybe<Scalars['Int']>,
   quality?: Maybe<Scalars['Int']>,
+  jpegQuality?: Maybe<Scalars['Int']>,
+  pngQuality?: Maybe<Scalars['Int']>,
+  webpQuality?: Maybe<Scalars['Int']>,
   jpegProgressive?: Maybe<Scalars['Boolean']>,
   pngCompressionLevel?: Maybe<Scalars['Int']>,
   pngCompressionSpeed?: Maybe<Scalars['Int']>,
@@ -15282,7 +15297,7 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-  __typename?: 'ImageSharpConnection',
+   __typename?: 'ImageSharpConnection',
   totalCount: Scalars['Int'],
   edges: Array<ImageSharpEdge>,
   nodes: Array<ImageSharp>,
@@ -15304,14 +15319,13 @@ export type ImageSharpConnectionGroupArgs = {
 };
 
 export type ImageSharpEdge = {
-  __typename?: 'ImageSharpEdge',
+   __typename?: 'ImageSharpEdge',
   next?: Maybe<ImageSharp>,
   node: ImageSharp,
   previous?: Maybe<ImageSharp>,
 };
 
 export enum ImageSharpFieldsEnum {
-  Id = 'id',
   FixedBase64 = 'fixed___base64',
   FixedTracedSvg = 'fixed___tracedSVG',
   FixedAspectRatio = 'fixed___aspectRatio',
@@ -15365,6 +15379,7 @@ export enum ImageSharpFieldsEnum {
   ResizeHeight = 'resize___height',
   ResizeAspectRatio = 'resize___aspectRatio',
   ResizeOriginalName = 'resize___originalName',
+  Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
   ParentParentParentId = 'parent___parent___parent___id',
@@ -15453,20 +15468,20 @@ export enum ImageSharpFieldsEnum {
 }
 
 export type ImageSharpFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
   fixed?: Maybe<ImageSharpFixedFilterInput>,
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>,
   fluid?: Maybe<ImageSharpFluidFilterInput>,
   sizes?: Maybe<ImageSharpSizesFilterInput>,
   original?: Maybe<ImageSharpOriginalFilterInput>,
   resize?: Maybe<ImageSharpResizeFilterInput>,
+  id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
 };
 
 export type ImageSharpFixed = {
-  __typename?: 'ImageSharpFixed',
+   __typename?: 'ImageSharpFixed',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
@@ -15493,7 +15508,7 @@ export type ImageSharpFixedFilterInput = {
 };
 
 export type ImageSharpFluid = {
-  __typename?: 'ImageSharpFluid',
+   __typename?: 'ImageSharpFluid',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
@@ -15524,7 +15539,7 @@ export type ImageSharpFluidFilterInput = {
 };
 
 export type ImageSharpGroupConnection = {
-  __typename?: 'ImageSharpGroupConnection',
+   __typename?: 'ImageSharpGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<ImageSharpEdge>,
   nodes: Array<ImageSharp>,
@@ -15534,7 +15549,7 @@ export type ImageSharpGroupConnection = {
 };
 
 export type ImageSharpOriginal = {
-  __typename?: 'ImageSharpOriginal',
+   __typename?: 'ImageSharpOriginal',
   width?: Maybe<Scalars['Float']>,
   height?: Maybe<Scalars['Float']>,
   src?: Maybe<Scalars['String']>,
@@ -15547,7 +15562,7 @@ export type ImageSharpOriginalFilterInput = {
 };
 
 export type ImageSharpResize = {
-  __typename?: 'ImageSharpResize',
+   __typename?: 'ImageSharpResize',
   src?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   width?: Maybe<Scalars['Int']>,
@@ -15566,7 +15581,7 @@ export type ImageSharpResizeFilterInput = {
 };
 
 export type ImageSharpResolutions = {
-  __typename?: 'ImageSharpResolutions',
+   __typename?: 'ImageSharpResolutions',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
@@ -15593,7 +15608,7 @@ export type ImageSharpResolutionsFilterInput = {
 };
 
 export type ImageSharpSizes = {
-  __typename?: 'ImageSharpSizes',
+   __typename?: 'ImageSharpSizes',
   base64?: Maybe<Scalars['String']>,
   tracedSVG?: Maybe<Scalars['String']>,
   aspectRatio?: Maybe<Scalars['Float']>,
@@ -15629,7 +15644,7 @@ export type ImageSharpSortInput = {
 };
 
 export type Internal = {
-  __typename?: 'Internal',
+   __typename?: 'Internal',
   content?: Maybe<Scalars['String']>,
   contentDigest: Scalars['String'],
   description?: Maybe<Scalars['String']>,
@@ -15679,7 +15694,7 @@ export enum MarkdownExcerptFormats {
 }
 
 export type MarkdownHeading = {
-  __typename?: 'MarkdownHeading',
+   __typename?: 'MarkdownHeading',
   value?: Maybe<Scalars['String']>,
   depth?: Maybe<Scalars['Int']>,
 };
@@ -15703,7 +15718,7 @@ export enum MarkdownHeadingLevels {
 }
 
 export type MarkdownRemark = Node & {
-  __typename?: 'MarkdownRemark',
+   __typename?: 'MarkdownRemark',
   id: Scalars['ID'],
   frontmatter?: Maybe<MarkdownRemarkFrontmatter>,
   excerpt?: Maybe<Scalars['String']>,
@@ -15748,7 +15763,7 @@ export type MarkdownRemarkTableOfContentsArgs = {
 };
 
 export type MarkdownRemarkConnection = {
-  __typename?: 'MarkdownRemarkConnection',
+   __typename?: 'MarkdownRemarkConnection',
   totalCount: Scalars['Int'],
   edges: Array<MarkdownRemarkEdge>,
   nodes: Array<MarkdownRemark>,
@@ -15770,14 +15785,14 @@ export type MarkdownRemarkConnectionGroupArgs = {
 };
 
 export type MarkdownRemarkEdge = {
-  __typename?: 'MarkdownRemarkEdge',
+   __typename?: 'MarkdownRemarkEdge',
   next?: Maybe<MarkdownRemark>,
   node: MarkdownRemark,
   previous?: Maybe<MarkdownRemark>,
 };
 
 export type MarkdownRemarkFields = {
-  __typename?: 'MarkdownRemarkFields',
+   __typename?: 'MarkdownRemarkFields',
   path?: Maybe<Scalars['String']>,
 };
 
@@ -15822,6 +15837,8 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedImageMtime = 'frontmatter___featuredImage___mtime',
   FrontmatterFeaturedImageCtime = 'frontmatter___featuredImage___ctime',
   FrontmatterFeaturedImagePublicUrl = 'frontmatter___featuredImage___publicURL',
+  FrontmatterFeaturedImageChildImageSharpId = 'frontmatter___featuredImage___childImageSharp___id',
+  FrontmatterFeaturedImageChildImageSharpChildren = 'frontmatter___featuredImage___childImageSharp___children',
   FrontmatterFeaturedImageId = 'frontmatter___featuredImage___id',
   FrontmatterFeaturedImageParentId = 'frontmatter___featuredImage___parent___id',
   FrontmatterFeaturedImageParentChildren = 'frontmatter___featuredImage___parent___children',
@@ -15836,8 +15853,6 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedImageInternalMediaType = 'frontmatter___featuredImage___internal___mediaType',
   FrontmatterFeaturedImageInternalOwner = 'frontmatter___featuredImage___internal___owner',
   FrontmatterFeaturedImageInternalType = 'frontmatter___featuredImage___internal___type',
-  FrontmatterFeaturedImageChildImageSharpId = 'frontmatter___featuredImage___childImageSharp___id',
-  FrontmatterFeaturedImageChildImageSharpChildren = 'frontmatter___featuredImage___childImageSharp___children',
   FrontmatterFeaturedImageChildMarkdownRemarkId = 'frontmatter___featuredImage___childMarkdownRemark___id',
   FrontmatterFeaturedImageChildMarkdownRemarkExcerpt = 'frontmatter___featuredImage___childMarkdownRemark___excerpt',
   FrontmatterFeaturedImageChildMarkdownRemarkRawMarkdownBody = 'frontmatter___featuredImage___childMarkdownRemark___rawMarkdownBody',
@@ -15975,7 +15990,7 @@ export type MarkdownRemarkFilterInput = {
 };
 
 export type MarkdownRemarkFrontmatter = {
-  __typename?: 'MarkdownRemarkFrontmatter',
+   __typename?: 'MarkdownRemarkFrontmatter',
   title?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
   slug?: Maybe<Scalars['String']>,
@@ -16002,7 +16017,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
 };
 
 export type MarkdownRemarkGroupConnection = {
-  __typename?: 'MarkdownRemarkGroupConnection',
+   __typename?: 'MarkdownRemarkGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<MarkdownRemarkEdge>,
   nodes: Array<MarkdownRemark>,
@@ -16017,7 +16032,7 @@ export type MarkdownRemarkSortInput = {
 };
 
 export type MarkdownWordCount = {
-  __typename?: 'MarkdownWordCount',
+   __typename?: 'MarkdownWordCount',
   paragraphs?: Maybe<Scalars['Int']>,
   sentences?: Maybe<Scalars['Int']>,
   words?: Maybe<Scalars['Int']>,
@@ -16049,7 +16064,7 @@ export type NodeFilterListInput = {
 };
 
 export type PageInfo = {
-  __typename?: 'PageInfo',
+   __typename?: 'PageInfo',
   currentPage: Scalars['Int'],
   hasPreviousPage: Scalars['Boolean'],
   hasNextPage: Scalars['Boolean'],
@@ -16080,13 +16095,13 @@ export enum PotraceTurnPolicy {
 }
 
 export type Query = {
-  __typename?: 'Query',
-  file?: Maybe<File>,
-  allFile: FileConnection,
+   __typename?: 'Query',
   imageSharp?: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
   markdownRemark?: Maybe<MarkdownRemark>,
   allMarkdownRemark: MarkdownRemarkConnection,
+  file?: Maybe<File>,
+  allFile: FileConnection,
   sitePage?: Maybe<SitePage>,
   allSitePage: SitePageConnection,
   sitePlugin?: Maybe<SitePlugin>,
@@ -16098,6 +16113,56 @@ export type Query = {
   graphQlSource?: Maybe<GraphQlSource>,
   allGraphQlSource: GraphQlSourceConnection,
   github: GitHub,
+};
+
+
+export type QueryImageSharpArgs = {
+  fixed?: Maybe<ImageSharpFixedFilterInput>,
+  resolutions?: Maybe<ImageSharpResolutionsFilterInput>,
+  fluid?: Maybe<ImageSharpFluidFilterInput>,
+  sizes?: Maybe<ImageSharpSizesFilterInput>,
+  original?: Maybe<ImageSharpOriginalFilterInput>,
+  resize?: Maybe<ImageSharpResizeFilterInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllImageSharpArgs = {
+  filter?: Maybe<ImageSharpFilterInput>,
+  sort?: Maybe<ImageSharpSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryMarkdownRemarkArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  rawMarkdownBody?: Maybe<StringQueryOperatorInput>,
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  htmlAst?: Maybe<JsonQueryOperatorInput>,
+  excerptAst?: Maybe<JsonQueryOperatorInput>,
+  headings?: Maybe<MarkdownHeadingFilterListInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  tableOfContents?: Maybe<StringQueryOperatorInput>,
+  wordCount?: Maybe<MarkdownWordCountFilterInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllMarkdownRemarkArgs = {
+  filter?: Maybe<MarkdownRemarkFilterInput>,
+  sort?: Maybe<MarkdownRemarkSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
 };
 
 
@@ -16136,11 +16201,11 @@ export type QueryFileArgs = {
   mtime?: Maybe<DateQueryOperatorInput>,
   ctime?: Maybe<DateQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
+  childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  childImageSharp?: Maybe<ImageSharpFilterInput>,
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>
 };
 
@@ -16148,56 +16213,6 @@ export type QueryFileArgs = {
 export type QueryAllFileArgs = {
   filter?: Maybe<FileFilterInput>,
   sort?: Maybe<FileSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryImageSharpArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  fixed?: Maybe<ImageSharpFixedFilterInput>,
-  resolutions?: Maybe<ImageSharpResolutionsFilterInput>,
-  fluid?: Maybe<ImageSharpFluidFilterInput>,
-  sizes?: Maybe<ImageSharpSizesFilterInput>,
-  original?: Maybe<ImageSharpOriginalFilterInput>,
-  resize?: Maybe<ImageSharpResizeFilterInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>
-};
-
-
-export type QueryAllImageSharpArgs = {
-  filter?: Maybe<ImageSharpFilterInput>,
-  sort?: Maybe<ImageSharpSortInput>,
-  skip?: Maybe<Scalars['Int']>,
-  limit?: Maybe<Scalars['Int']>
-};
-
-
-export type QueryMarkdownRemarkArgs = {
-  id?: Maybe<StringQueryOperatorInput>,
-  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>,
-  excerpt?: Maybe<StringQueryOperatorInput>,
-  rawMarkdownBody?: Maybe<StringQueryOperatorInput>,
-  fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
-  fields?: Maybe<MarkdownRemarkFieldsFilterInput>,
-  html?: Maybe<StringQueryOperatorInput>,
-  htmlAst?: Maybe<JsonQueryOperatorInput>,
-  excerptAst?: Maybe<JsonQueryOperatorInput>,
-  headings?: Maybe<MarkdownHeadingFilterListInput>,
-  timeToRead?: Maybe<IntQueryOperatorInput>,
-  tableOfContents?: Maybe<StringQueryOperatorInput>,
-  wordCount?: Maybe<MarkdownWordCountFilterInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>
-};
-
-
-export type QueryAllMarkdownRemarkArgs = {
-  filter?: Maybe<MarkdownRemarkFilterInput>,
-  sort?: Maybe<MarkdownRemarkSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -16342,7 +16357,7 @@ export type QueryAllGraphQlSourceArgs = {
 };
 
 export type Site = Node & {
-  __typename?: 'Site',
+   __typename?: 'Site',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -16364,7 +16379,7 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteConnection = {
-  __typename?: 'SiteConnection',
+   __typename?: 'SiteConnection',
   totalCount: Scalars['Int'],
   edges: Array<SiteEdge>,
   nodes: Array<Site>,
@@ -16386,7 +16401,7 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
-  __typename?: 'SiteEdge',
+   __typename?: 'SiteEdge',
   next?: Maybe<Site>,
   node: Site,
   previous?: Maybe<Site>,
@@ -16510,7 +16525,7 @@ export type SiteFilterInput = {
 };
 
 export type SiteGroupConnection = {
-  __typename?: 'SiteGroupConnection',
+   __typename?: 'SiteGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SiteEdge>,
   nodes: Array<Site>,
@@ -16520,7 +16535,7 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
-  __typename?: 'SitePage',
+   __typename?: 'SitePage',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -16537,7 +16552,7 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
-  __typename?: 'SitePageConnection',
+   __typename?: 'SitePageConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePageEdge>,
   nodes: Array<SitePage>,
@@ -16559,7 +16574,7 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  __typename?: 'SitePageContext',
+   __typename?: 'SitePageContext',
   slug?: Maybe<Scalars['String']>,
   previous?: Maybe<SitePageContextPrevious>,
   next?: Maybe<SitePageContextNext>,
@@ -16572,7 +16587,7 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageContextNext = {
-  __typename?: 'SitePageContextNext',
+   __typename?: 'SitePageContextNext',
   fields?: Maybe<SitePageContextNextFields>,
   excerpt?: Maybe<Scalars['String']>,
   timeToRead?: Maybe<Scalars['Int']>,
@@ -16580,7 +16595,7 @@ export type SitePageContextNext = {
 };
 
 export type SitePageContextNextFields = {
-  __typename?: 'SitePageContextNextFields',
+   __typename?: 'SitePageContextNextFields',
   path?: Maybe<Scalars['String']>,
 };
 
@@ -16596,7 +16611,7 @@ export type SitePageContextNextFilterInput = {
 };
 
 export type SitePageContextNextFrontmatter = {
-  __typename?: 'SitePageContextNextFrontmatter',
+   __typename?: 'SitePageContextNextFrontmatter',
   date?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['String']>,
@@ -16613,7 +16628,7 @@ export type SitePageContextNextFrontmatterFilterInput = {
 };
 
 export type SitePageContextPrevious = {
-  __typename?: 'SitePageContextPrevious',
+   __typename?: 'SitePageContextPrevious',
   fields?: Maybe<SitePageContextPreviousFields>,
   excerpt?: Maybe<Scalars['String']>,
   timeToRead?: Maybe<Scalars['Int']>,
@@ -16621,7 +16636,7 @@ export type SitePageContextPrevious = {
 };
 
 export type SitePageContextPreviousFields = {
-  __typename?: 'SitePageContextPreviousFields',
+   __typename?: 'SitePageContextPreviousFields',
   path?: Maybe<Scalars['String']>,
 };
 
@@ -16637,7 +16652,7 @@ export type SitePageContextPreviousFilterInput = {
 };
 
 export type SitePageContextPreviousFrontmatter = {
-  __typename?: 'SitePageContextPreviousFrontmatter',
+   __typename?: 'SitePageContextPreviousFrontmatter',
   date?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['String']>,
@@ -16654,7 +16669,7 @@ export type SitePageContextPreviousFrontmatterFilterInput = {
 };
 
 export type SitePageEdge = {
-  __typename?: 'SitePageEdge',
+   __typename?: 'SitePageEdge',
   next?: Maybe<SitePage>,
   node: SitePage,
   previous?: Maybe<SitePage>,
@@ -16817,7 +16832,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPluginsVersion = 'pluginCreator___pluginOptions___plugins___version',
   PluginCreatorPluginOptionsPluginsBrowserApIs = 'pluginCreator___pluginOptions___plugins___browserAPIs',
   PluginCreatorPluginOptionsPluginsSsrApIs = 'pluginCreator___pluginOptions___plugins___ssrAPIs',
-  PluginCreatorPluginOptionsPluginsPluginFilepath = 'pluginCreator___pluginOptions___plugins___pluginFilepath',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
@@ -16826,20 +16840,10 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsThemeColor = 'pluginCreator___pluginOptions___theme_color',
   PluginCreatorPluginOptionsDisplay = 'pluginCreator___pluginOptions___display',
   PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
+  PluginCreatorPluginOptionsPrecachePages = 'pluginCreator___pluginOptions___precachePages',
   PluginCreatorPluginOptionsFieldName = 'pluginCreator___pluginOptions___fieldName',
   PluginCreatorPluginOptionsTypeName = 'pluginCreator___pluginOptions___typeName',
   PluginCreatorPluginOptionsShortname = 'pluginCreator___pluginOptions___shortname',
-  PluginCreatorPluginOptionsPathPrefix = 'pluginCreator___pluginOptions___pathPrefix',
-  PluginCreatorPluginOptionsMaxWidth = 'pluginCreator___pluginOptions___maxWidth',
-  PluginCreatorPluginOptionsWrapperStyle = 'pluginCreator___pluginOptions___wrapperStyle',
-  PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___backgroundColor',
-  PluginCreatorPluginOptionsLinkImagesToOriginal = 'pluginCreator___pluginOptions___linkImagesToOriginal',
-  PluginCreatorPluginOptionsShowCaptions = 'pluginCreator___pluginOptions___showCaptions',
-  PluginCreatorPluginOptionsMarkdownCaptions = 'pluginCreator___pluginOptions___markdownCaptions',
-  PluginCreatorPluginOptionsWithWebp = 'pluginCreator___pluginOptions___withWebp',
-  PluginCreatorPluginOptionsTracedSvg = 'pluginCreator___pluginOptions___tracedSVG',
-  PluginCreatorPluginOptionsLoading = 'pluginCreator___pluginOptions___loading',
-  PluginCreatorPluginOptionsDisableBgImageOnAlpha = 'pluginCreator___pluginOptions___disableBgImageOnAlpha',
   PluginCreatorPluginOptionsTrackingId = 'pluginCreator___pluginOptions___trackingId',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
@@ -16883,7 +16887,7 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
-  __typename?: 'SitePageGroupConnection',
+   __typename?: 'SitePageGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePageEdge>,
   nodes: Array<SitePage>,
@@ -16898,7 +16902,7 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
-  __typename?: 'SitePlugin',
+   __typename?: 'SitePlugin',
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -16915,7 +16919,7 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
-  __typename?: 'SitePluginConnection',
+   __typename?: 'SitePluginConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePluginEdge>,
   nodes: Array<SitePlugin>,
@@ -16937,7 +16941,7 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
-  __typename?: 'SitePluginEdge',
+   __typename?: 'SitePluginEdge',
   next?: Maybe<SitePlugin>,
   node: SitePlugin,
   previous?: Maybe<SitePlugin>,
@@ -17038,20 +17042,8 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsId = 'pluginOptions___plugins___id',
   PluginOptionsPluginsName = 'pluginOptions___plugins___name',
   PluginOptionsPluginsVersion = 'pluginOptions___plugins___version',
-  PluginOptionsPluginsPluginOptionsPathPrefix = 'pluginOptions___plugins___pluginOptions___pathPrefix',
-  PluginOptionsPluginsPluginOptionsMaxWidth = 'pluginOptions___plugins___pluginOptions___maxWidth',
-  PluginOptionsPluginsPluginOptionsWrapperStyle = 'pluginOptions___plugins___pluginOptions___wrapperStyle',
-  PluginOptionsPluginsPluginOptionsBackgroundColor = 'pluginOptions___plugins___pluginOptions___backgroundColor',
-  PluginOptionsPluginsPluginOptionsLinkImagesToOriginal = 'pluginOptions___plugins___pluginOptions___linkImagesToOriginal',
-  PluginOptionsPluginsPluginOptionsShowCaptions = 'pluginOptions___plugins___pluginOptions___showCaptions',
-  PluginOptionsPluginsPluginOptionsMarkdownCaptions = 'pluginOptions___plugins___pluginOptions___markdownCaptions',
-  PluginOptionsPluginsPluginOptionsWithWebp = 'pluginOptions___plugins___pluginOptions___withWebp',
-  PluginOptionsPluginsPluginOptionsTracedSvg = 'pluginOptions___plugins___pluginOptions___tracedSVG',
-  PluginOptionsPluginsPluginOptionsLoading = 'pluginOptions___plugins___pluginOptions___loading',
-  PluginOptionsPluginsPluginOptionsDisableBgImageOnAlpha = 'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha',
   PluginOptionsPluginsBrowserApIs = 'pluginOptions___plugins___browserAPIs',
   PluginOptionsPluginsSsrApIs = 'pluginOptions___plugins___ssrAPIs',
-  PluginOptionsPluginsPluginFilepath = 'pluginOptions___plugins___pluginFilepath',
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsShortName = 'pluginOptions___short_name',
@@ -17060,20 +17052,10 @@ export enum SitePluginFieldsEnum {
   PluginOptionsThemeColor = 'pluginOptions___theme_color',
   PluginOptionsDisplay = 'pluginOptions___display',
   PluginOptionsIcon = 'pluginOptions___icon',
+  PluginOptionsPrecachePages = 'pluginOptions___precachePages',
   PluginOptionsFieldName = 'pluginOptions___fieldName',
   PluginOptionsTypeName = 'pluginOptions___typeName',
   PluginOptionsShortname = 'pluginOptions___shortname',
-  PluginOptionsPathPrefix = 'pluginOptions___pathPrefix',
-  PluginOptionsMaxWidth = 'pluginOptions___maxWidth',
-  PluginOptionsWrapperStyle = 'pluginOptions___wrapperStyle',
-  PluginOptionsBackgroundColor = 'pluginOptions___backgroundColor',
-  PluginOptionsLinkImagesToOriginal = 'pluginOptions___linkImagesToOriginal',
-  PluginOptionsShowCaptions = 'pluginOptions___showCaptions',
-  PluginOptionsMarkdownCaptions = 'pluginOptions___markdownCaptions',
-  PluginOptionsWithWebp = 'pluginOptions___withWebp',
-  PluginOptionsTracedSvg = 'pluginOptions___tracedSVG',
-  PluginOptionsLoading = 'pluginOptions___loading',
-  PluginOptionsDisableBgImageOnAlpha = 'pluginOptions___disableBgImageOnAlpha',
   PluginOptionsTrackingId = 'pluginOptions___trackingId',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
@@ -17115,7 +17097,7 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
-  __typename?: 'SitePluginGroupConnection',
+   __typename?: 'SitePluginGroupConnection',
   totalCount: Scalars['Int'],
   edges: Array<SitePluginEdge>,
   nodes: Array<SitePlugin>,
@@ -17125,7 +17107,7 @@ export type SitePluginGroupConnection = {
 };
 
 export type SitePluginPackageJson = {
-  __typename?: 'SitePluginPackageJson',
+   __typename?: 'SitePluginPackageJson',
   name?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
@@ -17139,7 +17121,7 @@ export type SitePluginPackageJson = {
 };
 
 export type SitePluginPackageJsonDependencies = {
-  __typename?: 'SitePluginPackageJsonDependencies',
+   __typename?: 'SitePluginPackageJsonDependencies',
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
 };
@@ -17154,7 +17136,7 @@ export type SitePluginPackageJsonDependenciesFilterListInput = {
 };
 
 export type SitePluginPackageJsonDevDependencies = {
-  __typename?: 'SitePluginPackageJsonDevDependencies',
+   __typename?: 'SitePluginPackageJsonDevDependencies',
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
 };
@@ -17182,7 +17164,7 @@ export type SitePluginPackageJsonFilterInput = {
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
-  __typename?: 'SitePluginPackageJsonPeerDependencies',
+   __typename?: 'SitePluginPackageJsonPeerDependencies',
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
 };
@@ -17197,7 +17179,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-  __typename?: 'SitePluginPluginOptions',
+   __typename?: 'SitePluginPluginOptions',
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>,
   name?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
@@ -17207,20 +17189,10 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>,
   display?: Maybe<Scalars['String']>,
   icon?: Maybe<Scalars['String']>,
+  precachePages?: Maybe<Array<Maybe<Scalars['String']>>>,
   fieldName?: Maybe<Scalars['String']>,
   typeName?: Maybe<Scalars['String']>,
   shortname?: Maybe<Scalars['String']>,
-  pathPrefix?: Maybe<Scalars['String']>,
-  maxWidth?: Maybe<Scalars['Int']>,
-  wrapperStyle?: Maybe<Scalars['String']>,
-  backgroundColor?: Maybe<Scalars['String']>,
-  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
-  showCaptions?: Maybe<Scalars['Boolean']>,
-  markdownCaptions?: Maybe<Scalars['Boolean']>,
-  withWebp?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
-  loading?: Maybe<Scalars['String']>,
-  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
   trackingId?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
@@ -17235,34 +17207,22 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>,
   display?: Maybe<StringQueryOperatorInput>,
   icon?: Maybe<StringQueryOperatorInput>,
+  precachePages?: Maybe<StringQueryOperatorInput>,
   fieldName?: Maybe<StringQueryOperatorInput>,
   typeName?: Maybe<StringQueryOperatorInput>,
   shortname?: Maybe<StringQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
-  maxWidth?: Maybe<IntQueryOperatorInput>,
-  wrapperStyle?: Maybe<StringQueryOperatorInput>,
-  backgroundColor?: Maybe<StringQueryOperatorInput>,
-  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
-  showCaptions?: Maybe<BooleanQueryOperatorInput>,
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  withWebp?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
-  loading?: Maybe<StringQueryOperatorInput>,
-  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
   trackingId?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsPlugins = {
-  __typename?: 'SitePluginPluginOptionsPlugins',
+   __typename?: 'SitePluginPluginOptionsPlugins',
   resolve?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
-  pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>,
   browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
   ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
-  pluginFilepath?: Maybe<Scalars['String']>,
 };
 
 export type SitePluginPluginOptionsPluginsFilterInput = {
@@ -17270,43 +17230,12 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   version?: Maybe<StringQueryOperatorInput>,
-  pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>,
   browserAPIs?: Maybe<StringQueryOperatorInput>,
   ssrAPIs?: Maybe<StringQueryOperatorInput>,
-  pluginFilepath?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsPluginsFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsPluginsFilterInput>,
-};
-
-export type SitePluginPluginOptionsPluginsPluginOptions = {
-  __typename?: 'SitePluginPluginOptionsPluginsPluginOptions',
-  pathPrefix?: Maybe<Scalars['String']>,
-  maxWidth?: Maybe<Scalars['Int']>,
-  wrapperStyle?: Maybe<Scalars['String']>,
-  backgroundColor?: Maybe<Scalars['String']>,
-  linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
-  showCaptions?: Maybe<Scalars['Boolean']>,
-  markdownCaptions?: Maybe<Scalars['Boolean']>,
-  withWebp?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
-  loading?: Maybe<Scalars['String']>,
-  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
-};
-
-export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
-  maxWidth?: Maybe<IntQueryOperatorInput>,
-  wrapperStyle?: Maybe<StringQueryOperatorInput>,
-  backgroundColor?: Maybe<StringQueryOperatorInput>,
-  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
-  showCaptions?: Maybe<BooleanQueryOperatorInput>,
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  withWebp?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
-  loading?: Maybe<StringQueryOperatorInput>,
-  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {
@@ -17315,7 +17244,7 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
-  __typename?: 'SiteSiteMetadata',
+   __typename?: 'SiteSiteMetadata',
   title?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   siteUrl?: Maybe<Scalars['String']>,
@@ -17336,7 +17265,7 @@ export type SiteSiteMetadataFilterInput = {
 };
 
 export type SiteSiteMetadataSocialUsernames = {
-  __typename?: 'SiteSiteMetadataSocialUsernames',
+   __typename?: 'SiteSiteMetadataSocialUsernames',
   email?: Maybe<Scalars['String']>,
   instagram?: Maybe<Scalars['String']>,
   github?: Maybe<Scalars['String']>,
@@ -17368,6 +17297,7 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>,
   glob?: Maybe<Scalars['String']>,
 };
+
 export type GatsbyImageSharpFixedFragment = (
   { __typename?: 'ImageSharpFixed' }
   & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>
@@ -17568,9 +17498,10 @@ export type GetPresentationImagesQuery = (
       & Pick<File, 'base'>
       & { childImageSharp: Maybe<(
         { __typename?: 'ImageSharp' }
-        & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
+        & { fluid: Maybe<(
+          { __typename?: 'ImageSharpFluid' }
           & GatsbyImageSharpFluidFragment
-        >, resize: Maybe<(
+        )>, resize: Maybe<(
           { __typename?: 'ImageSharpResize' }
           & Pick<ImageSharpResize, 'src'>
         )> }
@@ -17583,9 +17514,10 @@ export type GetPresentationImagesQuery = (
       & Pick<File, 'base'>
       & { childImageSharp: Maybe<(
         { __typename?: 'ImageSharp' }
-        & { fluid: Maybe<{ __typename?: 'ImageSharpFluid' }
+        & { fluid: Maybe<(
+          { __typename?: 'ImageSharpFluid' }
           & GatsbyImageSharpFluidFragment
-        >, resize: Maybe<(
+        )>, resize: Maybe<(
           { __typename?: 'ImageSharpResize' }
           & Pick<ImageSharpResize, 'src'>
         )> }
@@ -17778,6 +17710,20 @@ export type BlogTagsPageQuery = (
         )> }
       )> }
     )> }
+  ) }
+);
+
+export type CallingCardPageQueryVariables = {};
+
+
+export type CallingCardPageQuery = (
+  { __typename?: 'Query' }
+  & { github: (
+    { __typename?: 'GitHub' }
+    & { viewer: (
+      { __typename?: 'GitHub_User' }
+      & Pick<GitHub_User, 'bio'>
+    ) }
   ) }
 );
 

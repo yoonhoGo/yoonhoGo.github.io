@@ -54,6 +54,13 @@ const CallingCardPage = () => {
           src="https://kit.fontawesome.com/6fbc6fe058.js"
           crossOrigin="anonymous"
         ></script>
+        <style>
+          {`
+          html {
+            background-color: hsl(48, 100%, 67%);
+          }
+          `}
+        </style>
       </Helmet>
       <main
         style={{
@@ -71,11 +78,14 @@ const CallingCardPage = () => {
             className="animated fadeInDown delay-1s"
             style={{ margin: "0 auto" }}
           >
-            <figure className="image is-256x256">
-              <img src={avatarUrl} style={{
-              borderRadius: '1rem'
-            }}/>
-            </figure>
+            <ProfileFigure className="image is-256x256">
+              <img
+                src={avatarUrl}
+                style={{
+                  borderRadius: "1rem",
+                }}
+              />
+            </ProfileFigure>
             <div>
               {sns.map(({ iconName, label, href }, index) => (
                 <a key={index} href={href}>
@@ -204,4 +214,8 @@ const QRCodeBox = styled.div`
   padding: 1em;
   border: 1em solid hsl(48, 100%, 67%);
   display: inline-block;
+`
+
+const ProfileFigure = styled.figure`
+  padding: 1em;
 `

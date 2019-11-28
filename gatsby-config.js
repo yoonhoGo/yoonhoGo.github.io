@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `yoonhoGo's name card`,
+        name: `yoonhoGo's calling card`,
         short_name: `yoonhoGo`,
         start_url: `/calling-card`,
         background_color: `#FFDD57`,

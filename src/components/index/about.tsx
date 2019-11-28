@@ -1,8 +1,5 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import styled from "styled-components"
-import IconLabel from "../IconLabel"
-import InnerItemsCenter from "../styled/InnerItemsCenter"
 import {
   AboutComponentQuery,
   Site,
@@ -12,6 +9,7 @@ import {
   SiteSiteMetadataSocialUsernames,
 } from "../../graphqlTypes"
 import SimpleTags from "../simpleTags"
+import Profile from "../profile"
 
 export default function About({ id }: { id?: string }) {
   const {
@@ -60,32 +58,36 @@ export default function About({ id }: { id?: string }) {
         <div className="container is-desktop is-margin-center wow slideInUp">
           <div className="columns">
             <div className="column is-narrow">
-              <Profile
-                profilePhotoSrc={avatarUrl}
-                smallIconLabels={[
-                  {
-                    iconName: "fab fa-github",
-                    label: "@" + socialUsernames.github,
-                    href: "https://github.com/" + socialUsernames.github,
-                  },
-                  {
-                    iconName: "fab fa-instagram",
-                    label: "@" + socialUsernames.instagram,
-                    href:
-                      "https://www.instagram.com/" + socialUsernames.instagram,
-                  },
-                  {
-                    iconName: "fab fa-twitter",
-                    label: "@" + socialUsernames.twitter,
-                    href: "https://www.twitter.com/" + socialUsernames.twitter,
-                  },
-                  {
-                    iconName: "fas fa-at",
-                    label: socialUsernames.email || '',
-                    href: "mailto:" + socialUsernames.email,
-                  },
-                ]}
-              />
+              <div className="box">
+                <Profile
+                  profilePhotoSrc={avatarUrl}
+                  smallIconLabels={[
+                    {
+                      iconName: "fab fa-github",
+                      label: "@" + socialUsernames.github,
+                      href: "https://github.com/" + socialUsernames.github,
+                    },
+                    {
+                      iconName: "fab fa-instagram",
+                      label: "@" + socialUsernames.instagram,
+                      href:
+                        "https://www.instagram.com/" +
+                        socialUsernames.instagram,
+                    },
+                    {
+                      iconName: "fab fa-twitter",
+                      label: "@" + socialUsernames.twitter,
+                      href:
+                        "https://www.twitter.com/" + socialUsernames.twitter,
+                    },
+                    {
+                      iconName: "fas fa-at",
+                      label: socialUsernames.email || "",
+                      href: "mailto:" + socialUsernames.email,
+                    },
+                  ]}
+                />
+              </div>
             </div>
             <div className="column">
               <div className="content">
@@ -140,42 +142,5 @@ export default function About({ id }: { id?: string }) {
         </div>
       </div>
     </section>
-  )
-}
-
-const ProfilePhotho = styled.img`
-  /* margin: 0.5em; */
-  border-radius: 0.75rem;
-`
-
-interface IProfile {
-  profilePhotoSrc: string
-  smallIconLabels?: Array<{
-    iconName: string
-    label: string
-    href?: string
-  }>
-}
-
-function Profile({ profilePhotoSrc, smallIconLabels }: IProfile) {
-  return (
-    <div className="box">
-      <InnerItemsCenter>
-        <figure className="image is-128x128">
-          <ProfilePhotho src={profilePhotoSrc} />
-        </figure>
-      </InnerItemsCenter>
-      {smallIconLabels && (
-        <span>
-          {smallIconLabels.map(({ iconName, label, href }, index) => (
-            <React.Fragment key={index}>
-              <IconLabel iconName={iconName} href={href} isFull>
-                {label}
-              </IconLabel>
-            </React.Fragment>
-          ))}
-        </span>
-      )}
-    </div>
   )
 }

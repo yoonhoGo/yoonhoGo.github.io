@@ -36,18 +36,23 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/icon-80.png`, // This path is relative to the root of the site.
+        name: `yoonhoGo's name card`,
+        short_name: `yoonhoGo`,
+        start_url: `/calling-card`,
+        background_color: `#FFDD57`,
+        theme_color: `#FFDD57`,
+        display: `standalone`,
+        icon: `src/images/favicon.ico/apple-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/calling-card`],
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,

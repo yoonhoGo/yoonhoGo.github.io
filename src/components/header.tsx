@@ -74,7 +74,13 @@ const Header = ({ menu, tagType }: IHeaderProps) => {
             <span className="icon">
               <i className="fas fa-rss"></i>
             </span>
-            <span>blog</span>
+            <span>Blog</span>
+          </Link>
+          <Link className="navbar-item" to="calling-card">
+            <span className="icon">
+              <i className="far fa-address-card"></i>
+            </span>
+            <span>Calling Card</span>
           </Link>
         </div>
         <div className="navbar-end">

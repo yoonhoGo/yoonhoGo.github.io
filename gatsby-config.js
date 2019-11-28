@@ -38,11 +38,11 @@ module.exports = {
       options: {
         name: `yoonhoGo's name card`,
         short_name: `yoonhoGo`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        start_url: `/calling-card`,
+        background_color: `#FFDD57`,
+        theme_color: `#FFDD57`,
         display: `standalone`,
-        icon: `src/images/icon-80.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.ico/apple-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

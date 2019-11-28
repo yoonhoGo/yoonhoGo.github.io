@@ -24,6 +24,29 @@ const CallingCardPage = () => {
   const [openPageQRCodeModal, PageQRCodeModal] = useModal()
   const [openVCardQRCodeModal, VCardQRCodeModal] = useModal()
 
+  const sns = [
+    {
+      iconName: "fab fa-github",
+      label: "@" + socialUsernames.github,
+      href: "https://github.com/" + socialUsernames.github,
+    },
+    {
+      iconName: "fab fa-instagram",
+      label: "@" + socialUsernames.instagram,
+      href: "https://www.instagram.com/" + socialUsernames.instagram,
+    },
+    {
+      iconName: "fab fa-twitter",
+      label: "@" + socialUsernames.twitter,
+      href: "https://www.twitter.com/" + socialUsernames.twitter,
+    },
+    {
+      iconName: "fas fa-at",
+      label: socialUsernames.email || "",
+      href: "mailto:" + socialUsernames.email,
+    },
+  ]
+
   return (
     <>
       <Helmet>
@@ -48,32 +71,23 @@ const CallingCardPage = () => {
             className="animated fadeInDown delay-1s"
             style={{ margin: "0 auto" }}
           >
-            <Profile
-              profilePhotoSrc={avatarUrl as string}
-              smallIconLabels={[
-                {
-                  iconName: "fab fa-github",
-                  label: "@" + socialUsernames.github,
-                  href: "https://github.com/" + socialUsernames.github,
-                },
-                {
-                  iconName: "fab fa-instagram",
-                  label: "@" + socialUsernames.instagram,
-                  href:
-                    "https://www.instagram.com/" + socialUsernames.instagram,
-                },
-                {
-                  iconName: "fab fa-twitter",
-                  label: "@" + socialUsernames.twitter,
-                  href: "https://www.twitter.com/" + socialUsernames.twitter,
-                },
-                {
-                  iconName: "fas fa-at",
-                  label: socialUsernames.email || "",
-                  href: "mailto:" + socialUsernames.email,
-                },
-              ]}
-            />
+            <figure className="image is-256x256">
+              <img src={avatarUrl} style={{
+              borderRadius: '1rem'
+            }}/>
+            </figure>
+            <div>
+              {sns.map(({ iconName, label, href }, index) => (
+                <a key={index} href={href}>
+                  <h1 className="is-size-5 has-text-grey-dark">
+                    <span className="icon is-small">
+                      <li className={iconName}></li>
+                    </span>
+                    <span> {label}</span>
+                  </h1>
+                </a>
+              ))}
+            </div>
           </BodySection>
 
           <FootSection>

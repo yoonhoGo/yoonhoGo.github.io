@@ -65,12 +65,12 @@ const CallingCardPage = () => {
 
           <FootSection>
             <Link to="/">
-              <button className="button is-warning is-light is-fullwidth">
-                Go to Homepage
+              <button className="button is-warning is-light is-fullwidth" style={{ margin: '0.25em' }}>
+                Visit Homepage
               </button>
             </Link>
 
-            <div className="field has-addons">
+            <div className="field has-addons" style={{ margin: '0.25em' }}>
               <p className="control is-fullwidth">
                 {/* <a href="/yoonhoGo.vcf">
                 </a> */}

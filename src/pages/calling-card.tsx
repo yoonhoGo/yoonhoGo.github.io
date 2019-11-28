@@ -1,20 +1,28 @@
+import { Link, graphql, StaticQuery } from "gatsby"
+import QRCode from "qrcode.react"
 import React, { useState } from "react"
 import Helmet from "react-helmet"
+import styled from "styled-components"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import Profile from "../components/profile"
-import { SiteSiteMetadataSocialUsernames } from "../graphqlTypes"
-import styled from "styled-components"
-import { Link } from "gatsby"
+import {
+  SiteSiteMetadataSocialUsernames,
+  SiteSiteMetadata,
+} from "../graphqlTypes"
+import vCard from "../components/calling-card/vCard"
+import { useModal } from "../components/modal"
 
 const CallingCardPage = () => {
   const siteMetadata = useSiteMetadata()
-  const { defaultImage: avatarUrl, socialUsernames } = siteMetadata.site
-    .siteMetadata as {
+  const { siteUrl, defaultImage: avatarUrl, socialUsernames } = siteMetadata
+    .site.siteMetadata as SiteSiteMetadata & {
+    siteUrl: string
     defaultImage: string
     socialUsernames: SiteSiteMetadataSocialUsernames
   }
 
-  const [vCardQRCodeModal, setVCardQRCodeModal] = useState(false)
+  const [openPageQRCodeModal, PageQRCodeModal] = useModal()
+  const [openVCardQRCodeModal, VCardQRCodeModal] = useModal()
 
   return (
     <>
@@ -24,7 +32,12 @@ const CallingCardPage = () => {
           crossOrigin="anonymous"
         ></script>
       </Helmet>
-      <main>
+      <main
+        style={{
+          backgroundColor: "hsl(48, 100%, 67%)",
+          overflow: "scroll",
+        }}
+      >
         <FullHeight>
           <HeadSection className="animated fadeInDown">
             <h1 className="title">Hello,</h1>
@@ -64,25 +77,44 @@ const CallingCardPage = () => {
           </BodySection>
 
           <FootSection>
-            <Link to="/">
-              <button className="button is-warning is-light is-fullwidth" style={{ margin: '0.25em' }}>
-                Visit Homepage
-              </button>
-            </Link>
-
-            <div className="field has-addons" style={{ margin: '0.25em' }}>
-              <p className="control is-fullwidth">
-                {/* <a href="/yoonhoGo.vcf">
-                </a> */}
-
-                <button className="button is-warning is-light">
-                  Add your contacts
-                </button>
+            <div className="field has-addons" style={{ margin: "0.25em" }}>
+              <p className="control is-expanded">
+                <Link to="/">
+                  <button className="button is-warning is-light is-fullwidth">
+                    <span className="icon is-small">
+                      <i className="fas fa-home"></i>
+                    </span>
+                    <span>Visit Homepage</span>
+                  </button>
+                </Link>
               </p>
               <p className="control">
                 <button
                   className="button is-success is-light"
-                  onClick={() => setVCardQRCodeModal(true)}
+                  onClick={openPageQRCodeModal}
+                >
+                  <span className="icon is-small">
+                    <i className="fas fa-qrcode"></i>
+                  </span>
+                </button>
+              </p>
+            </div>
+
+            <div className="field has-addons" style={{ margin: "0.25em" }}>
+              <p className="control is-expanded">
+                <a href="/yoonhoGo.vcf">
+                  <button className="button is-warning is-light is-fullwidth">
+                    <span className="icon is-small">
+                      <i className="far fa-address-book"></i>
+                    </span>
+                    <span>Add your contacts</span>
+                  </button>
+                </a>
+              </p>
+              <p className="control">
+                <button
+                  className="button is-success is-light"
+                  onClick={openVCardQRCodeModal}
                 >
                   <span className="icon is-small">
                     <i className="fas fa-qrcode"></i>
@@ -92,18 +124,31 @@ const CallingCardPage = () => {
             </div>
           </FootSection>
 
-          <div className={"modal" + (vCardQRCodeModal ? " is-active" : "")}>
-            <div
-              className="modal-background"
-              onClick={() => setVCardQRCodeModal(false)}
-            ></div>
-            <div className="modal-content">hi</div>
-            <button
-              className="modal-close is-large"
-              aria-label="close"
-              onClick={() => setVCardQRCodeModal(false)}
-            ></button>
-          </div>
+          <PageQRCodeModal>
+            <FlexBox>
+              <h1 className="title has-text-warning">This page</h1>
+              <QRCodeBox>
+                <QRCode
+                  value={siteUrl + "/calling-card"}
+                  includeMargin
+                  bgColor="hsl(48, 100%, 67%)"
+                />
+              </QRCodeBox>
+            </FlexBox>
+          </PageQRCodeModal>
+
+          <VCardQRCodeModal>
+            <FlexBox>
+              <h1 className="title has-text-warning">Contact</h1>
+              <QRCodeBox>
+                <QRCode
+                  value={vCard}
+                  includeMargin
+                  bgColor="hsl(48, 100%, 67%)"
+                />
+              </QRCodeBox>
+            </FlexBox>
+          </VCardQRCodeModal>
         </FullHeight>
       </main>
     </>
@@ -114,7 +159,6 @@ export default CallingCardPage
 
 const FullHeight = styled.article`
   height: 100vh;
-  background-color: hsl(48, 100%, 67%);
   display: flex;
   flex-wrap: wrap;
 `
@@ -132,4 +176,18 @@ const FootSection = styled.section`
   width: 100%;
   padding: 1em 1.5rem;
   align-self: flex-end;
+`
+
+const FlexBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+`
+
+const QRCodeBox = styled.div`
+  padding: 1em;
+  border: 1em solid hsl(48, 100%, 67%);
+  display: inline-block;
 `

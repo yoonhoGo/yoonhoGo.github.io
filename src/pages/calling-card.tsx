@@ -74,21 +74,14 @@ const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
           `}
         </style>
       </Helmet>
-      <main
-        style={{
-          backgroundColor: "hsl(48, 100%, 67%)",
-          overflow: "scroll",
-        }}
-      >
+      <main className="container">
         <FullHeight>
           <HeadSection className="animated fadeInDown">
             <h1 className="title">Hello,</h1>
             <h2 className="subtitle">I'm "Yoonho Ko"</h2>
           </HeadSection>
 
-          <BodySection
-            className="is-size-5 animated fadeInDown delay-1s"
-          >
+          <BodySection className="is-size-5 animated fadeInDown delay-1s">
             <div className="columns is-centered">
               <div className="column is-half">
                 <ProfileFigure className="image is-256x256">

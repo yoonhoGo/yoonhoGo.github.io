@@ -178,6 +178,7 @@ const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
                   value={siteUrl + "/calling-card"}
                   includeMargin
                   bgColor="hsl(48, 100%, 67%)"
+                  size=256
                 />
               </QRCodeBox>
             </FlexBox>
@@ -191,6 +192,7 @@ const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
                   value={vCard}
                   includeMargin
                   bgColor="hsl(48, 100%, 67%)"
+                  size=256
                 />
               </QRCodeBox>
             </FlexBox>

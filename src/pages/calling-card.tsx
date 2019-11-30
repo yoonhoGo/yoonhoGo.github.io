@@ -11,6 +11,7 @@ import {
 } from "../graphqlTypes"
 import vCard from "../components/calling-card/vCard"
 import { useModal } from "../components/modal"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query CallingCardPage {
@@ -30,6 +31,8 @@ const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
     defaultImage: string
     socialUsernames: SiteSiteMetadataSocialUsernames
   }
+
+  const thisPageUrl = siteUrl + "/calling-card"
 
   const [toggleBio, setToggleBio] = useState(false)
 
@@ -74,6 +77,12 @@ const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
           `}
         </style>
       </Helmet>
+      <SEO
+        title="yoonhoGo's calling card"
+        description="Who is Yoonho?"
+        url={thisPageUrl}
+        image={avatarUrl}
+      />
       <main className="container">
         <FullHeight>
           <HeadSection className="animated fadeInDown">
@@ -175,7 +184,7 @@ const CallingCardPage = ({ data }: { data: CallingCardPageQuery }) => {
               <h1 className="title has-text-warning">This page</h1>
               <QRCodeBox>
                 <QRCode
-                  value={siteUrl + "/calling-card"}
+                  value={thisPageUrl}
                   includeMargin
                   bgColor="hsl(48, 100%, 67%)"
                   size={256}

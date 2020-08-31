@@ -1,7 +1,7 @@
 module.exports = {
   title: 'yoonho\'s dev notes',
   tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://yoonhogo.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',

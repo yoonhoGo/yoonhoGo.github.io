@@ -11,7 +11,7 @@ module.exports = {
     navbar: {
       title: 'yoonho\'s dev notes',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'yoonho\'s dev notes',
         src: 'img/logo.svg',
       },
       items: [
@@ -30,16 +30,12 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Instagram',
+              href: 'https://instagram.com/ynh_g',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/yoonho_go',
             },
           ],
         },
@@ -52,7 +48,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/yoonhoGo/yoonhoGo.github.io',
             },
           ],
         },

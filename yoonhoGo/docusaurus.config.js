@@ -55,6 +55,9 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
+    prism: {
+      additionalLanguages: ['rust'],
+    },
   },
   presets: [
     [
@@ -78,4 +81,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: ['@docusaurus/plugin-ideal-image'],
 };

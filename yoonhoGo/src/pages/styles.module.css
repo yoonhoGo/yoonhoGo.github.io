@@ -31,6 +31,10 @@
   width: 100%;
 }
 
+.feature {
+  margin: 3rem 0.5rem;
+}
+
 .featureImage {
   height: 200px;
   width: 200px;

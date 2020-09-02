@@ -1,10 +1,10 @@
 module.exports = {
   title: 'yoonho\'s dev notes',
-  tagline: 'The tagline of my site',
+  tagline: 'Information Security, Python, Node.js, Typescript, AWS, Serverless, Container(Docker, Kubernetes), GraphQL, OAuth2.0. @witherion @AUSG @awskrug @boostbrothers',
   url: 'https://yoonhogo.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon/favicon.ico',
   organizationName: 'yoonhoGo', // Usually your GitHub org/user name.
   projectName: 'yoonhoGo.github.io', // Usually your repo name.
   themeConfig: {
@@ -12,7 +12,7 @@ module.exports = {
       title: 'yoonho\'s dev notes',
       logo: {
         alt: 'yoonho\'s dev notes',
-        src: 'img/logo.svg',
+        src: 'img/favicon/apple-icon.png',
       },
       items: [
         {to: 'blog', label: 'Blog', position: 'left'},

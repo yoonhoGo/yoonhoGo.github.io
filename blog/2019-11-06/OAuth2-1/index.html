@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="generator" content="Docusaurus v2.0.0-alpha.62">
 <link rel="search" type="application/opensearchdescription+xml" title="yoonho's dev notes" href="/opensearch.xml"><title data-react-helmet="true">OAuth2.0 완벽 정리(1) | yoonho&#x27;s dev notes</title><meta data-react-helmet="true" property="og:title" content="OAuth2.0 완벽 정리(1) | yoonho&#x27;s dev notes"><meta data-react-helmet="true" name="description" content="Intro"><meta data-react-helmet="true" property="og:description" content="Intro"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:image" content="https://oauth.net/images/oauth-2-sm.png"><meta data-react-helmet="true" property="twitter:image" content="https://oauth.net/images/oauth-2-sm.png"><meta data-react-helmet="true" name="twitter:image:alt" content="Image for OAuth2.0 완벽 정리(1)"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="true"><link rel="stylesheet" href="/styles.35f20793.css">
-<link rel="preload" href="/styles.94ff3a84.js" as="script">
-<link rel="preload" href="/runtime~main.fe891fe9.js" as="script">
-<link rel="preload" href="/main.afee695e.js" as="script">
+<link rel="preload" href="/styles.b9680161.js" as="script">
+<link rel="preload" href="/runtime~main.3e779767.js" as="script">
+<link rel="preload" href="/main.98dbc944.js" as="script">
 <link rel="preload" href="/1.e6595d76.js" as="script">
-<link rel="preload" href="/2.6a0db063.js" as="script">
+<link rel="preload" href="/2.e5f4460c.js" as="script">
 <link rel="preload" href="/3.eff4f3ff.js" as="script">
 <link rel="preload" href="/01a85c17.57c6ddb1.js" as="script">
 <link rel="preload" href="/102.6ffc7dc7.js" as="script">
-<link rel="preload" href="/1df93b7f.f1fd4f10.js" as="script">
+<link rel="preload" href="/1df93b7f.b7f438ca.js" as="script">
 <link rel="preload" href="/58384673.6abe94af.js" as="script">
 <link rel="preload" href="/6875c492.a11898b2.js" as="script">
 <link rel="preload" href="/a6aa9e1f.a4c37230.js" as="script">
 <link rel="preload" href="/ccc49370.c93b99d6.js" as="script">
-<link rel="preload" href="/29ee8718.8b630d00.js" as="script">
+<link rel="preload" href="/29ee8718.63a346ff.js" as="script">
 </head>
 <body>
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
@@ -29,19 +29,19 @@ When the resource owner is a person, it is referred to as an end-user.</p></bloc
 The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.</p></blockquote><p><strong>자원 서버.</strong> 자원을 보호하는 호스팅 중인 서버입니다. 서버는 엑세스 토큰을 사용하여 보호 중인 자원에 대한 요청을 처리합니다. <em>예를 들어, 구글, 페이스북 같은 소셜 서비스 제공자</em></p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="client클라이언트"></a>Client(클라이언트)<a aria-hidden="true" tabindex="-1" class="hash-link" href="#client클라이언트" title="Direct link to heading">#</a></h3><blockquote><p>client:<br>
 An application making protected resource requests on behalf of the resource owner and with its authorization. The term &quot;client&quot; does not imply any particular implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).</p></blockquote><p><strong>자원의 사용자.</strong> &quot;자원 소유자&quot;를 대신하여 자원 소유자의 인가로 보호되는 자원에 요청하는 어플리케이션. &quot;클라이언트&quot;라는 용어는 특정 구현 특성(예컨데, 서버, 데스크탑, 혹은 다른 기기들 위에서 실행되는 어플리케이션)을 의미하지 않습니다. <em>예를 들어, 앱, 쇼핑몰, 게임 등 소셜 로그인 이용자(업체)</em></p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="authorization-server권한-부여-서버"></a>Authorization Server(권한 부여 서버)<a aria-hidden="true" tabindex="-1" class="hash-link" href="#authorization-server권한-부여-서버" title="Direct link to heading">#</a></h3><blockquote><p>authorization server:<br>
 The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.</p></blockquote><p><strong>권한 부여 서버.</strong> &quot;자원 소유자&quot;와 성공적인 인증과 권한 부여를 획득 후에 &quot;클라이언트&quot;에게 엑세스 토큰을 발행하는 서버. <em>예를 들어, 구글, 페이스북 같은 소셜 서비스 제공자의 권한 부여 서버</em></p><p>&quot;Resource Server&quot;(자원 서버)와 &quot;Authorization Server&quot;(권한 부여 서버)는 같은 서버일 수도 있고 별개의 서버일 수도 있습니다. 그것은 개발자의 자유입니다. 상황과 환경에 맞춰서 구성하는 것이 좋습니다.</p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="protocol-flow"></a>Protocol Flow<a aria-hidden="true" tabindex="-1" class="hash-link" href="#protocol-flow" title="Direct link to heading">#</a></h2><p>이해하기 쉽게 그림을 그려왔습니다.(아이패드 짱짱)</p><p><img alt="Protocol Flow" src="/assets/images/Protocol-Flow-f91c799a30ac082024f358be85f5bd55.png"></p><p>차근히 살펴보자</p><ol><li>클라이언트는 자원 소유자에게 허가를 요청한다. 허가는 자원 소유자에게 바로 요청하거나 <strong>권한 부여 서버가 중개자로서 간접적(바람직)</strong>으로 이루어질 수 있습니다.</li><li>클라이언트는 자원 소유자의 인가를 나타내는 권한 부여를 받습니다. 권한 부여 유형은 4가지 방식 중 하나를 사용하거나 확장된 유형으로 사용할 수 있습니다. 권한 부여 유형은 클라이언트의 요청과 권한 부여 서버가 지원하는 타입에 따라 다릅니다.</li><li>클라이언트는 권한 부여 서버에게 권한 부여 허가에 따라 액세스 토큰을 요청합니다.</li><li>권한 부여 서버는 클라이언트를 인증하고, 권한 부여 허가를 검증합니다. 만약 잘 되었다면, 액세스 토큰을 발행합니다.</li><li>클라이언트는 자원 서버에게 보호된 자원을 요청합니다. 그리고 액세스 토큰으로 인증합니다.</li><li>자원 서버는 액세스 토큰을 검증합니다. 만약 잘 되었다면, 클라이언트의 요청에 응답합니다.</li></ol><p>2부에서는 대표적인 4가지 Authorization Grant의 흐름을 살펴보겠습니다.</p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="reference"></a>Reference<a aria-hidden="true" tabindex="-1" class="hash-link" href="#reference" title="Direct link to heading">#</a></h2><ul><li><a href="https://tools.ietf.org/html/rfc6749" target="_blank" rel="noopener noreferrer">RFC 6749 - The OAuth 2.0 Authorization Framework</a></li><li><a href="https://oauth.net/2/" target="_blank" rel="noopener noreferrer">OAuth 2.0 - OAuth</a></li></ul></section><footer class="row margin-vert--lg"><div class="col"><strong>Tags:</strong><a class="margin-horiz--sm" href="/blog/tags/o-auth-2-0">OAuth 2.0</a><a class="margin-horiz--sm" href="/blog/tags/authorization">authorization</a><a class="margin-horiz--sm" href="/blog/tags/security">security</a></div></footer></article><div><a href="https://github.com/facebook/docusaurus/edit/master/website/blog/blog/2019-11-06 OAuth2.0 완벽 정리-1.md" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" style="margin-right:0.3em;vertical-align:sub"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="margin-vert--xl"><nav class="pagination-nav" aria-label="Blog post page navigation"><div class="pagination-nav__item"></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/blog/go-rust-programming/basic-variables-constants"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">변수와 상수 - 고랭? 러스트가 그렇게 좋다며?(2) »</div></a></div></nav></div></div><div class="col col--2"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#intro" class="table-of-contents__link">Intro</a><ul><li><a href="#openid와-oauth" class="table-of-contents__link">OpenID와 OAuth</a></li><li><a href="#oauth-10-그리고-oauth-20" class="table-of-contents__link">OAuth 1.0 그리고 OAuth 2.0</a></li></ul></li><li><a href="#네가지-역할" class="table-of-contents__link">네가지 역할</a><ul><li><a href="#resource-owner자원-소유자" class="table-of-contents__link">Resource Owner(자원 소유자)</a></li><li><a href="#resource-server자원-서버" class="table-of-contents__link">Resource Server(자원 서버)</a></li><li><a href="#client클라이언트" class="table-of-contents__link">Client(클라이언트)</a></li><li><a href="#authorization-server권한-부여-서버" class="table-of-contents__link">Authorization Server(권한 부여 서버)</a></li></ul></li><li><a href="#protocol-flow" class="table-of-contents__link">Protocol Flow</a></li><li><a href="#reference" class="table-of-contents__link">Reference</a></li></ul></div></div></div></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a href="https://instagram.com/ynh_g" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram</a></li><li class="footer__item"><a href="https://twitter.com/yoonho_go" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/yoonhoGo/yoonhoGo.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
-<script src="/styles.94ff3a84.js"></script>
-<script src="/runtime~main.fe891fe9.js"></script>
-<script src="/main.afee695e.js"></script>
+<script src="/styles.b9680161.js"></script>
+<script src="/runtime~main.3e779767.js"></script>
+<script src="/main.98dbc944.js"></script>
 <script src="/1.e6595d76.js"></script>
-<script src="/2.6a0db063.js"></script>
+<script src="/2.e5f4460c.js"></script>
 <script src="/3.eff4f3ff.js"></script>
 <script src="/01a85c17.57c6ddb1.js"></script>
 <script src="/102.6ffc7dc7.js"></script>
-<script src="/1df93b7f.f1fd4f10.js"></script>
+<script src="/1df93b7f.b7f438ca.js"></script>
 <script src="/58384673.6abe94af.js"></script>
 <script src="/6875c492.a11898b2.js"></script>
 <script src="/a6aa9e1f.a4c37230.js"></script>
 <script src="/ccc49370.c93b99d6.js"></script>
-<script src="/29ee8718.8b630d00.js"></script>
+<script src="/29ee8718.63a346ff.js"></script>
 </body>
 </html>

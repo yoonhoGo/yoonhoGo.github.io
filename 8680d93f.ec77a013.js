@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[48],{102:function(g){g.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"go-rust-programming","name":"go-rust-programming","count":3,"permalink":"/blog/tags/go-rust-programming"}')}}]);

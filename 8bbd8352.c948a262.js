@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[51],{106:function(n){n.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"nuxt-js","name":"nuxt.js","count":1,"permalink":"/blog/tags/nuxt-js"}')}}]);

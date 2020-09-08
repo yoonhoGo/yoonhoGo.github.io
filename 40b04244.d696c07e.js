@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{81:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"dev-sec-ops","name":"devsecops","count":1,"permalink":"/blog/tags/dev-sec-ops"}')}}]);

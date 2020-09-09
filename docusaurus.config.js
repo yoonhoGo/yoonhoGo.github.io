@@ -18,7 +18,7 @@ module.exports = {
         src: 'img/favicon/apple-icon.png',
       },
       items: [
-        {to: 'blog', label: 'Blog', position: 'left'},
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/yoonhoGo',
           label: 'GitHub',
@@ -65,6 +65,16 @@ module.exports = {
       apiKey: '874daa2e71429e82826f0665dc0066ff',
       indexName: 'MXR3ZTJM2F',
       searchParameters: {}, // Optional (if provided by Algolia)
+    },
+    googleAnalytics: {
+      trackingID: 'UA-148849742-1',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
+    gtag: {
+      trackingID: 'GTM-KC9W7B4',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
     },
   },
   presets: [

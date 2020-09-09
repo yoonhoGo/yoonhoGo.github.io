@@ -13,6 +13,7 @@
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.62",
     "@docusaurus/plugin-ideal-image": "^2.0.0-alpha.62",
+    "@docusaurus/plugin-pwa": "^2.0.0-alpha.59",
     "@docusaurus/preset-classic": "^2.0.0-alpha.62",
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",

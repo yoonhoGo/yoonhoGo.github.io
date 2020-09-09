@@ -18,7 +18,7 @@ module.exports = {
         src: 'img/favicon/apple-icon.png',
       },
       items: [
-        {to: 'blog', label: 'Blog', position: 'left'},
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/yoonhoGo',
           label: 'GitHub',
@@ -66,6 +66,16 @@ module.exports = {
       indexName: 'MXR3ZTJM2F',
       searchParameters: {}, // Optional (if provided by Algolia)
     },
+    googleAnalytics: {
+      trackingID: 'UA-148849742-1',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
+    gtag: {
+      trackingID: 'GTM-KC9W7B4',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
   },
   presets: [
     [
@@ -89,5 +99,31 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['@docusaurus/plugin-ideal-image'],
+  plugins: [
+    '@docusaurus/plugin-ideal-image',
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true,
+        offlineModeActivationStrategies: ['appInstalled', 'queryString', 'mobile'],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/favicon/apple-icon.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json', // your PWA manifest
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: 'rgb(53, 120, 229)',
+          },
+        ],
+      },
+    ]
+  ],
 };

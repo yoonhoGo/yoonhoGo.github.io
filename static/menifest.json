@@ -1,0 +1,38 @@
+{
+  "short_name": "yoonhoGo",
+  "name": "yoonho's dev notes",
+  "description": "안녕하세요. 저는 윤호구요. 여기는 저의 소개 페이지입니다.",
+  "icons": [
+    {
+      "src": "/img/favicon/apple-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/favicon/apple-icon-120.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3578e5",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3578e5",
+  "shortcuts": [
+    {
+      "name": "My portfolio",
+      "short_name": "portfolio",
+      "description": "저의 소개, 이력, 정보를 모아둔 포트폴리오입니다.",
+      "url": "/?source=pwa",
+      "icons": [{ "src": "/img/favicon/apple-icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My dev-notes",
+      "short_name": "Blog",
+      "description": "저의 블로그입니다.",
+      "url": "/blog?source=pwa",
+      "icons": [{ "src": "/img/favicon/apple-icon.png", "sizes": "192x192" }]
+    }
+  ]
+}

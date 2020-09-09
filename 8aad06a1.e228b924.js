@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[61],{115:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"authorization","name":"authorization","count":2,"permalink":"/blog/tags/authorization"}')}}]);

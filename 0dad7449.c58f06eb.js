@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{60:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"development-environment","name":"development environment","count":1,"permalink":"/blog/tags/development-environment"}')}}]);

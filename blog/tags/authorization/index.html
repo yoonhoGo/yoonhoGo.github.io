@@ -13,14 +13,14 @@
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","GTM-KC9W7B4",{anonymize_ip:!0})</script>
 <link rel="search" type="application/opensearchdescription+xml" title="yoonho's dev notes" href="/opensearch.xml"><title data-react-helmet="true">Posts tagged &quot;authorization&quot; | yoonho&#x27;s dev notes</title><meta data-react-helmet="true" property="og:title" content="Posts tagged &quot;authorization&quot; | yoonho&#x27;s dev notes"><meta data-react-helmet="true" name="description" content="Blog | Tagged &quot;authorization&quot;"><meta data-react-helmet="true" property="og:description" content="Blog | Tagged &quot;authorization&quot;"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:image" content="https://oauth.net/images/oauth-2-sm.png"><meta data-react-helmet="true" property="twitter:image" content="https://oauth.net/images/oauth-2-sm.png"><meta data-react-helmet="true" name="twitter:image:alt" content="Image for OAuth2.0 완벽 정리(1)"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="true"><link rel="stylesheet" href="/styles.35f20793.css">
 <link rel="preload" href="/styles.8fd175d5.js" as="script">
-<link rel="preload" href="/runtime~main.5d5bf0e3.js" as="script">
+<link rel="preload" href="/runtime~main.7bab7e01.js" as="script">
 <link rel="preload" href="/main.e362d3cd.js" as="script">
 <link rel="preload" href="/1.529c024c.js" as="script">
 <link rel="preload" href="/2.ebd07955.js" as="script">
 <link rel="preload" href="/3.ae32d648.js" as="script">
 <link rel="preload" href="/01a85c17.d53fd9ee.js" as="script">
 <link rel="preload" href="/114.c57ffd49.js" as="script">
-<link rel="preload" href="/1df93b7f.1e24312f.js" as="script">
+<link rel="preload" href="/1df93b7f.181d6da9.js" as="script">
 <link rel="preload" href="/58384673.accbb922.js" as="script">
 <link rel="preload" href="/6875c492.134700e1.js" as="script">
 <link rel="preload" href="/a6aa9e1f.28d87da4.js" as="script">
@@ -38,14 +38,14 @@
 (물론 데이터베이스에 저장할 때는 해시를 한다는 가정입니다.) 그래서 오늘은 HTTPS를 사용할 때 패스워드를 평문을 보내도 되는지에 대해서 조사해봤습니다.</p></section><footer class="row margin-vert--lg"><div class="col"><strong>Tags:</strong><a class="margin-horiz--sm" href="/blog/tags/https">https</a><a class="margin-horiz--sm" href="/blog/tags/password">password</a><a class="margin-horiz--sm" href="/blog/tags/authorization">authorization</a><a class="margin-horiz--sm" href="/blog/tags/security">security</a></div><div class="col text--right"><a aria-label="Read more about HTTPS를 쓰면 패스워드를 평문으로 보내도 될까?" href="/blog/2020-09-08/HTTPS-plain-text-safety"><strong>Read More</strong></a></div></footer></article><article class="margin-bottom--xl"><header><h2 class="margin-bottom--sm blogPostTitle_1mse"><a href="/blog/2019-11-06/OAuth2-1">OAuth2.0 완벽 정리(1)</a></h2><div class="margin-vert--md"><time datetime="2019-11-06T05:45:48.000Z" class="blogPostDate_3bQP">November 6, 2019  · 4 min read</time></div><div class="avatar margin-vert--md"><a class="avatar__photo-link avatar__photo" href="https://github.com/yoonhoGo" target="_blank" rel="noreferrer noopener"><img src="https://avatars3.githubusercontent.com/u/6959851" alt="yoonhoGo"></a><div class="avatar__intro"><h4 class="avatar__name"><a href="https://github.com/yoonhoGo" target="_blank" rel="noreferrer noopener">yoonhoGo</a></h4><small class="avatar__subtitle">Information Security, Python, Node.js, Typescript, AWS, Serverless, Container(Docker, Kubernetes), GraphQL, OAuth2.0. @witherion</small></div></div></header><section class="markdown"><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="intro"></a>Intro<a aria-hidden="true" tabindex="-1" class="hash-link" href="#intro" title="Direct link to heading">#</a></h2><blockquote><p>OAuth 2.0은 인증을위한 산업 표준 프로토콜입니다. OAuth 2.0은 2006 년에 작성된 원래 OAuth 프로토콜에 대한 작업보다 우선합니다. OAuth 2.0은 클라이언트 개발자의 단순성에 중점을 두면서 웹 응용 프로그램, 데스크톱 응용 프로그램, 휴대 전화 및 거실 장치에 대한 특정 권한 부여 흐름을 제공합니다. 이 사양 및 확장은 IETF OAuth Working Group 내에서 개발되고 있습니다.<br>- oauth.net의 소개글에서</p></blockquote><p>OAuth 2.0은 <a href="https://tools.ietf.org/html/rfc6749" target="_blank" rel="noopener noreferrer">RFC에서 제의된 6749번 문서</a>입니다.
 OAuth 2.0은 기존의 1.0버전이 가진 보안 취약점, 인증 방식 등을 개선하여 대체하기 위하여 제시되었습니다.</p></section><footer class="row margin-vert--lg"><div class="col"><strong>Tags:</strong><a class="margin-horiz--sm" href="/blog/tags/o-auth-2-0">OAuth 2.0</a><a class="margin-horiz--sm" href="/blog/tags/authorization">authorization</a><a class="margin-horiz--sm" href="/blog/tags/security">security</a></div><div class="col text--right"><a aria-label="Read more about OAuth2.0 완벽 정리(1)" href="/blog/2019-11-06/OAuth2-1"><strong>Read More</strong></a></div></footer></article></div></main></div></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a href="https://instagram.com/ynh_g" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram</a></li><li class="footer__item"><a href="https://twitter.com/yoonho_go" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/yoonhoGo/yoonhoGo.github.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
 <script src="/styles.8fd175d5.js"></script>
-<script src="/runtime~main.5d5bf0e3.js"></script>
+<script src="/runtime~main.7bab7e01.js"></script>
 <script src="/main.e362d3cd.js"></script>
 <script src="/1.529c024c.js"></script>
 <script src="/2.ebd07955.js"></script>
 <script src="/3.ae32d648.js"></script>
 <script src="/01a85c17.d53fd9ee.js"></script>
 <script src="/114.c57ffd49.js"></script>
-<script src="/1df93b7f.1e24312f.js"></script>
+<script src="/1df93b7f.181d6da9.js"></script>
 <script src="/58384673.accbb922.js"></script>
 <script src="/6875c492.134700e1.js"></script>
 <script src="/a6aa9e1f.28d87da4.js"></script>

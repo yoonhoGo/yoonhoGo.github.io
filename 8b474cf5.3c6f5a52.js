@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[64],{120:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"space-vim","name":"spacevim","count":1,"permalink":"/blog/tags/space-vim"}')}}]);

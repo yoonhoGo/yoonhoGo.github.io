@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[110],{164:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"aws-lambda","name":"aws lambda","count":2,"permalink":"/blog/tags/aws-lambda"}')}}]);

@@ -3,13 +3,14 @@ module.exports = {
   tagline: 'Information Security, Python, Node.js, Typescript, AWS, Serverless, Container(Docker, Kubernetes), GraphQL, OAuth2.0. @witherion @AUSG @awskrug @boostbrothers',
   url: 'https://yoonhogo.github.io',
   baseUrl: '/',
-  deploymentBranch: 'master',
+  trailingSlash: true,
   onBrokenLinks: 'throw',
   favicon: 'img/favicon/favicon.ico',
   organizationName: 'yoonhoGo', // Usually your GitHub org/user name.
   projectName: 'yoonhoGo.github.io', // Usually your repo name.
   customFields: {
     avatarUrl: 'https://avatars3.githubusercontent.com/u/6959851?s=460&u=766f888f7a79cdf2e1371f630a321967d7846552&v=4',
+    deploymentBranch: 'master',
   },
   themeConfig: {
     navbar: {

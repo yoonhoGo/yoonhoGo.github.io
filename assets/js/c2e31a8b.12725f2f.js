@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[7021],{657:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/mac-os","name":"macOS","count":2,"permalink":"/blog/tags/mac-os"}')}}]);

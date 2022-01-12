@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[54],{110:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"parallel-computing","name":"parallel computing","count":1,"permalink":"/blog/tags/parallel-computing"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[7079],{402:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/dev-sec-ops","name":"DevSecOps","count":1,"permalink":"/blog/tags/dev-sec-ops"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[5089],{7248:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/go-rust-programming","name":"go-rust-programming","count":3,"permalink":"/blog/tags/go-rust-programming"}')}}]);

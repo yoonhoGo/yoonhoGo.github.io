@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[6996],{889:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/aws-lambda","name":"AWS Lambda","count":2,"permalink":"/blog/tags/aws-lambda"}')}}]);

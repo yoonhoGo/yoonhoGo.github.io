@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[8424],{8818:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/mac-os-catalina","name":"macOS Catalina","count":1,"permalink":"/blog/tags/mac-os-catalina"}')}}]);

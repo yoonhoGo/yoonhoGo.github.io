@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[4096],{6110:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/awskrug","name":"AWSKRUG","count":1,"permalink":"/blog/tags/awskrug"}')}}]);

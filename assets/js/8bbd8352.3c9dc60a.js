@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[368],{3979:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/nuxt-js","name":"Nuxt.js","count":1,"permalink":"/blog/tags/nuxt-js"}')}}]);

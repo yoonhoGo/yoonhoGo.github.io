@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[2275],{7695:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/o-auth-2-0","name":"OAuth 2.0","count":1,"permalink":"/blog/tags/o-auth-2-0"}')}}]);

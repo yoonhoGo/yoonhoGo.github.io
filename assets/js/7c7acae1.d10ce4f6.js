@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[9625],{1023:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/parallel-computing","name":"Parallel Computing","count":1,"permalink":"/blog/tags/parallel-computing"}')}}]);

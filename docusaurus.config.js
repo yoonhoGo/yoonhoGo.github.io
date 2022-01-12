@@ -3,6 +3,7 @@ module.exports = {
   tagline: 'Information Security, Python, Node.js, Typescript, AWS, Serverless, Container(Docker, Kubernetes), GraphQL, OAuth2.0. @witherion @AUSG @awskrug @boostbrothers',
   url: 'https://yoonhogo.github.io',
   baseUrl: '/',
+  deploymentBranch: 'master',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon/favicon.ico',
   organizationName: 'yoonhoGo', // Usually your GitHub org/user name.

@@ -87,6 +87,11 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/yoonhoGo/yoonhogo.github.io/edit/documentation/',
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Yoonho Ko.`,
+            language: 'ko'
+          }
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -108,5 +113,6 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['@docusaurus/plugin-ideal-image'],
+  plugins: ['@docusaurus/plugin-ideal-image'
+],
 };

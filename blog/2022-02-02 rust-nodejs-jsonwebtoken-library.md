@@ -35,6 +35,8 @@ author_title: Rust 재밌다!
 
 ### Install
 
+~~후기에 나오겠지만 아주 작은 실수로 배포가 안돼서 3일에 배포할 예정이다.~~
+
 ```bash
 $npm i neon-jsonwebtoken
 ```

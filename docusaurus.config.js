@@ -68,7 +68,7 @@ module.exports = {
     algolia: {
       appId: 'MXR3ZTJM2F',
       apiKey: '874daa2e71429e82826f0665dc0066ff',
-      indexName: 'MXR3ZTJM2F',
+      indexName: 'blog',
       searchParameters: {}, // Optional (if provided by Algolia)
     },
   },

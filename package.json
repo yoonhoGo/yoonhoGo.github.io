@@ -32,11 +32,12 @@
     ]
   },
   "devDependencies": {
-    "@tsconfig/docusaurus": "^1.0.2",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.15",
+    "@tsconfig/docusaurus": "^1.0.4",
     "@types/react": "^16.9.49",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.5",
-    "typescript": "^4.0.2"
+    "typescript": "^4.5.5"
   },
   "description": "This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.",
   "main": "babel.config.js",

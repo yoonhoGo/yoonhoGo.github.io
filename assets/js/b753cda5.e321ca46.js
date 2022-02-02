@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoonhogo_github_io=self.webpackChunkyoonhogo_github_io||[]).push([[5769],{4430:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/npm-package","name":"npm package","count":1,"permalink":"/blog/tags/npm-package"}')}}]);

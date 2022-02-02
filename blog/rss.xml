@@ -7,6 +7,8 @@
         <lastBuildDate>Tue, 01 Feb 2022 23:17:48 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <language>ko</language>
+        <copyright>Copyright © 2022 Yoonho Ko.</copyright>
         <item>
             <title><![CDATA[Rust로 만든 node.js용 jsonwebtoken 라이브러리]]></title>
             <link>https://yoonhogo.github.io/blog/2022-02-02/rust-nodejs-jsonwebtoken-library</link>

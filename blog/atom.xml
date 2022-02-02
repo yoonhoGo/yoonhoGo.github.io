@@ -7,6 +7,7 @@
     <link rel="alternate" href="https://yoonhogo.github.io/blog"/>
     <subtitle>yoonho's dev notes Blog</subtitle>
     <icon>https://yoonhogo.github.io/img/favicon/favicon.ico</icon>
+    <rights>Copyright © 2022 Yoonho Ko.</rights>
     <entry>
         <title type="html"><![CDATA[Rust로 만든 node.js용 jsonwebtoken 라이브러리]]></title>
         <id>/2022-02-02/rust-nodejs-jsonwebtoken-library</id>

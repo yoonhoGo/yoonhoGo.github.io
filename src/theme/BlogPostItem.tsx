@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import OriginalBlogPostItem from "@theme-original/BlogPostItem";
-import useThemeContext from "@theme/hooks/useThemeContext";
+import React, { useEffect, useRef } from 'react';
+import OriginalBlogPostItem from '@theme-original/BlogPostItem';
+import { useColorMode } from '@docusaurus/theme-common';
 
-const utterancesSelector = "iframe.utterances-frame";
+const utterancesSelector = 'iframe.utterances-frame';
 
 function BlogPostItem(props) {
-  const { isDarkTheme } = useThemeContext();
-  const utterancesTheme = isDarkTheme ? "github-dark" : "github-light";
+  const { isDarkTheme } = useColorMode();
+  const utterancesTheme = isDarkTheme ? 'github-dark' : 'github-light';
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -15,14 +15,14 @@ function BlogPostItem(props) {
     const utterancesEl = containerRef.current.querySelector(utterancesSelector);
 
     const createUtterancesEl = () => {
-      const script = document.createElement("script");
+      const script = document.createElement('script');
 
-      script.src = "https://utteranc.es/client.js";
-      script.setAttribute("repo", "yoonhoGo/yoonhoGo.github.io");
-      script.setAttribute("issue-term", "pathname");
-      script.setAttribute("label", "comment");
-      script.setAttribute("theme", utterancesTheme);
-      script.crossOrigin = "anonymous";
+      script.src = 'https://utteranc.es/client.js';
+      script.setAttribute('repo', 'yoonhoGo/yoonhoGo.github.io');
+      script.setAttribute('issue-term', 'pathname');
+      script.setAttribute('label', 'comment');
+      script.setAttribute('theme', utterancesTheme);
+      script.crossOrigin = 'anonymous';
       script.async = true;
 
       containerRef.current.appendChild(script);
@@ -30,11 +30,11 @@ function BlogPostItem(props) {
 
     const postThemeMessage = () => {
       const message = {
-        type: "set-theme",
+        type: 'set-theme',
         theme: utterancesTheme,
       };
 
-      utterancesEl.contentWindow.postMessage(message, "https://utteranc.es");
+      utterancesEl.contentWindow.postMessage(message, 'https://utteranc.es');
     };
 
     utterancesEl ? postThemeMessage() : createUtterancesEl();
